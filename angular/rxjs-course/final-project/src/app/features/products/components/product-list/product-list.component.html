@@ -1,0 +1,71 @@
+<section>
+  <header>
+    <h1>Produtos</h1>
+
+    <input
+      type="search"
+      placeholder="Buscar por nome"
+      (input)="onSearch($event)"
+    />
+
+    <select (change)="onCategoryChange($event)">
+      <option value="">Todas as categorias</option>
+
+      @for (category of categories$ | async; track category) {
+        <option [value]="category">{{ category }}</option>
+      }
+    </select>
+  </header>
+
+  @if (productsState$ | async; as state) {
+    @switch (state.status) {
+      @case ('loading') {
+        <p>Carregando produtos...</p>
+      }
+
+      @case ('error') {
+        <p>{{ state.message }}</p>
+      }
+
+      @case ('success') {
+        @if (state.data.items.length === 0) {
+          <p>Nenhum produto encontrado.</p>
+        } @else {
+          <ul>
+            @for (product of state.data.items; track product.id) {
+              <li>
+                <button type="button" (click)="facade.selectProduct(product.id)">
+                  {{ product.name }}
+                </button>
+                <span>{{ product.category }}</span>
+                <strong>{{ product.price | currency:'BRL' }}</strong>
+              </li>
+            }
+          </ul>
+
+          <footer>
+            <button
+              type="button"
+              [disabled]="state.data.page === 1"
+              (click)="facade.setPage(state.data.page - 1)"
+            >
+              Anterior
+            </button>
+
+            <span>Pagina {{ state.data.page }}</span>
+
+            <button
+              type="button"
+              [disabled]="state.data.page * state.data.pageSize >= state.data.totalItems"
+              (click)="facade.setPage(state.data.page + 1)"
+            >
+              Proxima
+            </button>
+          </footer>
+        }
+      }
+    }
+  }
+
+  <app-product-detail />
+</section>

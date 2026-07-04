@@ -1,0 +1,31 @@
+@if (state$ | async; as state) {
+  @switch (state.status) {
+    @case ('idle') {
+      <aside>
+        <p>Selecione um produto para ver detalhes.</p>
+      </aside>
+    }
+
+    @case ('loading') {
+      <aside>
+        <p>Carregando detalhe...</p>
+      </aside>
+    }
+
+    @case ('error') {
+      <aside>
+        <p>{{ state.message }}</p>
+      </aside>
+    }
+
+    @case ('success') {
+      <aside>
+        <button type="button" (click)="facade.clearSelectedProduct()">Fechar</button>
+        <h2>{{ state.data.name }}</h2>
+        <p>{{ state.data.category }}</p>
+        <strong>{{ state.data.price | currency:'BRL' }}</strong>
+        <p>{{ state.data.description }}</p>
+      </aside>
+    }
+  }
+}
