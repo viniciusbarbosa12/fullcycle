@@ -1,32 +1,32 @@
-# Lab Fase 6 - Probes e health checks
+# Lab Phase 6 - Probes and health checks
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 6 antes de pedir revisao.
+Practice Phase 6 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar endpoint `/healthz`.
-- Configurar livenessProbe.
-- Simular aplicação travada.
-- Observar restart automático.
-- Configurar readinessProbe.
-- Simular aplicação ainda não pronta.
-- Ver Service removendo Pod não pronto dos endpoints.
-- Configurar startupProbe.
-- Simular aplicação com inicialização lenta.
-- Combinar as 3 probes corretamente.
+- Create endpoint `/healthz`.
+- Configure LivenessProbe.
+- Simulate locked application.
+- Watch autorestart.
+- Configure readinssProbe.
+- Simulate application not ready yet.
+- View Service Removing Endpoints not ready.
+- Configure startupProbe.
+- Simulate application with slow startup.
+- Match 3 probes correctly.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre liveness e readiness?
-- Quando usar startupProbe?
-- O que acontece se livenessProbe estiver agressiva demais?
-- O que acontece se readinessProbe estiver errada?
-- Por que readiness é importante em deploy?
-- Como probes ajudam em zero downtime?
-- O que é CrashLoopBackOff?
+- What's the difference between liveness and readinss?
+- When to use startupProbe?
+- What happens if livenessProbe is too aggressive?
+- What happens if readinssProbe is wrong?
+- Why is readinss important in employment?
+- How probes help at zero downtime?
+- What is CrashLoopBackOff?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter probes configuradas e conseguir demonstrar restart por liveness e bloqueio de tráfego por readiness.
+Having probes configured and being able to demonstrate restore by liveness and traffic blocking by readiness.

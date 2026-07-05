@@ -1,65 +1,65 @@
-# Fase 11 - Projeto final
+# Phase 11 - Final project
 
-## Objetivo
+## Objective
 
-Juntar tudo em uma feature Angular completa.
+Bring everything together in a complete Angular feature.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar uma tela de listagem de produtos, usuarios ou pedidos com:
+Create a listing screen for products, users or orders with:
 
-- busca com debounce;
-- filtro por status;
-- paginacao;
+- search with debounce;
+- status filter;
+- pagination;
 - loading;
-- tratamento de erro;
-- cancelamento de request;
-- cache com `shareReplay`;
-- detalhe do item;
-- estado compartilhado entre componentes;
-- arquitetura com Component + Facade + Service;
-- template usando `async pipe`;
-- pouco ou nenhum subscribe manual.
+- error handling;
+- request cancellation;
+- cache with `shareReplay`;
+- item detail;
+- state shared between components;
+- architecture with Component + Facade + Service;
+- template using `async pipe`;
+- little or no manual subscribe.
 
-## Regras do desafio
+## Challenge rules
 
-1. Voce tenta implementar primeiro.
-2. Depois envia o que fez.
-3. Eu reviso.
-4. Eu faco perguntas.
-5. Eu aponto erros e melhorias.
-6. Eu dou pistas, nao a solucao completa.
-7. Voce so recebe a solucao completa se pedir explicitamente ou depois de tentar bastante.
+1. You try to implement first.
+2. Then send what you did.
+3. I review.
+4. I ask questions.
+5. I point errors and improvements.
+6. I give hints, not complete solution.
+7. You only get the complete solution if you ask explicitly or after trying hard.
 
-## Criterios de sucesso
+## Success criteria
 
-A feature precisa ter:
+The feature must have:
 
-- codigo organizado;
-- responsabilidades separadas;
-- fluxos RxJS compreensiveis;
-- operadores escolhidos com intencao;
-- loading e erro tratados;
-- cancelamento de requests funcionando;
-- nenhum memory leak obvio;
-- README explicando as decisoes.
+- organized code;
+- separated responsibilities;
+- understandable RxJS flows;
+- operators chosen with intent;
+- loading and handled error states;
+- clear error message;
+- no obvious memory leak;
+- README explaining the decisions.
 
-## Guia de implementacao sem solucao pronta
+## Suggested implementation guide
 
-1. Comece pelos models: item, query, pagina e estado de tela.
-2. Crie um service fake que retorna Observables com delay.
-3. Crie a Facade com os filtros como estado privado.
-4. Combine busca, filtro e pagina.
-5. Use `switchMap` para buscar dados.
-6. Modele loading e erro.
-7. Crie o componente de lista consumindo Observables.
-8. Crie o componente de detalhe consumindo estado compartilhado.
-9. Adicione cache com `shareReplay`.
-10. Escreva o README da decisao arquitetural.
+1. Start with the models: item, query, page and screen status.
+2. Create a fake service that returns Observables with delay.
+3. Create Facade with filters as a private state.
+4. Combine search, filter and page.
+5. Use `switchMap` to fetch data.
+6. Model loading and error.
+7. Create the list component consuming Observables.
+8. Create detail component by consuming shared state.
+9. Add cache with `shareReplay`.
+10. Write the architectural decision README.
 
-## Referencia depois da tentativa
+## Reference after attempt
 
-Depois de tentar, voce pode comparar com:
+After trying, you can compare with:
 
 - [product.models.ts](../final-project/src/app/features/products/models/product.models.ts)
 - [product-api.service.ts](../final-project/src/app/features/products/services/product-api.service.ts)
@@ -69,6 +69,6 @@ Depois de tentar, voce pode comparar com:
 
 ## Checkpoint
 
-Quando terminar, envie seu codigo e responda:
+When you're done, send your code and answer.:
 
-> Onde fica o cancelamento de request, onde fica o cache e por que o componente nao chama API diretamente?
+> Where is the request cancellation, where is the cache and why the component does not call API directly?

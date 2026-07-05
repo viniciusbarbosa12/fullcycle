@@ -1,60 +1,60 @@
-# Fase 3: O que é OpenTelemetry
+# Phase 3: What is OpenTelemetry
 
-## Aulas
+## Lessons
 
-- OpenTelemetry Seja bem vindo
-- Site do OpenTelemetry
-- O que é OpenTelemetry
-- Componentes principais do OTEL
-- Navegando pelo opentelemetry.io
+- OpenTelemetry Welcome
+- OpenTelemetry website
+- What is OpenTelemetry
+- Main components of OTEL
+- Sailing through opentelemetry. io
 
-## Objetivo
+## Objective
 
-Entender o ecossistema do OpenTelemetry e seus principais componentes.
+Understanding the OpenTelemetry ecosystem and its main components.
 
-Aqui o foco é criar o mapa mental. Antes de instrumentar código, preciso entender SDK, API, Collector, exporters, propagators e backends.
+Here the focus is to create the mental map. Before instrumenting code, I need to understand SDK, API, Collector, exporters, propagators and backends.
 
-## Conceitos principais
+## Main concepts
 
 - OpenTelemetry API
 - OpenTelemetry SDK
 - Collector
-- Exporter
-- Receiver
+- Export
+- Receive
 - Processor
 - Pipeline
-- Propagation
+- Advertising
 - Context
 - Trace
 - Span
 - Metric
 - Log
 - Backend
-- Vendor-neutral
+- Nutral vendor
 
-## Exercícios práticos
+## Practical exercises
 
-- Navegar pela documentação oficial.
-- Listar os principais componentes do OTEL.
-- Explicar a diferença entre API e SDK.
-- Explicar o papel do Collector.
-- Explicar o que é um exporter.
-- Criar um desenho: aplicação -> SDK -> Collector -> backend.
-- Criar um glossário próprio com os termos principais.
+- Browse the official documentation.
+- List the main components of OTEL.
+- Explain the difference between API and SDK.
+- Explain the role of Collector.
+- Explain what an exporter is.
+- Create a drawing: application -> SDK -> Collector -> backend.
+- Create your own glossary with the main terms.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que significa OpenTelemetry ser vendor-neutral?
-- Qual a diferença entre API e SDK?
-- O que o Collector faz?
-- Por que usar Collector em vez de enviar direto para uma ferramenta?
-- O que é um exporter?
-- O que é um receiver?
-- O que é um processor?
-- O que acontece se eu trocar Zipkin por outro backend?
+- What does OpenTelemetry mean to be seller-neutral?
+- What is the difference between API and SDK?
+- What the Collector does?
+- Why use Collector instead of sending straight to a tool?
+- What is an exporter?
+- What a receiver is?
+- What a processor is?
+- What happens if I trade Zipkin for another backend?
 
 ## Checkpoint
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Como os dados saem da aplicação instrumentada e chegam em uma ferramenta como Zipkin, Jaeger, Prometheus ou Elastic?
+> How data comes out of the instrumented application and arrive in a tool like Zipkin, Jaeger, Prometheus or Elastic?

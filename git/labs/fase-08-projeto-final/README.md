@@ -1,37 +1,37 @@
-# Lab Fase 8 - Projeto final
+# Lab Phase 8 - Final project
 
-## Missao
+## Mission
 
-Crie um repositorio de simulacao profissional contendo:
+Create a professional simulation repository containing:
 
-1. Branch principal protegida.
-2. Branch `develop`, se escolher usar Gitflow.
+1. Protected main branch.
+2. Branch `develop`,if you choose to use Gitflow.
 3. Feature branch.
-4. Pull Request com template.
+4. Pull Request with template.
 5. CODEOWNERS.
-6. Commits seguindo Conventional Commits.
-7. Pelo menos um commit assinado.
-8. Commitlint ou Commitsar configurado.
-9. Exemplo de SemVer.
-10. Simulacao de release.
-11. Simulacao de hotfix.
-12. README explicando o fluxo do projeto.
+6. Commits following Conventional Commits.
+7. At least one commit signed.
+8. Commitlint or Commit configured.
+9. SemVer Example.
+10. Release simulation.
+11. Hotfix simulation.
+12. README explaining the flow of the project.
 
-## Regras
+## Rules
 
-Tente montar primeiro. Depois envie para revisao.
+Try riding first. Then send it to review.
 
-Use `../../final-project/` como guia de checklist, nao como resposta pronta.
+Use `../../final-project/` as a checklist guide, not as a ready answer.
 
 ## Checkpoint
 
-Inclua no README do projeto final:
+Include in the README of the final project:
 
 ```txt
-Qual estrategia de branch eu escolhi?
-Por que escolhi essa estrategia?
-Como uma feature entra na branch principal?
-Como um hotfix chega em producao?
-Como o time garante qualidade antes do merge?
-Como o historico de commits ajuda em changelog ou investigacao?
+Which branch strategy did I choose?
+Why did I choose this strategy??
+How a feature enters the main branch?
+How a hotfix arrives in production?
+How the team guarantees quality before the merge?
+How commit history helps in changelog or investigation?
 ```

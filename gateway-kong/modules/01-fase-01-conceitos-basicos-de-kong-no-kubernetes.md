@@ -1,64 +1,64 @@
-# Fase 1: Conceitos básicos de Kong no Kubernetes
+# Phase 1: Basic concepts of Kong in Kubernetes
 
-## Aulas
+## Lessons
 
-- Principais conceitos
-- Kubernetes ingress kong
-- Modelos deployment kong kubernetes
-- Instalando kong
-- Ferramentas adicionais
-- Modificações no repositório
+- Main concepts
+- Kong Kubernetes Ingress
+- Kong Kubernetes deployment models
+- Installing kong
+- Additional tools
+- Changes in the repository
 
-## Objetivo
+## Objective
 
-Entender como o Kong entra no Kubernetes e qual papel ele assume dentro do cluster.
+Understand how Kong enters Kubernetes and what role he plays within the cluster.
 
-Aqui o foco é sair do “Kong como gateway rodando em Docker Compose” e começar a enxergar o Kong como parte da infraestrutura Kubernetes, funcionando como Ingress Controller, lendo recursos do cluster e aplicando regras de roteamento, plugins e segurança.
+Here the focus is to exit the “Kong as a gateway running in Docker Compose” and start seeing Kong as part of the Kubernetes infrastructure, functioning as Ingress Controller, reading cluster resources and applying routing rules, plugins and security.
 
-## Conceitos principais
+## Main concepts
 
 - Kubernetes
 - Ingress
 - Ingress Controller
 - Kong Ingress Controller
-- API Gateway no Kubernetes
+- Kubernetes API Gateway
 - Services
 - Deployments
 - Namespaces
 - CRDs
-- Control plane
-- Data plane
+- Control plan
+- Plan Date
 - Helm
 - kubectl
-- Valores de instalação
-- Modelos de deployment
-- Ambientes locais e produtivos
+- Installation values
+- Deployment models
+- Local and production environments
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar ou preparar um cluster Kubernetes local.
-- Verificar se `kubectl` está apontando para o cluster correto.
-- Instalar ferramentas necessárias.
-- Instalar Kong no cluster.
-- Validar os pods do Kong.
-- Validar services criados pelo Kong.
-- Identificar qual porta recebe tráfego externo.
-- Criar um README com a arquitetura inicial.
+- Create or prepare a local Kubernetes cluster.
+- Check if `kubectl` is pointing to the correct cluster.
+- Install required tools.
+- Install Kong in Cluster.
+- Validate Kong pods.
+- Validate services created by Kong.
+- Identify which port receives external traffic.
+- Create a README with the initial architecture.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre Kong rodando em Docker Compose e Kong rodando no Kubernetes?
-- O que é um Ingress Controller?
-- Por que o Kubernetes precisa de um controller para interpretar recursos de Ingress?
-- O que o Kong adiciona além de simplesmente rotear tráfego?
-- Quais modelos de deployment fazem sentido para Kong?
-- Em produção, que cuidados eu teria antes de instalar um gateway no cluster?
+- What's the difference between Kong running on Docker Compose and Kong running on Kubernetes?
+- What is an Ingress Controller?
+- Why Kubernetes needs a controller to interpret Ingress resources?
+- What Kong adds besides simply routing traffic?
+- Which deployment models make sense to Kong?
+- In production, what care I would have before installing a gateway in the cluster?
 
 ## Checkpoint
 
-Ter um cluster com Kong instalado e conseguir explicar:
+Have a cluster with Kong installed and manage to explain:
 
-- Como o tráfego entra no cluster.
-- Qual componente do Kong recebe a requisição.
-- Como o Kong se conecta aos services internos.
-- Qual a diferença entre Ingress e Ingress Controller.
+- How traffic enters the cluster.
+- Which component of Kong receives the request.
+- How Kong connects to internal services.
+- What's the difference between Ingress and Ingress Controller.

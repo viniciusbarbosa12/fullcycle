@@ -1,47 +1,47 @@
-# Perguntas classicas de entrevista
+# Classic interview questions
 
-Ao final do plano, voce deve conseguir responder:
+At the end of the plan, you must be able to answer:
 
-1. O que e RxJS?
-2. O que e Observable?
-3. Qual a diferenca entre Promise e Observable?
-4. O que significa um Observable emitir valores?
-5. O que e subscribe?
-6. O que sao `next`, `error` e `complete`?
-7. Qual a diferenca entre Observable frio e quente?
-8. Para que serve `pipe`?
-9. Qual a diferenca entre `map` e `tap`?
-10. Para que serve `debounceTime`?
-11. Para que serve `distinctUntilChanged`?
-12. Qual a diferenca entre `switchMap`, `mergeMap`, `concatMap` e `exhaustMap`?
-13. Quando usar `combineLatest`?
-14. Quando usar `forkJoin`?
-15. O que e Subject?
-16. Qual a diferenca entre Subject e BehaviorSubject?
-17. Como evitar memory leaks em Angular?
-18. Quando usar async pipe?
-19. Quando fazer subscribe manual?
-20. Como organizar RxJS em uma arquitetura Angular limpa?
+1. What is RxJS??
+2. What's Observable?
+3. What is the difference between Promise and Observable?
+4. What does an Observer mean to emit values?
+5. What and subscribe?
+6. What are `next`, `error` and `complete`?
+7. What's the difference between cold and hot Observable?
+8. What is it for? `pipe`?
+9. What's the difference between `map` and `tap`?
+10. What is it for? `debounceTime`?
+11. What is it for? `distinctUntilChanged`?
+12. What's the difference between `switchMap`, `mergeMap`, `concatMap` and `exhaustMap`?
+13. When to use `combineLatest`?
+14. When to use `forkJoin`?
+15. What is Subject?
+16. What is the difference between Subject and Behavior Subject?
+17. How to avoid memory leaves in Angular?
+18. When to use async pipe?
+19. When to do manual subscribe?
+20. How to organize RxJS in an architecture Clear Angular?
 
-## Como treinar
+## How to Train
 
-Responda em voz alta, com exemplo real. Uma resposta boa para entrevista normalmente tem:
+Answer aloud, with a real example. A good answer for interview usually has:
 
-- definicao curta;
-- exemplo pratico;
-- risco ou pegadinha;
-- quando usar ou evitar.
+- short definition;
+- practical example;
+- risk or prank;
+- when using or avoiding.
 
-## Exemplo de formato
+## Format example
 
-Pergunta:
+Question:
 
-> Qual a diferenca entre `switchMap` e `mergeMap`?
+> What's the difference between `switchMap` and `mergeMap`?
 
-Resposta esperada em estilo entrevista:
+Expected response in interview style:
 
 ```txt
-switchMap cancela o fluxo anterior e fica com o mais recente, por isso e bom para busca/autocomplete.
-mergeMap mantem varios fluxos rodando em paralelo, entao e bom quando todas as operacoes importam,
-como processar varios itens. O risco de mergeMap em busca e uma resposta antiga chegar depois e baguncar a tela.
+switchMap cancels the previous stream and gets the latest, so it's good for search/autocomplete.
+mergeMap keeps several streams running in parallel, then and good when all operations matter,
+how to process various items. The risk of mergeMap in search and an old response arrive later and mess the screen.
 ```

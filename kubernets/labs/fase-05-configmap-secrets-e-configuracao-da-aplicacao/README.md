@@ -1,30 +1,30 @@
-# Lab Fase 5 - ConfigMap, Secrets e configuração da aplicação
+# Lab Phase 5 - ConfigMap, Secrets and Application Configuration
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 5 antes de pedir revisao.
+Practice Phase 5 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar variáveis diretamente no Deployment.
-- Criar ConfigMap.
-- Injetar ConfigMap como variável de ambiente.
-- Injetar ConfigMap como arquivo, se fizer sentido.
-- Alterar ConfigMap e observar impacto.
-- Criar Secret.
-- Injetar Secret como variável de ambiente.
-- Documentar o que deve ir em ConfigMap e o que deve ir em Secret.
+- Create variables directly in Deployment.
+- Create ConfigMap.
+- Inject ConfigMap as environment variable.
+- Inject ConfigMap as a file if it makes sense.
+- Change ConfigMap and view impact.
+- Create Secret.
+- Inject Secret as environment variable.
+- Document what should go on ConfigMap and what should go on Secret.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que não hardcodar configuração na aplicação?
-- Qual a diferença entre ConfigMap e Secret?
-- Secret do Kubernetes é criptografado automaticamente?
-- Por que base64 não é criptografia?
-- Quando usar variável de ambiente?
-- Quando montar configuração como arquivo?
-- O que acontece se eu mudar ConfigMap depois que o Pod já está rodando?
+- Why not hardcode configuration in the application?
+- What's the difference between ConfigMap and Secret?
+- Kubernetes secret is automatically encrypted?
+- Why base64 is not encryption?
+- When to use environment variable?
+- When to mount configuration as file?
+- What happens if I change ConfigMap after Pod is already running?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter a aplicação lendo configurações via ConfigMap e Secret, sem precisar alterar a imagem Docker.
+Have the app read settings via ConfigMap and Secret without changing the Docker image.

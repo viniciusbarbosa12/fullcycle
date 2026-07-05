@@ -1,36 +1,36 @@
-# Fase 5: Fundamentos do Prometheus
+# Phase 5: Prometheus fundamentals
 
-## Aulas
+## Lessons
 
-- Repositório do módulo
+- Module Repository
 - Prometheus
-- Conceitos iniciais
-- Dinâmica de funcionamento
-- Prometheus vs pull
-- Dinâmica dos exporters
-- Arquitetura do Prometheus
-- Trabalhando com dados
-- Tipos de métricas
+- Initial concepts
+- Operating dynamics
+- Prometheus pull model
+- Exporter dynamics
+- Prometheus Architecture
+- Working with data
+- Type of metrics
 - PromQL
-- Tour no prometheus.io
-- Executando prometheus pela primeira vez
-- Visão geral do dashboard padrão
+- Prometheus tour. io
+- Running Prometheus for the first time
+- Overview of the default dashboard
 
-## Objetivo
+## Objective
 
-Entender como o Prometheus coleta, armazena e consulta métricas.
+Understand how Prometheus collects, stores and query metrics.
 
-Prometheus trabalha muito bem com métricas temporais. Ele coleta dados de targets via pull, armazena séries temporais e permite consultar usando PromQL.
+Prometheus works very well with temporal metrics. It collects data from targets via pull, stores time series and lets you consult using PromQL.
 
-## Conceitos principais
+## Main concepts
 
 - Prometheus
-- Métricas
+- Metrics
 - Time series
 - Pull model
 - Target
 - Scrape
-- Exporter
+- Export
 - Labels
 - PromQL
 - Gauge
@@ -38,33 +38,33 @@ Prometheus trabalha muito bem com métricas temporais. Ele coleta dados de targe
 - Histogram
 - Summary
 - Service discovery
-- Retenção de dados
-- Dashboard padrão
+- Data retention
+- Standard Dashboard
 
-## Exercícios práticos
+## Practical exercises
 
-- Subir Prometheus localmente.
-- Acessar dashboard padrão.
-- Identificar targets.
-- Fazer uma query simples com PromQL.
-- Entender uma métrica com labels.
-- Comparar Gauge, Counter e Histogram.
-- Criar um README com conceitos principais.
-- Explicar o modelo pull com minhas palavras.
+- Move Prometheus up locally.
+- Access standard dashboard.
+- Identify Targets.
+- Make a simple query with PromQL.
+- Understanding a metric with labels.
+- Compare Gauge, Counter and Histogram.
+- Creating a README with key concepts.
+- Explain the pull model with my words.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é uma métrica?
-- O que é uma time series?
-- O que significa scrape?
-- O que é target?
-- Por que Prometheus usa modelo pull?
-- O que são exporters?
-- Qual a função das labels?
-- Quando usar Gauge?
-- Quando usar Counter?
-- Quando usar Histogram?
+- What's a metric?
+- What's a series team?
+- What does scrape mean??
+- What is Target?
+- Why Prometheus uses pull model?
+- What Exporters Are?
+- What is the function of labels?
+- When to use Gauge?
+- When to use Counter?
+- When to use Histogram?
 
 ## Checkpoint
 
-Ter Prometheus rodando, coletando pelo menos um target e conseguir consultar métricas usando PromQL básico.
+Have Prometheus running, collecting at least one target and being able to consult metrics using basic PromQL.

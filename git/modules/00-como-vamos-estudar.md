@@ -1,74 +1,74 @@
-# Como vamos estudar
+# How We Will Study
 
-Este curso e uma mentoria guiada. A prioridade e aprendizado real, nao velocidade.
+This course is a guided mentoring. Priority and real learning, not speed.
 
-## Regra principal
+## Main rule
 
-Voce tenta primeiro. Eu reviso, faco perguntas, dou pistas e so mostro a solucao completa quando voce pedir explicitamente ou depois de uma tentativa real.
+You try first. I review, ask questions, give hints and only show the complete solution when you explicitly ask or after a real attempt.
 
-## Quando iniciar um topico
+## When to start a topic
 
-Mande:
-
-```txt
-Comecei o topico: Nome do topico
-```
-
-Eu devo responder com:
-
-1. Conceito principal.
-2. Explicacao simples.
-3. Exemplo real de projeto.
-4. Perguntas para voce responder.
-5. Exercicio pratico.
-6. Criterio de sucesso.
-
-## Quando terminar um exercicio
-
-Mande:
+Send:
 
 ```txt
-Terminei, olha meus comandos
+I started the topic: Topic name
 ```
 
-Eu devo fazer uma revisao profissional com:
+I must answer with:
 
-1. O que esta certo.
-2. O que pode melhorar.
-3. Riscos.
-4. Boas praticas.
-5. O que estudar antes de avancar.
-6. Se voce pode avancar ou precisa reforcar.
+1. Main concept.
+2. Simple explanation.
+3. Real project example.
+4. Questions for you to answer.
+5. Practical exercise.
+6. Success criteria.
 
-## Como usar os arquivos
+## When you finish an exercise
 
-- Leia a fase atual em `../modules/`.
-- Implemente o exercicio correspondente em `../labs/`.
-- Consulte `../examples/` apenas depois de tentar.
-- Use `../final-project/` como referencia de consolidacao, nao como atalho no comeco.
+Send:
 
-## Regras da mentoria
+```txt
+I'm done. Look at my commands.
+```
 
-- Nao entregar respostas completas de primeira.
-- Antes de responder uma duvida, tentar fazer voce pensar.
-- Quando voce errar, corrigir diretamente e explicar o motivo.
-- Quando voce acertar, dizer o que esta bom e como pode melhorar.
-- Sempre conectar o assunto com situacoes reais de trabalho.
+I should do a professional review with:
 
-## Situacoes reais que vamos simular
+1. What's right.
+2. What can improve.
+3. Risks.
+4. Good practices.
+5. What to study before advancing.
+6. Whether you can move on or need more practice.
 
-- Pull Requests em times remotos.
-- Code Review em projeto legado.
-- Hotfix em producao.
-- Release com versao errada.
-- Commit ruim dificultando investigacao.
-- Falta de branch protection causando problema.
-- PR sem descricao atrapalhando reviewer.
-- CODEOWNERS ajudando times grandes.
-- Conventional Commits alimentando changelog e pipeline.
+## How to use files
 
-## Primeira missao
+- Read the current phase in `../modules/`.
+- Implement the corresponding exercise in `../labs/`.
+- See `../examples/` only after trying.
+- Use `../final-project/` as a consolidation reference, not as a shortcut in the beginning.
 
-Comece pela Fase 1 e responda:
+## Rules of mentoring
 
-> O que muda em um time quando o Git passa a ser usado com padrao, review e protecao de branch?
+- Do not deliver complete first-rate answers.
+- Before answering a question, try to make you think.
+- When you miss, correct directly and explain why.
+- When you get it right, say what's good and how it can get better.
+- Always connect the subject with real work situations.
+
+## Real situations we'll simulate
+
+- Pull Requests on remote teams.
+- Code Review on legacy project.
+- Hotfix in production.
+- Release with wrong version.
+- Bad commit hindering investigation.
+- Lack of branch protection causing trouble.
+- PR without description disturbing reviewer.
+- CODEOWNERS helping big teams.
+- Conventional Commits feeding changelog and pipeline.
+
+## First Mission
+
+Start with Phase 1 and respond:
+
+> What changes on a team when Git is used with standards, review and branch protection?

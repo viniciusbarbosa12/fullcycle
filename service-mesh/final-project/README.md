@@ -1,49 +1,49 @@
-# Projeto final - Service Mesh com Istio
+# Final project - Service Mesh with Istio
 
-Este diretorio serve como guia para a consolidacao final do curso.
+This directory serves as a guide to the final consolidation of the course.
 
-## Objetivo
+## Objective
 
-Juntar todos os conceitos em um cenário próximo de produção.
+Gather all concepts in a near production scenario.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um ambiente local com Istio contendo:
+Create a local environment with Istio containing:
 
 - Cluster k3d
-- Istio instalado
-- Sidecar injection ativado
-- Addons instalados
-- Aplicação com pelo menos 2 serviços
-- Pelo menos 2 versões de um serviço
+- Istio installed
+- Sidecar injection activated
+- Installed Addons
+- Application with at least 2 services
+- At least 2 versions of a service
 - VirtualService
 - DestinationRule
-- Deploy canário
-- Alteração gradual de tráfego
+- Canary deploy
+- Gradual change in traffic
 - Consistent hash
 - Fault injection
 - Circuit breaker
 - Ingress Gateway
-- Rotas por prefixo
-- Domínio local
-- Observabilidade com Kiali
-- README explicando toda a arquitetura
+- Routes by prefix
+- Local area
+- Observability with Kiali
+- README explaining all architecture
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Entendimento de Service Mesh
-- Instalação funcional do Istio
-- Sidecars injetados corretamente
-- Tráfego controlado por VirtualService
-- Subsets definidos por DestinationRule
-- Canary deploy funcionando
-- Load balancing configurado
-- Consistent hash funcionando
-- Fault injection aplicada e removida
-- Circuit breaker funcionando
-- Gateway expondo aplicação
-- Observabilidade no Kiali
-- README claro
-- Capacidade de explicar quando usar e quando não usar Istio
+- Service Mesh Understanding
+- Functional installation of the Istio
+- Sidecars injected correctly
+- VirtualService-controlled traffic
+- DestinationRule defined subsets
+- Canary deploy running
+- Load balancing configured
+- Consistent hash working
+- Fault injection applied and removed
+- Circuit breaker running
+- Gateway exposing application
+- Observability in Kiali
+- Clear README
+- Ability to explain when to use and when not to use Istio

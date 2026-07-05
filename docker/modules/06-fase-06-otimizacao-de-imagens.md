@@ -1,36 +1,36 @@
-# Fase 6: Otimização de imagens
+# Phase 6: Image optimization
 
-## Aulas
+## Lessons
 
-- Otimização utilizando Multistage Building
-- Nginx como proxy reverso
+- Optimization using Multistage Building
+- Nginx as reverse proxy
 
-## Objetivo
+## Objective
 
-Aprender a criar imagens menores, mais seguras e mais próximas de produção.
+Learn how to create smaller, safer, and closer to production images.
 
-## Conceitos principais
+## Main concepts
 
 - Multi-stage build
-- Imagem de build
-- Imagem de runtime
-- Redução de tamanho
-- Separação de responsabilidades
-- Nginx como proxy reverso
-- Build de aplicação
-- Servidor final
+- Build Image
+- Image of runtime
+- Size reduction
+- Separation of liabilities
+- Nginx as reverse proxy
+- Application Build
+- End server
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar uma imagem sem multistage.
-- Medir o tamanho da imagem.
-- Criar uma versão com multistage.
-- Comparar tamanho e segurança.
-- Colocar nginx servindo ou proxyando a aplicação.
+- Create an image without multistage.
+- Measure image size.
+- Create a multistage version.
+- Compare size and safety.
+- Place nginx serving or proxying the application.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que não levar ferramentas de build para produção?
-- Qual a vantagem de uma imagem menor?
-- O que o nginx faz como proxy reverso?
-- Em que cenário real eu usaria isso?
+- Why not take build tools for production?
+- What is the advantage of a smaller image?
+- What nginx does as reverse proxy?
+- In what real scenario would I use that?

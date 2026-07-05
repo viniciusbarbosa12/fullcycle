@@ -1,54 +1,54 @@
-# Fase 7: Decisões na escolha de API Gateway
+# Phase 7: Decisions on choosing API Gateway
 
-## Aulas
+## Lessons
 
-- Características não funcionais
-- Desenho equipes
+- Non-functional characteristics
+- Design teams
 
-## Objetivo
+## Objective
 
-Aprender a escolher um API Gateway olhando além da ferramenta.
+Learn to choose an API Gateway looking beyond the tool.
 
-A decisão não é só técnica. Envolve performance, custo, operação, time, segurança, governança, cloud, modelo de deploy e maturidade da empresa.
+The decision is not just technical. It involves performance, cost, operation, team, security, governance, cloud, enterprise's deploy model and maturity.
 
-## Conceitos principais
+## Main concepts
 
-- Requisitos não funcionais
+- Non-functional requirements
 - Performance
-- Escalabilidade
-- Latência
-- Alta disponibilidade
-- Segurança
-- Custo
-- Operação
-- Governança
-- Autonomia de times
-- Modelo centralizado
-- Modelo federado
-- Times de plataforma
+- Scale
+- Latency
+- High availability
+- Security
+- Cost
+- Operation
+- Governance
+- Autonomy of teams
+- Centralised model
+- Federated model
+- Platform Times
 - Ownership
-- Padrões de API
+- API Patterns
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar uma matriz simples de decisão para escolher um API Gateway.
-- Comparar Kong, AWS API Gateway, NGINX, Traefik e Istio Gateway em alto nível.
-- Listar critérios importantes para uma empresa pequena.
-- Listar critérios importantes para uma empresa grande.
-- Desenhar dois modelos: gateway centralizado e gateway por domínio/time.
-- Escrever uma recomendação técnica para um cenário fictício.
+- Create a simple decision matrix to choose an API Gateway.
+- Compare Kong, AWS API Gateway, NGINX, Traefik and Istio Gateway at high level.
+- List important criteria for a small enterprise.
+- List important criteria for a large company.
+- Draw two models: centralized gateway and gateway by domain/time.
+- Write a technical recommendation for a fictional scenario.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Que características não funcionais importam em um gateway?
-- Como o gateway impacta latência?
-- Quem deveria ser dono do gateway?
-- Um time central deve controlar tudo?
-- Times de produto deveriam conseguir configurar suas próprias rotas?
-- Quando usar gateway gerenciado da cloud?
-- Quando usar Kong self-hosted?
-- Quando API Gateway vira gargalo organizacional?
+- What non-functional features matter in a gateway?
+- How the gateway impacts latency?
+- Who should own the gateway??
+- A central team must control everything?
+- Product Times should be able to set their own routes?
+- When to use cloud managed gateway?
+- When to use Kong self-hosted?
+- When API Gateway turns organizational bottleneck?
 
 ## Checkpoint
 
-Conseguir justificar a escolha de um API Gateway para um cenário realista.
+Getting to justify choosing an API Gateway for a realistic scenario.

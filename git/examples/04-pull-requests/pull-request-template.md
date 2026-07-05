@@ -1,32 +1,32 @@
-# Exemplo - Template de Pull Request
+# Example - Pull Request Template
 
-Crie como `.github/pull_request_template.md` no repositorio de treino.
+Create as `.github/pull_request_template.md` in the training repository.
 
 ```md
-## Contexto
+## Contexts
 
-Explique por que essa mudanca existe.
+Explain why this change exists.
 
-## O que mudou
+## What's changed
 
 - 
 
-## Como testar
+## How to test
 
 1. 
 
-## Evidencias
+## Evidence
 
-Cole prints, logs ou links relevantes.
+Cole prints, logs or relevant links.
 
 ## Checklist
 
-- [ ] Testei localmente
-- [ ] Atualizei documentacao, se necessario
-- [ ] Avaliei impacto em outras areas
-- [ ] A PR tem tamanho revisavel
+- [ ] I tested it locally.
+- [ ] I updated documentation, if necessary
+- [ ] I've assessed impact on other areas.
+- [ ] PR is revisable in size
 ```
 
-## O que observar
+## What to Watch
 
-Uma boa PR reduz pergunta basica no review e deixa o risco mais visivel.
+A good PR reduces basic question in the review and leaves the risk more visible.

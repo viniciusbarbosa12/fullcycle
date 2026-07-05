@@ -1,27 +1,27 @@
-# Lab Fase 7 - Repositórios principais e Collector Contrib
+# Lab Phase 7 - Main Repositories and Contrib Collector
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 7 antes de pedir revisao.
+Practice Phase 7 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Explorar os repositórios principais.
-- Listar 3 receivers interessantes.
-- Listar 3 exporters interessantes.
-- Listar 2 processors úteis.
-- Escolher um exporter para um cenário fictício.
-- Explicar como eu usaria Collector Contrib em um projeto real.
+- Explore the main repositories.
+- List 3 interesting receivers.
+- List 3 interesting exporters.
+- List 2 useful processes.
+- Choose an exporter for a fictional scenario.
+- Explain how I would use Collector Contrib in a real project.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que existe Collector Contrib?
-- Qual a diferença entre componentes core e contrib?
-- Quando eu usaria um exporter específico?
-- Como eu evitaria lock-in em uma ferramenta?
-- Que cuidado preciso ter ao usar componentes da comunidade?
-- Como escolher receivers/processors/exporters para um projeto?
+- Why there is Collector Contrib?
+- What is the difference between core and contrib components?
+- When would I use a specific exporter?
+- How would I avoid lock-in in a tool?
+- What care I need when using community components?
+- How to choose receivers/processors/exporters for a project?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar uma pequena lista de componentes OTEL que eu usaria em um ambiente real e justificar cada escolha.
+Create a small list of components OTEL that I would use in a real environment and justify every choice.

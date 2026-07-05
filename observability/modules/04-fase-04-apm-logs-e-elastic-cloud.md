@@ -1,62 +1,62 @@
-# Fase 4: APM, logs e Elastic Cloud
+# Phase 4: APM, logs and Elastic Cloud
 
-## Aulas
+## Lessons
 
-- Configurando APM
-- APM na prática
-- Logs no APM
-- Configurando nginx
-- Configurando Filebeat
-- Fazendo deploy na Elastic Cloud
-- Configurando Filebeat na Elastic Cloud
-- Integrando serviços na Elastic Cloud
+- Configuring APM
+- APM in practice
+- APM Logs
+- Configuring nginx
+- Configuring Filebeat
+- Deploying in Elastic Cloud
+- Configuring Filebeat in Elastic Cloud
+- Integrating Services in Elastic Cloud
 
-## Objetivo
+## Objective
 
-Aprender a observar uma aplicação de forma mais completa: performance, transações, logs, erros e integração com Elastic Cloud.
+Learn how to observe an application more fully: performance, transactions, logs, errors and integration with Elastic Cloud.
 
-Aqui a stack começa a parecer produção de verdade. Em vez de só olhar logs soltos, você começa a conectar requisições, tempos, erros e logs relacionados.
+The stack here is starting to look like real production. Instead of just looking at loose logs, you start connecting requests, times, errors and related logs.
 
-## Conceitos principais
+## Main concepts
 
 - APM
 - Transaction
 - Span
 - Trace
-- Latência
-- Erro de aplicação
-- Logs correlacionados
+- Latency
+- Application error
+- Correlated logs
 - Nginx logs
 - Filebeat
 - Elastic Cloud
-- Serviço instrumentado
-- Performance de endpoint
-- Investigação de erro
+- Instrumented service
+- Endpoint Performance
+- Error investigation
 
-## Exercícios práticos
+## Practical exercises
 
-- Configurar APM.
-- Instrumentar uma aplicação.
-- Gerar requisições.
-- Observar transações no Kibana.
-- Simular erro na aplicação.
-- Ver logs associados ao erro.
-- Configurar Nginx.
-- Configurar Filebeat para coletar logs.
-- Enviar dados para Elastic Cloud.
-- Criar um guia de investigação usando APM + logs.
+- Configure APM.
+- Instrument an application.
+- Generate requests.
+- Watch transactions in Kibana.
+- Simulate application error.
+- View logs associated with error.
+- Configure Nginx.
+- Configure Filebeat to collect logs.
+- Send data to Elastic Cloud.
+- Create a research guide using APM + logs.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que APM mostra que logs comuns não mostram?
-- O que é uma transaction?
-- O que é um span?
-- Como APM ajuda a encontrar endpoint lento?
-- Como logs no APM ajudam no debug?
-- Por que coletar logs do Nginx?
-- Qual a diferença entre rodar local e usar Elastic Cloud?
-- Que dados sensíveis eu não deveria enviar para logs?
+- What APM shows that common logs do not show?
+- What is a transaction?
+- What is a span?
+- How APM Helps Find Slow Endpoint?
+- How APM Logs Help Debug?
+- Why Collect Nginx Logs?
+- What's the difference between running local and using Elastic Cloud?
+- What sensitive data should I not send to logs?
 
 ## Checkpoint
 
-Conseguir investigar uma requisição lenta ou com erro usando APM e logs correlacionados.
+To be able to investigate a slow or wrong request using APM and correlated logs.

@@ -1,33 +1,33 @@
-# Lab Fase 2 - Código-fonte e projeto base
+# Lab Phase 2 - Source code and base design
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Clonar ou criar um projeto base.
-- Identificar quais serviços/API existem.
-- Identificar portas usadas por cada serviço.
-- Rodar os serviços localmente.
-- Testar os endpoints sem gateway.
-- Criar um README explicando a arquitetura inicial.
-- Desenhar o fluxo “antes do gateway”.
+- Clone or create a base project.
+- Identify which services/IPA exist.
+- Identify ports used for each service.
+- Rotate services locally.
+- Test endpoints without gateway.
+- Create a README explaining the initial architecture.
+- Draw flow “before gateway”.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Antes de configurar um gateway, o que eu preciso saber sobre as APIs?
-- Por que é importante testar os serviços sem gateway primeiro?
-- Como eu saberia se um erro está no gateway ou no serviço?
-- Como organizar o README para outro dev subir o ambiente?
+- Before setting up a gateway, what I need to know about APIs?
+- Why it is important to test the services without gateway first?
+- How would I know if a mistake is in the gateway or the service?
+- How to organize README for another must raise the environment?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar um README com:
+Create a README with:
 
-- Serviços existentes
-- Portas
-- Endpoints principais
-- Como rodar localmente
-- Como testar sem gateway
-- O que será responsabilidade do gateway
+- Existing services
+- Ports
+- Main endpoints
+- How to rotate locally
+- How to Test Without Gateway
+- What will be Gateway's responsibility

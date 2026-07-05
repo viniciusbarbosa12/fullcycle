@@ -1,37 +1,37 @@
-# Lab Fase 3 - Primeiro workflow com GitHub Actions
+# Lab Phase 3 - First workflow with GitHub Actions
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 3 antes de pedir revisao.
+Practice Phase 3 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma pasta `.github/workflows`.
-- Criar um primeiro arquivo de workflow.
-- Configurar o workflow para rodar em `push` e `pull_request`.
-- Rodar instalação de dependências.
-- Rodar testes.
-- Fazer a pipeline quebrar de propósito.
-- Corrigir a pipeline.
-- Ativar status check obrigatório na branch principal.
-- Criar uma matrix para rodar em mais de uma versão da linguagem/runtime.
+- Synchronising folder `.github/workflows`.
+- Create a first workflow file.
+- Configure workflow to run on `push` and `pull_request`.
+- Rotate dependencies installation.
+- Run tests.
+- Make the pipeline break on purpose.
+- Fix Pipeline.
+- Enable mandatory status check in the main branch.
+- Create a matrix to run in more than one language/runtime version.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre workflow, job e step?
-- Quando faz sentido rodar pipeline em `push`?
-- Quando faz sentido rodar pipeline em `pull_request`?
-- Por que é útil fazer a pipeline falhar de propósito?
-- O que o status check protege?
-- O que Strategy Matrix resolve?
-- Em que situação uma matrix pode deixar a pipeline lenta demais?
+- What is the difference between workflow, job and step?
+- When it makes sense to run pipeline on `push`?
+- When it makes sense to run pipeline on `pull_request`?
+- Why is it helpful to make the pipeline fail on purpose?
+- What status check protects?
+- What Strategy Matrix Solves?
+- In what situation a matrix can make the pipeline too slow?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar uma PR onde:
+Create a PR where:
 
-- A pipeline roda automaticamente.
-- A pipeline falha em um primeiro momento.
-- O erro é corrigido.
-- O status check bloqueia merge quando falha.
-- A matrix roda em mais de uma versão.
+- The pipeline runs automatically.
+- Pipeline fails at first.
+- Error is fixed.
+- State check blocks merge when failure.
+- The matrix runs in more than one version.

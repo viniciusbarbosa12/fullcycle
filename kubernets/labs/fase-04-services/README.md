@@ -1,31 +1,31 @@
-# Lab Fase 4 - Services
+# Lab Phase 4 - Services
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar Service do tipo ClusterIP.
-- Acessar aplicação dentro do cluster.
-- Entender port e targetPort.
-- Testar kubectl proxy.
-- Criar Service do tipo NodePort.
-- Criar Service do tipo LoadBalancer.
-- Ver endpoints gerados pelo Service.
-- Alterar labels e observar impacto nos endpoints.
+- Create ClusterIP Type Service.
+- Access application within cluster.
+- Understand port and targetPort.
+- Test kubectl proxy.
+- Create NodePort Service.
+- Create LoadBalancerr Type Service.
+- View Service-generated endpoints.
+- Change labels and observe impact on endpoints.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que Service existe?
-- Qual problema ele resolve em relação aos Pods?
-- Qual a diferença entre ClusterIP, NodePort e LoadBalancer?
-- Qual a diferença entre port e targetPort?
-- O que acontece se o selector do Service estiver errado?
-- Quando usar ClusterIP?
-- Quando usar NodePort?
-- Quando usar LoadBalancer?
+- Why Service Exists?
+- What problem does he solve with the Pods??
+- What is the difference between ClusterIP, NodePort and LoadBalancerr?
+- What is the difference between port and targetPort?
+- What happens if the Service selector is wrong?
+- When to use ClusterIP?
+- When to use NodePort?
+- When to use LoadBalancerr?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir expor a aplicação de 3 formas diferentes e explicar quando cada tipo de Service faz sentido.
+Getting to expose the application in 3 different ways and explain when each type of Service makes sense.

@@ -1,66 +1,66 @@
-# Fase 1: Conceitos básicos de APIs e Gateway
+# Phase 1: Basic API and Gateway Concepts
 
-## Aulas
+## Lessons
 
-- Introdução
+- Introduction
 - APIs
-- O que é Gateway
-- Tipos API Gateway
-- Papel API Gateway
-- Vantagens e desvantagens API Gateway
-- Como escolher API Gateway
+- What is Gateway
+- API Gateway types
+- API Gateway role
+- Advantages and disadvantages of API Gateway
+- How to Choose API Gateway
 
-## Objetivo
+## Objective
 
-Entender o problema antes da ferramenta.
+Understand the problem before tool.
 
-API Gateway não é só “uma porta de entrada”. Ele existe para centralizar preocupações que aparecem quando várias APIs precisam ser expostas, protegidas, monitoradas e consumidas por diferentes clientes.
+API Gateway is not just an “input port”. It exists to centralize concerns that appear when multiple APIs need to be exposed, protected, monitored and consumed by different clients.
 
-## Conceitos principais
+## Main concepts
 
 - API
 - API Gateway
 - Reverse proxy
-- Entrada única
-- Roteamento
-- Autenticação
-- Autorização
+- Single entry
+- Route
+- Authentication
+- Authorisation
 - Rate limiting
-- Transformação de request/response
-- Observabilidade
+- Request/response transformation
+- Observability
 - Logging
 - Tracing
-- Segurança
-- Gateway interno vs externo
+- Security
+- Internal vs external gateway
 - BFF
 - Edge gateway
-- Gateway por domínio
-- Gateway centralizado
-- Trade-offs arquiteturais
+- Gateway by domain
+- Centralised Gateway
+- Architectural Trade-offs
 
-## Exercícios práticos
+## Practical exercises
 
-- Desenhar uma arquitetura simples com frontend, API Gateway e 3 APIs internas.
-- Explicar com minhas palavras por que o frontend não deveria conhecer diretamente todos os serviços internos.
-- Listar responsabilidades que fazem sentido colocar no gateway.
-- Listar responsabilidades que não deveriam ir para o gateway.
-- Comparar API Gateway com Load Balancer.
-- Criar um pequeno README explicando quando eu usaria API Gateway em um projeto real.
+- Draw a simple architecture with frontend, API Gateway and 3 internal APIs.
+- Explain in my words why the frontend should not directly know all internal services.
+- Listing responsibilities that make sense to put in the gateway.
+- List responsibilities that shouldn't go to the gateway.
+- Compare API Gateway with Load Balancer.
+- Create a small README explaining when I would use API Gateway on a real project.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é uma API?
-- O que é um API Gateway?
-- Qual problema o API Gateway resolve?
-- Qual a diferença entre API Gateway e Load Balancer?
-- O que acontece quando todo cliente chama todos os microservices diretamente?
-- Quais vantagens um gateway traz?
-- Quais riscos um gateway adiciona?
-- Quando API Gateway pode virar gargalo?
-- Como escolher um API Gateway para uma empresa?
+- What is an API?
+- What is an API Gateway?
+- What problem does the API Gateway solve??
+- What is the difference between API Gateway and Load Balancer?
+- What happens when every customer calls all microservices directly?
+- What advantages a gateway brings?
+- What risks a gateway adds?
+- When API Gateway can become bottleneck?
+- How to Choose an API Gateway for a Business?
 
 ## Checkpoint
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Por que um time usaria API Gateway em uma arquitetura com múltiplas APIs?
+> Why a team would use API Gateway in a multi API architecture?

@@ -1,27 +1,27 @@
-# Lab Fase 7 - Fault injection
+# Lab Phase 7 - Fault injection
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 7 antes de pedir revisao.
+Practice Phase 7 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma regra de delay artificial.
-- Criar uma regra de abort retornando erro HTTP.
-- Aplicar falha apenas para parte do tráfego.
-- Observar comportamento no cliente.
-- Remover a falha.
-- Documentar o que aconteceu.
+- Create an artificial delay rule.
+- Create an abort rule by returning HTTP error.
+- Apply fault only for part of traffic.
+- Observe customer behavior.
+- Remove Failure.
+- Document what happened.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que simular falha de propósito?
-- O que delay testa?
-- O que abort testa?
-- Qual o risco de aplicar fault injection em produção?
-- Como isso ajuda a validar timeout, retry e fallback?
-- Que tipo de falha eu deveria testar em uma arquitetura real?
+- Why Simulate Failure On Purpose?
+- What Delay Tests?
+- What Abort Tests?
+- What is the risk of applying fault injection in production?
+- How this helps validate timeout, retry and fallback?
+- What kind of failure should I test on a real architecture?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir aplicar uma falha controlada, observar o impacto e remover a configuração com segurança.
+Manage to apply a controlled failure, observe impact and safely remove configuration.

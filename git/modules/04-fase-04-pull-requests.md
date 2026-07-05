@@ -1,72 +1,72 @@
-# Fase 4 - Pull Requests e protecao de branches
+# Phase 4 - Pull Requests and branch protection
 
-## Aulas
+## Lessons
 
-- Protegendo branches.
-- Sobre protecao de branches e organizacoes.
-- Criando nossa primeira PR.
-- Criando template para PRs.
+- Protecting branches.
+- About branch protection and organization.
+- Creating our first PR.
+- Creating template for PRs.
 
-## Objetivo
+## Objective
 
-Aprender a usar Pull Requests como ferramenta de colaboracao, validacao, revisao e controle de qualidade antes de integrar codigo nas branches principais.
+Learn how to use Pull Requests as a tool for collaboration, validation, review and quality control before integrating code into the main branches.
 
-## Conceitos principais
+## Main concepts
 
 - Pull Request.
 - Branch protection.
 - Required reviews.
 - Required status checks.
-- Template de PR.
-- Descricao de mudanca.
+- PR Template.
+- Change description.
 - Checklist.
-- Aprovacao.
+- Approval.
 - Merge.
 - Squash merge.
 - Rebase merge.
 - Merge commit.
 
-## Conceito guia
+## Guide concept
 
-PR nao e so um botao antes do merge. PR e o lugar onde o time entende contexto, avalia impacto, executa checks, discute trade-offs e decide se a mudanca esta pronta para entrar.
+PR's not just a boot before the merge. PR and the place where the team understands context, evaluates impact, performs checks, discusses trade-offs and decides if the change is ready to enter.
 
-## Exemplo real de projeto
+## Real project example
 
-Uma PR que altera pagamento precisa explicar o que mudou, quais cenarios foram testados, qual risco existe e como fazer rollback. Sem isso, o reviewer revisa no escuro.
+A PR that changes payment needs to explain what has changed, what scenarios have been tested, what risk there is and how to rollback. Without it, the reviewer reviews in the dark.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-04-pull-requests/`:
+Implement on `../labs/fase-04-pull-requests/`:
 
-1. Criar uma branch de feature.
-2. Fazer uma alteracao pequena.
-3. Abrir uma Pull Request.
-4. Escrever uma descricao clara.
-5. Criar um template de PR.
-6. Ativar protecao de branch.
-7. Exigir review antes do merge.
-8. Simular aprovacao e merge.
+1. Create a feature branch.
+2. Make a small change.
+3. Open Pull Request.
+4. Write a clear description.
+5. Create a PR template.
+6. Enable branch protection.
+7. Require review before merge.
+8. Simulate approval and merge.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Por que abrir PR em vez de fazer push direto na `main`?
-2. O que uma boa descricao de PR precisa ter?
-3. Por que template de PR ajuda o time?
-4. O que e branch protection?
-5. Quais regras fazem sentido em um projeto real?
-6. Qual a diferenca entre merge commit, squash e rebase?
+1. Why open PR instead of pushing straight into `main`?
+2. What a good PR description needs to have?
+3. Why PR template helps the team?
+4. What and branch protection?
+5. Which rules make sense in a real project?
+6. What is the difference between merge commit, squash and rebase?
 
 ## Checkpoint
 
-Criar uma PR com:
+Create PR with:
 
-- Titulo claro.
-- Descricao do que mudou.
+- Clear title.
+- Description of what has changed.
 - Checklist.
-- Evidencia de teste.
-- Contexto da mudanca.
-- Branch protegida exigindo review.
+- Test evidence.
+- Contexts of change.
+- Protected branch requiring review.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir abrir uma PR que um reviewer conseguiria entender sem precisar te chamar para explicar tudo.
+You can step up when you can open a PR that a reviewer could understand without having to ask you to explain everything..

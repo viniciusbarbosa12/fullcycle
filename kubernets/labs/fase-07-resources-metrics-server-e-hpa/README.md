@@ -1,34 +1,34 @@
-# Lab Fase 7 - Resources, metrics-server e HPA
+# Lab Phase 7 - Resources, metrics-server and HPA
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 7 antes de pedir revisao.
+Practice Phase 7 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Instalar metrics-server.
-- Validar métricas com kubectl top.
-- Configurar requests e limits no Deployment.
-- Observar consumo de recursos.
-- Criar HPA.
-- Configurar mínimo e máximo de réplicas.
-- Gerar carga com Fortio.
-- Observar aumento de réplicas.
-- Parar carga e observar redução de réplicas.
-- Documentar comportamento.
+- Install metrics-server.
+- Validate metrics with kubectl top.
+- Configure requests and limits in Deployment.
+- Observe resource consumption.
+- Create HPA.
+- Configure minimum and maximum replicas.
+- Generate cargo with Fortio.
+- Observe increased replicas.
+- Stop load and observe replica reduction.
+- Document behavior.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Para que servem requests?
-- Para que servem limits?
-- Qual a diferença entre request e limit?
-- O que acontece se eu não configurar resources?
-- O que é HPA?
-- Do que o HPA precisa para funcionar?
-- Por que HPA não resolve aplicação mal escrita?
-- Quando aumentar réplicas não resolve o problema?
-- Qual o risco de limit de memória baixo demais?
+- What are requests for??
+- What are limits for??
+- What is the difference between request and limit?
+- What happens if I don't configure resources?
+- What HPA is?
+- What HPA needs to work?
+- Why HPA does not solve miswritten application?
+- When increasing replicas does not solve the problem?
+- What is the risk of too low memory limit?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter HPA funcionando, escalando a aplicação sob carga e reduzindo réplicas depois.
+Having HPA running, scaling the application under load and reducing replicas after.

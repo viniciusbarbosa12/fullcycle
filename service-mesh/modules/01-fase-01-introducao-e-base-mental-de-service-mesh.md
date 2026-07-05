@@ -1,62 +1,62 @@
-# Fase 1: Introdução e base mental de Service Mesh
+# Phase 1: Introduction and Mental Model of Service Mesh
 
-## Aulas
+## Lessons
 
-- Introdução
-- O mundo distribuído
+- Introduction
+- The distributed world
 - Service mesh vs Istio
-- Principais recursos
-- Arquitetura do istio
-- Monitoramento em tempo real
+- Main resources
+- istio architecture
+- Real-time monitoring
 
-## Objetivo
+## Objective
 
-Entender o problema antes da ferramenta.
+Understand the problem before tool.
 
-Service Mesh não existe porque Kubernetes é “fraco”. Ele existe porque, quando um sistema tem vários serviços conversando entre si, começam a aparecer problemas de tráfego, segurança, observabilidade, retries, timeouts, circuit breaker, deploy canário e rastreabilidade.
+Service Mesh does not exist because Kubernetes is “weak”. It exists because, when a system has several services talking to each other, problems of traffic, security, observability, relays, timeouts, circuit breaker, canary deployment and traceability begin to appear..
 
-## Conceitos principais
+## Main concepts
 
-- Sistemas distribuídos
+- Distributed systems
 - Microservices
-- Comunicação serviço para serviço
+- Communication service
 - Service Mesh
 - Istio
-- Data plane
-- Control plane
-- Sidecar proxy
+- Plan Date
+- Control plan
+- Proxy Sidecar
 - Envoy
-- Observabilidade
-- Telemetria
+- Observability
+- Telemetry
 - Tracing
-- Métricas
+- Metrics
 - Logs
 - Kiali
 - Prometheus
 - Grafana
 - Jaeger
 
-## Exercícios práticos
+## Practical exercises
 
-- Explicar com minhas palavras o que é Service Mesh.
-- Desenhar um fluxo simples com 3 serviços conversando.
-- Identificar quais problemas aparecem nesse fluxo.
-- Separar responsabilidades entre aplicação, Kubernetes e Istio.
-- Listar quais recursos do Istio parecem mais úteis em produção.
-- Criar um pequeno resumo sobre data plane e control plane.
+- Explain with my words what Service Mesh is.
+- Draw a simple flow with 3 talking services.
+- Identify which problems appear in this stream.
+- Separate responsibilities between application, Kubernetes and Istio.
+- List which Istio resources seem most useful in production.
+- Create a short summary of plan and control plane data.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual problema Service Mesh tenta resolver?
-- Por que comunicação entre serviços fica difícil em sistemas distribuídos?
-- O que é sidecar proxy?
-- Qual a diferença entre Service Mesh e Istio?
-- O que o Istio faz que a aplicação não deveria precisar fazer manualmente?
-- Quando Service Mesh pode ser exagero?
-- Por que observabilidade é tão importante em microservices?
+- What problem Service Mesh tries to solve?
+- Why communication between services becomes difficult in distributed systems?
+- What is sidecar proxy?
+- What is the difference between Service Mesh and Istio?
+- What Istio does that the application should not need to do manually?
+- When Service Mesh Can Be Exaggeration?
+- Why observability is so important in microservices?
 
 ## Checkpoint
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Por que um time usaria Istio em um ambiente Kubernetes com vários microservices?
+> Why would a team use Istio in a Kubernete environment with various microservices?

@@ -1,125 +1,125 @@
-# Plano de Aprendizado OpenTelemetry
+# OpenTelemetry Learning Plan
 
-Este plano foi criado para estudar OpenTelemetry de forma prática, com foco em aprendizado real.
+This plan was designed to study OpenTelemetry in a practical way, focusing on real learning.
 
-A ideia não é apenas assistir às aulas, mas entender como padronizar telemetria em aplicações modernas: traces, métricas, logs, collectors, exporters, instrumentação manual, instrumentação automática e integração com ferramentas como Zipkin.
+The idea is not just to watch lessons, but to understand how to standardize telemetry in modern applications: traces, metrics, logs, collectors, exporters, manual instrumentation, automatic instrumentation and integration with tools like Zipkin.
 
-O objetivo é sair desse curso conseguindo explicar o que é OpenTelemetry, por que ele existe, como ele se conecta com observabilidade e como instrumentar uma aplicação para investigar problemas reais em produção.
+By the end of this course, I should be able to explain what OpenTelemetry is, why it exists, how it connects with observability and how to instrument an application to investigate real problems in production.
 
-## Como vamos estudar
+## How We Will Study
 
-Sempre que eu iniciar uma nova aula, a mentoria deve seguir este formato:
+Whenever I start a new lesson, mentoring should follow this format:
 
-1. Explicar os conceitos de forma clara e gradual.
-2. Dividir assuntos grandes em partes pequenas.
-3. Propor exercícios práticos para eu implementar sozinho.
-4. Evitar entregar a solução completa de primeira.
-5. Fazer perguntas que me levem a raciocinar antes de responder.
-6. Se eu pedir ajuda, dar apenas dicas ou pequenos trechos de configuração/código.
-7. Só mostrar a solução completa se eu pedir explicitamente ou depois que eu realmente tentar resolver.
+1. Explain concepts clearly and gradually.
+2. Split big subjects into small parts.
+3. Propose practical exercises for me to implement on my own.
+4. Avoid delivering the complete solution upfront.
+5. Ask questions that lead me to reason before answering.
+6. If I ask for help, just give hints or small bits of configuration/code.
+7. Only show the complete solution if I ask explicitly or after I really try to solve.
 
-Quando eu terminar um exercício, a revisão deve seguir este formato:
+When I finish an exercise, the review should follow this format:
 
-1. Fazer uma revisão profissional do que eu fiz.
-2. Apontar erros, melhorias e boas práticas.
-3. Explicar o motivo de cada sugestão.
-4. Dizer o que eu fiz bem.
-5. Dizer o que ainda preciso estudar.
-6. Relacionar o conteúdo com cenários reais de produção, microservices e troubleshooting.
+1. Do a professional review of what I did.
+2. Point out errors, improvements and good practices.
+3. Explain the reason for each suggestion.
+4. Say what I did right.
+5. Tell me what I still need to study.
+6. Connect the content with real production scenarios, microservices and troubleshooting.
 
-O objetivo é priorizar aprendizado profundo, não velocidade.
+The goal is to prioritize deep learning, not speed.
 
-## Estrutura
+## Structure
 
-- `modules/`: fases do plano de mentoria.
-- `labs/`: exercicios e desafios para voce implementar.
-- `examples/`: exemplos prontos de referencia, para consultar depois da tentativa.
-- `final-project/`: guia da consolidacao final do curso.
+- `modules/`: phases of the mentoring plan.
+- `labs/`: exercises and challenges for you to implement.
+- `examples/`: ready reference examples to consult after the attempt.
+- `final-project/`: course final consolidation guide.
 
-## Grade do curso
+## Course Outline
 
 ### OpenTelemetry
 
-- Introdução ao OTEL - 02:24
-- Código-fonte - sem duração
+- Introduction to OTEL - 02:24
+- Source code - no duration
 - Agenda - 02:02
-- Revisitando observabilidade - 06:52
-- Centralização e customização de telemetria - 10:04
-- OpenTelemetry Seja bem vindo - 03:59
-- Site do OpenTelemetry - sem duração
-- O que é OpenTelemetry - 04:35
-- Componentes principais do OTEL - 09:24
-- Navegando pelo opentelemetry.io - 08:25
-- Tipos de Collector - 05:59
-- Instrumentação manual vs automática - 08:48
-- Visitando nosso código em Go - 10:51
-- Tracing na pratica com Zipkin - 13:48
-- Conheça o Projeto Zipkin - sem duração
-- Principais repositórios - 05:58
-- Collector-Contrib - sem duração
+- Revisiting observability - 06:52
+- Centralization and customization of telemetry - 10:04
+- OpenTelemetry Welcome - 3:59
+- OpenTelemetry website - no duration
+- What is OpenTelemetry - 04:35
+- Main components of OTEL - 09:24
+- Navigating opentelemetry.io - 08:25
+- Types of Collector - 05:59
+- Manual vs Automatic Instrumentation - 08:48
+- Exploring our Go code - 10:51
+- Tracing in practice with Zipkin - 13:48
+- Meet the Zipkin Project - no duration
+- Main repositories - 05:58
+- Collector-Contrib - no duration
 
-## Fases
+## Phases
 
-0. [Como vamos estudar](modules/00-como-vamos-estudar.md)
-1. [Introdução ao OpenTelemetry](modules/01-fase-01-introducao-ao-opentelemetry.md)
-2. [Centralização e customização de telemetria](modules/02-fase-02-centralizacao-e-customizacao-de-telemetria.md)
-3. [O que é OpenTelemetry](modules/03-fase-03-o-que-e-opentelemetry.md)
+0. [How We Will Study](modules/00-como-vamos-estudar.md)
+1. [Introduction to OpenTelemetry](modules/01-fase-01-introducao-ao-opentelemetry.md)
+2. [Centralization and customization of telemetry](modules/02-fase-02-centralizacao-e-customizacao-de-telemetria.md)
+3. [What is OpenTelemetry](modules/03-fase-03-o-que-e-opentelemetry.md)
 4. [Collectors](modules/04-fase-04-collectors.md)
-5. [Instrumentação manual vs automática](modules/05-fase-05-instrumentacao-manual-vs-automatica.md)
-6. [Código em Go e tracing com Zipkin](modules/06-fase-06-codigo-em-go-e-tracing-com-zipkin.md)
-7. [Repositórios principais e Collector Contrib](modules/07-fase-07-repositorios-principais-e-collector-contrib.md)
-8. [Projeto final](modules/08-fase-08-projeto-final.md)
-9. [Perguntas classicas de entrevista](modules/09-perguntas-entrevista.md)
+5. [Manual vs Automatic Instrumentation](modules/05-fase-05-instrumentacao-manual-vs-automatica.md)
+6. [Go Code and Tracing with Zipkin](modules/06-fase-06-codigo-em-go-e-tracing-com-zipkin.md)
+7. [Main Repositories and Collector Contrib](modules/07-fase-07-repositorios-principais-e-collector-contrib.md)
+8. [Final project](modules/08-fase-08-projeto-final.md)
+9. [Classic interview questions](modules/09-perguntas-entrevista.md)
 
-## Ritmo recomendado
+## Recommended rhythm
 
-O curso tem cerca de 1h33 de videoaulas, mas o foco é praticar bastante.
+The course has about 1:33 video lessons, but the focus is to practice a lot.
 
-### Sugestão de ritmo em 5 dias
+### Suggestion of rhythm in 5 days
 
-#### Dia 1
+#### Day 1
 
-- Introdução ao OTEL
+- Introduction to OTEL
 - Agenda
-- Revisitando observabilidade
-- Centralização e customização de telemetria
+- Revisiting observability
+- Centralization and customization of telemetry
 
-#### Dia 2
+#### Day 2
 
-- O que é OpenTelemetry
-- Componentes principais do OTEL
-- Navegação pela documentação
+- What is OpenTelemetry
+- Main components of OTEL
+- Documentation navigation
 
-#### Dia 3
+#### Day 3
 
-- Tipos de Collector
-- Instrumentação manual vs automática
-- Desenho de arquitetura
+- Collector Types
+- Manual vs Automatic Instrumentation
+- Architecture Design
 
-#### Dia 4
+#### Day 4
 
-- Código em Go
-- Tracing com Zipkin
-- Visualização de traces
+- Go Code
+- Tracing with Zipkin
+- Trace visualization
 
-#### Dia 5
+#### Day 5
 
-- Principais repositórios
+- Main repositories
 - Collector-Contrib
-- Projeto final
-- README final
+- Final project
+- Final README
 
-## Primeira missao
+## First Mission
 
-Assistir às aulas:
+Watch the lessons:
 
-> Introdução ao OTEL
+> Introduction to OTEL
 > Agenda
-> Revisitando observabilidade
-> Centralização e customização de telemetria
+> Revisiting observability
+> Centralization and customization of telemetry
 
-Depois responder com minhas palavras:
+Then answer with my words:
 
-> Por que OpenTelemetry é útil quando uma empresa tem várias aplicações, várias linguagens e várias ferramentas de observabilidade?
+> Why OpenTelemetry is useful when a company has multiple applications, multiple languages and various observability tools?
 
-Não precisa ser uma resposta perfeita. O importante é mostrar meu raciocínio inicial para depois corrigir, ajustar e aprofundar.
+It does not have to be a perfect answer. The important thing is to show my initial reasoning so we can correct, adjust and deepen.

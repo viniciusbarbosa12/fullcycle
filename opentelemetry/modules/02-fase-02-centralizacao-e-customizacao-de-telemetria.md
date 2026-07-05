@@ -1,20 +1,20 @@
-# Fase 2: Centralização e customização de telemetria
+# Phase 2: Centralization and customization of telemetry
 
-## Aula
+## Lesson
 
-- Centralização e customização de telemetria
+- Centralization and customization of telemetry
 
-## Objetivo
+## Objective
 
-Entender por que telemetria precisa ser centralizada, normalizada e customizada conforme o contexto da aplicação.
+Understanding why telemetry needs to be centralized, standardised and customized according to the context of the application.
 
-Não basta gerar dado. Tem que gerar dado útil. Uma aplicação pode produzir milhares de spans, logs e métricas, mas se isso não estiver bem organizado, vira fumaça digital. Bonita, mas inútil.
+It's not enough to generate data. You have to generate useful data. An application can produce thousands of spans, logs and metrics, but if this isn't well organized, it becomes digital smoke. Beautiful but useless.
 
-## Conceitos principais
+## Main concepts
 
-- Centralização de telemetria
-- Customização
-- Atributos
+- Telemetry centralization
+- Customization
+- Attributes
 - Metadata
 - Resource attributes
 - Service name
@@ -24,24 +24,24 @@ Não basta gerar dado. Tem que gerar dado útil. Uma aplicação pode produzir m
 - Correlation
 - Context propagation
 - Exporters
-- Backends de observabilidade
+- Observation Backends
 
-## Exercícios práticos
+## Practical exercises
 
-- Listar quais dados de contexto uma aplicação deveria enviar.
-- Criar exemplos de atributos úteis para uma API.
-- Criar exemplos de atributos ruins ou sensíveis.
-- Explicar por que `service.name` é importante.
-- Desenhar um fluxo onde dados saem da aplicação, passam por um collector e chegam em um backend.
+- List which context data an application should send.
+- Create examples of useful attributes for an API.
+- Create examples of bad or sensitive attributes.
+- Explain why `service.name` It's important.
+- Draw a stream where data comes out of the application, pass through a collector and arrive in a backend.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Que informações ajudam a identificar uma requisição?
-- Por que ambiente, versão e nome do serviço são importantes?
-- Que tipo de dado eu não deveria mandar em telemetria?
-- O que é correlação entre logs, métricas e traces?
-- Por que centralizar telemetria ajuda no troubleshooting?
+- What information helps identify a request?
+- Why environment, version and service name are important?
+- What kind of data should I not command in telemetry??
+- What is correlation between logs, metrics and dashes?
+- Why Centering Telemetry Helps in Troubleshooting?
 
 ## Checkpoint
 
-Criar uma lista de atributos mínimos que uma aplicação real deveria enviar junto da telemetria.
+Create a list of minimum attributes that a real application should send along with telemetry.

@@ -1,56 +1,56 @@
-# Fase 6: Probes e health checks
+# Phase 6: Probes and health checks
 
-## Aulas
+## Lessons
 
-- Entendendo health check
-- Criando endpoint Healthz
-- Liveness na prática
-- Entendendo readiness
-- Combinando Liveness e Readiness
-- Trabalhando com startupProbe
+- Understanding health check
+- Creating endpoint Healthz
+- Liveness in practice
+- Understanding readinss
+- Combining Liveness and Readiness
+- Working with startupProbe
 
-## Objetivo
+## Objective
 
-Ensinar o Kubernetes a entender se a aplicação está viva, pronta para receber tráfego ou ainda inicializando.
+Teach Kubernetes to understand whether the application is alive, ready to receive traffic or even booting.
 
-Probes mal configuradas podem derrubar aplicação saudável ou mandar tráfego para aplicação que ainda não está pronta. Aqui mora muito bug fantasma em produção.
+Misconfigured probes can bring down healthy application or send traffic to application that is not yet ready. Here lives a lot ghost bug in production.
 
-## Conceitos principais
+## Main concepts
 
 - Health check
 - Liveness probe
 - Readiness probe
 - Startup probe
 - Endpoint healthz
-- Restart automático
-- Tráfego somente para Pods prontos
-- Inicialização lenta
-- Falha temporária
+- Automatic restore
+- Traffic only for Pods ready
+- Slow initialization
+- Temporary failure
 - CrashLoopBackOff
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar endpoint `/healthz`.
-- Configurar livenessProbe.
-- Simular aplicação travada.
-- Observar restart automático.
-- Configurar readinessProbe.
-- Simular aplicação ainda não pronta.
-- Ver Service removendo Pod não pronto dos endpoints.
-- Configurar startupProbe.
-- Simular aplicação com inicialização lenta.
-- Combinar as 3 probes corretamente.
+- Create endpoint `/healthz`.
+- Configure LivenessProbe.
+- Simulate locked application.
+- Watch autorestart.
+- Configure readinssProbe.
+- Simulate application not ready yet.
+- View Service Removing Endpoints not ready.
+- Configure startupProbe.
+- Simulate application with slow startup.
+- Match 3 probes correctly.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre liveness e readiness?
-- Quando usar startupProbe?
-- O que acontece se livenessProbe estiver agressiva demais?
-- O que acontece se readinessProbe estiver errada?
-- Por que readiness é importante em deploy?
-- Como probes ajudam em zero downtime?
-- O que é CrashLoopBackOff?
+- What's the difference between liveness and readinss?
+- When to use startupProbe?
+- What happens if livenessProbe is too aggressive?
+- What happens if readinssProbe is wrong?
+- Why is readinss important in employment?
+- How probes help at zero downtime?
+- What is CrashLoopBackOff?
 
 ## Checkpoint
 
-Ter probes configuradas e conseguir demonstrar restart por liveness e bloqueio de tráfego por readiness.
+Having probes configured and being able to demonstrate restore by liveness and traffic blocking by readiness.

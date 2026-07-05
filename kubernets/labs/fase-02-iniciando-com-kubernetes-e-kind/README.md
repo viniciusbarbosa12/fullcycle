@@ -1,36 +1,36 @@
-# Lab Fase 2 - Iniciando com Kubernetes e Kind
+# Lab Phase 2 - Starting with Kubernetes and Kind
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Instalar Kind.
-- Validar instalação do kubectl.
-- Criar um cluster local.
-- Listar nodes do cluster.
-- Criar um cluster multi node.
-- Alternar contexto entre clusters.
-- Usar extensão do VSCode para visualizar objetos do cluster.
-- Criar um README com comandos básicos.
+- Install Kind.
+- Validate kubectl installation.
+- Create a local cluster.
+- List cluster nodes.
+- Create a multi node cluster.
+- Toggle context between clusters.
+- Use VScode extension to view cluster objects.
+- Create a README with basic commands.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é Kubernetes?
-- O que é um cluster?
-- Qual a diferença entre control plane e worker node?
-- O que é Kind?
-- Por que estudar Kubernetes localmente antes de usar cloud?
-- O que é contexto no kubectl?
-- O que pode dar errado se eu estiver no contexto errado?
+- What Kubernetes is?
+- What's a cluster?
+- What is the difference between control plane and worker node?
+- What Kind is?
+- Why study Kubernetes locally before using cloud?
+- What is context in kubectl?
+- What can go wrong if I'm in the wrong context?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter um cluster Kind funcionando e conseguir explicar:
+Having a Kind cluster working and being able to explain:
 
-- Quantos nodes ele tem
-- Qual contexto está ativo
-- Como listar recursos
-- Como trocar de contexto
-- Por que um cluster local ajuda no aprendizado
+- How many nodes does he have?
+- Which context is active
+- How to list resources
+- How to change context
+- Why a local cluster helps in learning

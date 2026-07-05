@@ -1,54 +1,54 @@
-# Fase 5 - Operadores de transformacao avancada
+# Phase 5 - Advanced Transformers
 
-## Objetivo
+## Objective
 
-Entender os operadores que mais caem em entrevista e mais salvam ou destroem projeto Angular.
+Understanding operators who fall most in interview and save or destroy Angular project.
 
-## Conceitos principais
+## Main concepts
 
 - `switchMap`.
 - `mergeMap`.
 - `concatMap`.
 - `exhaustMap`.
 
-## Regras principais
+## Main rules
 
-- `switchMap` cancela o fluxo anterior e usa o mais recente.
-- `mergeMap` executa varios fluxos em paralelo.
-- `concatMap` executa em ordem, um depois do outro.
-- `exhaustMap` ignora novas emissoes enquanto uma execucao esta em andamento.
+- `switchMap` cancels the previous stream and uses the latest.
+- `mergeMap` executes several flows in parallel.
+- `concatMap` executes in order, one after the other.
+- `exhaustMap` ignores new issues while an execution is underway.
 
-## Exemplo real de projeto
+## Real project example
 
 - Autocomplete: `switchMap`.
-- Processar varios itens em paralelo: `mergeMap`.
-- Fila de salvamento: `concatMap`.
-- Botao de login ou submit: `exhaustMap`.
+- Process several items in parallel: `mergeMap`.
+- Save queue: `concatMap`.
+- login boot or submit: `exhaustMap`.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-05-flattening/`:
+Implement on `../labs/fase-05-flattening/`:
 
-1. Criar uma busca com `switchMap`.
-2. Simular multiplas requisicoes em paralelo com `mergeMap`.
-3. Simular uma fila de salvamento com `concatMap`.
-4. Simular botao de login com `exhaustMap`.
-5. Comparar o comportamento dos quatro operadores usando logs.
+1. Create a search with `switchMap`.
+2. Simulate multiple requirements in parallel with `mergeMap`.
+3. Simulate a rescue queue with `concatMap`.
+4. Simulate login button with `exhaustMap`.
+5. Compare the behavior of the four operators using logs.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Por que `switchMap` e bom para autocomplete?
-2. Por que `mergeMap` pode causar problemas se usado errado?
-3. Quando a ordem das requisicoes importa?
-4. Por que `exhaustMap` e util em botao de submit?
-5. Qual operador voce usaria para evitar duplo clique em login?
+1. Why? `switchMap` and good for self-complete?
+2. Why? `mergeMap` can cause problems if used wrong?
+3. When the Order of Requisics Matters?
+4. Why? `exhaustMap` and useful in submit boot?
+5. Which operator would you use to avoid double click login?
 
 ## Checkpoint
 
-Responda com exemplos reais:
+Answer with real examples:
 
-> Quando eu usaria switchMap, mergeMap, concatMap e exhaustMap?
+> When I would use switchMap, mergeMap, concatMap and exhaustMap?
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir escolher entre os quatro operadores sem decorar, olhando para cancelamento, paralelismo, ordem e ignorar repeticao.
+You can advance when you can choose from the four operators without memorizing, looking for cancellation, parallelism, order and skip repeat.

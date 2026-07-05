@@ -1,30 +1,30 @@
-# Lab Fase 7 - Conventional Commits
+# Lab Phase 7 - Conventional Commits
 
-## Missao
+## Mission
 
-Em um repositorio de teste:
+In a test repository:
 
-1. Fazer um commit `feat`.
-2. Fazer um commit `fix`.
-3. Fazer um commit `docs`.
-4. Fazer um commit `refactor`.
-5. Fazer um commit `test`.
-6. Fazer um commit com escopo.
-7. Criar uma mensagem invalida de proposito.
-8. Configurar commitlint ou Commitsar.
-9. Ver a ferramenta bloquear a mensagem invalida.
-10. Corrigir a mensagem.
+1. Commit `feat`.
+2. Commit `fix`.
+3. Commit `docs`.
+4. Commit `refactor`.
+5. Commit `test`.
+6. Make a commit with scope.
+7. Create an invalid commit message.
+8. Configure commitlint or Commitsar.
+9. See the tool block an invalid message.
+10. Fix the message.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Crie um arquivo `COMMITS.md` listando:
+Create a file `COMMITS.md` listing:
 
 ```txt
 Commit:
-Tipo escolhido:
-Por que esse tipo faz sentido:
+Chosen type:
+Why does this type make sense?:
 ```
 
-## Criterio de sucesso
+## Success criteria
 
-Voce deve conseguir explicar a diferenca entre `feat`, `fix`, `chore`, `refactor`, `docs` e `test`.
+You must be able to explain the difference between `feat`, `fix`, `chore`, `refactor`, `docs` and `test`.

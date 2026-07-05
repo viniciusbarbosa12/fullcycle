@@ -1,10 +1,10 @@
-# Fase 9 - Arquitetura com RxJS
+# Phase 9 - Architecture with RxJS
 
-## Objetivo
+## Objective
 
-Organizar RxJS em arquitetura limpa, evitando componente gordo e servico baguncado.
+Organize RxJS in clean architecture, avoiding fat component and messy service.
 
-## Conceitos principais
+## Main concepts
 
 - Component.
 - Service.
@@ -16,60 +16,60 @@ Organizar RxJS em arquitetura limpa, evitando componente gordo e servico bagunca
 - Stream composition.
 - `shareReplay`.
 - Cache.
-- Tratamento de erro centralizado.
-- Cancelamento de requests.
-- Separacao de responsabilidades.
+- Centralised error handling.
+- Cancellation of requests.
+- Separation of responsibilities.
 
-## Arquitetura base
+## Base architecture
 
 ```txt
 Component
-  consome dados e dispara acoes
+  consumes data and triggers actions
 
 Facade
-  organiza fluxos, estado e regras da tela
+  organizes streams, state and screen rules
 
 Service
-  chama API e lida com dados externos
+  calls API and handles external data
 ```
 
-## Exemplo real de projeto
+## Real project example
 
-Em uma listagem de produtos, o componente nao precisa saber montar query HTTP. Ele chama `facade.setSearch`, `facade.setPage` e consome `facade.productsState$`.
+In a product listing, the component does not need to know how to mount HTTP query. He calls `facade.setSearch`, `facade.setPage` and consumes `facade.productsState$`.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-09-architecture/`:
+Implement on `../labs/fase-09-architecture/`:
 
-1. Criar um Service para simular API.
-2. Criar uma Facade para organizar filtros, paginacao e dados.
-3. Criar um Component que consome apenas Observables da Facade.
-4. Usar `async pipe` no template.
-5. Implementar cache com `shareReplay`.
-6. Separar UI state de server state.
+1. Create Service to simulate API.
+2. Create a Facade to organize filters, page and data.
+3. Create a Component that only consumes Facade Observables.
+4. Use `async pipe` no template.
+5. Implement cache with `shareReplay`.
+6. Separate UI state of server state.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Por que componente nao deveria saber tudo?
-2. Qual a diferenca entre Service e Facade?
-3. O que e UI state?
-4. O que e server state?
-5. Quando `shareReplay` ajuda?
-6. Quando `shareReplay` pode causar problema?
+1. Why component shouldn't know everything?
+2. What's the difference between Service and Facade??
+3. What is UI state?
+4. What's state server?
+5. When `shareReplay` help?
+6. When `shareReplay` can cause trouble?
 
 ## Checkpoint
 
-Crie uma feature Angular usando:
+Create a feature Angular using:
 
 - Component;
 - Facade;
 - Service;
-- Observable para lista;
-- Observable para loading;
-- Observable para erro;
-- Observable para filtros;
-- cache simples.
+- Observable for List;
+- Observable for loading;
+- Observable for error;
+- Observable for filters;
+- simple cache.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando a regra de fluxo estiver na Facade, acesso externo no Service e template/eventos no Component.
+You can advance when the flow rule is in Facade, external access in Service and template/events in Component.

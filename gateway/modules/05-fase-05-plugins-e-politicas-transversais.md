@@ -1,56 +1,56 @@
-# Fase 5: Plugins e políticas transversais
+# Phase 5: Cross-cutting plugins and policies
 
-## Aulas
+## Lessons
 
 - Plugins
 - Correlation id
 - Rate limiting ip
-- Response tranformer
+- Response transformer
 
-## Objetivo
+## Objective
 
-Entender como plugins permitem aplicar políticas transversais sem alterar o código das APIs.
+Understanding how plugins allow you to apply cross policies without changing API code.
 
-Essa é uma das partes mais importantes do curso. O gateway começa a brilhar quando ele centraliza comportamentos como correlação de requisições, limite de taxa, transformação de resposta e regras de segurança.
+This is one of the most important parts of the course. The gateway begins to shine when it centralizes behaviors such as request correlation, rate limit, response transformation and security rules.
 
-## Conceitos principais
+## Main concepts
 
 - Plugin
-- Plugin global
-- Plugin por serviço
-- Plugin por rota
+- Global Plugin
+- Plugin per service
+- Plugin per route
 - Correlation ID
 - Traceability
 - Rate limiting
-- Limite por IP
-- Proteção contra abuso
-- Response transformer
-- Padronização de respostas
-- Políticas transversais
+- IP Limit
+- Protection against abuse
+- Response Transformer
+- Standardization of responses
+- Cross-cutting policies
 
-## Exercícios práticos
+## Practical exercises
 
-- Ativar plugin de correlation id.
-- Fazer uma request e verificar o header gerado.
-- Ativar rate limiting por IP.
-- Fazer várias chamadas até atingir o limite.
-- Observar o comportamento quando estoura o limite.
-- Ativar response transformer.
-- Alterar ou remover algum header de resposta.
-- Documentar em quais camadas cada plugin foi aplicado.
+- Enable correlation id plugin.
+- Request and check the generated header.
+- Enable IP-limited rate.
+- Make multiple calls to reach the limit.
+- Observe behavior when the limit is blown.
+- Enable response transform.
+- Change or remove some response header.
+- Document in which layers each plugin has been applied.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é um plugin no Kong?
-- Quando aplicar plugin global?
-- Quando aplicar plugin por serviço?
-- Quando aplicar plugin por rota?
-- Por que correlation id ajuda em produção?
-- Rate limiting protege contra quais problemas?
-- Qual o risco de rate limiting mal configurado?
-- O que response transformer resolve?
-- O que eu não deveria transformar no gateway?
+- What is a plugin in Kong?
+- When applying global plugin?
+- When applying plugin per service?
+- When applying plugin per route?
+- Why correlation id production aid?
+- Rate limiting protects against which problems?
+- What is the risk of wrongly configured rate limiting?
+- What Response Transformer Solves?
+- What I shouldn't turn into the gateway?
 
 ## Checkpoint
 
-Ter uma rota protegida por rate limiting, com correlation id ativo e resposta transformada de forma controlada.
+Have a route protected by rate limiting, with active correlation id and response transformed in a controlled way.

@@ -1,29 +1,29 @@
-# Lab Fase 1 - Código-fonte e visão geral do curso
+# Lab Phase 1 - Source code and course overview
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Clonar ou criar o projeto base.
-- Identificar o Dockerfile.
-- Identificar a aplicação.
-- Identificar a porta usada pela aplicação.
-- Criar um README explicando a estrutura.
-- Rodar a aplicação localmente antes de colocar no Kubernetes.
+- Clone or create the base project.
+- Identify Dockerfile.
+- Identify application.
+- Identify the port used by the application.
+- Create a README explaining the structure.
+- Rotate the application locally before placing on Kubernetes.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Antes de subir uma aplicação no Kubernetes, o que preciso saber sobre ela?
-- Por que é importante testar a aplicação fora do cluster primeiro?
-- Como eu identificaria se um problema está na aplicação, na imagem Docker ou no Kubernetes?
+- Before I climb an app on Kubernetes, what I need to know about it?
+- Why it is important to test the application outside the cluster first?
+- How would I identify if a problem is in the application, Docker image or Kubernetes?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar um README com:
+Create a README with:
 
-- Como rodar a aplicação localmente
-- Como gerar a imagem Docker
-- Qual porta a aplicação usa
-- Qual será o objetivo de rodar essa aplicação no Kubernetes
+- How to run the application locally
+- How to generate the Docker image
+- Which port does the application use
+- What will be the goal of running this application in Kubernetes

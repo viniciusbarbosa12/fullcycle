@@ -1,44 +1,44 @@
-# Lab Fase 9 - Projeto final
+# Lab Phase 9 - Final project
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 9 antes de pedir revisao.
+Practice Phase 9 concepts before requesting review.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um ambiente local com Kong API Gateway contendo:
+Create a local environment with Kong API Gateway containing:
 
 - Docker Compose
-- Pelo menos 2 APIs internas
-- Kong rodando localmente
-- Admin API acessível
-- Interface administrativa, se usada
-- Services configurados
-- Routes configuradas
-- Plugin de correlation id
-- Plugin de rate limiting por IP
-- Plugin de response transformer
-- Consumers configurados
-- Basic Auth em uma rota
-- Key Authentication em outra rota
-- README explicando a arquitetura
-- Guia de troubleshooting
-- Seção de observabilidade e métricas importantes
-- Matriz de decisão explicando por que Kong foi escolhido nesse cenário
+- At least 2 internal APIs
+- Kong running locally
+- Affordable Admin API
+- Administrative interface if used
+- Services configured
+- Routes configured
+- Correlation plugin id
+- IP Limiting Rate Plugin
+- Response Transformer Plugin
+- Configured Consumers
+- Basic Auth on a route
+- Key Authentication on another route
+- README explaining the architecture
+- Troubleshooting Guide
+- Observability section and important metrics
+- Decision matrix explaining why Kong was chosen in this scenario
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Entendimento do papel de API Gateway
-- Kong rodando corretamente
-- Services e Routes funcionando
-- Plugins aplicados corretamente
-- Rate limiting funcionando
-- Correlation id presente nas requests
-- Consumers configurados
-- Autenticação funcionando
-- README claro
-- Entendimento dos riscos
-- Capacidade de explicar vantagens e desvantagens
-- Capacidade de operar e debugar o gateway
+- API Gateway role Understanding
+- Kong running correctly
+- Services and Routes running
+- Plugins applied correctly
+- Rate limiting working
+- Correlation id present in requests
+- Configured Consumers
+- Authentication working
+- Clear README
+- Risk understanding
+- Ability to explain advantages and disadvantages
+- Ability to operate and debugging the gateway

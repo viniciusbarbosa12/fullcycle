@@ -1,57 +1,57 @@
-# Fase 2: Elastic Stack
+# Phase 2: Elastic Stack
 
-## Aulas
+## Lessons
 
-- Repositório do projeto
-- Introdução ao Elastic Stack
-- Mais sobre Logstash
-- Sobre o Kibana
-- Beats e Elastic Stack
-- Iniciando com Elasticsearch e Kibana
-- Para usuários Linux
-- Visão geral do Kibana
+- Project Repository
+- Introduction to Elastic Stack
+- More about Logstash
+- About Kibana
+- Beats and Elastic Stack
+- Starting with Elasticsearch and Kibana
+- For Linux users
+- Kibana Overview
 
-## Objetivo
+## Objective
 
-Entender o papel da Elastic Stack na coleta, armazenamento, busca e visualização de dados de observabilidade.
+Understanding the role of Elastic Stack in collecting, storing, searching and viewing observability data.
 
-Aqui o foco é entender a função de cada peça: Elasticsearch armazena e indexa dados, Logstash processa e transforma, Beats coleta dados de várias fontes e Kibana permite consultar e visualizar.
+Here the focus is to understand the function of each piece: Elasticsearch stores and indexes data, Logstash processes and transforms, Beats collects data from various sources and Kibana allows you to query and view.
 
-## Conceitos principais
+## Main concepts
 
 - Elastic Stack
 - Elasticsearch
 - Logstash
 - Kibana
 - Beats
-- Indexação
-- Documentos
-- Índices
-- Busca
+- Index
+- Documents
+- Indexes
+- Search
 - Dashboards
-- Ingestão de dados
-- Pipeline de logs
-- Visualização
+- Data intake
+- Pipeline logs
+- Preview
 
-## Exercícios práticos
+## Practical exercises
 
-- Clonar ou criar o projeto base.
-- Subir Elasticsearch e Kibana localmente.
-- Acessar o Kibana.
-- Criar um README explicando cada componente da stack.
-- Identificar o fluxo de dados: origem -> coleta -> processamento -> armazenamento -> visualização.
-- Criar um desenho simples da arquitetura.
+- Clone or create the base project.
+- Run Elasticsearch and Kibana locally.
+- Access Kibana.
+- Create a README explaining each stack component.
+- Identify data flow: source -> collection -> processing -> storage -> viewing.
+- Create a simple architecture design.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual o papel do Elasticsearch?
-- Qual o papel do Kibana?
-- Qual o papel do Logstash?
-- O que são Beats?
-- Por que logs precisam ser indexados?
-- O que eu ganho ao centralizar logs?
-- Qual problema aparece quando logs ficam espalhados em vários servidores?
+- What is the role of Elasticsearch?
+- What's Kibana's role??
+- What is the role of Logstash??
+- What Beats Are?
+- Why logs need to be indexed?
+- What do I get by centralizing logs?
+- What problem appears when logs are scattered on multiple servers?
 
 ## Checkpoint
 
-Ter Elasticsearch e Kibana rodando e conseguir explicar o papel de cada componente da Elastic Stack.
+Having Elasticsearch and Kibana running and being able to explain the role of each Elastic Stack component.

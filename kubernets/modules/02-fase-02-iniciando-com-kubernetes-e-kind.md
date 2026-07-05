@@ -1,61 +1,61 @@
-# Fase 2: Iniciando com Kubernetes e Kind
+# Phase 2: Starting with Kubernetes and Kind
 
-## Aulas
+## Lessons
 
-- Introdução ao Kubernetes
-- Instalando Kind
-- Dica start Kind
-- Criando primeiro cluster com Kind
-- Criando cluster multi node
-- Mudança de contexto e extensão do VSCode
+- Introduction to Kubernetes
+- Installing Kind
+- Tip start Kind
+- Creating first cluster with Kind
+- Creating multi node cluster
+- Changing context and using the VSCode extension
 
-## Objetivo
+## Objective
 
-Entender o que é Kubernetes e criar um ambiente local seguro para estudar.
+Understanding Kubernetes and creating a safe local environment to study.
 
-Kind permite rodar clusters Kubernetes locais usando containers Docker. É ótimo para aprender porque você consegue criar, destruir e testar clusters sem depender de cloud.
+Kind lets you rotate clusters Local Kubernetes using Docker containers. It's great to learn because you can create, destroy and test clusters without depending on cloud.
 
-## Conceitos principais
+## Main concepts
 
 - Kubernetes
 - Cluster
 - Node
-- Control plane
+- Control plan
 - Worker node
 - Kind
 - kubectl
 - kubeconfig
 - Context
-- Cluster multi node
-- VSCode Kubernetes extension
+- Multi node cluster
+- VSCOde Kubernetes extension
 
-## Exercícios práticos
+## Practical exercises
 
-- Instalar Kind.
-- Validar instalação do kubectl.
-- Criar um cluster local.
-- Listar nodes do cluster.
-- Criar um cluster multi node.
-- Alternar contexto entre clusters.
-- Usar extensão do VSCode para visualizar objetos do cluster.
-- Criar um README com comandos básicos.
+- Install Kind.
+- Validate kubectl installation.
+- Create a local cluster.
+- List cluster nodes.
+- Create a multi node cluster.
+- Toggle context between clusters.
+- Use VScode extension to view cluster objects.
+- Create a README with basic commands.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é Kubernetes?
-- O que é um cluster?
-- Qual a diferença entre control plane e worker node?
-- O que é Kind?
-- Por que estudar Kubernetes localmente antes de usar cloud?
-- O que é contexto no kubectl?
-- O que pode dar errado se eu estiver no contexto errado?
+- What Kubernetes is?
+- What's a cluster?
+- What is the difference between control plane and worker node?
+- What Kind is?
+- Why study Kubernetes locally before using cloud?
+- What is context in kubectl?
+- What can go wrong if I'm in the wrong context?
 
 ## Checkpoint
 
-Ter um cluster Kind funcionando e conseguir explicar:
+Having a Kind cluster working and being able to explain:
 
-- Quantos nodes ele tem
-- Qual contexto está ativo
-- Como listar recursos
-- Como trocar de contexto
-- Por que um cluster local ajuda no aprendizado
+- How many nodes does he have?
+- Which context is active
+- How to list resources
+- How to change context
+- Why a local cluster helps in learning

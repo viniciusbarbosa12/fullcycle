@@ -1,21 +1,21 @@
-# Fase 3: Pods, ReplicaSet, Deployment e Rollout
+# Phase 3: Pods, ReplicaSet, Deployment and Rollout
 
-## Aulas
+## Lessons
 
-- Criando aplicação exemplo e imagem
-- Trabalhando com Pods
-- Criando primeira ReplicaSet
-- O problema do ReplicaSet
-- Implementando Deployment
-- Rollout e Revisões
+- Creating an example app and image
+- Working with Pods
+- Creating First ReplicaSet
+- The problem of ReplicaSet
+- Deployment Implementation
+- Rollout and revisions
 
-## Objetivo
+## Objective
 
-Entender como o Kubernetes roda aplicações e por que normalmente usamos Deployment em vez de criar Pod direto.
+Understand how Kubernetes runs applications and why we usually use Deployment instead of creating Direct Pod.
 
-Pod é a menor unidade de execução. ReplicaSet mantém quantidade de réplicas. Deployment gerencia ReplicaSets, atualizações, rollbacks e revisões.
+Pod is the smallest execution unit. ReplicaSet maintains amount of replicas. Deployment manages ReplicaSets, updates, rollbacks and revisions.
 
-## Conceitos principais
+## Main concepts
 
 - Pod
 - Container
@@ -29,32 +29,32 @@ Pod é a menor unidade de execução. ReplicaSet mantém quantidade de réplicas
 - Labels
 - Selectors
 - Declarative configuration
-- Imperative vs declarative
+- Imperative vs. declarative
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar imagem da aplicação.
-- Criar um Pod manualmente.
-- Ver logs do Pod.
-- Executar comando dentro do Pod.
-- Deletar Pod e observar comportamento.
-- Criar ReplicaSet com múltiplas réplicas.
-- Alterar imagem e entender limitação do ReplicaSet.
-- Criar Deployment.
-- Fazer rollout de nova versão.
-- Fazer rollback para versão anterior.
-- Listar histórico de revisões.
+- Create Application Image.
+- Create Pod manually.
+- View Pod logs.
+- Run command within Pod.
+- Delete Pod and observe behavior.
+- Create ReplicaSet with multiple replicas.
+- Change image and understand ReplicaSet limitation.
+- Create Deployment.
+- Rollout new version.
+- Rollback to previous version.
+- List revision history.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que não é comum usar Pod direto em produção?
-- O que ReplicaSet resolve?
-- Qual o problema de usar ReplicaSet diretamente?
-- O que Deployment adiciona?
-- O que é desired state?
-- O que acontece quando eu deleto um Pod gerenciado por Deployment?
-- Como rollback ajuda em produção?
+- Why it is not common to use Direct pod in production?
+- What ReplicaSet Solves?
+- What's wrong with using ReplicaSet directly?
+- What Deployment Adds?
+- What is desired state?
+- What happens when I delete a Pod managed by Deployment?
+- How rollback aid in production?
 
 ## Checkpoint
 
-Ter uma aplicação rodando via Deployment, com múltiplas réplicas, rollout e rollback funcionando.
+Have an application running via Deployment, with multiple replicas, rollout and rollback working.

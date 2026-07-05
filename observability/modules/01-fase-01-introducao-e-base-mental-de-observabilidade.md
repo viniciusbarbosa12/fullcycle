@@ -1,56 +1,56 @@
-# Fase 1: Introdução e base mental de observabilidade
+# Phase 1: Introduction and mental model of observability
 
-## Aulas
+## Lessons
 
-- Introdução
-- O que realmente e observabilidade
-- Observabilidade vs Monitoramento
-- Os 3 pilares
+- Introduction
+- What Really Is Observability
+- Observability vs Monitoring
+- The 3 pillars
 
-## Objetivo
+## Objective
 
-Entender o que é observabilidade antes de sair instalando ferramenta.
+Understand what observability is before leaving installing tool.
 
-Observabilidade não é só ter gráficos bonitos. É conseguir responder perguntas sobre o sistema sem precisar adivinhar. É saber investigar por que uma API ficou lenta, por que uma requisição falhou, por que um container reiniciou ou por que um cliente específico está tendo erro.
+Observability isn't just about having nice graphics. It's to be able to answer questions about the system without having to guess. It is knowing to investigate why an API got slow, why a request failed, why a container restarted or why a specific client is having error.
 
-## Conceitos principais
+## Main concepts
 
-- Observabilidade
-- Monitoramento
+- Observability
+- Monitoring
 - Logs
-- Métricas
+- Metrics
 - Traces
-- Telemetria
-- Incidentes
+- Telemetry
+- Incidents
 - Troubleshooting
-- Sinais do sistema
-- Causa raiz
-- Tempo de resposta
-- Erros
-- Saturação
-- Disponibilidade
+- System signals
+- Root Cause
+- Response time
+- Errors
+- Saturation
+- Availability
 
-## Exercícios práticos
+## Practical exercises
 
-- Explicar com minhas palavras o que é observabilidade.
-- Listar exemplos de logs, métricas e traces.
-- Criar uma tabela comparando monitoramento e observabilidade.
-- Descrever um incidente fictício em produção.
-- Explicar quais dados eu precisaria para investigar esse incidente.
-- Criar um checklist básico de investigação.
+- Explain with my words what observability is.
+- List examples of logs, metrics and dashes.
+- Create a table comparing monitoring and observability.
+- Describe a fictional incident in production.
+- Explain what data I would need to investigate this incident..
+- Create a basic search checklist.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre monitoramento e observabilidade?
-- Por que logs sozinhos não resolvem tudo?
-- Por que métricas sozinhas não resolvem tudo?
-- O que traces mostram que logs e métricas não mostram tão bem?
-- O que significa investigar causa raiz?
-- Como observabilidade ajuda em sistemas distribuídos?
-- Que tipo de pergunta eu deveria conseguir responder olhando minha stack de observabilidade?
+- What is the difference between monitoring and observability?
+- Why don't logs alone solve everything??
+- Why metrics alone don't solve everything?
+- What traces show that logs and metrics don't show so well?
+- Which means investigating root cause?
+- As observability helps in distributed systems?
+- What kind of question should I be able to answer by looking at my observability stack?
 
 ## Checkpoint
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Qual problema real a observabilidade resolve em uma aplicação rodando em produção?
+> What real problem does observability solve in an application running in production?

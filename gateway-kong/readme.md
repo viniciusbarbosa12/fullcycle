@@ -1,59 +1,59 @@
-# Plano de Aprendizado Kong no Kubernetes, APIOps, GitOps e Testes de Carga
+# Learning Plan: Kong on Kubernetes, APIOps, GitOps and Load Testing
 
-Este plano foi criado para estudar Kong no Kubernetes de forma prática, com foco em aprendizado real.
+This plan was designed to study Kong in Kubernetes in a practical way, focusing on real learning.
 
-A ideia não é apenas assistir às aulas, mas entender como o Kong funciona dentro de um cluster Kubernetes, como usar Ingress Controller, CRDs, plugins, autenticação com OpenID, APIOps, GitOps, validação de contratos OpenAPI, pipelines com Argo, testes de carga com K6/Testkube e operação em ambientes produtivos.
+The idea is not just to watch lessons, but to understand how Kong works within a Kubernetes cluster, how to use Ingress Controller, CRDs, plugins, OpenID authentication, APIOps, GitOps, OpenAPI contract validation, Argo pipelines, K6/Testkube load testing and operation in production environments.
 
-O objetivo é sair desse curso conseguindo implementar e operar Kong em Kubernetes com uma visão mais profissional, entendendo não só “como configurar”, mas também por que cada decisão existe.
+The goal is to leave this course able to implement and operate Kong in Kubernetes with a more professional view, understanding not only “how to configure”, but also why each decision exists.
 
-## Como vamos estudar
+## How We Will Study
 
-Sempre que eu iniciar uma nova aula, a mentoria deve seguir este formato:
+Whenever I start a new lesson, mentoring should follow this format:
 
-1. Explicar os conceitos de forma clara e gradual.
-2. Dividir assuntos grandes em partes pequenas.
-3. Propor exercícios práticos para eu implementar sozinho.
-4. Evitar entregar a solução completa de primeira.
-5. Fazer perguntas que me levem a raciocinar antes de responder.
-6. Se eu pedir ajuda, dar apenas dicas ou pequenos trechos de YAML/comandos.
-7. Só mostrar a solução completa se eu pedir explicitamente ou depois que eu realmente tentar resolver.
+1. Explain concepts clearly and gradually.
+2. Split big subjects into small parts.
+3. Propose practical exercises for me to implement on my own.
+4. Avoid delivering the complete solution upfront.
+5. Ask questions that lead me to reason before answering.
+6. If I ask for help, just give hints or small stretches of YAML/commands.
+7. Only show the complete solution if I ask explicitly or after I really try to solve.
 
-Quando eu terminar um exercício, a revisão deve seguir este formato:
+When I finish an exercise, the review should follow this format:
 
-1. Fazer uma revisão profissional do que eu fiz.
-2. Apontar erros, melhorias e boas práticas.
-3. Explicar o motivo de cada sugestão.
-4. Dizer o que eu fiz bem.
-5. Dizer o que ainda preciso estudar.
-6. Relacionar o conteúdo com cenários reais de Kubernetes, API Gateway, plataforma e produção.
+1. Do a professional review of what I did.
+2. Point out errors, improvements and good practices.
+3. Explain the reason for each suggestion.
+4. Say what I did right.
+5. Tell me what I still need to study.
+6. Connect the content with real Kubernetes scenarios, API Gateway, platform and production.
 
-O objetivo é priorizar aprendizado profundo, não velocidade.
+The goal is to prioritize deep learning, not speed.
 
-## Estrutura
+## Structure
 
-- `modules/`: fases do plano de mentoria.
-- `labs/`: exercicios e desafios para voce implementar.
-- `examples/`: exemplos prontos de referencia, para consultar depois da tentativa.
-- `final-project/`: guia da consolidacao final do curso.
+- `modules/`: phases of the mentoring plan.
+- `labs/`: exercises and challenges for you to implement.
+- `examples/`: ready reference examples to consult after the attempt.
+- `final-project/`: course final consolidation guide.
 
-## Grade do curso
+## Course Outline
 
-### Conceitos Básicos
+### Basic Concepts
 
-- Principais conceitos - 04:49
-- Kubernetes ingress kong - 09:30
-- Modelos deployment kong kubernetes - 08:20
-- Instalando kong - 13:14
-- Ferramentas adicionais - 07:00
-- Modificações no repositório - sem duração
+- Main concepts - 04:49
+- Kong Kubernetes Ingress - 09:30
+- Kong Kubernetes deployment models - 08:20
+- Installing kong - 13:14
+- Additional tools - 07:00
+- Changes in repository - no duration
 
-### Código-fonte
+### Source code
 
-- Código-fonte - sem duração
+- Source code - no duration
 
 ### Kong & Kubernetes
 
-- Crd plugins - 07:49
+- CRD plugins - 07:49
 - Kong ingress - 12:23
 - Open id provider - 10:21
 - Kong openid plugin - 14:51
@@ -62,112 +62,112 @@ O objetivo é priorizar aprendizado profundo, não velocidade.
 
 - APIOps - 10:53
 - GitOps - 07:38
-- Ferramentas necessárias - 05:38
-- Validando openapi lint - 09:55
-- Checando contratos - 09:32
-- Instalando_argo - 14:47
-- Rodando pipeline - 14:25
+- Tools required - 05:38
+- Validating openapi lint - 09:55
+- Checking contracts - 09:32
+- Installing argo - 14:47
+- Running pipeline - 14:25
 
-### Iniciando com Testes de Carga
+### Starting with Load Testing
 
 - K6 testkube - 12:52
-- Preparando cluster - 12:58
-- Aplicando cargas - 21:38
+- Preparing Cluster - 12:58
+- Applying load - 21:38
 
-### Kong em ambientes Produtivos
+### Kong in production environments
 
-- Configurando apps logs - 07:25
-- Configurando coleta logs kong - 19:45
-- Analisando kong - 13:22
+- Setting up apps logs - 07:25
+- Setting up kong logs - 19:45
+- Analyzing kong - 13:22
 
-## Fases
+## Phases
 
-0. [Como vamos estudar](modules/00-como-vamos-estudar.md)
-1. [Conceitos básicos de Kong no Kubernetes](modules/01-fase-01-conceitos-basicos-de-kong-no-kubernetes.md)
-2. [Código-fonte e projeto base](modules/02-fase-02-codigo-fonte-e-projeto-base.md)
-3. [Kong & Kubernetes na prática](modules/03-fase-03-kong-e-kubernetes-na-pratica.md)
-4. [APIOps e GitOps](modules/04-fase-04-apiops-e-gitops.md)
-5. [Testes de carga com K6 e Testkube](modules/05-fase-05-testes-de-carga-com-k6-e-testkube.md)
-6. [Kong em ambientes produtivos](modules/06-fase-06-kong-em-ambientes-produtivos.md)
-7. [Projeto final](modules/07-fase-07-projeto-final.md)
-8. [Perguntas classicas de entrevista](modules/08-perguntas-entrevista.md)
+0. [How We Will Study](modules/00-como-vamos-estudar.md)
+1. [Basic concepts of Kong in Kubernetes](modules/01-fase-01-conceitos-basicos-de-kong-no-kubernetes.md)
+2. [Source code and base project](modules/02-fase-02-codigo-fonte-e-projeto-base.md)
+3. [Kong & Kubernetes in practice](modules/03-fase-03-kong-e-kubernetes-na-pratica.md)
+4. [APIOps and GitOps](modules/04-fase-04-apiops-e-gitops.md)
+5. [K6 and Testkube load tests](modules/05-fase-05-testes-de-carga-com-k6-e-testkube.md)
+6. [Kong in production environments](modules/06-fase-06-kong-em-ambientes-produtivos.md)
+7. [Final project](modules/07-fase-07-projeto-final.md)
+8. [Classic interview questions](modules/08-perguntas-entrevista.md)
 
-## Ritmo recomendado
+## Recommended rhythm
 
-O curso tem cerca de 4h09 de videoaulas, mas o foco é praticar bastante.
+The course has about 4h09 of video lessons, but the focus is to practice a lot.
 
-### Sugestão de ritmo em 10 dias
+### Suggestion of rhythm in 10 days
 
-#### Dia 1
+#### Day 1
 
-- Principais conceitos
+- Main concepts
 - Kubernetes Ingress Kong
-- Diferença entre Gateway, Ingress e Ingress Controller
+- Difference between Gateway, Ingress and Ingress Controller
 
-#### Dia 2
+#### Day 2
 
-- Modelos de deployment
-- Instalação do Kong
-- Ferramentas adicionais
+- Deployment models
+- Kong installation
+- Additional tools
 
-#### Dia 3
+#### Day 3
 
-- Código-fonte
-- Estrutura do projeto
-- Primeiros manifests
+- Source code
+- Project structure
+- First demonstrations
 
-#### Dia 4
+#### Day 4
 
 - CRD plugins
 - Kong Ingress
-- Plugins declarativos
+- Declarative plugins
 
-#### Dia 5
+#### Day 5
 
 - OpenID Provider
 - Kong OpenID plugin
-- Autenticação no gateway
+- Gateway Authentication
 
-#### Dia 6
+#### Day 6
 
 - APIOps
 - GitOps
-- Ferramentas necessárias
+- Tools required
 
-#### Dia 7
+#### Day 7
 
 - OpenAPI lint
-- Checagem de contratos
+- Checking contracts
 - Pipeline
 
-#### Dia 8
+#### Day 8
 
 - Argo CD
-- Rodando pipeline
-- Git como fonte da verdade
+- Running pipeline
+- Git as a source of truth
 
-#### Dia 9
+#### Day 9
 
 - K6
 - Testkube
-- Testes de carga
+- Load tests
 
-#### Dia 10
+#### Day 10
 
-- Logs em produção
-- Coleta de logs do Kong
-- Análise e troubleshooting
+- Logs in production
+- Kong Log Collection
+- Analysis and troubleshooting
 
-## Primeira missao
+## First Mission
 
-Assistir às aulas:
+Watch the lessons:
 
-> Principais conceitos
-> Kubernetes ingress kong
-> Modelos deployment kong kubernetes
+> Main concepts
+> Kong Kubernetes Ingress
+> Kong Kubernetes deployment models
 
-Depois responder com minhas palavras:
+Then answer with my words:
 
-> Qual a diferença prática entre usar Kong como API Gateway comum e usar Kong como Ingress Controller dentro do Kubernetes?
+> What is the practical difference between using Kong as a standard API Gateway and using Kong as an Ingress Controller within Kubernetes?
 
-Não precisa ser uma resposta perfeita. O importante é mostrar meu raciocínio inicial para depois corrigir, ajustar e aprofundar.
+It does not have to be a perfect answer. The important thing is to show my initial reasoning so we can correct, adjust and deepen.

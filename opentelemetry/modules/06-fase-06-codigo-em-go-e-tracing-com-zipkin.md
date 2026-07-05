@@ -1,56 +1,56 @@
-# Fase 6: Código em Go e tracing com Zipkin
+# Phase 6: Go Code and Tracing with Zipkin
 
-## Aulas
+## Lessons
 
-- Visitando nosso código em Go
-- Tracing na pratica com Zipkin
-- Conheça o Projeto Zipkin
+- Exploring our Go code
+- Tracing in practice with Zipkin
+- Meet the Zipkin Project
 
-## Objetivo
+## Objective
 
-Ver OpenTelemetry funcionando na prática com código e visualizar traces no Zipkin.
+See OpenTelemetry working in practice with code and view traces in Zipkin.
 
-Mesmo que o curso use Go, a ideia é entender o conceito. Depois isso se transfere para .NET, Node, Java, Python ou qualquer stack moderna.
+Even if the course uses Go, the idea is to understand the concept. Then it transfers to .NET, Node, Java, Python or any modern stack.
 
-## Conceitos principais
+## Main concepts
 
-- Código instrumentado
+- Instrument code
 - Trace
 - Span
 - Parent span
 - Child span
 - Trace ID
 - Span ID
-- Propagação de contexto
+- Context propagation
 - Zipkin
-- Visualização de traces
-- Latência por etapa
-- Caminho da requisição
+- Trace visualization
+- Latency per step
+- Request path
 
-## Exercícios práticos
+## Practical exercises
 
-- Rodar o projeto de exemplo.
-- Identificar onde a instrumentação acontece.
-- Gerar requisições para a aplicação.
-- Abrir o Zipkin.
-- Visualizar traces.
-- Identificar spans.
-- Identificar duração de cada etapa.
-- Simular uma operação lenta.
-- Observar a mudança no trace.
-- Criar um relatório simples explicando o que o trace mostrou.
+- Run the example project.
+- Identify where instrumentation happens.
+- Generate application requests.
+- Open Zipkin.
+- View traces.
+- Identify spans.
+- Identify duration of each step.
+- Simulate a slow operation.
+- Observe change in trace.
+- Create a simple report explaining what the trace showed.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é um trace?
-- O que é um span?
-- Qual a diferença entre trace e span?
-- Como o Zipkin ajuda a investigar lentidão?
-- O que é trace ID?
-- Por que propagação de contexto é essencial?
-- O que acontece se um serviço não propaga contexto?
-- Como eu identificaria qual serviço deixou a requisição lenta?
+- What is a trace?
+- What is a span?
+- What is the difference between trace and span?
+- How does Zipkin help investigate slowness?
+- What is Trace ID?
+- Why is context propagation essential?
+- What happens if a service does not propagate context?
+- How would I identify which service made the request slow?
 
 ## Checkpoint
 
-Conseguir gerar uma requisição, visualizar o trace no Zipkin e explicar o caminho completo da requisição.
+Generate a request, view the trace on Zipkin and explain the full path of the request.

@@ -1,10 +1,10 @@
-# Fase 3 - Criando Observables
+# Phase 3 - Creating Observables
 
-## Objetivo
+## Objective
 
-Aprender de onde os fluxos podem nascer.
+Learning from where flows can be born.
 
-## Conceitos principais
+## Main concepts
 
 - `of`.
 - `from`.
@@ -12,48 +12,48 @@ Aprender de onde os fluxos podem nascer.
 - `interval`.
 - `timer`.
 - `new Observable`.
-- Streams de eventos.
-- Streams de arrays.
-- Streams de Promise.
-- Streams de tempo.
+- Events Streams.
+- Streams of arrays.
+- Promise Streams.
+- Time Streams.
 
-## Conceito guia
+## Guide concept
 
-Nem todo Observable precisa ser criado manualmente. Na maioria das vezes, RxJS ja tem uma funcao pronta para transformar valores, eventos, arrays, Promises ou tempo em stream.
+Not every Observable needs to be created manually. Most of the time, RxJS already has a function ready to transform values, events, arrays, Promises or stream time.
 
-## Exemplo real de projeto
+## Real project example
 
-Um input de busca pode nascer de `fromEvent` ou de `formControl.valueChanges`. Um polling pode nascer de `timer`. Uma lista mockada pode nascer de `of`.
+A search input may be born from `fromEvent` or `formControl.valueChanges`. A polling may be born of `timer`. A mock list may be born of `of`.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-03-creating/`:
+Implement on `../labs/fase-03-creating/`:
 
-1. Usar `of` para emitir valores fixos.
-2. Usar `from` com array.
-3. Usar `from` com Promise.
-4. Usar `fromEvent` para capturar clique de botao.
-5. Usar `interval` para emitir valores a cada segundo.
-6. Usar `timer` para iniciar emissao depois de um tempo.
-7. Criar um Observable manual com `new Observable`.
+1. Use `of` to issue fixed values.
+2. Use `from` with array.
+3. Use `from` with Promise.
+4. Use `fromEvent` to capture click boot.
+5. Use `interval` to emit values every second.
+6. Use `timer` to start emissao after a while.
+7. Create a manual Observable with `new Observable`.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Quando usar `of`?
-2. Quando usar `from`?
-3. Qual a diferenca entre `interval` e `timer`?
-4. Por que evento de clique combina tao bem com Observable?
-5. Por que nem sempre eu deveria criar Observable manualmente?
+1. When to use `of`?
+2. When to use `from`?
+3. What's the difference between `interval` and `timer`?
+4. Why click event combines so well with Observable?
+5. Why shouldn't I always create Observable manually?
 
 ## Checkpoint
 
-Crie uma mini pagina com:
+Create a mini page with:
 
-- um botao;
-- um contador de cliques;
-- um timer;
-- um log mostrando as emissoes.
+- a boot;
+- a click counter;
+- a timer;
+- a log showing the issues.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando souber escolher a origem certa para um fluxo simples sem usar `new Observable` por impulso.
+You can advance when you can choose the right source for a simple flow without using `new Observable` by impulse.

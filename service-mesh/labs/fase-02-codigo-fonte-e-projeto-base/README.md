@@ -1,32 +1,32 @@
-# Lab Fase 2 - Código-fonte e projeto base
+# Lab Phase 2 - Source code and base design
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Clonar ou criar um projeto base de estudo.
-- Identificar os manifests Kubernetes.
-- Identificar os serviços da aplicação.
-- Identificar quais deployments existem.
-- Identificar labels e selectors.
-- Criar um README com a estrutura do projeto.
+- Clone or create a study base project.
+- Identify Kubernetes Manifests.
+- Identify application services.
+- Identify which deployments exist.
+- Identify labels and selectors.
+- Create a README with the project structure.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Antes de instalar Istio, o que eu preciso entender sobre a aplicação?
-- Por que labels são tão importantes para o Istio?
-- O que pode dar errado se os selectors estiverem mal definidos?
-- Como eu organizaria manifests de uma aplicação real?
+- Before installing Istio, what do I need to understand about the application?
+- Why are labels so important to Istio?
+- What can go wrong if the selectors are poorly defined?
+- How would I organize demonstrations of a real application?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar um README explicando:
+Create a README explaining:
 
-- Serviços existentes
+- Existing services
 - Deployments
 - Namespaces
 - Labels
-- Como rodar a aplicação sem Istio
-- O que será controlado pelo Istio depois
+- How to run the application without Istio
+- What will be controlled by Istio after

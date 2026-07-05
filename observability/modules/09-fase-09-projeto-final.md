@@ -1,43 +1,43 @@
-# Fase 9: Projeto final
+# Phase 9: Final project
 
-## Objetivo
+## Objective
 
-Juntar todos os conceitos em um cenário próximo de produção.
+Gather all concepts in a near production scenario.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um ambiente local de observabilidade contendo:
+Create a local observability environment containing:
 
-- Uma aplicação instrumentada
-- Logs estruturados
-- Nginx gerando logs
-- Filebeat coletando logs
-- Elasticsearch armazenando logs
-- Kibana visualizando logs
-- APM configurado
-- Prometheus coletando métricas
-- cAdvisor coletando métricas de containers
-- Grafana com dashboards
-- Métricas customizadas Gauge, Counter e Histogram
-- Alertas configurados no Grafana
-- Simulação de incidente
-- Guia de troubleshooting
-- README explicando toda a arquitetura
+- An instrumented application
+- Structured logs
+- Nginx generating logs
+- Filebeat collecting logs
+- Elasticsearch storing logs
+- Kibana viewing logs
+- APM configured
+- Prometheus collecting metrics
+- cAdvisor collecting container metrics
+- Grafana with dashboards
+- Custom metrics Gauge, Counter and Histogram
+- Alerts configured in Grafana
+- Incident simulation
+- Troubleshooting Guide
+- README explaining all architecture
 
-## Critérios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Entendimento de observabilidade
-- Diferença clara entre logs, métricas e traces
-- Elastic Stack funcionando
-- Logs centralizados
-- APM funcionando
-- Prometheus coletando métricas
-- Grafana exibindo dashboards
-- Métricas customizadas implementadas
-- Alertas disparando
-- Capacidade de investigar erro
-- Capacidade de investigar lentidão
-- README claro
-- Explicação dos trade-offs entre Elastic Stack, Prometheus e Grafana
+- Observability understanding
+- Clear difference between logs, metrics and dashes
+- Elastic Stack running
+- Centralised logs
+- APM working
+- Prometheus collecting metrics
+- Grafana displaying dashboards
+- Custom metrics implemented
+- Alerts firing.
+- Ability to investigate error
+- Ability to investigate slowness
+- Clear README
+- Explanation of trade-offs between Elastic Stack, Prometheus and Grafana

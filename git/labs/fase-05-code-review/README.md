@@ -1,29 +1,29 @@
-# Lab Fase 5 - Code Review e CODEOWNERS
+# Lab Phase 5 - Code Review and CODEOWNERS
 
-## Missao
+## Mission
 
-Em uma Pull Request de teste:
+In a Pull Request test:
 
-1. Fazer uma mudanca pequena.
-2. Revisar a propria PR antes de pedir review.
-3. Escrever pelo menos tres comentarios de review.
-4. Separar comentario bloqueante de comentario sugestivo.
-5. Criar `.github/CODEOWNERS`.
-6. Definir dono para uma pasta.
-7. Configurar review obrigatorio de CODEOWNERS.
-8. Documentar o comportamento observado.
+1. Make a small change.
+2. Review the PR itself before asking for a review.
+3. Write at least three reviews.
+4. Separate blocking commentary from suggestive commentary.
+5. Create `.github/CODEOWNERS`.
+6. Set owner to folder.
+7. Configure mandatory review of CODEOWNERS.
+8. Document observed behavior.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Crie um arquivo `REVIEW-NOTES.md` com:
+Create a file `REVIEW-NOTES.md` with:
 
 ```txt
-Comentario bloqueante:
-Comentario sugestivo:
-O que eu olhei antes de aprovar:
-Qual risco eu encontrei:
+Blocking comment:
+Suggestive comment:
+What I looked at before I approved:
+What risk did I find?:
 ```
 
-## Criterio de sucesso
+## Success criteria
 
-Voce deve conseguir justificar cada comentario de review com um risco, uma regra do projeto ou uma melhoria concreta.
+You should be able to justify each review comment with a risk, a project rule or a concrete improvement.

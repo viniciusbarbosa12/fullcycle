@@ -1,8 +1,8 @@
-# Lab Fase 4 - Operadores basicos
+# Lab Phase 4 - Basic operators
 
-## Missao
+## Mission
 
-Crie um arquivo `basic-operators.ts` ou um componente Angular simples com:
+Create a file `basic-operators.ts` or a component Simple Angular with:
 
 1. `map`.
 2. `filter`.
@@ -14,4 +14,4 @@ Crie um arquivo `basic-operators.ts` ou um componente Angular simples com:
 
 ## Checkpoint
 
-Monte uma busca fake que espera o usuario parar de digitar, ignora texto repetido e mostra o termo final no console.
+Set up a fake search that waits for the user to stop typing, skips repeated text and shows the end term on the console.

@@ -1,33 +1,33 @@
-# Lab Fase 3 - Pods, ReplicaSet, Deployment e Rollout
+# Lab Phase 3 - Pods, ReplicaSet, Deployment and Rollout
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 3 antes de pedir revisao.
+Practice Phase 3 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar imagem da aplicação.
-- Criar um Pod manualmente.
-- Ver logs do Pod.
-- Executar comando dentro do Pod.
-- Deletar Pod e observar comportamento.
-- Criar ReplicaSet com múltiplas réplicas.
-- Alterar imagem e entender limitação do ReplicaSet.
-- Criar Deployment.
-- Fazer rollout de nova versão.
-- Fazer rollback para versão anterior.
-- Listar histórico de revisões.
+- Create Application Image.
+- Create Pod manually.
+- View Pod logs.
+- Run command within Pod.
+- Delete Pod and observe behavior.
+- Create ReplicaSet with multiple replicas.
+- Change image and understand ReplicaSet limitation.
+- Create Deployment.
+- Rollout new version.
+- Rollback to previous version.
+- List revision history.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que não é comum usar Pod direto em produção?
-- O que ReplicaSet resolve?
-- Qual o problema de usar ReplicaSet diretamente?
-- O que Deployment adiciona?
-- O que é desired state?
-- O que acontece quando eu deleto um Pod gerenciado por Deployment?
-- Como rollback ajuda em produção?
+- Why it is not common to use Direct pod in production?
+- What ReplicaSet Solves?
+- What's wrong with using ReplicaSet directly?
+- What Deployment Adds?
+- What is desired state?
+- What happens when I delete a Pod managed by Deployment?
+- How rollback aid in production?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter uma aplicação rodando via Deployment, com múltiplas réplicas, rollout e rollback funcionando.
+Have an application running via Deployment, with multiple replicas, rollout and rollback working.

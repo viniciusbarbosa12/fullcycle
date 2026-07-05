@@ -1,35 +1,35 @@
-# Fase 5: Colocando em prática
+# Phase 5: Applying
 
-## Aulas
+## Lessons
 
-- Instalando framework em um container
-- Ativando entrypoint e command
-- Criando aplicação Node.js sem o Node
-- Gerando imagem da aplicação Node.js
+- Installing framework in a container
+- Activating entrypoint and command
+- Creating Node application.js without Node
+- Generating image of Node.js application
 
-## Objetivo
+## Objective
 
-Usar Docker como ambiente de desenvolvimento, não só como empacotamento final.
+Use Docker as a development environment, not only as final packaging.
 
-## Conceitos principais
+## Main concepts
 
-- Rodar comandos dentro do container
-- Usar container como ambiente de desenvolvimento
-- Evitar instalar tudo localmente
-- Gerar app usando container
-- Criar imagem de uma aplicação real
+- Rotate commands inside the container
+- Use container as a development environment
+- Avoid installing all locally
+- Generate app using container
+- Create image from a real application
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar uma aplicação Node usando container.
-- Rodar `npm install` dentro do container.
-- Criar um Dockerfile da aplicação.
-- Subir a app localmente.
-- Testar alteração de código com bind mount.
+- Create an Node application using container.
+- Rotate `npm install` inside the container.
+- Create application Dockerfile.
+- Up App Locally.
+- Test code change with bid mount.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que seria útil criar uma app Node sem instalar Node localmente?
-- Qual o risco de misturar dependências da minha máquina com dependências do container?
-- Como isso ajuda em times grandes?
-- Como isso melhora onboarding de novos devs?
+- Why it would be helpful to create an app Node without installing Node locally?
+- What is the risk of mixing my machine dependencies with container dependencies?
+- How it helps on big teams?
+- How this improves onboarding of new devs?

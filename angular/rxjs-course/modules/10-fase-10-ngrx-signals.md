@@ -1,53 +1,53 @@
-# Fase 10 - Quando usar NgRx, Signals ou outra abordagem
+# Phase 10 - When to use NgRx, Signals or another approach
 
-## Objetivo
+## Objective
 
-Entender quando RxJS simples basta e quando uma solucao de estado mais robusta faz sentido.
+Understand when simple RxJS is enough and when a more robust state solution makes sense.
 
-## Conceitos principais
+## Main concepts
 
-- RxJS puro.
+- Pure RxJS.
 - BehaviorSubject state.
 - Facade state.
 - NgRx.
 - Signal.
 - Signal Store.
-- Complexidade acidental.
-- Estado local vs global.
-- Estado derivado.
+- Accidental complexity.
+- Local vs global status.
+- Derivative State.
 
-## Conceito guia
+## Guide concept
 
-Ferramenta de estado nao e premio de senioridade. Ela deve pagar o custo que adiciona. Para feature local, RxJS + Facade pode ser suficiente. Para estado global complexo, NgRx ou Signal Store podem trazer previsibilidade.
+State tool is not seniority award. She must pay the cost she adds. For local feature, RxJS + Facade may be enough. For complex global state, NgRx or Signal Store can bring predictability.
 
-## Exemplo real de projeto
+## Real project example
 
-Uma tela isolada de busca pode ficar com Facade. Autenticacao, permissoes, carrinho global ou estado compartilhado por muitas features pode justificar uma abordagem mais estruturada.
+An isolated search screen can stay with Facade. Authentication, permissions, global cart or state shared by many features may justify a more structured approach.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente ou descreva em `../labs/fase-10-state-choices/`:
+Implement or describe in `../labs/fase-10-state-choices/`:
 
-1. Comparar estado local no componente.
-2. Comparar estado em Service com BehaviorSubject.
-3. Comparar estado em Facade.
-4. Discutir quando NgRx faria sentido.
-5. Discutir quando Signals seriam mais simples.
+1. Compare local status in the component.
+2. Compare State in Service with BehaviorSubject.
+3. Compare Facade State.
+4. Discussing when NgRx would make sense.
+5. Discuss when Signals would be simpler.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Quando RxJS puro e suficiente?
-2. Quando BehaviorSubject comeca a ficar limitado?
-3. Quando NgRx vale o custo?
-4. Quando Signals podem simplificar?
-5. O que e estado global de verdade?
+1. When RxJS pure and sufficient?
+2. When BehaviorSubject starts to be limited?
+3. When NgRx is worth the cost?
+4. When Signals can simplify?
+5. What is a global state of truth?
 
 ## Checkpoint
 
-Responda:
+Answer me.:
 
-> Em uma tela de listagem com busca, filtro e paginacao, eu usaria RxJS puro, Signals ou NgRx? Por que?
+> On a list screen with search, filter and page, would I use pure RxJS, Signals or NgRx? Why??
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir justificar a escolha de estado pelo escopo, complexidade, compartilhamento e necessidade de previsibilidade.
+You can advance when you can justify the choice of state by scope, complexity, sharing and need for predictability.

@@ -1,19 +1,19 @@
-# Lab Fase 2 - Conceitos centrais
+# Lab Phase 2 - Central concepts
 
-## Missao
+## Mission
 
-Crie um arquivo `observable-core.ts` e implemente:
+Create a file `observable-core.ts` and implement:
 
-1. Um Observable que emite um valor.
-2. Um Observable que emite varios valores.
-3. Tratamento de `next`, `error` e `complete`.
-4. Um Observable com `setInterval`.
-5. Cancelamento com `unsubscribe`.
+1. An Observer that issues a value.
+2. An Observer emitting several values.
+3. Treatment of `next`, `error` and `complete`.
+4. An Observable with `setInterval`.
+5. Cancellation with `unsubscribe`.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Explique no proprio arquivo:
+Explain in the file itself:
 
 ```txt
-Qual a diferenca entre Promise e Observable?
+What is the difference between Promise and Observable?
 ```

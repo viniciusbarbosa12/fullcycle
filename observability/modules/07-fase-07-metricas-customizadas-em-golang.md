@@ -1,23 +1,23 @@
-# Fase 7: Métricas customizadas em Golang
+# Phase 7: Custom metrics in Golang
 
-## Aulas
+## Lessons
 
-- Preparando ambiente Golang
-- Criando métrica do tipo Gauge
-- Trabalhando com Counter
-- Criando histogram
-- Ativando novo target no Prometheus
+- Preparing Golang Environment
+- Creating Gauge-type metric
+- Working with Counter
+- Creating histogram
+- Activating new target on Prometheus
 
-## Objetivo
+## Objective
 
-Aprender a criar métricas customizadas dentro da aplicação.
+Learn how to create custom metrics within the application.
 
-Aqui o jogo muda. Em vez de olhar só CPU e memória, você começa a medir coisas do negócio e do comportamento da aplicação: quantidade de pedidos, tempo de resposta, usuários ativos, falhas por tipo, filas, retries e qualquer coisa que ajude a responder perguntas reais.
+Here the game changes. Instead of just looking at CPU and memory, you start measuring business stuff and application behavior: amount of orders, response time, active users, type failures, queues, relays and anything that helps answer real questions.
 
-## Conceitos principais
+## Main concepts
 
-- Instrumentação
-- Métrica customizada
+- Instrumentation
+- Custom Metric
 - Prometheus client
 - Endpoint `/metrics`
 - Gauge
@@ -25,33 +25,33 @@ Aqui o jogo muda. Em vez de olhar só CPU e memória, você começa a medir cois
 - Histogram
 - Buckets
 - Labels
-- Target customizado
-- Métricas técnicas
-- Métricas de negócio
+- Custom Target
+- Technical metrics
+- Business metrics
 
-## Exercícios práticos
+## Practical exercises
 
-- Preparar uma aplicação Go simples.
-- Criar endpoint `/metrics`.
-- Criar uma métrica Gauge.
-- Criar uma métrica Counter.
-- Criar uma métrica Histogram.
-- Adicionar labels com cuidado.
-- Configurar Prometheus para coletar a aplicação.
-- Fazer requisições e observar as métricas mudando.
-- Documentar o que cada métrica mede.
+- Prepare an application Simple Go.
+- Create endpoint `/metrics`.
+- Create Gauge metric.
+- Create Counter metric.
+- Create a Histogram metric.
+- Add labels carefully.
+- Configure Prometheus to collect the application.
+- Make requests and observe metrics changing.
+- Document what each metric measures.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que criar métricas customizadas?
-- Quando usar Gauge?
-- Quando usar Counter?
-- Quando usar Histogram?
-- O que são buckets?
-- Qual o risco de criar labels demais?
-- Qual a diferença entre métrica técnica e métrica de negócio?
-- Que métricas eu criaria em uma API .NET real?
+- Why Create Custom Metrics?
+- When to use Gauge?
+- When to use Counter?
+- When to use Histogram?
+- What are buckets?
+- What is the risk of creating too many labels?
+- What is the difference between technical metric and business metric?
+- Which metrics I would create in a real .NET API?
 
 ## Checkpoint
 
-Ter uma aplicação expondo métricas customizadas e Prometheus coletando esses dados.
+Have an application exposing custom metrics and Prometheus collecting these data.

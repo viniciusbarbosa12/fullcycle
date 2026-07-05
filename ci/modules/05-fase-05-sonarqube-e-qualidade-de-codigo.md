@@ -1,68 +1,68 @@
-# Fase 5: SonarQube e qualidade de código
+# Phase 5: SonarQube and code quality
 
-## Aulas
+## Lessons
 
-- Iniciando com Sonarqube
-- Conceitos principais
-- Instalando primeiro projeto
-- Trabalhando com cobertura de código
-- Cobrindo código Javascript
-- Preparando ambiente para o SonarCloud
-- Executando SonarCloud
-- Trocando de Quality Gate
+- Starting with Sonarqube
+- Main concepts
+- Installing first project
+- Working with code coverage
+- Covering JavaScript Code
+- Preparing Environment for SonarCloud
+- Running SonarCloud
+- Changing Quality Gate
 
-## Objetivo
+## Objective
 
-Entender como usar SonarQube/SonarCloud para analisar qualidade de código, cobertura, bugs, vulnerabilidades, code smells e bloquear mudanças ruins usando Quality Gate.
+Understand how to use SonarQube/SonarCloud to analyze code quality, coverage, bugs, vulnerabilities, code smells and block bad changes using a Quality Gate.
 
-## Conceitos principais
+## Main concepts
 
 - SonarQube
 - SonarCloud
-- Code quality
+- Code Quality
 - Bugs
 - Vulnerabilities
-- Code smells
+- Code Smells
 - Coverage
-- Duplicação
+- Duplication
 - Quality Gate
 - Quality Profile
 - Scanner
 - Token
-- Integração com CI
-- Relatório de cobertura
-- Métricas de qualidade
+- CI integration
+- Coverage report
+- Quality metrics
 
-## Exercícios práticos
+## Practical exercises
 
-- Subir ou configurar um projeto no SonarQube/SonarCloud.
-- Gerar token de autenticação.
-- Configurar o scanner.
-- Rodar análise local ou via CI.
-- Gerar cobertura de testes.
-- Enviar cobertura para o Sonar.
-- Analisar bugs, smells e coverage.
-- Alterar o Quality Gate.
-- Fazer a pipeline falhar por qualidade.
-- Corrigir o problema e passar novamente.
+- Set up or configure a project in SonarQube/SonarCloud.
+- Generate authentication token.
+- Configure Scanner.
+- Run local analysis or via CI.
+- Generate test coverage.
+- Send coverage to Sonar.
+- Analyze bugs, code smells, and coverage.
+- Change Quality Gate.
+- Make the pipeline fail because of quality.
+- Fix the problem and pass again.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que SonarQube analisa?
-- Qual a diferença entre bug, vulnerability e code smell?
-- O que é coverage?
-- Cobertura alta garante código bom?
-- O que é Quality Gate?
-- Quando faz sentido bloquear uma PR por Quality Gate?
-- Qual o risco de configurar Quality Gate rígido demais?
-- Qual o risco de configurar Quality Gate frouxo demais?
+- What does SonarQube analyze?
+- What is the difference between bug, vulnerability and code smell?
+- What is coverage?
+- Does high coverage ensure good code?
+- What is Quality Gate?
+- When does it make sense to block a PR by Quality Gate?
+- What is the risk of setting the Quality Gate too strictly?
+- What is the risk of setting the Quality Gate too loosely?
 
 ## Checkpoint
 
-Criar uma pipeline com Sonar onde:
+Create a pipeline with Sonar where:
 
-- Testes rodam.
-- Cobertura é gerada.
-- Análise é enviada para SonarCloud/SonarQube.
-- Quality Gate é avaliado.
-- A PR só pode ser mergeada se passar nos checks.
+- Tests run.
+- Coverage is generated.
+- The analysis is sent to SonarCloud/SonarQube.
+- Quality Gate is evaluated.
+- PR can only be merged if it passes checks.

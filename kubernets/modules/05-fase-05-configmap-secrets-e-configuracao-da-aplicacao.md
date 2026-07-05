@@ -1,53 +1,53 @@
-# Fase 5: ConfigMap, Secrets e configuração da aplicação
+# Phase 5: ConfigMap, Secrets and application configuration
 
-## Aulas
+## Lessons
 
-- Entendendo objetos de configuração
-- Utilizando variáveis de ambiente
-- Variáveis de ambiente com ConfigMap
-- Injetando ConfigMap na aplicação
-- Secrets e variáveis de ambiente
+- Understanding Configuration Objects
+- Using environment variables
+- ConfigMap Environment Variables
+- Injecting ConfigMap into the application
+- Secrets and environment variables
 
-## Objetivo
+## Objective
 
-Separar configuração do código e da imagem.
+Separate code and image configuration.
 
-A imagem da aplicação deve ser a mesma entre ambientes, mas as configurações mudam. ConfigMap guarda configurações não sensíveis. Secret guarda informações sensíveis, com cuidados extras.
+The application image should be the same between environments, but the settings change. ConfigMap stores nonsensitive settings. Secret keeps sensitive information with extra care.
 
-## Conceitos principais
+## Main concepts
 
 - ConfigMap
 - Secret
 - Environment variables
-- Configuração por ambiente
-- Injeção de configuração
+- Environment Settings
+- Configuration injection
 - Decoupling
 - Twelve-Factor App
-- Dados sensíveis
-- Base64 em Secret
-- Segurança de configuração
+- Sensitive data
+- Base64 in Secret
+- Config security
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar variáveis diretamente no Deployment.
-- Criar ConfigMap.
-- Injetar ConfigMap como variável de ambiente.
-- Injetar ConfigMap como arquivo, se fizer sentido.
-- Alterar ConfigMap e observar impacto.
-- Criar Secret.
-- Injetar Secret como variável de ambiente.
-- Documentar o que deve ir em ConfigMap e o que deve ir em Secret.
+- Create variables directly in Deployment.
+- Create ConfigMap.
+- Inject ConfigMap as environment variable.
+- Inject ConfigMap as a file if it makes sense.
+- Change ConfigMap and view impact.
+- Create Secret.
+- Inject Secret as environment variable.
+- Document what should go on ConfigMap and what should go on Secret.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que não hardcodar configuração na aplicação?
-- Qual a diferença entre ConfigMap e Secret?
-- Secret do Kubernetes é criptografado automaticamente?
-- Por que base64 não é criptografia?
-- Quando usar variável de ambiente?
-- Quando montar configuração como arquivo?
-- O que acontece se eu mudar ConfigMap depois que o Pod já está rodando?
+- Why not hardcode configuration in the application?
+- What's the difference between ConfigMap and Secret?
+- Kubernetes secret is automatically encrypted?
+- Why base64 is not encryption?
+- When to use environment variable?
+- When to mount configuration as file?
+- What happens if I change ConfigMap after Pod is already running?
 
 ## Checkpoint
 
-Ter a aplicação lendo configurações via ConfigMap e Secret, sem precisar alterar a imagem Docker.
+Have the app read settings via ConfigMap and Secret without changing the Docker image.

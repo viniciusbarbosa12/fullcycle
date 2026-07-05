@@ -1,22 +1,22 @@
-# Lab Fase 3 - Imagens e Dockerfile
+# Lab Phase 3 - Images and Dockerfile
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 3 antes de pedir revisao.
+Practice Phase 3 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma imagem simples com nginx.
-- Criar uma imagem com uma aplicação Node simples.
-- Alterar `CMD` e observar o comportamento.
-- Comparar `CMD` vs `ENTRYPOINT`.
-- Buildar uma imagem com tag.
-- Rodar minha própria imagem localmente.
+- Create a simple image with nginx.
+- Create an image with an application Simple Node.
+- Change `CMD` and observe the behavior.
+- Compare `CMD` vs `ENTRYPOINT`.
+- Build a tag image.
+- Rotate my own image locally.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre imagem e container?
-- Por que Dockerfile usa camadas?
-- O que acontece quando eu mudo uma linha no Dockerfile?
-- Quando usar `CMD`?
-- Quando usar `ENTRYPOINT`?
+- What is the difference between image and container?
+- Why Dockerfile uses layers?
+- What happens when I change a line in Dockerfile?
+- When to use `CMD`?
+- When to use `ENTRYPOINT`?

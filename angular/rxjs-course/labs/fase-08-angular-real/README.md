@@ -1,16 +1,16 @@
-# Lab Fase 8 - Angular real
+# Lab Phase 8 - Real Angular
 
-## Missao
+## Mission
 
-Crie uma tela Angular com:
+Create a screen Angular with:
 
-1. Chamada HTTP fake retornando Observable.
-2. Template usando `async pipe`.
-3. Busca com Reactive Forms e `valueChanges`.
-4. Cancelamento com `switchMap`.
-5. Loading, data e error.
-6. Exemplo de `takeUntilDestroyed` quando houver subscribe manual.
+1. HTTP fake call returning Observable.
+2. Template using `async pipe`.
+3. Search with Reactive Forms and `valueChanges`.
+4. Cancellation with `switchMap`.
+5. Loading, date and error.
+6. Example of `takeUntilDestroyed` when there is manual subscribe.
 
 ## Checkpoint
 
-Explique por que cada subscribe manual que sobrou e realmente necessario.
+Explain why each remaining manual subscribe is really necessary.

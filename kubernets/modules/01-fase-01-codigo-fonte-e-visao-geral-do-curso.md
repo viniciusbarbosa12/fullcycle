@@ -1,45 +1,45 @@
-# Fase 1: Código-fonte e visão geral do curso
+# Phase 1: Source code and course overview
 
-## Aula
+## Lesson
 
-- Código-fonte do curso
+- Course source code
 
-## Objetivo
+## Objective
 
-Entender a estrutura do projeto antes de começar a criar objetos no cluster.
+Understand project structure before starting to create objects in the cluster.
 
-Antes de sair aplicando YAML, preciso saber qual aplicação será usada, qual imagem será criada, quais portas ela expõe e como o projeto está organizado.
+Before going out applying YAML, I need to know which application will be used, which image will be created, which ports it exposes and how the project is organized.
 
-## Conceitos principais
+## Main concepts
 
-- Repositório base
-- Aplicação exemplo
+- Base Repository
+- Example application
 - Dockerfile
-- Imagem Docker
-- Manifests Kubernetes
-- Organização de pastas
-- README técnico
+- Docker Image
+- Kubernetes Manifests
+- Agenda of folders
+- Technical README
 
-## Exercícios práticos
+## Practical exercises
 
-- Clonar ou criar o projeto base.
-- Identificar o Dockerfile.
-- Identificar a aplicação.
-- Identificar a porta usada pela aplicação.
-- Criar um README explicando a estrutura.
-- Rodar a aplicação localmente antes de colocar no Kubernetes.
+- Clone or create the base project.
+- Identify Dockerfile.
+- Identify application.
+- Identify the port used by the application.
+- Create a README explaining the structure.
+- Rotate the application locally before placing on Kubernetes.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Antes de subir uma aplicação no Kubernetes, o que preciso saber sobre ela?
-- Por que é importante testar a aplicação fora do cluster primeiro?
-- Como eu identificaria se um problema está na aplicação, na imagem Docker ou no Kubernetes?
+- Before I climb an app on Kubernetes, what I need to know about it?
+- Why it is important to test the application outside the cluster first?
+- How would I identify if a problem is in the application, Docker image or Kubernetes?
 
 ## Checkpoint
 
-Criar um README com:
+Create a README with:
 
-- Como rodar a aplicação localmente
-- Como gerar a imagem Docker
-- Qual porta a aplicação usa
-- Qual será o objetivo de rodar essa aplicação no Kubernetes
+- How to run the application locally
+- How to generate the Docker image
+- Which port does the application use
+- What will be the goal of running this application in Kubernetes

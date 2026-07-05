@@ -1,20 +1,20 @@
-# Lab Fase 9 - Arquitetura
+# Lab Phase 9 - Architecture
 
-## Missao
+## Mission
 
-Crie uma feature com:
+Create a feature with:
 
-1. `Service` simulando API.
-2. `Facade` organizando filtros, pagina e dados.
-3. `Component` consumindo Observables.
-4. Template com `async pipe`.
-5. Cache simples com `shareReplay`.
-6. Separacao entre UI state e server state.
+1. `Service` simulating API.
+2. `Facade` organizing filters, page and data.
+3. `Component` consuming Observables.
+4. Template with `async pipe`.
+5. Simple Cache with `shareReplay`.
+6. Separation between UI state and server state.
 
 ## Checkpoint
 
-Responda:
+Answer me.:
 
 ```txt
-O que fica no Component, o que fica na Facade e o que fica no Service?
+What's in Component, what's in Facade and what's in Service?
 ```

@@ -1,47 +1,47 @@
-# Fase 5: Deploy canário
+# Phase 5: Canary deploy
 
-## Aulas
+## Lessons
 
-- Criando deploy canário manualmente
-- Criando deploy canário em segundos com istio e kiali
-- Criando virtual service e destination rule
+- Creating Canary deployments manually
+- Creating Canary deployments in seconds with istio and kiali
+- Creating virtual service and destination rule
 
-## Objetivo
+## Objective
 
-Aprender a liberar uma versão nova aos poucos, controlando porcentagem de tráfego e reduzindo risco de deploy.
+Learn how to release a new version gradually, controlling traffic percentage and reducing deploy risk.
 
-## Conceitos principais
+## Main concepts
 
-- Deploy canário
+- Canary deploy
 - VirtualService
 - DestinationRule
 - Subsets
-- Weighted routing
-- Versão estável
-- Versão canário
-- Rollout gradual
+- Weighted Routing
+- Stable version
+- Canary version
+- Gradual rollout
 - Rollback
 - Kiali
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar versão v1 e v2 da aplicação.
-- Criar DestinationRule com subsets `v1` e `v2`.
-- Criar VirtualService roteando 90% para v1 e 10% para v2.
-- Alterar para 70/30.
-- Alterar para 50/50.
-- Simular rollback voltando 100% para v1.
-- Observar tudo no Kiali.
+- Create v1 and v2 version of the application.
+- Create DestinationRule with subsets `v1` and `v2`.
+- Create VirtualService routing 90% to v1 and 10% to v2.
+- Change to 70/30.
+- Change to 50/50.
+- Simulate rollback turning 100% to v1.
+- Watch everything in Kiali.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que canary deploy reduz risco?
-- Qual a diferença entre canary manual e canary usando Istio?
-- O que o VirtualService controla?
-- O que a DestinationRule define?
-- Como eu faria rollback rápido?
-- Que métrica eu observaria antes de aumentar tráfego para v2?
+- Why canary deployment reduces risk?
+- What is the difference between manual canary and canary using Istio?
+- What VirtualService controls?
+- What DestinationRule defines?
+- How I'd roll back fast?
+- What metric would I observe before increasing traffic to v2?
 
 ## Checkpoint
 
-Conseguir alterar o peso de tráfego entre v1 e v2 e provar o comportamento com requisições e Kiali.
+To change traffic weight between v1 and v2 and prove behavior with requests and Kiali.

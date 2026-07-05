@@ -1,34 +1,34 @@
-# Lab Fase 5 - Testes de carga com K6 e Testkube
+# Lab Phase 5 - K6 and Testkube load tests
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 5 antes de pedir revisao.
+Practice Phase 5 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar um script K6 simples.
-- Rodar teste local.
-- Instalar ou configurar Testkube.
-- Rodar teste contra rota exposta pelo Kong.
-- Aumentar carga gradualmente.
-- Observar latência e erros.
-- Configurar thresholds.
-- Fazer o teste falhar por threshold.
-- Ajustar e rodar novamente.
-- Documentar resultado.
+- Create a simple K6 script.
+- Rotate local test.
+- Install or configure Testkube.
+- Rotate test against route exposed by Kong.
+- Increase load gradually.
+- Observe latency and errors.
+- Configure threads.
+- Make the test fail by threshold.
+- Adjust and rotate again.
+- Document result.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que fazer teste de carga no API Gateway?
-- O que é RPS?
-- O que é P95?
-- O que é P99?
-- Por que média de latência pode enganar?
-- Que tipo de plugin pode impactar performance?
-- Como rate limiting aparece em um teste de carga?
-- Qual a diferença entre teste de carga e teste de stress?
-- Quando eu rodaria isso em uma pipeline?
+- Why do load test in the API Gateway?
+- What RPS is?
+- What is P95?
+- What is P99?
+- Why Sleep Mean Can Deceiving?
+- What type of plugin can impact performance?
+- How rate limiting appears in a load test?
+- What is the difference between load test and stress test?
+- When I'd run it on a pipeline?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter um teste de carga rodando contra uma rota do Kong e conseguir explicar os resultados.
+Have a load test running against a Kong route and manage to explain the results.

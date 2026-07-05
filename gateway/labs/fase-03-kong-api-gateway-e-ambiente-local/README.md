@@ -1,36 +1,36 @@
-# Lab Fase 3 - Kong API Gateway e ambiente local
+# Lab Phase 3 - Kong API Gateway and local environment
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 3 antes de pedir revisao.
+Practice Phase 3 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Subir Kong com Docker Compose.
-- Identificar porta do proxy.
-- Identificar porta da Admin API.
-- Acessar interface administrativa, se disponível.
-- Validar se o Kong está respondendo.
-- Criar uma documentação local com portas e componentes.
-- Comparar database mode e DB-less mode em alto nível.
+- Up Kong with Docker Compose.
+- Identify proxy port.
+- Identify Admin API port.
+- Access administrative interface if available.
+- Validate if Kong is responding.
+- Create local documentation with ports and components.
+- Compare database mode and DB-less mode at high level.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é o Kong?
-- Qual a diferença entre proxy e Admin API?
-- O que é control plane?
-- O que é data plane?
-- Quando usar database mode?
-- Quando usar DB-less?
-- Por que rodar com Docker Compose facilita o estudo?
-- O que o Konga facilita?
+- What is Kong??
+- What is the difference between proxy and Admin API?
+- What is control plane?
+- What is date plan?
+- When to use database mode?
+- When to use DB-less?
+- Why running with Docker Compose facilitates study?
+- What Konga makes easy?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter um ambiente local onde:
+Have a local environment where:
 
-- Kong está rodando.
-- Admin API responde.
-- Proxy responde.
-- Interface administrativa está acessível, se usada.
-- O README explica como subir e validar o ambiente.
+- Kong's rolling..
+- Admin API responds.
+- Proxy responds.
+- Administrative interface is accessible if used.
+- README explains how to climb and validate the environment.

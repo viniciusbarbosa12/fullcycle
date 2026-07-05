@@ -1,43 +1,43 @@
-# Projeto final - Integração Contínua, GitHub Actions, Docker e SonarQube
+# Final Project - Continuous Integration, GitHub Actions, Docker and SonarQube
 
-Este diretorio serve como guia para a consolidacao final do curso.
+This directory serves as a guide to the final consolidation of the course.
 
-## Objetivo
+## Objective
 
-Consolidar o aprendizado e identificar pontos fracos antes de considerar o curso concluído.
+Consolidate learning and identify weaknesses before considering the completed course.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um repositório de simulação profissional contendo:
+Create a professional simulation repository containing:
 
-- Aplicação simples com testes
-- Workflow de GitHub Actions
-- Pipeline rodando em Pull Request
-- Pipeline rodando em push na branch principal
-- Status check obrigatório
+- Simple application with tests
+- GitHub Actions Workflow
+- Pipeline running in Pull Request
+- Pipeline running push in the main branch
+- Required status check
 - Strategy Matrix
 - Dockerfile
-- Build de imagem Docker via CI
-- Push automático para registry
-- Secrets configurados
-- SonarCloud ou SonarQube configurado
-- Cobertura de código
+- Docker image build via CI
+- Automatic push for registration
+- Secrets configured
+- SonarCloud or SonarQube configured
+- Code coverage
 - Quality Gate
-- README explicando o fluxo
-- PR de exemplo mostrando pipeline passando e falhando
+- README explaining the flow
+- Example PR showing pipeline passing and failing
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- CI rodando automaticamente
-- Testes bloqueando código quebrado
-- Status check protegendo branch
-- Matrix funcionando
-- Docker build automatizado
-- Publicação de imagem com secrets
-- Sonar analisando qualidade
-- Coverage integrado
-- Quality Gate funcionando
-- README claro
-- Capacidade de explicar cada decisão
+- CI running automatically
+- Tests blocking broken code
+- State check protecting branch
+- Matrix working
+- Automated Docker build
+- Image publication with secrets
+- Sonar analyzing quality
+- Integrated Coverage
+- Quality Gate working
+- Clear README
+- Ability to explain each decision

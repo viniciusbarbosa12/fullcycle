@@ -1,20 +1,20 @@
-# Fase 2: Primeiros containers
+# Phase 2: First containers
 
-## Aulas
+## Lessons
 
 - Hello World
-- Executando Ubuntu
-- Publicando portas com nginx
-- Removendo containers
-- Acessando e alterando arquivos de um container
-- Iniciando com bind mounts
-- Trabalhando com volumes
+- Running Ubuntu
+- Publishing ports with nginx
+- Removing containers
+- Accessing and Changing Files from a Container
+- Starting with bind mounts
+- Working with volumes
 
-## Objetivo
+## Objective
 
-Aprender a criar, rodar, parar, remover, acessar e persistir dados em containers.
+Learn how to create, rotate, stop, remove, access and persist data in containers.
 
-## Conceitos principais
+## Main concepts
 
 - `docker run`
 - `docker ps`
@@ -24,22 +24,22 @@ Aprender a criar, rodar, parar, remover, acessar e persistir dados em containers
 - Port mapping
 - Bind mount
 - Volume
-- Container efêmero
-- Persistência de dados
+- Ephemeral container
+- Data persistence
 
-## Exercícios práticos
+## Practical exercises
 
-- Rodar um container Ubuntu.
-- Entrar dentro do container.
-- Rodar um nginx e acessar pelo navegador.
-- Alterar um arquivo dentro do container.
-- Remover o container e observar o que acontece com os dados.
-- Repetir o teste usando bind mount.
-- Repetir o teste usando volume.
+- Rotate an Ubuntu container.
+- Enter the container.
+- Rotate a nginx and access via browser.
+- Change a file inside the container.
+- Remove container and observe what happens to data.
+- Repeat test using bid mount.
+- Repeat the test using volume.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que alterações dentro do container somem?
-- Qual a diferença entre bind mount e volume?
-- Por que eu não deveria salvar dados importantes só dentro do container?
-- Quando usar volume em um projeto real?
+- Why changes inside the container disappear?
+- What is the difference between bind mount and volume?
+- Why shouldn't I save important data just inside the container?
+- When to use volume in a real project?

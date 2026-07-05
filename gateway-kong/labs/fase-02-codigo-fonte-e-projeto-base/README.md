@@ -1,35 +1,35 @@
-# Lab Fase 2 - Código-fonte e projeto base
+# Lab Phase 2 - Source code and base design
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Clonar ou criar um repositório base.
-- Identificar os manifests Kubernetes.
-- Identificar os services e deployments.
-- Identificar arquivos OpenAPI, se existirem.
-- Identificar arquivos relacionados a pipeline.
-- Rodar o projeto localmente no cluster.
-- Criar um README explicando a estrutura.
+- Clone or create a base repository.
+- Identify Kubernetes Manifests.
+- Identify services and deployments.
+- Identify OpenAPI files if any.
+- Identify pipeline related files.
+- Rotate the project locally into the cluster.
+- Create a README explaining the structure.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Antes de automatizar o gateway, o que preciso entender sobre o projeto?
-- Como eu sei qual service uma rota deve expor?
-- Como organizar manifests para não virar caos?
-- Que informações um README precisa ter para outro dev rodar isso?
+- Before you automate the gateway, what do I need to understand about the project?
+- As I know which service a route should expose?
+- How to organize demonstrations so as not to become chaos?
+- What information a README needs for another should run this?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar um README com:
+Create a README with:
 
-- Serviços existentes
+- Existing services
 - Namespaces
 - Deployments
 - Services
-- Rotas esperadas
-- Arquivos OpenAPI
-- Como aplicar os manifests
-- Como validar se tudo está funcionando
+- Expected routes
+- OpenAPI Files
+- How to apply manifests
+- How to validate if everything is working

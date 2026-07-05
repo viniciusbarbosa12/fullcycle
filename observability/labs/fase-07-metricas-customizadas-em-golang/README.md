@@ -1,32 +1,32 @@
-# Lab Fase 7 - Métricas customizadas em Golang
+# Lab Phase 7 - Custom Metrics in Golang
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 7 antes de pedir revisao.
+Practice Phase 7 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Preparar uma aplicação Go simples.
-- Criar endpoint `/metrics`.
-- Criar uma métrica Gauge.
-- Criar uma métrica Counter.
-- Criar uma métrica Histogram.
-- Adicionar labels com cuidado.
-- Configurar Prometheus para coletar a aplicação.
-- Fazer requisições e observar as métricas mudando.
-- Documentar o que cada métrica mede.
+- Prepare an application Simple Go.
+- Create endpoint `/metrics`.
+- Create Gauge metric.
+- Create Counter metric.
+- Create a Histogram metric.
+- Add labels carefully.
+- Configure Prometheus to collect the application.
+- Make requests and observe metrics changing.
+- Document what each metric measures.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que criar métricas customizadas?
-- Quando usar Gauge?
-- Quando usar Counter?
-- Quando usar Histogram?
-- O que são buckets?
-- Qual o risco de criar labels demais?
-- Qual a diferença entre métrica técnica e métrica de negócio?
-- Que métricas eu criaria em uma API .NET real?
+- Why Create Custom Metrics?
+- When to use Gauge?
+- When to use Counter?
+- When to use Histogram?
+- What are buckets?
+- What is the risk of creating too many labels?
+- What is the difference between technical metric and business metric?
+- Which metrics I would create in a real .NET API?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter uma aplicação expondo métricas customizadas e Prometheus coletando esses dados.
+Have an application exposing custom metrics and Prometheus collecting these data.

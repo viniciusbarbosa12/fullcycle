@@ -1,25 +1,25 @@
-# Lab Fase 4 - Fundamentos de gerenciamento de tráfego
+# Lab Phase 4 - Traffic Management Fundamentals
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar duas versões de um deployment.
-- Adicionar labels de versão.
-- Validar que o Kubernetes Service enxerga as duas versões.
-- Observar distribuição de tráfego sem regra do Istio.
-- Criar um desenho explicando como o tráfego chega nas versões.
+- Create two versions of a deployment.
+- Add Version Labels.
+- Validate that Kubernetes Service sees both versions.
+- Watch traffic distribution without Istio rule.
+- Create a drawing explaining how traffic arrives in versions.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Como o Istio sabe que existem versões diferentes?
-- Qual a diferença entre Service Kubernetes e VirtualService do Istio?
-- Por que labels corretas são essenciais?
-- O que é um subset?
-- O que acontece se eu criar versões, mas não configurar regras de tráfego?
+- How Istio knows there are different versions?
+- What is the difference between Service Kubernetes and Istio VirtualService?
+- Why Correct Labels Are Essential?
+- What is a subset?
+- What happens if I create versions but do not configure traffic rules?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter duas versões da aplicação rodando e conseguir explicar como o tráfego chega nelas.
+Having two versions of the application running and being able to explain how the traffic gets to them.

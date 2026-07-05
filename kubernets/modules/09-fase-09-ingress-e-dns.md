@@ -1,19 +1,19 @@
-# Fase 9: Ingress e DNS
+# Phase 9: Ingress and DNS
 
-## Aulas
+## Lessons
 
-- Visão geral
-- Configurando aplicação no GKE
-- Instalando ingress nginx controller
-- Configurando Ingress e DNS
+- Overview
+- Setting up application in GKE
+- Installing ingress nginx controller
+- Configuring Ingress and DNS
 
-## Objetivo
+## Objective
 
-Expor aplicações HTTP/HTTPS de forma mais profissional.
+Expose applications HTTP/HTTPS more professionally.
 
-Service expõe aplicação, mas Ingress permite roteamento por host, path e integração com controlador de entrada. Em produção, Ingress costuma ser a porta HTTP da aplicação.
+Service exposes application, but Ingress allows host routing, path and integration with input controller. In production, Ingress is usually the HTTP port of the application.
 
-## Conceitos principais
+## Main concepts
 
 - Ingress
 - Ingress Controller
@@ -23,31 +23,31 @@ Service expõe aplicação, mas Ingress permite roteamento por host, path e inte
 - DNS
 - GKE
 - Load Balancer
-- Regras HTTP
-- Exposição externa
-- Roteamento por domínio
+- HTTP rules
+- External exposure
+- Domain routing
 
-## Exercícios práticos
+## Practical exercises
 
-- Instalar Ingress NGINX Controller.
-- Criar recurso Ingress.
-- Configurar rota por host.
-- Configurar rota por path.
-- Apontar domínio ou DNS local.
-- Testar acesso externo.
-- Observar logs do controller.
-- Comparar Ingress com Service LoadBalancer.
+- Install Ingress NGINX Controller.
+- Create Resource Ingress.
+- Configure Host Route.
+- Configure path route.
+- Point local domain or DNS.
+- Test external access.
+- Watch controller logs.
+- Compare Ingress with Service LoadBalancerr.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre Ingress e Ingress Controller?
-- Por que criar Ingress sem controller não resolve?
-- Quando usar Ingress em vez de LoadBalancer direto?
-- Como funciona roteamento por host?
-- Como funciona roteamento por path?
-- O que o DNS precisa fazer?
-- Qual o papel do controller NGINX?
+- What's the difference between Ingress and Ingress Controller?
+- Why creating Ingress without controller does not solve?
+- When to use Ingress instead of LoadBalancerr direct?
+- How Host Routing Works?
+- How path routing works?
+- What the DNS needs to do?
+- What is the role of NGINX controller?
 
 ## Checkpoint
 
-Ter uma aplicação acessível por domínio ou host configurado usando Ingress.
+Have a domain or host app configured using Ingress.

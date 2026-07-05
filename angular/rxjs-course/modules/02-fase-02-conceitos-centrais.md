@@ -1,58 +1,58 @@
-# Fase 2 - Conceitos centrais do RxJS
+# Phase 2 - RxJS central concepts
 
-## Objetivo
+## Objective
 
-Entender o coracao do RxJS: Observable, Observer, subscribe, emissao, erro, complete e cancelamento.
+Understand the heart of RxJS: Observable, Observer, subscribe, issue, error, complete and cancel.
 
-## Conceitos principais
+## Main concepts
 
 - Observable.
-- Observer.
+- Observe.
 - Subscribe.
-- Emissao de valores.
+- Issue of values.
 - `next`.
 - `error`.
 - `complete`.
 - Subscription.
 - Unsubscribe.
-- Observable frio.
-- Observable quente.
+- Observable cold.
+- Hot observable.
 - Promise vs Observable.
 
-## Conceito guia
+## Guide concept
 
-Observable e uma fonte de valores ao longo do tempo. Observer e quem recebe esses valores. `subscribe` conecta os dois.
+Observable and a source of values over time. Observer and those who receive these values. `subscribe` connect the two.
 
-## Exemplo real de projeto
+## Real project example
 
-`HttpClient.get()` retorna um Observable frio: o request so acontece quando alguem assina. Um clique de botao e uma fonte quente: o evento existe independentemente de voce estar escutando.
+`HttpClient.get()` returns a cold Observable: the request only happens when someone signs. A button click is a hot font: the event exists regardless of whether you are listening.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-02-core/`:
+Implement on `../labs/fase-02-core/`:
 
-1. Criar um Observable simples.
-2. Fazer ele emitir um unico valor.
-3. Fazer ele emitir varios valores.
-4. Tratar `next`, `error` e `complete`.
-5. Criar um Observable com `setInterval`.
-6. Cancelar o Observable usando `unsubscribe`.
+1. Create a simple Observer.
+2. Make him issue a single value.
+3. Make him issue several values.
+4. Treat `next`, `error` and `complete`.
+5. Create Observable with `setInterval`.
+6. Cancel Observable using `unsubscribe`.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. O que significa um Observable emitir um valor?
-2. Quem produz os dados?
-3. Quem consome os dados?
-4. Qual a diferenca entre `next`, `error` e `complete`?
-5. Por que Observable pode ser mais poderoso que Promise?
-6. O que acontece se eu esquecer de dar unsubscribe em um fluxo infinito?
+1. Which means an Observable issue a value?
+2. Who produces the data?
+3. Who consumes the data?
+4. What's the difference between `next`, `error` and `complete`?
+5. Why Observable Can Be More Powerful Than Promise?
+6. What happens if I forget to give unsubscribe in an infinite stream?
 
 ## Checkpoint
 
-Responda com suas palavras:
+Answer with your words:
 
-> Qual a diferenca entre Promise e Observable?
+> What is the difference between Promise and Observable?
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir criar um Observable manual, assinar, ver emissoes e cancelar um fluxo infinito.
+You can advance when you can create a manual Observable, sign, view emissions and cancel an infinite stream.

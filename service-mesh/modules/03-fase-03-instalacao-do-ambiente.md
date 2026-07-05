@@ -1,29 +1,29 @@
-# Fase 3: Instalação do ambiente
+# Phase 3: Installation of the environment
 
-## Aulas
+## Lessons
 
-- Sobre o processo de instalação
-- Instalando k3d
-- Criando cluster
-- Instalando istio ctl
-- Instalando istio no cluster
-- Injetando sidecar proxy
-- Configurando addons
+- About the installation process
+- Installing k3d
+- Creating cluster
+- Installing istio ctl
+- Installing istio in cluster
+- Injecting sidecar proxy
+- Configuring addons
 
-## Objetivo
+## Objective
 
-Montar um cluster local com k3d, instalar Istio e preparar o ambiente para observar e controlar tráfego.
+Mount a local cluster with k3d, install Istio and prepare the environment to observe and control traffic.
 
-## Conceitos principais
+## Main concepts
 
 - k3d
-- Kubernetes local
+- Local Kubernetes
 - Cluster
 - Namespace
 - istioctl
 - Istio installation profile
 - Sidecar injection
-- Label de namespace
+- Namespace Label
 - Envoy proxy
 - Addons
 - Kiali
@@ -31,37 +31,37 @@ Montar um cluster local com k3d, instalar Istio e preparar o ambiente para obser
 - Grafana
 - Jaeger
 
-## Exercícios práticos
+## Practical exercises
 
-- Instalar k3d.
-- Criar um cluster local.
-- Validar o cluster com `kubectl`.
-- Instalar `istioctl`.
-- Instalar Istio no cluster.
-- Criar namespace para a aplicação.
-- Ativar sidecar injection no namespace.
-- Subir a aplicação.
-- Verificar se os pods receberam sidecar.
-- Instalar/configurar addons.
-- Abrir Kiali e observar a topologia.
+- Install k3d.
+- Create a local cluster.
+- Validate cluster with `kubectl`.
+- Install `istioctl`.
+- Install Istio in cluster.
+- Create namespace for the application.
+- Enable sidecar injection in namespace.
+- Move application up.
+- Check if pods received sidecar.
+- Install/configure addons.
+- Open Kiali and observe topology.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é k3d e por que usar localmente?
-- O que `istioctl` faz?
-- O que acontece quando ativo sidecar injection?
-- Como eu sei se o sidecar foi injetado corretamente?
-- Por que o Envoy fica junto da aplicação?
-- Qual o papel do Kiali?
-- O que os addons ajudam a visualizar?
+- What is k3d and why use locally?
+- What? `istioctl` does?
+- What happens when active sidecar injection?
+- How do I know the sidecar was injected correctly??
+- Why Envoy stays next to the application?
+- What's Kiali's role??
+- What addons help to view?
 
 ## Checkpoint
 
-Ter um ambiente onde:
+Have an environment where:
 
-- Cluster k3d está rodando.
-- Istio está instalado.
-- Namespace da aplicação tem sidecar injection ativado.
-- Pods possuem sidecar Envoy.
-- Kiali/Prometheus/Grafana/Jaeger estão acessíveis.
-- A aplicação responde dentro do cluster.
+- Cluster k3d is running.
+- Istio is installed.
+- Application namespace has sidecar injection enabled.
+- Pods have sidecar Envoy.
+- Kiali/Prometheus/Grafana/Jaeger are accessible.
+- The application responds within the cluster.
