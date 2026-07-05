@@ -1,265 +1,265 @@
-# Plano de Aprendizado Kubernetes
+# Kubernetes Learning Plan
 
-Este plano foi criado para estudar Kubernetes de forma prática, com foco em aprendizado real.
+This plan was designed to study Kubernetes in a practical way, focusing on real learning.
 
-A ideia não é apenas assistir às aulas, mas entender como colocar aplicações em um cluster, expor serviços, configurar variáveis, lidar com health checks, escalar com HPA, trabalhar com volumes persistentes, expor aplicações com Ingress, configurar TLS com cert-manager e entender RBAC com Service Accounts, Roles e ClusterRoles.
+The idea is not only to watch lessons, but to understand how to put applications in a cluster, expose services, configure variables, deal with health checks, scale with HPA, work with persistent volumes, expose applications with Ingress, configure TLS with cert-manager and understand RBAC with Service Accounts, Roles and ClusterRoles.
 
-O objetivo é sair desse curso conseguindo implementar uma aplicação real no Kubernetes, explicar os principais objetos, debugar problemas comuns e entender melhor o que realmente acontece quando uma aplicação roda dentro de um cluster.
+By the end of this course, I should be able to implement a real application in Kubernetes, explaining the main objects, debugging common problems and better understanding what really happens when an application runs within a cluster.
 
-## Como vamos estudar
+## How We Will Study
 
-Sempre que eu iniciar uma nova aula, a mentoria deve seguir este formato:
+Whenever I start a new lesson, mentoring should follow this format:
 
-1. Explicar os conceitos de forma clara e gradual.
-2. Dividir assuntos grandes em partes pequenas.
-3. Propor exercícios práticos para eu implementar sozinho.
-4. Evitar entregar a solução completa de primeira.
-5. Fazer perguntas que me levem a raciocinar antes de responder.
-6. Se eu pedir ajuda, dar apenas dicas ou pequenos trechos de YAML/comandos.
-7. Só mostrar a solução completa se eu pedir explicitamente ou depois que eu realmente tentar resolver.
+1. Explain concepts clearly and gradually.
+2. Split big subjects into small parts.
+3. Propose practical exercises for me to implement on my own.
+4. Avoid delivering the complete solution upfront.
+5. Ask questions that lead me to reason before answering.
+6. If I ask for help, just give hints or small stretches of YAML/commands.
+7. Only show the complete solution if I ask explicitly or after I really try to solve.
 
-Quando eu terminar um exercício, a revisão deve seguir este formato:
+When I finish an exercise, the review should follow this format:
 
-1. Fazer uma revisão profissional do que eu fiz.
-2. Apontar erros, melhorias e boas práticas.
-3. Explicar o motivo de cada sugestão.
-4. Dizer o que eu fiz bem.
-5. Dizer o que ainda preciso estudar.
-6. Relacionar o conteúdo com cenários reais de Kubernetes, cloud, DevOps e produção.
+1. Do a professional review of what I did.
+2. Point out errors, improvements and good practices.
+3. Explain the reason for each suggestion.
+4. Say what I did right.
+5. Tell me what I still need to study.
+6. Connect the content to real Kubernetes, cloud, DevOps and production scenarios.
 
-O objetivo é priorizar aprendizado profundo, não velocidade.
+The goal is to prioritize deep learning, not speed.
 
-## Estrutura
+## Structure
 
-- `modules/`: fases do plano de mentoria.
-- `labs/`: exercicios e desafios para voce implementar.
-- `examples/`: exemplos prontos de referencia, para consultar depois da tentativa.
-- `final-project/`: guia da consolidacao final do curso.
+- `modules/`: phases of the mentoring plan.
+- `labs/`: exercises and challenges for you to implement.
+- `examples/`: ready reference examples to consult after the attempt.
+- `final-project/`: course final consolidation guide.
 
-## Grade do curso
+## Course Outline
 
-### Código-fonte
+### Source code
 
-- Código-fonte do curso - sem duração
+- Course source code - no duration
 
-### Iniciando com Kubernetes
+### Starting with Kubernetes
 
-- Introdução ao Kubernetes - 16:36
-- Instalando Kind - 09:44
-- Dica start Kind - sem duração
-- Criando primeiro cluster com Kind - 06:29
-- Criando cluster multi node - 09:11
-- Mudança de contexto e extensão do VSCode - 06:05
+- Introduction to Kubernetes - 16:36
+- Installing Kind - 09:44
+- Tip start Kind - no duration
+- Creating first cluster with Kind - 06:29
+- Creating multi node cluster - 09:11
+- Changing context and using the VSCode extension - 06:05
 
-### Primeiros passos na prática
+### First steps in practice
 
-- Criando aplicação exemplo e imagem - 06:33
-- Trabalhando com Pods - 13:04
-- Criando primeira ReplicaSet - 12:02
-- O problema do ReplicaSet - 06:05
-- Implementando Deployment - 09:01
-- Rollout e Revisões - 08:19
+- Creating an example app and image - 06:33
+- Working with Pods - 13:04
+- Creating First ReplicaSet - 12:02
+- The ReplicaSet problem - 06:05
+- Implementing Deployment - 09:01
+- Rollout and revisions - 08:19
 
 ### Services
 
-- Entendendo o conceito de services - 03:27
-- Utilizando ClusterIP - 10:34
-- Diferenças entre Port e targetPort - 05:34
-- Utilizando proxy para acessar API do Kubernetes - 06:07
-- Utilizando NodePort - 06:52
-- Trabalhando com LoadBalancer - 05:28
+- Understanding the concept of services - 03:27
+- Using ClusterIP - 10:34
+- Differences between Port and targetPort - 05:34
+- Using proxy to access Kubernetes API - 06:07
+- Using NodePort - 06:52
+- Working with LoadBalancerr - 05:28
 
-### Objetos de configuração
+### Configuration objects
 
-- Entendendo objetos de configuração - 02:17
-- Utilizando variáveis de ambiente - 05:56
-- Variáveis de ambiente com ConfigMap - 06:30
-- Injetando ConfigMap na aplicação - 19:38
-- Secrets e variáveis de ambiente - 09:14
+- Understanding Configuration Objects - 02:17
+- Using environment variables - 05:56
+- Environment variables with ConfigMap - 06:30
+- Injecting ConfigMap into the application - 19:38
+- Secrets and environment variables - 09:14
 
 ### Probes
 
-- Entendendo health check - 04:45
-- Criando endpoint Healthz - 08:53
-- Liveness na prática - 12:19
-- Entendendo readiness - 10:58
-- Combinando Liveness e Readiness - 13:58
-- Trabalhando com startupProbe - 06:55
+- Understanding health check - 04:45
+- Creating the Healthz endpoint - 08:53
+- Liveness in practice - 12:19
+- Understanding Readiness - 10:58
+- Combining Liveness and Readiness - 13:58
+- Working with startupProbe - 06:55
 
-### Resources e HPA
+### Resources and HPA
 
-- Instalando metrics-server - 09:49
-- Entendendo utilização de Resources - 13:37
-- Aplicando deployment com resources - 03:31
-- Criando e configurando HPA - 09:09
-- Versão da imagem para o teste de stress - sem duração
-- Teste de stress com fortio - 17:40
-- Atualização no comando do Fortio - sem duração
+- Installing metrics-server - 09:49
+- Understanding the Use of Resources - 13:37
+- Applying Deployment with Resources - 03:31
+- Creating and configuring HPA - 09:09
+- Image version for stress test - no duration
+- Stress test with fortio - 17:40
+- Fortio command update - no duration
 
-### StatefulSets e volumes persistentes
+### StatefulSets and persistent volumes
 
-- Entendendo volumes persistentes - 17:01
-- Criando volume persistente e montando - 12:56
-- Entendendo Stateless vs Stateful - 11:04
-- Criando StatefulSet - 14:21
-- Criando headless service - 14:56
-- Criando volumes dinamicamente com statefulset - 10:29
-- Devo usar meu banco de dados no kubernetes - 05:52
+- Understanding Persistent Volumes - 17:01
+- Creating and mounting a persistent volume - 12:56
+- Understanding Stateless vs Stateful - 11:04
+- Creating StatefulSet - 14:21
+- Creating headless service - 14:56
+- Creating dynamic volumes with StatefulSet - 10:29
+- Should I run my database in Kubernetes? - 05:52
 
 ### Ingress
 
-- Visão geral - 05:14
-- Configurando aplicação no GKE - 06:02
-- Instalando ingress nginx controller - 06:25
-- Configurando Ingress e DNS - 12:11
+- Overview - 05:14
+- Configuring application in GKE - 06:02
+- Installing ingress nginx controller - 06:25
+- Configuring Ingress and DNS - 12:11
 
 ### Cert-manager
 
-- Instalando cert manager - 08:32
-- Configurando e emitindo certificado - 10:53
+- Installing cert manager - 08:32
+- Configuring and issuing certificate - 10:53
 
-### Namespaces e Service Accounts
+### Namespaces and Service Accounts
 
 - Namespaces - 06:52
-- Contextos por namespace - 11:51
-- Entendendo Service Accounts - 06:10
-- Criando Service Account e Roles - 13:50
+- Contexts by namespace - 11:51
+- Understanding Service Accounts - 06:10
+- Creating Service Account and Roles - 13:50
 - ClusterRole - 03:43
 
-## Fases
+## Phases
 
-0. [Como vamos estudar](modules/00-como-vamos-estudar.md)
-1. [Código-fonte e visão geral do curso](modules/01-fase-01-codigo-fonte-e-visao-geral-do-curso.md)
-2. [Iniciando com Kubernetes e Kind](modules/02-fase-02-iniciando-com-kubernetes-e-kind.md)
-3. [Pods, ReplicaSet, Deployment e Rollout](modules/03-fase-03-pods-replicaset-deployment-e-rollout.md)
+0. [How We Will Study](modules/00-como-vamos-estudar.md)
+1. [Source code and course overview](modules/01-fase-01-codigo-fonte-e-visao-geral-do-curso.md)
+2. [Starting with Kubernetes and Kind](modules/02-fase-02-iniciando-com-kubernetes-e-kind.md)
+3. [Pods, ReplicaSet, Deployment and Rollout](modules/03-fase-03-pods-replicaset-deployment-e-rollout.md)
 4. [Services](modules/04-fase-04-services.md)
-5. [ConfigMap, Secrets e configuração da aplicação](modules/05-fase-05-configmap-secrets-e-configuracao-da-aplicacao.md)
-6. [Probes e health checks](modules/06-fase-06-probes-e-health-checks.md)
-7. [Resources, metrics-server e HPA](modules/07-fase-07-resources-metrics-server-e-hpa.md)
-8. [Volumes persistentes e StatefulSets](modules/08-fase-08-volumes-persistentes-e-statefulsets.md)
-9. [Ingress e DNS](modules/09-fase-09-ingress-e-dns.md)
-10. [Cert-manager e TLS](modules/10-fase-10-cert-manager-e-tls.md)
-11. [Namespaces, Service Accounts e RBAC](modules/11-fase-11-namespaces-service-accounts-e-rbac.md)
-12. [Projeto final](modules/12-fase-12-projeto-final.md)
-13. [Perguntas classicas de entrevista](modules/13-perguntas-entrevista.md)
+5. [ConfigMap, Secrets and application configuration](modules/05-fase-05-configmap-secrets-e-configuracao-da-aplicacao.md)
+6. [Probes and health checks](modules/06-fase-06-probes-e-health-checks.md)
+7. [Resources, metrics-server and HPA](modules/07-fase-07-resources-metrics-server-e-hpa.md)
+8. [Persistent Volumes and StatefulSets](modules/08-fase-08-volumes-persistentes-e-statefulsets.md)
+9. [Ingress and DNS](modules/09-fase-09-ingress-e-dns.md)
+10. [Cert-manager and TLS](modules/10-fase-10-cert-manager-e-tls.md)
+11. [Namespaces, Service Accounts and RBAC](modules/11-fase-11-namespaces-service-accounts-e-rbac.md)
+12. [Final project](modules/12-fase-12-projeto-final.md)
+13. [Classic interview questions](modules/13-perguntas-entrevista.md)
 
-## Ritmo recomendado
+## Recommended rhythm
 
-O curso tem cerca de 7h54 de videoaulas, mas o foco é praticar bastante.
+The course has about 7:54 of video lessons, but the focus is to practice a lot.
 
-### Sugestão de ritmo em 16 dias
+### Suggestion of rhythm in 16 days
 
-#### Dia 1
+#### Day 1
 
-- Código-fonte
-- Introdução ao Kubernetes
-- Conceitos de cluster, node, control plane e worker
+- Source code
+- Introduction to Kubernetes
+- Concepts of cluster, node, control plane and worker
 
-#### Dia 2
+#### Day 2
 
-- Instalação do Kind
-- Primeiro cluster
-- Cluster multi node
-- Contextos
+- Installation of Kind
+- First cluster
+- Multi node cluster
+- Contexts
 
-#### Dia 3
+#### Day 3
 
-- Aplicação exemplo
-- Imagem Docker
-- Primeiro Pod
+- Example application
+- Docker Image
+- First Pod
 
-#### Dia 4
+#### Day 4
 
 - ReplicaSet
-- Problema do ReplicaSet
+- ReplicaSet Problem
 - Deployment
 
-#### Dia 5
+#### Day 5
 
 - Rollout
-- Revisões
+- Revisions
 - Rollback
 
-#### Dia 6
+#### Day 6
 
 - Services
 - ClusterIP
-- Port e targetPort
+- Port and targetPort
 
-#### Dia 7
+#### Day 7
 
 - NodePort
 - LoadBalancer
-- Acesso à API do Kubernetes
+- Kubernetes API Access
 
-#### Dia 8
+#### Day 8
 
-- Variáveis de ambiente
+- Environment variables
 - ConfigMap
 - Secret
 
-#### Dia 9
+#### Day 9
 
 - Health check
 - Liveness
 - Readiness
 - StartupProbe
 
-#### Dia 10
+#### Day 10
 
 - Metrics-server
-- Requests e limits
-- Deployment com resources
+- Requests and limits
+- Deployment with resources
 
-#### Dia 11
+#### Day 11
 
 - HPA
-- Teste de stress com Fortio
-- Análise de escalabilidade
+- Fortio stress test
+- Scaling analysis
 
-#### Dia 12
+#### Day 12
 
-- Volumes persistentes
+- Persistent volumes
 - PV
 - PVC
 
-#### Dia 13
+#### Day 13
 
 - Stateless vs Stateful
 - StatefulSet
 - Headless Service
-- Volumes dinâmicos
+- Dynamic volumes
 
-#### Dia 14
+#### Day 14
 
 - Ingress
 - Ingress NGINX Controller
 - DNS
 
-#### Dia 15
+#### Day 15
 
 - Cert-manager
 - TLS
 - HTTPS
 
-#### Dia 16
+#### Day 16
 
 - Namespaces
 - Service Accounts
 - RBAC
-- Projeto final e README
+- Final project and README
 
-## Primeira missao
+## First Mission
 
-Assistir às aulas:
+Watch the lessons:
 
-> Código-fonte do curso
-> Introdução ao Kubernetes
-> Instalando Kind
-> Criando primeiro cluster com Kind
+> Course source code
+> Introduction to Kubernetes
+> Installing Kind
+> Creating first cluster with Kind
 
-Depois responder com minhas palavras:
+Then answer with my words:
 
-> Qual problema o Kubernetes resolve quando eu tenho uma aplicação containerizada que precisa rodar de forma confiável, escalar e ser atualizada sem derrubar tudo?
+> What problem does Kubernetes solve when I have a containerized application that needs to run reliably, scale and be updated without dropping everything?
 
-Não precisa ser uma resposta perfeita. O importante é mostrar meu raciocínio inicial para depois corrigir, ajustar e aprofundar.
+It does not have to be a perfect answer. The important thing is to show my initial reasoning so we can correct, adjust and deepen.

@@ -1,25 +1,25 @@
-# Lab Fase 11 - Projeto final
+# Lab Phase 11 - Final project
 
-## Missao
+## Mission
 
-Implemente uma feature de produtos, usuarios ou pedidos com:
+Implement a feature of products, users or orders with:
 
-1. Busca com debounce.
-2. Filtro por status.
-3. Paginacao.
+1. Search with debounce.
+2. State filter.
+3. Page.
 4. Loading.
-5. Tratamento de erro.
-6. Cancelamento de request.
-7. Cache com `shareReplay`.
-8. Detalhe do item.
-9. Estado compartilhado.
+5. Error handling.
+6. Request cancellation.
+7. Cache with `shareReplay`.
+8. Item detail.
+9. Shared State.
 10. Component + Facade + Service.
-11. Template com `async pipe`.
+11. Template with `async pipe`.
 
-## Regras
+## Rules
 
-Tente implementar primeiro. Depois envie o codigo para revisao. A referencia pronta esta em `final-project/`, mas use so depois de tentar.
+Try to implement first. Then send the code to review. The ready reference is in `final-project/`,but use only after trying.
 
 ## Checkpoint
 
-Inclua um README explicando suas decisoes arquiteturais.
+Include a README explaining your architectural decisions.

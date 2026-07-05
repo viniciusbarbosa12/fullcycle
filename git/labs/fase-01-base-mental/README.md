@@ -1,25 +1,25 @@
-# Lab Fase 1 - Base mental e primeiro repositorio
+# Lab Phase 1 - Mental base and first repository
 
-## Missao
+## Mission
 
-Crie um repositorio local chamado `git-lab-base` e implemente:
+Create a local repository called `git-lab-base` and implement:
 
-1. Inicializar o repositorio.
-2. Criar um `README.md` com uma explicacao sua sobre o projeto.
-3. Fazer o primeiro commit.
-4. Criar uma branch chamada `feature/primeira-alteracao`.
-5. Alterar o `README.md`.
-6. Fazer um segundo commit.
-7. Ver o historico com `git log`.
+1. Initialize Repository.
+2. Create a `README.md` with an explanation of your project.
+3. Do first commit.
+4. Create a branch called `feature/first-change`.
+5. Change `README.md`.
+6. Make a second commit.
+7. See history with `git log`.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Inclua no `README.md` uma resposta curta:
+Include in `README.md` a short answer:
 
 ```txt
-O que um commit deveria representar?
+What a commit should represent?
 ```
 
-## Criterio de sucesso
+## Success criteria
 
-Voce deve conseguir explicar o historico do repositorio olhando para os commits.
+You should be able to explain the history of the repository by looking at the commits.

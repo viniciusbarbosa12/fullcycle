@@ -1,19 +1,19 @@
-# Lab Fase 1 - Ambiente e base mental
+# Lab Phase 1 - Environment and mental base
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Validar a instalação do Docker.
-- Rodar comandos básicos no terminal.
-- Criar uma pasta de estudos.
-- Criar um README explicando com minhas palavras o que é Docker.
-- Explicar a diferença entre Docker, imagem e container.
+- Validate Docker installation.
+- Run basic commands in terminal.
+- Run the `hello-world` container.
+- Create a README explaining with my words what Docker is.
+- Explain the difference between Docker, image and container.
 
-## Criterio de sucesso
+## Success criteria
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Qual a diferença entre Docker, imagem e container?
+> What's the difference between Docker, image and container?

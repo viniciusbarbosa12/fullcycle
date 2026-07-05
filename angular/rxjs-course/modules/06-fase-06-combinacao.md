@@ -1,10 +1,10 @@
-# Fase 6 - Operadores de combinacao
+# Phase 6 - Combining operators
 
-## Objetivo
+## Objective
 
-Aprender a combinar multiplos fluxos de dados.
+Learning to combine multiple data streams.
 
-## Conceitos principais
+## Main concepts
 
 - `combineLatest`.
 - `forkJoin`.
@@ -14,45 +14,45 @@ Aprender a combinar multiplos fluxos de dados.
 - `catchError`.
 - `finalize`.
 
-## Conceito guia
+## Guide concept
 
-Telas reais raramente dependem de um unico fluxo. Busca, filtro, pagina, rota, usuario logado e permissoes podem precisar trabalhar juntos.
+Real screens rarely depend on a single flow. Search, filter, page, route, login and permissions may need to work together.
 
-## Exemplo real de projeto
+## Real project example
 
-Uma listagem com busca, filtro e paginacao costuma usar `combineLatest`. Uma tela inicial que carrega usuario e permissoes por HTTP pode usar `forkJoin`. Um clique de salvar que pega o ultimo valor do formulario pode usar `withLatestFrom`.
+A list with search, filter and pagination usually uses `combineLatest`. A home screen that loads us and permissions by HTTP can use `forkJoin`. A save click that takes the last value of the formula can use `withLatestFrom`.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-06-combination/`:
+Implement on `../labs/fase-06-combination/`:
 
-1. Combinar busca, filtro e paginacao com `combineLatest`.
-2. Fazer multiplas chamadas HTTP fake com `forkJoin`.
-3. Usar `withLatestFrom` para pegar o ultimo valor de outro fluxo.
-4. Usar `startWith` para definir valor inicial.
-5. Tratar erro com `catchError`.
-6. Desligar loading com `finalize`.
+1. Combine search, filter and page with `combineLatest`.
+2. Make multiple calls HTTP fake with `forkJoin`.
+3. Use `withLatestFrom` to get the last value of another stream.
+4. Use `startWith` to set initial value.
+5. Treat Error with `catchError`.
+6. Shut down loading with `finalize`.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Quando usar `combineLatest`?
-2. Quando usar `forkJoin`?
-3. Qual a diferenca entre `combineLatest` e `forkJoin`?
-4. Por que fluxos sem valor inicial podem travar o `combineLatest`?
-5. Onde entra `catchError` em uma tela real?
-6. Por que `finalize` e bom para loading?
+1. When to use `combineLatest`?
+2. When to use `forkJoin`?
+3. What's the difference between `combineLatest` and `forkJoin`?
+4. Why flows without initial value can stop the `combineLatest`?
+5. Where it comes in `catchError` on a real screen?
+6. Why? `finalize` and good for loading?
 
 ## Checkpoint
 
-Crie uma tela fake com:
+Create a fake screen with:
 
-- campo de busca;
-- filtro de status;
-- paginacao;
+- search field;
+- status filter;
+- pagination;
 - loading;
-- tratamento de erro;
-- requisicao fake atualizada quando busca, filtro ou pagina mudarem.
+- error handling;
+- required make updated when search, filter or page change.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir explicar por que `startWith` muitas vezes e necessario antes de `combineLatest`.
+You can step up when you can explain why `startWith` It is often necessary before `combineLatest`.

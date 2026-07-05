@@ -1,32 +1,32 @@
-# Perguntas clássicas de entrevista e trabalho real
+# Classic interview and real work questions
 
-Ao final do plano, eu devo conseguir responder:
+At the end of the plan, I must be able to answer:
 
-1. O que é Integração Contínua?
-2. Qual a diferença entre CI e CD?
-3. O que é uma pipeline?
-4. O que é um workflow no GitHub Actions?
-5. Qual a diferença entre workflow, job e step?
-6. O que é um runner?
-7. Quando usar trigger de `push`?
-8. Quando usar trigger de `pull_request`?
-9. O que é status check?
-10. Por que status check protege a branch principal?
-11. O que é Strategy Matrix?
-12. Quando uma pipeline deve falhar?
-13. Por que é bom fazer a pipeline falhar de propósito durante o aprendizado?
-14. Como Docker entra na CI?
-15. Por que buildar imagem Docker na pipeline?
-16. Como publicar imagem Docker automaticamente?
-17. O que são secrets?
-18. Por que não colocar token direto no workflow?
-19. O que é SonarQube?
-20. O que é SonarCloud?
-21. O que é Quality Gate?
-22. O que é coverage?
-23. Coverage alto garante qualidade?
-24. O que são bugs, vulnerabilities e code smells?
-25. Como CI ajuda no Code Review?
-26. Como CI ajuda em times remotos?
-27. Como CI se conecta com Pull Requests?
-28. Como CI ajuda em deploys mais seguros?
+1. What Continuous Integration Is?
+2. What is the difference between CI and CD?
+3. What is a pipeline?
+4. What is a workflow in GitHub Actions?
+5. What is the difference between workflow, job and step?
+6. What a runner is?
+7. When to use trigger `push`?
+8. When to use trigger `pull_request`?
+9. What is status check?
+10. Why status check protects the main branch?
+11. What Strategy Matrix is?
+12. When a pipeline must fail?
+13. Why is it good to make the pipeline fail on purpose during learning?
+14. How Docker Joins CI?
+15. Why build Docker image on pipeline?
+16. How to publish Docker image automatically?
+17. What Secrets Are?
+18. Why not put token straight into the workflow?
+19. What SonarQube is?
+20. What SonarCloud is?
+21. What is Quality Gate?
+22. What is coverage?
+23. High Coverage guarantees quality?
+24. What Bugs, Vulnerabilities and Code Smells are?
+25. How CI helps in Code Review?
+26. How CI helps in Remote Teams?
+27. How CI connects with Pull Requests?
+28. As CI helps in safer deploys?

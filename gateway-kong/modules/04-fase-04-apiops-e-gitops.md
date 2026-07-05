@@ -1,65 +1,65 @@
-# Fase 4: APIOps e GitOps
+# Phase 4: APIOps and GitOps
 
-## Aulas
+## Lessons
 
 - APIOps
 - GitOps
-- Ferramentas necessárias
-- Validando openapi lint
-- Checando contratos
-- Instalando_argo
-- Rodando pipeline
+- Tools required
+- Validating openapi lint
+- Checking contracts
+- Agenda
+- Running pipeline
 
-## Objetivo
+## Objective
 
-Entender como tratar APIs como produto versionado e governado, usando automação para validar contratos, aplicar padrões e sincronizar configurações via GitOps.
+Understand how to treat APIs as a versioned and governed product, using automation to validate contracts, apply standards and synchronize settings via GitOps.
 
-Aqui a ideia é parar de configurar gateway “na mão” e começar a trabalhar com uma abordagem mais profissional: contrato versionado, validação automática, pipeline e entrega declarativa.
+Here the idea is to stop setting up gateway “in hand” and start working with a more professional approach: versioned contract, automatic validation, pipeline and declarative delivery.
 
-## Conceitos principais
+## Main concepts
 
 - APIOps
 - GitOps
 - OpenAPI
 - API contract
-- Lint de contrato
+- Contract Lint
 - Contract testing
 - Pipeline
 - Pull Request
-- Governança de APIs
+- API Governance
 - Argo CD
 - Desired state
 - Sync
 - Drift
-- Automação
-- Validação antes do deploy
-- Configuração declarativa
+- Automation
+- Validation before deploy
+- Declarative Settings
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar ou revisar um arquivo OpenAPI.
-- Rodar lint no contrato.
-- Introduzir um erro proposital no contrato.
-- Fazer o lint falhar.
-- Corrigir o contrato.
-- Criar validação de contrato na pipeline.
-- Instalar Argo CD.
-- Criar uma aplicação no Argo.
-- Rodar pipeline para aplicar mudanças.
-- Validar se o estado do cluster bate com o Git.
+- Create or revise an OpenAPI file.
+- Rotate lint in contract.
+- Introduce a deliberate error in the contract.
+- Make lint fail.
+- Fix the contract.
+- Create Contract Validation on Pipeline.
+- Install Argo CD.
+- Create an application in Argo.
+- Rotate pipeline to apply changes.
+- Validate if cluster status matches Git.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é APIOps?
-- Qual a diferença entre APIOps e DevOps?
-- O que é GitOps?
-- Por que o Git vira fonte da verdade?
-- O que é drift?
-- Por que validar OpenAPI antes de publicar uma API?
-- O que um lint de OpenAPI consegue evitar?
-- O que ele não consegue garantir?
-- Como Argo CD ajuda na entrega declarativa?
+- What APIOps is?
+- What is the difference between APIOps and DevOps?
+- What is GitOps?
+- Because Git becomes a source of truth?
+- What is drift?
+- Why validate OpenAPI before publishing an API?
+- What an OpenAPI lint can prevent?
+- What he can't guarantee?
+- How Argo CD helps in declarative delivery?
 
 ## Checkpoint
 
-Ter uma pipeline que valida contrato OpenAPI e um fluxo GitOps capaz de sincronizar configuração no cluster.
+Have a pipeline that validates OpenAPI contracts and a GitOps flow capable of synchronizing cluster configuration.

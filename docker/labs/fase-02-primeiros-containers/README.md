@@ -1,22 +1,22 @@
-# Lab Fase 2 - Primeiros containers
+# Lab Phase 2 - First Containers
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Rodar um container Ubuntu.
-- Entrar dentro do container.
-- Rodar um nginx e acessar pelo navegador.
-- Alterar um arquivo dentro do container.
-- Remover o container e observar o que acontece com os dados.
-- Repetir o teste usando bind mount.
-- Repetir o teste usando volume.
+- Rotate an Ubuntu container.
+- Enter the container.
+- Rotate a nginx and access via browser.
+- Change a file inside the container.
+- Remove container and observe what happens to data.
+- Repeat test using bid mount.
+- Repeat the test using volume.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que alterações dentro do container somem?
-- Qual a diferença entre bind mount e volume?
-- Por que eu não deveria salvar dados importantes só dentro do container?
-- Quando usar volume em um projeto real?
+- Why changes inside the container disappear?
+- What is the difference between bind mount and volume?
+- Why shouldn't I save important data just inside the container?
+- When to use volume in a real project?

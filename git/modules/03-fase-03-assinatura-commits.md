@@ -1,62 +1,62 @@
-# Fase 3 - Assinatura de commits
+# Phase 3 - Commit signing
 
-## Aulas
+## Lessons
 
-- Entendendo sobre assinaturas.
-- Gerando chave GPG e assinando commits.
-- Adicionando outro email na chave.
+- Understanding about subscriptions.
+- Generating GPG key and signing commits.
+- Adding another email to key.
 
-## Objetivo
+## Objective
 
-Entender como assinaturas de commits ajudam a provar autoria, aumentar confianca no historico e melhorar seguranca em repositorios profissionais.
+Understanding how commit signatures help prove authorship, increase trust in history and improve safety in professional repositories.
 
-## Conceitos principais
+## Main concepts
 
-- Commit assinado.
+- Signed commit.
 - GPG.
-- Chave publica.
-- Chave privada.
+- Public Key.
+- Private key.
 - Verified commit.
-- Identidade do autor.
-- Seguranca no historico.
-- Email associado a chave.
-- Configuracao global e local do Git.
+- Identity of the author.
+- Safety in history.
+- Key associated email.
+- Global and local configuration of Git.
 
-## Conceito guia
+## Guide concept
 
-Um commit assinado ajuda a confirmar que aquela mudanca foi criada por alguem que possui a chave privada associada a identidade configurada. Isso aumenta confianca, mas nao substitui review, testes ou permissao correta no repositorio.
+A signed commit helps confirm that that change was created by someone who has the private key associated with the configured identity. This increases confidence, but does not replace review, testing or correct permission in the repository.
 
-## Exemplo real de projeto
+## Real project example
 
-Em um repositorio sensivel, a empresa pode exigir commits assinados para reduzir risco de alguem falsificar autoria usando o email de outra pessoa.
+In a sensitive repository, the company may require signed commits to reduce the risk of someone falsifying authorship using someone else's email.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-03-assinatura-commits/`:
+Implement on `../labs/fase-03-assinatura-commits/`:
 
-1. Verificar o usuario configurado no Git.
-2. Gerar uma chave GPG.
-3. Associar a chave ao Git.
-4. Fazer um commit assinado.
-5. Verificar se o commit aparece como assinado.
-6. Adicionar outro email a chave.
-7. Testar commit com email diferente.
+1. Check user configured in Git.
+2. Generate GPG key.
+3. Link key to Git.
+4. Make a signed commit.
+5. Verify that commit appears as signed.
+6. Add another email key.
+7. Test commit with different email.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. O que uma assinatura de commit prova?
-2. O que ela nao prova?
-3. Por que times ou empresas podem exigir commits assinados?
-4. Qual o risco de alguem commitar usando o email de outra pessoa?
-5. Qual a diferenca entre chave publica e chave privada?
-6. Por que eu nunca devo compartilhar minha chave privada?
+1. What a commit signature proves?
+2. What she doesn't prove?
+3. Why teams or companies may require signed commits?
+4. What's the risk of someone committing using someone else's email??
+5. What is the difference between public key and private key?
+6. Why should I never share my private key?
 
 ## Checkpoint
 
-Responda com suas palavras:
+Answer with your words:
 
-> Por que commits assinados sao importantes em projetos profissionais?
+> Why signed commits are important in professional projects?
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando souber explicar a diferenca entre autoria declarada no commit e autoria verificada por assinatura.
+You can advance when you know how to explain the difference between authorship declared in the commit and authorship verified by signature.

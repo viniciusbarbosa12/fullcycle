@@ -1,15 +1,15 @@
-# Lab Fase 7 - Subjects e estado
+# Lab Phase 7 - Subjects and status
 
-## Missao
+## Mission
 
-Crie arquivos pequenos para testar:
+Create small files to test:
 
-1. Contador com `Subject`.
-2. Usuario logado com `BehaviorSubject`.
-3. Historico com `ReplaySubject`.
-4. Ultimo valor no complete com `AsyncSubject`.
-5. Service Angular com Subject privado e Observable publico.
+1. Counter with `Subject`.
+2. User logged in with `BehaviorSubject`.
+3. History with `ReplaySubject`.
+4. Last value not complete with `AsyncSubject`.
+5. Angular Service with Private Subject and Public Observable.
 
 ## Checkpoint
 
-Mostre um componente consumindo estado sem conseguir chamar `next` diretamente.
+Show a component consuming state without calling `next` directly.

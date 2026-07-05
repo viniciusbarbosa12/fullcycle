@@ -1,30 +1,30 @@
-# Lab Fase 3 - Assinatura de commits
+# Lab Phase 3 - Commit signing
 
-## Missao
+## Mission
 
-Use um repositorio de teste e pratique:
+Use a test repository and practice:
 
-1. Verificar `git config user.name`.
-2. Verificar `git config user.email`.
-3. Listar chaves GPG existentes.
-4. Gerar uma chave GPG se ainda nao tiver uma.
-5. Configurar o Git para assinar commits.
-6. Fazer um commit assinado.
-7. Verificar a assinatura no log.
-8. Documentar o que funcionou e o que deu erro.
+1. Check `git config user.name`.
+2. Check `git config user.email`.
+3. List existing GPG keys.
+4. Generate a GPG key if you don't have one yet.
+5. Configure Git to sign commits.
+6. Make a signed commit.
+7. Check signature in log.
+8. Document what worked and what went wrong.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Crie um arquivo `SIGNED-COMMITS.md` respondendo:
+Create a file `SIGNED-COMMITS.md` responding:
 
 ```txt
-O que a assinatura de commit prova e o que ela nao prova?
+What the commit signature proves and what it does not prove?
 ```
 
-## Cuidado
+## Careful.
 
-Nunca compartilhe chave privada, senha ou qualquer material secreto no arquivo do lab.
+Never share private key, password or any secret material in the lab file.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce deve conseguir mostrar um commit assinado e explicar por que ele aparece como verificado.
+You should be able to show a signed commit and explain why it appears as verified.

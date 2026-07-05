@@ -1,5 +1,5 @@
-# Exemplos - Kong no Kubernetes, APIOps, GitOps e Testes de Carga
+# Examples - Kong in Kubernetes, APIOps, GitOps and Load Testing
 
-Use esta pasta para guardar exemplos prontos de referencia do curso.
+Use this folder to save examples ready for course reference.
 
-A regra da mentoria continua valendo: consulte exemplos depois de tentar o lab correspondente em `../labs/`.
+The rule of mentoring continues to apply: refer to examples after trying the corresponding lab in `../labs/`.

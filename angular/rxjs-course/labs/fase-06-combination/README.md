@@ -1,16 +1,16 @@
-# Lab Fase 6 - Combinacao
+# Lab Phase 6 - Combination
 
-## Missao
+## Mission
 
-Crie um arquivo `combination-state.ts` ou componente Angular fake com:
+Create a file `combination-state.ts` or Angular fake component with:
 
-1. `combineLatest` para busca, filtro e pagina.
-2. `forkJoin` para chamadas iniciais.
-3. `withLatestFrom` para salvar usando ultimo estado.
-4. `startWith` para valores iniciais.
-5. `catchError` para erro.
-6. `finalize` para loading.
+1. `combineLatest` for search, filter and page.
+2. `forkJoin` for initial calls.
+3. `withLatestFrom` to save using last state.
+4. `startWith` for initial values.
+5. `catchError` for error.
+6. `finalize` to loading.
 
 ## Checkpoint
 
-Crie uma tela fake com busca, filtro de status, paginacao, loading e erro.
+Create a fake screen with search, status filter, pagination, loading and error.

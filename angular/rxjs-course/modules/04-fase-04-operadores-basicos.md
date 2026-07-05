@@ -1,10 +1,10 @@
-# Fase 4 - Operadores basicos
+# Phase 4 - Basic operators
 
-## Objetivo
+## Objective
 
-Aprender a transformar, filtrar e observar fluxos sem baguncar o codigo.
+Learn how to transform, filter and observe flows without messing up the code.
 
-## Conceitos principais
+## Main concepts
 
 - `pipe`.
 - `map`.
@@ -16,49 +16,49 @@ Aprender a transformar, filtrar e observar fluxos sem baguncar o codigo.
 - `debounceTime`.
 - `distinctUntilChanged`.
 
-## Conceito guia
+## Guide concept
 
-Operadores deixam voce montar uma linha de raciocinio sobre o fluxo: transformar, filtrar, observar, limitar e evitar repeticao.
+Operators let you assemble a line of reasoning about the flow: transform, filter, observe, limit and avoid repetition.
 
-## Exemplo real de projeto
+## Real project example
 
-Em uma busca:
+In a search:
 
-1. `map` limpa o texto.
-2. `filter` ignora textos pequenos.
-3. `debounceTime` espera o usuario parar.
-4. `distinctUntilChanged` evita busca repetida.
-5. `tap` pode logar para debug sem alterar o valor.
+1. `map` clears text.
+2. `filter` ignores small texts.
+3. `debounceTime` wait for the user to stop.
+4. `distinctUntilChanged` avoids repeated search.
+5. `tap` can log to debug without changing the value.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-04-basic-operators/`:
+Implement on `../labs/fase-04-basic-operators/`:
 
-1. Usar `map` para transformar valores.
-2. Usar `filter` para deixar passar apenas alguns valores.
-3. Usar `tap` para logar sem alterar o fluxo.
-4. Usar `take` para limitar emissoes.
-5. Usar `skip` para ignorar primeiras emissoes.
-6. Criar um input com `debounceTime`.
-7. Evitar chamadas repetidas com `distinctUntilChanged`.
+1. Use `map` to transform values.
+2. Use `filter` to let pass just a few values.
+3. Use `tap` to log in without changing the flow.
+4. Use `take` to limit emissions.
+5. Use `skip` to ignore first issues.
+6. Create input with `debounceTime`.
+7. Avoid repeated calls with `distinctUntilChanged`.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Qual a diferenca entre `map` e `tap`?
-2. Por que `tap` nao deveria alterar valor?
-3. Quando faz sentido usar `take`?
-4. Por que `debounceTime` e util em busca?
-5. O que `distinctUntilChanged` evita?
+1. What's the difference between `map` and `tap`?
+2. Why? `tap` should not change value?
+3. When it makes sense to use `take`?
+4. Why? `debounceTime` and useful in search?
+5. What? `distinctUntilChanged` avoids?
 
 ## Checkpoint
 
-Crie uma busca fake onde:
+Create a fake search where:
 
-- o usuario digita em um input;
-- o sistema espera ele parar de digitar;
-- textos repetidos sao ignorados;
-- o console mostra o termo final da busca.
+- the user type in an input;
+- the system waits for him to stop typing;
+- repeated texts are ignored;
+- the console shows the final search term.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir montar o fluxo sem `subscribe` aninhado e explicar o papel de cada operador.
+You can advance when you can mount the flow without `subscribe` nestled and explain the role of each operator.

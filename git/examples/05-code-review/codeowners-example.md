@@ -1,19 +1,19 @@
-# Exemplo - CODEOWNERS
+# Example - CODEOWNERS
 
-Crie como `.github/CODEOWNERS` no repositorio de treino.
+Create as `.github/CODEOWNERS` in the training repository.
 
 ```txt
-# Dono padrao do repositorio
-* @seu-usuario
+# Standard owner of the repository
+* @your-usuary
 
-# Donos por area
-/docs/ @seu-usuario
-/src/payments/ @time-pagamentos
-/src/auth/ @time-identidade
+# Owners by area
+/docs/
+/src/payments/ @time-payments
+/src/auth/ @time-identity
 ```
 
-## O que observar
+## What to Watch
 
-- `*` define dono padrao.
-- Regras mais especificas ajudam a chamar especialistas.
-- CODEOWNERS funciona melhor junto com branch protection.
+- `*` sets standard owner.
+- More specific rules help call experts.
+- CODEOWNERS works best along with branch protection.

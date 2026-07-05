@@ -1,26 +1,26 @@
-# Lab Fase 4 - Collectors
+# Lab Phase 4 - Collectors
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Explicar a diferença entre Collector como agent e como gateway.
-- Criar um exemplo de arquitetura com Collector por host/pod.
-- Criar um exemplo de arquitetura com Collector centralizado.
-- Listar vantagens e desvantagens de cada abordagem.
-- Desenhar um pipeline com receiver, processor e exporter.
+- Explain the difference between Collector as agent and as gateway.
+- Create an architecture example with Collector per host/pod.
+- Create an example of architecture with centralized Collector.
+- List the advantages and disadvantages of each approach.
+- Draw pipeline with receiver, processer and exporter.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Quando faz sentido usar Collector como agent?
-- Quando faz sentido usar Collector como gateway?
-- Qual o risco de enviar telemetria direto da aplicação para o backend?
-- Por que usar batch processor?
-- Como o Collector ajuda a trocar de ferramenta de observabilidade?
-- Como o Collector ajuda a evitar acoplamento com fornecedor?
+- When it makes sense to use Collector as an agent?
+- When it makes sense to use Collector as a gateway?
+- What is the risk of sending direct telemetry from application to backend?
+- Why use batch processor?
+- How Collector Helps Change Observability Tool?
+- How Collector helps avoid coupling with supplier?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir explicar quando usar Collector local, Collector centralizado ou os dois juntos.
+Can explain when to use Local collector, central collector or both together.

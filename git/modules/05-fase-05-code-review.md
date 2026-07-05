@@ -1,72 +1,72 @@
-# Fase 5 - Code Review profissional
+# Phase 5 - Professional Code Review
 
-## Aulas
+## Lessons
 
-- Iniciando com Code Review.
-- Protegendo branch para Code Review.
-- Trabalhando com CODEOWNERS.
-- Extensao do GitHub para o VSCode.
+- Starting with Code Review.
+- Protecting Branch for Code Review.
+- Working with CODEOWNERS.
+- GitHub Extension for VSCode.
 
-## Objetivo
+## Objective
 
-Aprender a revisar codigo com maturidade tecnica, olhando nao so se funciona, mas tambem clareza, arquitetura, seguranca, testes, manutencao e impacto no sistema.
+Learning to review code with technical maturity, looking not only if it works, but also clarity, architecture, security, testing, maintenance and impact on the system.
 
-## Conceitos principais
+## Main concepts
 
 - Code Review.
-- Feedback tecnico.
-- Comentarios objetivos.
-- Sugestoes de melhoria.
-- Bloqueio vs sugestao.
+- Technical feedback.
+- Objective comments.
+- Suggestions for improvement.
+- Blocking vs Suggestion.
 - CODEOWNERS.
-- Revisores obrigatorios.
-- Areas de responsabilidade.
-- Review pelo VSCode.
-- Comunicacao no GitHub.
+- Compulsory reviewers.
+- Areas of responsibility.
+- Review by VSCode.
+- GitHub Communication.
 
-## Conceito guia
+## Guide concept
 
-Um bom review protege o sistema e ajuda a pessoa autora a crescer. Nem todo comentario precisa bloquear a PR; o segredo e diferenciar risco real de preferencia pessoal.
+A good review protects the system and helps the author grow. Not every commentary needs to block PR; the secret and differentiate real risk of personal preference.
 
-## Exemplo real de projeto
+## Real project example
 
-Se uma PR muda regra fiscal, o reviewer precisa olhar impacto, testes, compatibilidade e ownership. O CODEOWNERS pode garantir que alguem do time responsavel por aquela area seja chamado.
+If a PR changes tax rule, the reviewer needs to look at impact, testing, compatibility and ownership. CODEOWNERS can ensure that someone on the team responsible for that area is called.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-05-code-review/`:
+Implement on `../labs/fase-05-code-review/`:
 
-1. Criar uma PR com mudanca propositalmente simples.
-2. Revisar a propria PR antes de pedir review.
-3. Criar comentarios de review.
-4. Simular aprovacao.
-5. Simular solicitacao de mudanca.
-6. Criar arquivo `CODEOWNERS`.
-7. Definir dono para uma pasta do projeto.
-8. Testar comportamento de review obrigatorio.
+1. Create a PR with purposely simple change.
+2. Review the PR itself before asking for a review.
+3. Create review comments.
+4. Simulate approval.
+5. Simulate change request.
+6. Create File `CODEOWNERS`.
+7. Set owner for a project folder.
+8. Test mandatory review behavior.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. O que devo olhar em um Code Review?
-2. Quando devo bloquear uma PR?
-3. Quando devo apenas sugerir melhoria?
-4. Como dar feedback sem parecer grosso?
-5. Por que CODEOWNERS ajuda em projetos grandes?
-6. Qual o risco de aprovar PR sem entender o impacto?
+1. What Should I Look At in a Code Review?
+2. When to block a PR?
+3. When I should only suggest improvement?
+4. How to give feedback without sounding rude?
+5. Why CODEOWNERS helps in large projects?
+6. What is the risk of approving PR without understanding the impact?
 
 ## Checkpoint
 
-Fazer uma revisao de PR considerando:
+Do a review of PR considering:
 
-- Clareza do codigo.
-- Testes.
-- Seguranca.
+- Code clarity.
+- Tests.
+- Security.
 - Performance.
-- Padroes do projeto.
-- Legibilidade.
-- Possiveis efeitos colaterais.
-- Qualidade da descricao da PR.
+- Project Patterns.
+- Legibility.
+- Possible side effects.
+- Quality of PR description.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir escrever comentarios de review que sejam claros, objetivos e tecnicamente justificaveis.
+You can advance when you can write reviews that are clear, objective and technically justified.

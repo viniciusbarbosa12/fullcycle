@@ -1,56 +1,56 @@
-# Lab Fase 12 - Projeto final
+# Lab Phase 12 - Final project
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 12 antes de pedir revisao.
+Practice Phase 12 concepts before asking for review.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um ambiente Kubernetes com uma aplicação completa contendo:
+Create a Kubernetes environment with a full application containing:
 
-- Cluster Kind ou cluster cloud
-- Aplicação containerizada
+- Cluster Kind or cluster cloud
+- Containerized application
 - Deployment
-- ReplicaSet gerenciado pelo Deployment
-- Rollout e rollback testados
+- ReplicaSet managed by Deployment
+- Rollout and rollback tested
 - Service ClusterIP
-- Service NodePort ou LoadBalancer para teste
+- Service NodePort or LoadBalancerr for testing
 - ConfigMap
 - Secret
 - Liveness probe
 - Readiness probe
-- Startup probe, se fizer sentido
-- Requests e limits
-- HPA funcionando
-- Teste de stress com Fortio
-- PersistentVolume e PVC
-- StatefulSet com Headless Service
+- Startup probe, if it makes sense
+- Requests and limits
+- HPA working
+- Fortio stress test
+- PersistentVolume and PVC
+- StatefulSet with Headless Service
 - Ingress Controller
-- Recurso Ingress com host/path
-- DNS ou host local configurado
-- TLS com cert-manager
-- Namespace próprio
+- Ingress resource with host/path
+- DNS or local host configured
+- TLS with cert-manager
+- OwnNamespace
 - Service Account
-- Role/RoleBinding
-- README explicando toda a arquitetura
+- Roll/RoleBinding
+- README explaining all architecture
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Aplicação rodando em Kubernetes
-- Deployments funcionando
-- Rollout e rollback funcionando
-- Services corretamente configurados
-- Configuração separada via ConfigMap e Secret
-- Probes bem configuradas
-- Resources definidos
-- HPA escalando sob carga
-- Volume persistente funcionando
-- StatefulSet compreendido
-- Ingress expondo aplicação
-- TLS configurado
-- Namespace organizado
-- RBAC com permissões mínimas
-- README claro
-- Capacidade de explicar decisões e trade-offs
+- Application running in Kubernetes
+- Deployments working
+- Rollout and rollback working
+- Services properly configured
+- Separate configuration via ConfigMap and Secret
+- Probes well configured
+- Defined Resources
+- HPA climbing under load
+- Persistent volume functioning
+- StatefulSet understood
+- Ingress exposing application
+- TLS configured
+- OrganizedNamespace
+- RBAC with minimum permissions
+- Clear README
+- Ability to explain decisions and trade-offs

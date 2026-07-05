@@ -1,29 +1,29 @@
-# Lab Fase 4 - Pull Requests
+# Lab Phase 4 - Pull Requests
 
-## Missao
+## Mission
 
-Em um repositorio remoto de teste:
+In a remote test repository:
 
-1. Criar uma branch de feature.
-2. Fazer uma alteracao pequena.
-3. Criar uma Pull Request.
-4. Preencher titulo, contexto, mudancas e evidencias.
-5. Criar um template de PR em `.github/pull_request_template.md`.
-6. Configurar protecao da branch principal.
-7. Exigir pelo menos um review antes do merge.
-8. Testar o merge usando squash, rebase ou merge commit.
+1. Create a feature branch.
+2. Make a small change.
+3. Create Pull Request.
+4. Fill title, context, changes and evidence.
+5. Create a PR template in `.github/pull_request_template.md`.
+6. Configure main branch protection.
+7. Require at least one review before merge.
+8. Test merge using squash, rebase or merge commit.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Cole no README do lab:
+Paste in the lab README:
 
 ```txt
-Link da PR:
-Tipo de merge usado:
-Por que escolhi esse tipo:
-Evidencia de teste:
+PR Link:
+Used merge type:
+Why did I choose this merge type?:
+Test evidence:
 ```
 
-## Criterio de sucesso
+## Success criteria
 
-A PR deve ser entendida por alguem que nao acompanhou a implementacao.
+The PR should be understood by someone who did not follow the implementation.

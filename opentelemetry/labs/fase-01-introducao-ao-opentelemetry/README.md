@@ -1,27 +1,27 @@
-# Lab Fase 1 - Introdução ao OpenTelemetry
+# Lab Phase 1 - Introduction to OpenTelemetry
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Explicar com minhas palavras o que é observabilidade.
-- Explicar com minhas palavras o que é telemetria.
-- Criar uma tabela comparando logs, métricas e traces.
-- Descrever um problema real que seria difícil investigar sem trace distribuído.
-- Criar um desenho simples de uma requisição passando por 3 serviços.
+- Explain with my words what observability is.
+- Explain with my words what telemetry is.
+- Create a table comparing logs, metrics and dashes.
+- Describe a real problem that would be difficult to investigate without distributed trace.
+- Create a simple design of a request through 3 services.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual problema o OpenTelemetry tenta resolver?
-- Por que logs, métricas e traces precisam conversar entre si?
-- O que fica difícil quando cada serviço gera telemetria de um jeito diferente?
-- OpenTelemetry substitui Prometheus, Grafana, Elastic ou Zipkin?
-- Por que padronização importa em sistemas distribuídos?
+- What problem does OpenTelemetry try to solve?
+- Why logs, metrics and dashes need to talk to each other?
+- What gets difficult when each service generates telemetry in a different way?
+- OpenTelemetry replaces Prometheus, Grafana, Elastic or Zipkin?
+- Why Standardization Matters in Distributed Systems?
 
-## Criterio de sucesso
+## Success criteria
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Qual o papel do OpenTelemetry dentro de uma estratégia de observabilidade?
+> What is the role of OpenTelemetry within an observability strategy?

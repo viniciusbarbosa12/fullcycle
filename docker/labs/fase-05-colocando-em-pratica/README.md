@@ -1,20 +1,20 @@
-# Lab Fase 5 - Colocando em prática
+# Lab Phase 5 - Applying
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 5 antes de pedir revisao.
+Practice Phase 5 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma aplicação Node usando container.
-- Rodar `npm install` dentro do container.
-- Criar um Dockerfile da aplicação.
-- Subir a app localmente.
-- Testar alteração de código com bind mount.
+- Create an Node application using container.
+- Rotate `npm install` inside the container.
+- Create application Dockerfile.
+- Up App Locally.
+- Test code change with bid mount.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que seria útil criar uma app Node sem instalar Node localmente?
-- Qual o risco de misturar dependências da minha máquina com dependências do container?
-- Como isso ajuda em times grandes?
-- Como isso melhora onboarding de novos devs?
+- Why it would be helpful to create an app Node without installing Node locally?
+- What is the risk of mixing my machine dependencies with container dependencies?
+- How it helps on big teams?
+- How this improves onboarding of new devs?

@@ -1,18 +1,18 @@
-# Fase 3: Primeiro workflow com GitHub Actions
+# Phase 3: First workflow with GitHub Actions
 
-## Aulas
+## Lessons
 
-- Criando software exemplo
-- Criando primeiro workflow
-- Fazendo github actions não passar
-- Ativando status check
-- Trabalhando com Strategy Matrix
+- Creating example software
+- Creating first workflow
+- Making github actions not pass
+- Activating status check
+- Working with Strategy Matrix
 
-## Objetivo
+## Objective
 
-Criar o primeiro workflow de GitHub Actions, entender quando ele roda, como ele falha, como bloquear merge com status check e como testar em múltiplas versões/ambientes usando Strategy Matrix.
+Create the first GitHub Actions workflow, understand when it runs, how it fails, how to block merge with check status and how to test in multiple versions/environments using Strategy Matrix.
 
-## Conceitos principais
+## Main concepts
 
 - GitHub Actions
 - Workflow
@@ -22,40 +22,40 @@ Criar o primeiro workflow de GitHub Actions, entender quando ele roda, como ele 
 - Trigger
 - `push`
 - `pull_request`
-- Status check
+- State check
 - Required check
 - Strategy Matrix
-- Pipeline falhando
-- Pipeline passando
+- Pipeline Failing
+- Pipeline Passing
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar uma pasta `.github/workflows`.
-- Criar um primeiro arquivo de workflow.
-- Configurar o workflow para rodar em `push` e `pull_request`.
-- Rodar instalação de dependências.
-- Rodar testes.
-- Fazer a pipeline quebrar de propósito.
-- Corrigir a pipeline.
-- Ativar status check obrigatório na branch principal.
-- Criar uma matrix para rodar em mais de uma versão da linguagem/runtime.
+- Synchronising folder `.github/workflows`.
+- Create a first workflow file.
+- Configure workflow to run on `push` and `pull_request`.
+- Rotate dependencies installation.
+- Run tests.
+- Make the pipeline break on purpose.
+- Fix Pipeline.
+- Enable mandatory status check in the main branch.
+- Create a matrix to run in more than one language/runtime version.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre workflow, job e step?
-- Quando faz sentido rodar pipeline em `push`?
-- Quando faz sentido rodar pipeline em `pull_request`?
-- Por que é útil fazer a pipeline falhar de propósito?
-- O que o status check protege?
-- O que Strategy Matrix resolve?
-- Em que situação uma matrix pode deixar a pipeline lenta demais?
+- What is the difference between workflow, job and step?
+- When it makes sense to run pipeline on `push`?
+- When it makes sense to run pipeline on `pull_request`?
+- Why is it helpful to make the pipeline fail on purpose?
+- What status check protects?
+- What Strategy Matrix Solves?
+- In what situation a matrix can make the pipeline too slow?
 
 ## Checkpoint
 
-Criar uma PR onde:
+Create a PR where:
 
-- A pipeline roda automaticamente.
-- A pipeline falha em um primeiro momento.
-- O erro é corrigido.
-- O status check bloqueia merge quando falha.
-- A matrix roda em mais de uma versão.
+- The pipeline runs automatically.
+- Pipeline fails at first.
+- Error is fixed.
+- State check blocks merge when failure.
+- The matrix runs in more than one version.

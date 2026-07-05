@@ -1,44 +1,44 @@
-# Lab Fase 7 - Projeto final
+# Lab Phase 7 - Final project
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 7 antes de pedir revisao.
+Practice Phase 7 concepts before requesting review.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um ambiente Kubernetes local com Kong contendo:
+Create a local Kubernetes environment with Kong containing:
 
-- Cluster Kubernetes local
-- Kong instalado como Ingress Controller
-- API de exemplo rodando no cluster
-- Ingress expondo a API via Kong
-- KongPlugin configurado via CRD
-- OpenID Provider configurado
-- OpenID plugin aplicado
-- Arquivo OpenAPI versionado
-- Lint de OpenAPI
-- Validação de contrato
-- Pipeline simulando APIOps
-- Argo CD sincronizando manifests
-- Teste de carga com K6/Testkube
-- Logs da aplicação
-- Logs do Kong
-- Guia de troubleshooting
-- README explicando a arquitetura
+- Local Kubernetes Cluster
+- Kong installed as Ingress Controller
+- Example API running in cluster
+- Ingress exposing the API via Kong
+- KongPlugin configured via CRD
+- OpenID Provider configured
+- OpenID plugin applied
+- OpenAPI File Versioned
+- OpenAPI Lint
+- Contract validation
+- Pipeline simulating APIOps
+- Argo CD syncing manifests
+- K6/Testkube load test
+- Application logs
+- Kong Logs
+- Troubleshooting Guide
+- README explaining the architecture
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Entendimento de Kong no Kubernetes
-- Uso correto de Ingress Controller
-- Uso de CRDs do Kong
-- Plugins aplicados de forma declarativa
-- Autenticação OpenID funcionando
-- Contrato OpenAPI validado
-- Pipeline APIOps funcionando
-- GitOps com Argo funcionando
-- Teste de carga executado
-- Logs coletados e analisados
-- README claro
-- Capacidade de explicar riscos, decisões e trade-offs
+- Kong understanding in Kubernetes
+- Correct Use of Ingress Controller
+- Use of Kong CRDs
+- Declaratively applied plugins
+- OpenID Authentication working
+- Validated OpenAPI contract
+- Pipeline APIOps working
+- GitOps with Argo working
+- Load test performed
+- Logs collected and analyzed
+- Clear README
+- Ability to explain risks, decisions and trade-offs

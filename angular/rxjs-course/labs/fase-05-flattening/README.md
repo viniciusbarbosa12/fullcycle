@@ -1,14 +1,14 @@
-# Lab Fase 5 - Transformacao avancada
+# Phase 5 Lab - Advanced Transformation
 
-## Missao
+## Mission
 
-Crie um arquivo `flattening-operators.ts` e compare:
+Create a file `flattening-operators.ts` and compare:
 
-1. Busca com `switchMap`.
-2. Requisicoes paralelas com `mergeMap`.
-3. Fila de salvamento com `concatMap`.
-4. Botao de login com `exhaustMap`.
+1. Search with `switchMap`.
+2. Parallel requirements with `mergeMap`.
+3. Save queue with `concatMap`.
+4. login boot with `exhaustMap`.
 
 ## Checkpoint
 
-Use logs para provar a diferenca entre cancelamento, paralelismo, ordem e ignorar novas emissoes.
+Use logs to prove the difference between cancellation, parallelism, order and ignore new issues.

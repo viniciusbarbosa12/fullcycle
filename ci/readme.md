@@ -1,160 +1,160 @@
-# Plano de Aprendizado Integração Contínua, GitHub Actions, Docker e SonarQube
+# Continuous Integration, GitHub Actions, Docker, and SonarQube Learning Plan
 
-Este plano foi criado para estudar o curso de Integração Contínua de forma prática, com foco em aprendizado real.
+This plan was created to study Continuous Integration in a practical way, focusing on real learning.
 
-A ideia não é apenas assistir às aulas, mas entender como uma pipeline de CI funciona em um projeto profissional: rodar testes automaticamente, bloquear código quebrado, usar status checks, trabalhar com matriz de execução, buildar imagens Docker, publicar imagens automaticamente e validar qualidade com SonarQube/SonarCloud.
+The idea is not just to watch lessons, but to understand how a CI pipeline works in a professional project: run tests automatically, block broken code, use status checks, work with strategy matrix, build Docker images, publish images automatically and validate quality with SonarQube/SonarCloud.
 
-O objetivo é sair desse curso conseguindo criar uma pipeline de CI sozinho, entender os erros, corrigir falhas e conectar esse fluxo com Pull Requests, Code Review e entrega segura de software.
+By the end of this course, I should be able to create a CI pipeline on my own, understand errors, fix failures and connect this flow with Pull Requests, Code Review and secure software delivery.
 
-## Como vamos estudar
+## How We Will Study
 
-Sempre que eu iniciar uma nova aula, a mentoria deve seguir este formato:
+Whenever I start a new lesson, mentoring should follow this format:
 
-1. Explicar os conceitos de forma clara e gradual.
-2. Dividir assuntos grandes em partes pequenas.
-3. Propor exercícios práticos para eu implementar sozinho.
-4. Evitar entregar a solução completa de primeira.
-5. Fazer perguntas que me levem a raciocinar antes de responder.
-6. Se eu pedir ajuda, dar apenas dicas ou pequenos trechos de código/comandos.
-7. Só mostrar a solução completa se eu pedir explicitamente ou depois que eu realmente tentar resolver.
+1. Explain concepts clearly and gradually.
+2. Split big subjects into small parts.
+3. Propose practical exercises for me to implement on my own.
+4. Avoid delivering the complete solution upfront.
+5. Ask questions that lead me to reason before answering.
+6. If I ask for help, just give hints or small chunks of code/commands.
+7. Only show the complete solution if I ask explicitly or after I really try to solve.
 
-Quando eu terminar um exercício, a revisão deve seguir este formato:
+When I finish an exercise, the review should follow this format:
 
-1. Fazer uma revisão profissional do que eu fiz.
-2. Apontar erros, melhorias e boas práticas.
-3. Explicar o motivo de cada sugestão.
-4. Dizer o que eu fiz bem.
-5. Dizer o que ainda preciso estudar.
-6. Relacionar o conteúdo com cenários reais de projetos e times de desenvolvimento.
+1. Do a professional review of what I did.
+2. Point out errors, improvements and good practices.
+3. Explain the reason for each suggestion.
+4. Say what I did right.
+5. Tell me what I still need to study.
+6. Connect the content to real project scenarios and development teams.
 
-O objetivo é priorizar aprendizado profundo, não velocidade.
+The goal is to prioritize deep learning, not speed.
 
-## Estrutura
+## Structure
 
-- `modules/`: fases do plano de mentoria.
-- `labs/`: exercicios e desafios para voce implementar.
-- `examples/`: exemplos prontos de referencia, para consultar depois da tentativa.
-- `final-project/`: guia da consolidacao final do curso.
+- `modules/`: phases of the mentoring plan.
+- `labs/`: exercises and challenges for you to implement.
+- `examples/`: ready reference examples to consult after the attempt.
+- `final-project/`: course final consolidation guide.
 
-## Grade do curso
+## Course Outline
 
-### Introdução
+### Introduction
 
-- Iniciando com Integração contínua - 22:21
+- Starting with Continuous Integration - 22:21
 
-### Código-fonte
+### Source code
 
-- Código-fonte - sem duração
+- Source code - no duration
 
-### Iniciando com CI
+### Starting with CI
 
-- Criando software exemplo - 05:28
-- Criando primeiro workflow - 12:07
-- Fazendo github actions não passar - 05:46
-- Ativando status check - 12:39
-- Trabalhando com Strategy Matrix - 10:46
+- Creating Example Software - 05:28
+- Creating first workflow - 12:07
+- Making github actions not pass - 05:46
+- Activating status check - 12:39
+- Working with Strategy Matrix - 10:46
 
-### CI com Docker
+### CI with Docker
 
-- Criando Dockerfile - 05:22
-- Errata - Criando Dockerfile - sem duração
-- Gerando build da imagem via CI - 15:21
-- Dando push na imagem automaticamente - 08:33
+- Creating Dockerfile - 05:22
+- Errata - Creating Dockerfile - no duration
+- Generating image build via CI - 15:21
+- Pushing the image automatically - 08:33
 
 ### SonarQube
 
-- Iniciando com Sonarqube - 05:05
-- Conceitos principais - 13:50
-- Instalando primeiro projeto - 09:50
-- Trabalhando com cobertura de código - 10:52
-- Cobrindo código Javascript - 11:37
-- Preparando ambiente para o SonarCloud - 09:08
-- Executando SonarCloud - 17:31
-- Trocando de Quality Gate - 05:18
+- Starting with Sonarqube - 05:05
+- Main Concepts - 13:50
+- Installing first project - 09:50
+- Working with code coverage - 10:52
+- Covering JavaScript code - 11:37
+- Preparing environment for SonarCloud - 09:08
+- Running SonarCloud - 17:31
+- Changing Quality Gate - 05:18
 
-### Questionário
+### Questionnaire
 
-- Questionário - sem duração
+- Questionnaire - no duration
 
-## Fases
+## Phases
 
-0. [Como vamos estudar](modules/00-como-vamos-estudar.md)
-1. [Introdução e base mental de CI](modules/01-fase-01-introducao-e-base-mental-de-ci.md)
-2. [Código-fonte e projeto base](modules/02-fase-02-codigo-fonte-e-projeto-base.md)
-3. [Primeiro workflow com GitHub Actions](modules/03-fase-03-primeiro-workflow-com-github-actions.md)
-4. [CI com Docker](modules/04-fase-04-ci-com-docker.md)
-5. [SonarQube e qualidade de código](modules/05-fase-05-sonarqube-e-qualidade-de-codigo.md)
-6. [Questionário e consolidação](modules/06-fase-06-questionario-e-consolidacao.md)
-7. [Perguntas classicas de entrevista](modules/07-perguntas-entrevista.md)
+0. [How We Will Study](modules/00-como-vamos-estudar.md)
+1. [Introduction and mental model of CI](modules/01-fase-01-introducao-e-base-mental-de-ci.md)
+2. [Source code and base project](modules/02-fase-02-codigo-fonte-e-projeto-base.md)
+3. [First workflow with GitHub Actions](modules/03-fase-03-primeiro-workflow-com-github-actions.md)
+4. [CI with Docker](modules/04-fase-04-ci-com-docker.md)
+5. [SonarQube and code quality](modules/05-fase-05-sonarqube-e-qualidade-de-codigo.md)
+6. [Questionnaire and Consolidation](modules/06-fase-06-questionario-e-consolidacao.md)
+7. [Classic interview questions](modules/07-perguntas-entrevista.md)
 
-## Ritmo recomendado
+## Recommended rhythm
 
-O curso tem cerca de 3h01 de videoaulas, mas o foco é praticar bastante.
+The course has about 3h01 of video lessons, but the focus is to practice a lot.
 
-### Sugestão de ritmo em 8 dias
+### Suggestion of rhythm in 8 days
 
-#### Dia 1
+#### Day 1
 
-- Introdução à Integração Contínua
-- Conceitos de CI
-- Projeto base
-- Comandos locais de teste e build
+- Introduction to Continuous Integration
+- CI concepts
+- Base project
+- Local test and build commands
 
-#### Dia 2
+#### Day 2
 
 - GitHub Actions
-- Primeiro workflow
-- Jobs e steps
-- Pipeline rodando em push e PR
+- First workflow
+- Jobs and steps
+- Pipeline running in push and PR
 
-#### Dia 3
+#### Day 3
 
-- Pipeline falhando
-- Correção de erro
-- Status check obrigatório
-- Proteção de branch
+- Pipeline Failing
+- Error correction
+- Required status check
+- Branch Protection
 
-#### Dia 4
+#### Day 4
 
 - Strategy Matrix
-- Execução em múltiplas versões
-- Otimização de pipeline
+- Multiple version execution
+- Pipeline optimization
 
-#### Dia 5
+#### Day 5
 
 - Dockerfile
-- Build de imagem local
-- Build de imagem via CI
+- Local Image Build
+- Image build via CI
 
-#### Dia 6
+#### Day 6
 
-- Push automático de imagem
+- Automatic image push
 - Registry
 - Secrets
-- Tags de imagem
+- Image tags
 
-#### Dia 7
+#### Day 7
 
 - SonarQube/SonarCloud
 - Coverage
 - Quality Gate
-- Integração com CI
+- CI integration
 
-#### Dia 8
+#### Day 8
 
-- Projeto final
-- Questionário
-- Revisão geral
-- README final
+- Final project
+- Questionnaire
+- General review
+- Final README
 
-## Primeira missao
+## First Mission
 
-Assistir à aula:
+Watch the lesson:
 
-> Iniciando com Integração contínua
+> Starting with Continuous Integration
 
-Depois responder com minhas palavras:
+Then answer with my words:
 
-> O que uma pipeline de CI deveria proteger antes de permitir o merge de uma Pull Request?
+> What should a CI pipeline protect before allowing the merge of a Pull Request?
 
-Não precisa ser uma resposta perfeita. O importante é mostrar meu raciocínio inicial para depois corrigir, ajustar e aprofundar.
+It does not have to be a perfect answer. The important thing is to show my initial reasoning so we can correct, adjust and deepen.

@@ -1,42 +1,42 @@
-# Projeto final - Git profissional
+# Final project - Professional Git
 
-Este diretorio serve como guia para a simulacao final do curso.
+This directory serves as a guide to the final simulation of the course.
 
-## Objetivo
+## Objective
 
-Montar um repositorio que demonstre um fluxo profissional completo de Git, PR, review, protecao de branch, versionamento e padrao de commits.
+Set up a repository showing a complete professional flow of Git, PR, review, branch protection, versioning and commit standard.
 
-## Checklist do projeto
+## Project Checklist
 
-1. Criar repositorio remoto de treino.
-2. Definir estrategia de branches.
-3. Proteger a branch principal.
-4. Criar uma feature branch.
-5. Abrir PR usando template.
-6. Exigir review antes do merge.
-7. Adicionar CODEOWNERS.
-8. Fazer commits seguindo Conventional Commits.
-9. Assinar pelo menos um commit.
-10. Configurar commitlint ou Commitsar.
-11. Criar tag de release usando SemVer.
-12. Simular hotfix.
-13. Explicar tudo no README do projeto.
+1. Create Remote Training Repository.
+2. Set Branch Strategy.
+3. Protect the main branch.
+4. Create a feature branch.
+5. Open PR using template.
+6. Require review before merge.
+7. Add CODEOWNERS.
+8. Commit following Conventional Commits.
+9. Sign at least one commit.
+10. Configure commitlint or commit.
+11. Create release tag using SemVer.
+12. Simulate hotfix.
+13. Explain everything in the project README.
 
-## README esperado no repositorio final
+## README expected in the final repository
 
-O README do seu projeto final deve responder:
+The README of your final project must respond:
 
-1. Qual estrategia de branch foi escolhida?
-2. Por que essa estrategia faz sentido para esse projeto?
-3. Como uma feature entra no projeto?
-4. Como uma correcao urgente chega em producao?
-5. Quais regras protegem a branch principal?
-6. Como uma PR deve ser escrita?
-7. Como o Code Review deve ser feito?
-8. Quem e dono de cada area pelo CODEOWNERS?
-9. Como as versoes sao decididas com SemVer?
-10. Como Conventional Commits ajudam o time?
+1. Which branch strategy was chosen?
+2. Why this strategy makes sense for this project?
+3. How a feature enters the project?
+4. How an urgent correction arrives in production?
+5. Which rules protect the main branch?
+6. How a PR should be written?
+7. How Code Review Should Be Done?
+8. Who owns each area by CODEOWNERS?
+9. How the verses are decided with SemVer?
+10. How Conventional Commits help the team?
 
-## Criterio de conclusao
+## Conclusion criteria
 
-O projeto esta pronto quando voce conseguir apresentar o repositorio para outra pessoa e explicar o fluxo completo sem depender de comandos decorados.
+The project is ready when you can present the repository to someone else and explain the complete flow without depending on decorated commands.

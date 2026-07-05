@@ -1,29 +1,29 @@
-# Lab Fase 7 - Decisões na escolha de API Gateway
+# Lab Phase 7 - Decisions on choosing API Gateway
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 7 antes de pedir revisao.
+Practice Phase 7 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma matriz simples de decisão para escolher um API Gateway.
-- Comparar Kong, AWS API Gateway, NGINX, Traefik e Istio Gateway em alto nível.
-- Listar critérios importantes para uma empresa pequena.
-- Listar critérios importantes para uma empresa grande.
-- Desenhar dois modelos: gateway centralizado e gateway por domínio/time.
-- Escrever uma recomendação técnica para um cenário fictício.
+- Create a simple decision matrix to choose an API Gateway.
+- Compare Kong, AWS API Gateway, NGINX, Traefik and Istio Gateway at high level.
+- List important criteria for a small enterprise.
+- List important criteria for a large company.
+- Draw two models: centralized gateway and gateway by domain/time.
+- Write a technical recommendation for a fictional scenario.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Que características não funcionais importam em um gateway?
-- Como o gateway impacta latência?
-- Quem deveria ser dono do gateway?
-- Um time central deve controlar tudo?
-- Times de produto deveriam conseguir configurar suas próprias rotas?
-- Quando usar gateway gerenciado da cloud?
-- Quando usar Kong self-hosted?
-- Quando API Gateway vira gargalo organizacional?
+- What non-functional features matter in a gateway?
+- How the gateway impacts latency?
+- Who should own the gateway??
+- A central team must control everything?
+- Product Times should be able to set their own routes?
+- When to use cloud managed gateway?
+- When to use Kong self-hosted?
+- When API Gateway turns organizational bottleneck?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir justificar a escolha de um API Gateway para um cenário realista.
+Getting to justify choosing an API Gateway for a realistic scenario.

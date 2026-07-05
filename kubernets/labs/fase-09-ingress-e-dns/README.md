@@ -1,30 +1,30 @@
-# Lab Fase 9 - Ingress e DNS
+# Lab Phase 9 - Ingress and DNS
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 9 antes de pedir revisao.
+Practice Phase 9 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Instalar Ingress NGINX Controller.
-- Criar recurso Ingress.
-- Configurar rota por host.
-- Configurar rota por path.
-- Apontar domínio ou DNS local.
-- Testar acesso externo.
-- Observar logs do controller.
-- Comparar Ingress com Service LoadBalancer.
+- Install Ingress NGINX Controller.
+- Create Resource Ingress.
+- Configure Host Route.
+- Configure path route.
+- Point local domain or DNS.
+- Test external access.
+- Watch controller logs.
+- Compare Ingress with Service LoadBalancerr.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre Ingress e Ingress Controller?
-- Por que criar Ingress sem controller não resolve?
-- Quando usar Ingress em vez de LoadBalancer direto?
-- Como funciona roteamento por host?
-- Como funciona roteamento por path?
-- O que o DNS precisa fazer?
-- Qual o papel do controller NGINX?
+- What's the difference between Ingress and Ingress Controller?
+- Why creating Ingress without controller does not solve?
+- When to use Ingress instead of LoadBalancerr direct?
+- How Host Routing Works?
+- How path routing works?
+- What the DNS needs to do?
+- What is the role of NGINX controller?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter uma aplicação acessível por domínio ou host configurado usando Ingress.
+Have a domain or host app configured using Ingress.

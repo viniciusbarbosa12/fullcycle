@@ -1,16 +1,16 @@
-# Fase 2 - Gitflow
+# Phase 2 - Gitflow
 
-## Aulas
+## Lessons
 
-- Introducao ao Gitflow.
-- Instalacao do Gitflow.
-- Mao na massa.
+- Gitflow Introduction.
+- Gitflow Installation.
+- Mao in the dough.
 
-## Objetivo
+## Objective
 
-Entender o Gitflow como uma estrategia de branches para organizar desenvolvimento, releases, hotfixes e manutencao de versoes.
+Understanding Gitflow as a branch strategy to organize development, releases, hotfixes and maintenance of verses.
 
-## Conceitos principais
+## Main concepts
 
 - Gitflow.
 - Branch `main`.
@@ -19,48 +19,48 @@ Entender o Gitflow como uma estrategia de branches para organizar desenvolviment
 - Release branch.
 - Hotfix branch.
 - Merge.
-- Versionamento.
-- Fluxo de entrega.
-- Ambientes de desenvolvimento, homologacao e producao.
+- Version.
+- Delivery flow.
+- Development, approval and production environments.
 
-## Conceito guia
+## Guide concept
 
-Gitflow separa trabalho em andamento, releases candidatas e correcoes urgentes. Ele ajuda quando o time precisa manter producao estavel enquanto novas features continuam em desenvolvimento.
+Gitflow separates work in progress, release candidates and urgent corrections. It helps when the team needs to maintain stable production while new features continue to develop.
 
-## Exemplo real de projeto
+## Real project example
 
-Um time esta preparando a versao `1.4.0` em uma release branch, mas encontra um bug urgente em producao. O hotfix sai da `main`, volta para producao rapidamente e depois e integrado de volta ao fluxo normal.
+A team is preparing the version `1.4.0` in a release branch, but find an urgent bug in production. The hotfix comes out of `main`,Returns to production quickly and then is integrated back to normal flow.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-02-gitflow/`:
+Implement on `../labs/fase-02-gitflow/`:
 
-1. Criar um repositorio de teste.
-2. Inicializar um fluxo Gitflow.
-3. Criar uma feature branch.
-4. Fazer commits dentro da feature.
-5. Finalizar a feature.
-6. Criar uma release branch.
-7. Simular correcao em release.
-8. Criar um hotfix.
-9. Observar o historico final do repositorio.
+1. Create a test repository.
+2. Start Gitflow.
+3. Create a feature branch.
+4. Commit within feature.
+5. Finish Feature.
+6. Create a release branch.
+7. Simulate correction in release.
+8. Create hotfix.
+9. Observe the final history of the repository.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Qual a funcao da branch `main`?
-2. Qual a funcao da branch `develop`?
-3. Quando usar uma feature branch?
-4. Quando usar uma release branch?
-5. Quando usar um hotfix?
-6. Gitflow e sempre a melhor opcao?
-7. Em que tipo de time Gitflow pode ser pesado demais?
+1. What is the branch function `main`?
+2. What is the branch function `develop`?
+3. When to use a feature branch?
+4. When using a release branch?
+5. When to use a hotfix?
+6. Gitflow is always the best option?
+7. What kind of Gitflow team can be too heavy on?
 
 ## Checkpoint
 
-Responda com suas palavras:
+Answer with your words:
 
-> Como eu explicaria Gitflow para um dev que so usa branch direto da main?
+> How would I explain Gitflow to a dev who only uses branch directly from the main?
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir desenhar o caminho de uma feature, uma release e um hotfix sem misturar as responsabilidades das branches.
+You can advance when you can draw the path of a feature, a release and a hotfix without mixing the responsibilities of branches.

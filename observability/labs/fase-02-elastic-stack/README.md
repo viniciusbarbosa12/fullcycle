@@ -1,28 +1,28 @@
-# Lab Fase 2 - Elastic Stack
+# Lab Phase 2 - Elastic Stack
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Clonar ou criar o projeto base.
-- Subir Elasticsearch e Kibana localmente.
-- Acessar o Kibana.
-- Criar um README explicando cada componente da stack.
-- Identificar o fluxo de dados: origem -> coleta -> processamento -> armazenamento -> visualização.
-- Criar um desenho simples da arquitetura.
+- Clone or create the base project.
+- Run Elasticsearch and Kibana locally.
+- Access Kibana.
+- Create a README explaining each stack component.
+- Identify data flow: source -> collection -> processing -> storage -> viewing.
+- Create a simple architecture design.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual o papel do Elasticsearch?
-- Qual o papel do Kibana?
-- Qual o papel do Logstash?
-- O que são Beats?
-- Por que logs precisam ser indexados?
-- O que eu ganho ao centralizar logs?
-- Qual problema aparece quando logs ficam espalhados em vários servidores?
+- What is the role of Elasticsearch?
+- What's Kibana's role??
+- What is the role of Logstash??
+- What Beats Are?
+- Why logs need to be indexed?
+- What do I get by centralizing logs?
+- What problem appears when logs are scattered on multiple servers?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter Elasticsearch e Kibana rodando e conseguir explicar o papel de cada componente da Elastic Stack.
+Having Elasticsearch and Kibana running and being able to explain the role of each Elastic Stack component.

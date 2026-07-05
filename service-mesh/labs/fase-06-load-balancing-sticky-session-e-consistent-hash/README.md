@@ -1,27 +1,27 @@
-# Lab Fase 6 - Load balancing, sticky session e consistent hash
+# Lab Phase 6 - Load balancing, sticky session and consistent hash
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 6 antes de pedir revisao.
+Practice Phase 6 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Testar distribuição padrão de tráfego.
-- Configurar uma política de load balancing.
-- Simular múltiplas instâncias de uma versão.
-- Configurar consistent hash usando header ou cookie.
-- Fazer várias chamadas e observar se o tráfego mantém afinidade.
-- Comparar comportamento com e sem consistent hash.
+- Test Standard Traffic Distribution.
+- Configure a load balancing policy.
+- Simulate multiple instances of a version.
+- Configure consistent hash using header or cookie.
+- Make multiple calls and observe if traffic maintains affinity.
+- Compare behavior with and without consistent hash.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que nem todo tráfego pode ser distribuído aleatoriamente?
-- Quando sticky session faz sentido?
-- Quando sticky session pode ser ruim?
-- O que consistent hash resolve?
-- Por que aplicações stateless reduzem a necessidade de sticky session?
-- Que tipo de sistema poderia precisar de afinidade?
+- Why not all traffic can be randomly distributed?
+- ♪ When Sticky Session makes sense ♪?
+- When Sticky Session Can Be Bad?
+- What Consistent Hash Solves?
+- Why stateless applications reduce the need for static session?
+- What kind of system could need affinity?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir demonstrar tráfego com e sem consistent hash e explicar a diferença.
+To demonstrate traffic with and without consistent hash and explain the difference.

@@ -1,19 +1,19 @@
-# Fase 7: Docker Compose
+# Phase 7: Docker Compose
 
-## Aulas
+## Lessons
 
-- Iniciando com Docker-compose
-- Buildando images com Docker-compose
-- Criando banco de dados MySQL
-- Configurando app node com docker-compose
+- Starting with Docker-compose
+- Building images with Docker-compose
+- Creating database MySQL
+- Setting up node app with docker-compose
 - Node vs MySQL
-- Dependência entre containers
+- Container Dependency
 
-## Objetivo
+## Objective
 
-Subir uma aplicação com múltiplos serviços de forma organizada.
+Up an application with multiple services in an organized manner.
 
-## Conceitos principais
+## Main concepts
 
 - `docker-compose.yml`
 - Services
@@ -24,24 +24,24 @@ Subir uma aplicação com múltiplos serviços de forma organizada.
 - Environment variables
 - `depends_on`
 - Networks
-- App + banco
-- Ordem de inicialização
+- App + database
+- Startup order
 - Healthcheck
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar um Compose com uma aplicação Node.
-- Adicionar MySQL.
-- Configurar variáveis de ambiente.
-- Conectar Node ao MySQL.
-- Persistir dados do MySQL com volume.
-- Testar parar, remover e subir tudo de novo.
-- Entender quando o banco ainda não está pronto mesmo com `depends_on`.
+- Create Compose with a Node application.
+- Add MySQL.
+- Configure Environment Variables.
+- Connect Node to MySQL.
+- Commit MySQL data with volume.
+- Test stop, remove and climb all over again.
+- Understand when the bank is not ready even with `depends_on`.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que Compose é melhor do que vários `docker run` soltos?
-- O que o `depends_on` resolve?
-- O que o `depends_on` não resolve?
-- Por que banco precisa de volume?
-- Por que a app não deve usar `localhost` para conectar no MySQL dentro do Compose?
+- Why Compose is better than several `docker run` loose?
+- What the `depends_on` solves?
+- What the `depends_on` does not solve?
+- Why bank needs volume?
+- Why the app should not use `localhost` to connect to MySQL within Compose?

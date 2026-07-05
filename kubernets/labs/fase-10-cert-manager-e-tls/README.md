@@ -1,30 +1,30 @@
-# Lab Fase 10 - Cert-manager e TLS
+# Lab Phase 10 - Cert-manager and TLS
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 10 antes de pedir revisao.
+Practice Phase 10 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Instalar cert-manager.
-- Validar pods do cert-manager.
-- Criar Issuer ou ClusterIssuer.
-- Criar Certificate.
-- Validar Secret TLS gerado.
-- Configurar Ingress com TLS.
-- Testar acesso HTTPS.
-- Verificar status do certificado.
+- Install cert-manager.
+- Cert-manager Validate pods.
+- Create Issue or Cluster.
+- Create Certificate.
+- Validate Secret TLS generated.
+- Configure Ingress with TLS.
+- Test access HTTPS.
+- Check certificate status.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que automatizar certificados?
-- Qual o papel do cert-manager?
-- Qual a diferença entre Issuer e ClusterIssuer?
-- Onde o certificado fica armazenado?
-- Como o Ingress usa o certificado?
-- O que acontece quando o certificado vence?
-- Que cuidados eu teria em produção?
+- Why Automate Certificates?
+- What is the role of cert-manager?
+- What is the difference between Issuer and ClusterIsuer?
+- Where the certificate is stored?
+- How Ingress Uses Certificate?
+- What happens when the certificate wins?
+- What care would I have in production?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter aplicação acessível via HTTPS com certificado gerenciado pelo cert-manager.
+Have application accessible via HTTPS with cert-manager-managed certificate.

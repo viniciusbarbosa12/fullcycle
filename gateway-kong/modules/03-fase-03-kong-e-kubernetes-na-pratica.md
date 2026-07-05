@@ -1,59 +1,59 @@
-# Fase 3: Kong & Kubernetes na prática
+# Phase 3: Kong & Kubernetes in practice
 
-## Aulas
+## Lessons
 
-- Crd plugins
+- CRD plugins
 - Kong ingress
 - Open id provider
 - Kong openid plugin
 
-## Objetivo
+## Objective
 
-Aprender a configurar Kong dentro do Kubernetes usando recursos nativos e CRDs.
+Learn to configure Kong within Kubernetes using native features and CRDs.
 
-Aqui o Kong começa a ser tratado como parte do cluster. Em vez de configurar tudo manualmente pela Admin API, a configuração passa a ser declarativa via YAML.
+Kong here begins to be treated as part of the cluster. Instead of manually configuring everything by Admin API, the configuration becomes declarative via YAML.
 
-## Conceitos principais
+## Main concepts
 
 - CRD
 - KongPlugin
 - KongClusterPlugin
-- Kubernetes Ingress
+- Kubernetes Entry
 - Kong Ingress Controller
 - Annotations
 - Services
 - Routes
-- Plugins declarativos
+- Declarative plugins
 - OpenID Connect
 - Identity Provider
 - Token
-- Autenticação no gateway
+- Gateway Authentication
 - Authorization Code Flow
 - Client ID
 - Client Secret
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar um Ingress para expor uma API pelo Kong.
-- Criar um KongPlugin simples.
-- Aplicar plugin em uma rota.
-- Criar plugin global, se fizer sentido.
-- Configurar um provider OpenID.
-- Configurar plugin OpenID no Kong.
-- Testar chamada sem autenticação.
-- Testar chamada autenticada.
-- Documentar o fluxo de autenticação.
+- Create Ingress to display an API by Kong.
+- Create simple KongPlugin.
+- Apply plugin on a route.
+- Create global plugin if it makes sense.
+- Configure an OpenID provider.
+- Configure OpenID plugin in Kong.
+- Test call without authentication.
+- Test authenticated call.
+- Document authentication flow.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é um CRD?
-- Por que o Kong usa CRDs no Kubernetes?
-- Qual a diferença entre KongPlugin e KongClusterPlugin?
-- Como o Kong sabe que deve aplicar um plugin em uma rota?
-- Qual a diferença entre autenticar na aplicação e autenticar no gateway?
-- O que é OpenID Connect?
-- O que pode dar errado em uma configuração de autenticação no gateway?
+- What is a CRD?
+- Why Kong uses CRDs in Kubernetes?
+- What's the difference between KongPlugin and KongClusterPlugin?
+- How Kong knows to apply a plugin to a route?
+- What's the difference between authenticate in application and authenticate in gateway?
+- What OpenID Connect is?
+- What can go wrong in a gateway authentication configuration?
 
 ## Checkpoint
 
-Ter uma API exposta pelo Kong Ingress e protegida com plugin configurado via Kubernetes.
+Have an API exposed by Kong Ingress and protected with plugin configured via Kubernetes.

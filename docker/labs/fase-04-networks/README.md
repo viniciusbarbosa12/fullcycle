@@ -1,20 +1,20 @@
-# Lab Fase 4 - Networks
+# Lab Phase 4 - Networks
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma network customizada.
-- Subir dois containers na mesma network.
-- Fazer um container acessar outro pelo nome.
-- Testar acesso via porta exposta.
-- Testar comunicação do container com a máquina local.
+- Create a custom network.
+- Up two containers on the same network.
+- Make one container access another by name.
+- Test access via exposed door.
+- Test container communication with local machine.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que dois containers na mesma bridge conseguem conversar?
-- Por que às vezes uso o nome do container em vez de `localhost`?
-- O que significa expor uma porta?
-- Qual a diferença entre porta dentro do container e porta da minha máquina?
+- Why two containers in the same bridge can talk?
+- Why sometimes I use the name of the container instead of `localhost`?
+- Which means exposing a door?
+- What's the difference between the door inside the container and the door to my machine??

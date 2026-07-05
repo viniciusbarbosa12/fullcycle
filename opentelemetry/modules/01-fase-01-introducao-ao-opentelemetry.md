@@ -1,50 +1,50 @@
-# Fase 1: Introdução ao OpenTelemetry
+# Phase 1: Introduction to OpenTelemetry
 
-## Aulas
+## Lessons
 
-- Introdução ao OTEL
+- Introduction to OTEL
 - Agenda
-- Revisitando observabilidade
+- Revisiting observability
 
-## Objetivo
+## Objective
 
-Revisar a base de observabilidade e entender onde o OpenTelemetry entra nessa história.
+Review the observability base and understand where OpenTelemetry enters this story.
 
-OpenTelemetry não é uma ferramenta de dashboard. Ele é um padrão para gerar, coletar e exportar telemetria. Ele ajuda aplicações diferentes, escritas em linguagens diferentes, a falarem uma língua comum quando o assunto é trace, métrica e log.
+OpenTelemetry is not a dashboard tool. It is a standard for generating, collecting and exporting telemetry. It helps different applications, written in different languages, to speak a common language when the subject is trace, metric and log.
 
-## Conceitos principais
+## Main concepts
 
-- Observabilidade
-- Telemetria
+- Observability
+- Telemetry
 - Logs
-- Métricas
+- Metrics
 - Traces
 - OpenTelemetry
-- Instrumentação
-- Coleta
-- Exportação
-- Padronização
-- Sistemas distribuídos
-- Diagnóstico em produção
+- Instrumentation
+- Collection
+- Export
+- Standardization
+- Distributed systems
+- Diagnosis in production
 
-## Exercícios práticos
+## Practical exercises
 
-- Explicar com minhas palavras o que é observabilidade.
-- Explicar com minhas palavras o que é telemetria.
-- Criar uma tabela comparando logs, métricas e traces.
-- Descrever um problema real que seria difícil investigar sem trace distribuído.
-- Criar um desenho simples de uma requisição passando por 3 serviços.
+- Explain with my words what observability is.
+- Explain with my words what telemetry is.
+- Create a table comparing logs, metrics and dashes.
+- Describe a real problem that would be difficult to investigate without distributed trace.
+- Create a simple design of a request through 3 services.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual problema o OpenTelemetry tenta resolver?
-- Por que logs, métricas e traces precisam conversar entre si?
-- O que fica difícil quando cada serviço gera telemetria de um jeito diferente?
-- OpenTelemetry substitui Prometheus, Grafana, Elastic ou Zipkin?
-- Por que padronização importa em sistemas distribuídos?
+- What problem does OpenTelemetry try to solve?
+- Why logs, metrics and dashes need to talk to each other?
+- What gets difficult when each service generates telemetry in a different way?
+- OpenTelemetry replaces Prometheus, Grafana, Elastic or Zipkin?
+- Why Standardization Matters in Distributed Systems?
 
 ## Checkpoint
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Qual o papel do OpenTelemetry dentro de uma estratégia de observabilidade?
+> What is the role of OpenTelemetry within an observability strategy?

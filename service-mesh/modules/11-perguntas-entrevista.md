@@ -1,34 +1,34 @@
-# Perguntas clássicas de entrevista e trabalho real
+# Classic interview and real work questions
 
-Ao final do plano, eu devo conseguir responder:
+At the end of the plan, I must be able to answer:
 
-1. O que é Service Mesh?
-2. O que é Istio?
-3. Qual a diferença entre Service Mesh e Istio?
-4. Qual problema Service Mesh resolve?
-5. Quando Service Mesh pode ser exagero?
-6. O que é sidecar proxy?
-7. O que é Envoy?
-8. O que é data plane?
-9. O que é control plane?
-10. Como o Istio controla tráfego?
-11. O que é VirtualService?
-12. O que é DestinationRule?
-13. O que é subset?
-14. Como fazer deploy canário com Istio?
-15. Como fazer rollback com Istio?
-16. O que é Kiali?
-17. O que é fault injection?
-18. Para que serve delay injection?
-19. Para que serve abort injection?
-20. O que é circuit breaker?
-21. O que é outlier detection?
-22. O que é consistent hash?
-23. Quando usar sticky session?
-24. O que é Istio Gateway?
-25. Qual a diferença entre Gateway e VirtualService?
-26. Qual a diferença entre Kubernetes Ingress e Istio Gateway?
-27. Como Istio ajuda em observabilidade?
-28. Como Istio ajuda em resiliência?
-29. Como Istio ajuda em deploys mais seguros?
-30. Quais riscos ou custos o Istio adiciona?
+1. What Service Mesh is?
+2. What is Istio?
+3. What is the difference between Service Mesh and Istio?
+4. What problem Service Mesh solves?
+5. When Service Mesh Can Be Exaggeration?
+6. What is sidecar proxy?
+7. What is Envoy?
+8. What is date plan?
+9. What is control plane?
+10. How Istio Controls Traffic?
+11. What VirtualService is?
+12. What DestinationRule is?
+13. What is subset?
+14. How to Deploy Canary with Istio?
+15. How to rollback with Istio?
+16. What Kiali is?
+17. What is Fault Injection?
+18. What is the use of delay injection?
+19. What is abort injection for??
+20. What is circuit breaker?
+21. What is outlier detection?
+22. What is consistent hash?
+23. When to use sticky session?
+24. What is Istio Gateway??
+25. What's the difference between Gateway and VirtualService?
+26. What is the difference between Kubernetes Ingress and Istio Gateway?
+27. How Istio Helps in Observability?
+28. How Istio Helps in Resilience?
+29. How istio helps in safer deploys?
+30. What risks or costs Istio adds?

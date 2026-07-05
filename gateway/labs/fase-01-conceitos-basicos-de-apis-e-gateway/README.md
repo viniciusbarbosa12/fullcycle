@@ -1,32 +1,32 @@
-# Lab Fase 1 - Conceitos básicos de APIs e Gateway
+# Lab Phase 1 - Basic API and Gateway Concepts
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Desenhar uma arquitetura simples com frontend, API Gateway e 3 APIs internas.
-- Explicar com minhas palavras por que o frontend não deveria conhecer diretamente todos os serviços internos.
-- Listar responsabilidades que fazem sentido colocar no gateway.
-- Listar responsabilidades que não deveriam ir para o gateway.
-- Comparar API Gateway com Load Balancer.
-- Criar um pequeno README explicando quando eu usaria API Gateway em um projeto real.
+- Draw a simple architecture with frontend, API Gateway and 3 internal APIs.
+- Explain in my words why the frontend should not directly know all internal services.
+- Listing responsibilities that make sense to put in the gateway.
+- List responsibilities that shouldn't go to the gateway.
+- Compare API Gateway with Load Balancer.
+- Create a small README explaining when I would use API Gateway on a real project.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é uma API?
-- O que é um API Gateway?
-- Qual problema o API Gateway resolve?
-- Qual a diferença entre API Gateway e Load Balancer?
-- O que acontece quando todo cliente chama todos os microservices diretamente?
-- Quais vantagens um gateway traz?
-- Quais riscos um gateway adiciona?
-- Quando API Gateway pode virar gargalo?
-- Como escolher um API Gateway para uma empresa?
+- What is an API?
+- What is an API Gateway?
+- What problem does the API Gateway solve??
+- What is the difference between API Gateway and Load Balancer?
+- What happens when every customer calls all microservices directly?
+- What advantages a gateway brings?
+- What risks a gateway adds?
+- When API Gateway can become bottleneck?
+- How to Choose an API Gateway for a Business?
 
-## Criterio de sucesso
+## Success criteria
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Por que um time usaria API Gateway em uma arquitetura com múltiplas APIs?
+> Why a team would use API Gateway in a multi API architecture?

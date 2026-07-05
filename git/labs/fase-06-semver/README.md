@@ -1,30 +1,30 @@
-# Lab Fase 6 - SemVer
+# Lab Phase 6 - NoView
 
-## Missao
+## Mission
 
-Crie um arquivo `SEMVER.md` e classifique mudancas ficticias:
+Create a file `SEMVER.md` and lessonify fictitious changes:
 
-1. Corrigir typo no README.
-2. Corrigir bug sem alterar contrato publico.
-3. Adicionar campo opcional em uma resposta de API.
-4. Adicionar endpoint novo.
-5. Remover campo usado por clientes.
-6. Renomear parametro publico.
-7. Alterar comportamento padrao de uma funcao publica.
+1. Fix type in README.
+2. Fix bug without changing public contract.
+3. Add optional field in an API response.
+4. Add new endpoint.
+5. Remove field used by customers.
+6. Rename public parameter.
+7. Change default behavior of a public function.
 
-Para cada caso, diga se e `PATCH`, `MINOR` ou `MAJOR`.
+For each case, say if and `PATCH`, `MINOR` or `MAJOR`.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Inclua:
+Include:
 
 ```txt
-Minha regra mental para SemVer:
+My Mental Rule for UnVer:
 PATCH =
 MINOR =
 MAJOR =
 ```
 
-## Criterio de sucesso
+## Success criteria
 
-Voce deve classificar pelo impacto em quem consome o projeto, nao pelo tamanho da alteracao.
+You should sort by impact on who consumes the project, not by size of the change.

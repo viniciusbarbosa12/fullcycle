@@ -1,23 +1,23 @@
-# Fase 3: Imagens e Dockerfile
+# Phase 3: Images and Dockerfile
 
-## Aulas
+## Lessons
 
-- Entendendo imagens e DockerHub
-- Criando primeira imagem com Dockerfile
-- Avançando com Dockerfile
+- Understanding images and DockerHub
+- Creating first image with Dockerfile
+- Advancing with Dockerfile
 - ENTRYPOINT vs CMD
 - Docker entrypoint exec
-- Publicando imagem no DockerHub
+- Publishing image in DockerHub
 
-## Objetivo
+## Objective
 
-Parar de apenas usar imagens prontas e aprender a criar minhas próprias imagens.
+Stop just using ready images and learn how to create my own images.
 
-## Conceitos principais
+## Main concepts
 
-- Imagem
+- Image
 - Container
-- Camadas
+- Layers
 - Dockerfile
 - `FROM`
 - `WORKDIR`
@@ -29,19 +29,19 @@ Parar de apenas usar imagens prontas e aprender a criar minhas próprias imagens
 - DockerHub
 - Build context
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar uma imagem simples com nginx.
-- Criar uma imagem com uma aplicação Node simples.
-- Alterar `CMD` e observar o comportamento.
-- Comparar `CMD` vs `ENTRYPOINT`.
-- Buildar uma imagem com tag.
-- Rodar minha própria imagem localmente.
+- Create a simple image with nginx.
+- Create an image with an application Simple Node.
+- Change `CMD` and observe the behavior.
+- Compare `CMD` vs `ENTRYPOINT`.
+- Build a tag image.
+- Rotate my own image locally.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre imagem e container?
-- Por que Dockerfile usa camadas?
-- O que acontece quando eu mudo uma linha no Dockerfile?
-- Quando usar `CMD`?
-- Quando usar `ENTRYPOINT`?
+- What is the difference between image and container?
+- Why Dockerfile uses layers?
+- What happens when I change a line in Dockerfile?
+- When to use `CMD`?
+- When to use `ENTRYPOINT`?

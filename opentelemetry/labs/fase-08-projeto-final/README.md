@@ -1,41 +1,41 @@
-# Lab Fase 8 - Projeto final
+# Lab Phase 8 - Final project
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 8 antes de pedir revisao.
+Practice Phase 8 concepts before requesting review.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um ambiente local com OpenTelemetry contendo:
+Create a local environment with OpenTelemetry containing:
 
-- Uma aplicação instrumentada
-- OpenTelemetry SDK configurado
-- Instrumentação automática, se disponível
-- Instrumentação manual em pelo menos uma operação importante
-- Trace ID visível
-- Spans com atributos úteis
-- OpenTelemetry Collector configurado
-- Receiver OTLP
+- An instrumented application
+- OpenTelemetry SDK configured
+- Automatic instrumentation, if available
+- Manual instrumentation in at least one major operation
+- Trace visible ID
+- Spans with useful attributes
+- OpenTelemetry Collector configured
+- Receive OTLP
 - Processor batch
-- Exporter para Zipkin
-- Zipkin rodando localmente
-- Requisições gerando traces
-- Simulação de latência
-- README explicando a arquitetura
-- Guia de troubleshooting usando traces
+- Exporter to Zipkin
+- Zipkin running locally
+- Requests generating traces
+- Latent simulation
+- README explaining the architecture
+- Troubleshooting Guide using Traces
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Entendimento do papel do OpenTelemetry
-- Diferença entre logs, métricas e traces
-- Diferença entre instrumentação manual e automática
-- Collector funcionando
-- Pipeline de telemetria configurada
-- Traces chegando no Zipkin
-- Spans com nomes claros
-- Atributos úteis e seguros
-- Capacidade de investigar uma requisição lenta
-- README claro
-- Capacidade de explicar como trocaria Zipkin por outro backend
+- Understanding the role of OpenTelemetry
+- Difference between logs, metrics and dashes
+- Difference between manual and automatic instrumentation
+- Collector working
+- Telemetry pipeline configured
+- Traces coming up on Zipkin
+- Spans with clear names
+- Useful and safe attributes
+- Ability to investigate a slow request
+- Clear README
+- Ability to explain how to trade Zipkin for another backend

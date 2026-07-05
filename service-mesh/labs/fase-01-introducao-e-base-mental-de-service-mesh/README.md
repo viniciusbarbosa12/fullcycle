@@ -1,30 +1,30 @@
-# Lab Fase 1 - Introdução e base mental de Service Mesh
+# Lab Phase 1 - Introduction and Mental Model of Service Mesh
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Explicar com minhas palavras o que é Service Mesh.
-- Desenhar um fluxo simples com 3 serviços conversando.
-- Identificar quais problemas aparecem nesse fluxo.
-- Separar responsabilidades entre aplicação, Kubernetes e Istio.
-- Listar quais recursos do Istio parecem mais úteis em produção.
-- Criar um pequeno resumo sobre data plane e control plane.
+- Explain with my words what Service Mesh is.
+- Draw a simple flow with 3 talking services.
+- Identify which problems appear in this stream.
+- Separate responsibilities between application, Kubernetes and Istio.
+- List which Istio resources seem most useful in production.
+- Create a short summary of plan and control plane data.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual problema Service Mesh tenta resolver?
-- Por que comunicação entre serviços fica difícil em sistemas distribuídos?
-- O que é sidecar proxy?
-- Qual a diferença entre Service Mesh e Istio?
-- O que o Istio faz que a aplicação não deveria precisar fazer manualmente?
-- Quando Service Mesh pode ser exagero?
-- Por que observabilidade é tão importante em microservices?
+- What problem Service Mesh tries to solve?
+- Why communication between services becomes difficult in distributed systems?
+- What is sidecar proxy?
+- What is the difference between Service Mesh and Istio?
+- What Istio does that the application should not need to do manually?
+- When Service Mesh Can Be Exaggeration?
+- Why observability is so important in microservices?
 
-## Criterio de sucesso
+## Success criteria
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Por que um time usaria Istio em um ambiente Kubernetes com vários microservices?
+> Why would a team use Istio in a Kubernete environment with various microservices?

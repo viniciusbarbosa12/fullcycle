@@ -1,36 +1,36 @@
-# Fase 8: Desafio final
+# Phase 8: Final challenge
 
-## Aulas
+## Lessons
 
-- Desafio
-- Desafio Go
-- Nginx com Node.js
+- Challenge
+- Go Challenge
+- Nginx with Node. js
 
-## Objetivo
+## Objective
 
-Juntar tudo e provar que consigo implementar sozinho.
+Gather everything and prove I can implement it myself.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar uma aplicação com:
+Create an application with:
 
-- API Node
-- Banco MySQL
-- Nginx como proxy reverso
-- Dockerfile da API
+- Node API
+- MySQL Bank
+- Nginx as reverse proxy
+- API Dockerfile
 - Docker Compose
-- Volume para banco
-- Network entre serviços
-- Variáveis de ambiente
-- README explicando como rodar
-- Teste manual de funcionamento
+- Volume to bank
+- Network between services
+- Environment variables
+- README explaining how to rotate
+- Manual operating test
 
-## Regras do desafio
+## Challenge rules
 
-1. Eu tento implementar primeiro.
-2. Depois envio o que fiz.
-3. O mentor revisa.
-4. O mentor faz perguntas.
-5. O mentor aponta erros e melhorias.
-6. O mentor dá pistas, não a solução completa.
-7. Só recebo a solução completa se eu pedir explicitamente ou depois de tentar bastante.
+1. I try to implement first.
+2. Then I send what I did.
+3. The mentor reviews.
+4. The mentor asks questions.
+5. The mentor points out errors and improvements.
+6. The mentor gives hints, not the complete solution.
+7. I only get the complete solution if I ask explicitly or after trying hard enough.

@@ -1,28 +1,28 @@
-# Lab Fase 2 - Gitflow
+# Lab Phase 2 - Gitflow
 
-## Missao
+## Mission
 
-Crie um repositorio chamado `git-lab-gitflow` e simule um fluxo completo:
+Create a repository called `git-lab-gitflow` and simulate a complete flow:
 
-1. Inicializar o repositorio.
-2. Criar as branches `main` e `develop`.
-3. Criar uma feature branch a partir de `develop`.
-4. Fazer uma alteracao pequena e commitar.
-5. Integrar a feature de volta em `develop`.
-6. Criar uma release branch.
-7. Fazer uma correcao na release branch.
-8. Integrar a release em `main` e `develop`.
-9. Criar uma hotfix branch a partir de `main`.
-10. Integrar o hotfix em `main` e `develop`.
+1. Initialize Repository.
+2. Create branches `main` and `develop`.
+3. Create a feature branch from `develop`.
+4. Make a small change and commit.
+5. Integrate the feature back in `develop`.
+6. Create a release branch.
+7. Make a correction in release branch.
+8. Integrate release in `main` and `develop`.
+9. Create a hotfix branch from `main`.
+10. Integrate hotfix into `main` and `develop`.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Crie um arquivo `FLOW.md` respondendo:
+Create a file `FLOW.md` responding:
 
 ```txt
-Qual foi o caminho da feature, da release e do hotfix?
+What was the path of feature, release and hotfix?
 ```
 
-## Criterio de sucesso
+## Success criteria
 
-O historico deve mostrar claramente quando a mudanca foi feature, quando virou release e quando foi hotfix.
+The history should clearly show when the change was feature, when it became release and when it was hotfixed.

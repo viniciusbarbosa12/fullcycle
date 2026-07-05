@@ -1,17 +1,17 @@
-# Lab Fase 3 - Criando Observables
+# Lab Phase 3 - Creating Observables
 
-## Missao
+## Mission
 
-Crie um arquivo `creating-observables.ts` e pratique:
+Create a file `creating-observables.ts` and practice:
 
 1. `of`.
-2. `from` com array.
-3. `from` com Promise.
-4. `fromEvent` com clique.
+2. `from` with array.
+3. `from` with Promise.
+4. `fromEvent` click.
 5. `interval`.
 6. `timer`.
 7. `new Observable`.
 
 ## Checkpoint
 
-Crie uma mini pagina ou componente com botao, contador de cliques, timer e log de emissoes.
+Create a mini-page or component with boot, click counter, timer and emitter log.

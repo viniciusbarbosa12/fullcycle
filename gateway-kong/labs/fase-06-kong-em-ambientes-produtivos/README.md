@@ -1,42 +1,42 @@
-# Lab Fase 6 - Kong em ambientes produtivos
+# Lab Phase 6 - Kong in production environments
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 6 antes de pedir revisao.
+Practice Phase 6 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Configurar logs da aplicação.
-- Configurar logs do Kong.
-- Enviar logs para uma ferramenta centralizada, se disponível.
-- Fazer requests válidas e inválidas.
-- Observar logs gerados.
-- Simular erro 404.
-- Simular erro 401.
-- Simular erro 502.
-- Analisar os logs e identificar origem do problema.
-- Criar um guia pessoal de troubleshooting.
+- Configure application logs.
+- Configure Kong logs.
+- Send logs to a centralized tool if available.
+- Make valid and invalid requests.
+- Watch generated logs.
+- Simulate Error 404.
+- Simulate Error 401.
+- Simulate Error 502.
+- Analyze logs and identify problem source.
+- Create a personal troubleshooting guide.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Quais logs são importantes no Kong?
-- Como diferenciar erro do gateway e erro da aplicação?
-- Como investigar erro 401?
-- Como investigar erro 404?
-- Como investigar erro 502?
-- Que dados não devo logar?
-- Como correlation id ajudaria aqui?
-- Que alertas eu criaria para produção?
-- O que significa operar Kong no day two?
+- Which logs are important in Kong?
+- How to differentiate gateway error and application error?
+- How to investigate error 401?
+- How to investigate error 404?
+- How to investigate error 502?
+- Which data should not log?
+- How correlation id would help here?
+- What warnings I would create for production?
+- What it means to operate Kong on day two?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar um guia de operação com:
+Create an operation guide with:
 
-- Métricas importantes
-- Logs importantes
-- Como investigar erro 4xx
-- Como investigar erro 5xx
-- Como investigar latência
-- Como validar se o problema está no Kong ou na API
-- Alertas recomendados
+- Important metrics
+- Important logs
+- How to investigate 4xx error
+- How to investigate error 5xx
+- How to investigate latency
+- How to validate if the problem is in Kong or API
+- Recommended Alerts

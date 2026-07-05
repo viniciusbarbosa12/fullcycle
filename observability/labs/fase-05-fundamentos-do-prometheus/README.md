@@ -1,33 +1,33 @@
-# Lab Fase 5 - Fundamentos do Prometheus
+# Lab Phase 5 - Foundations of Prometheus
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 5 antes de pedir revisao.
+Practice Phase 5 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Subir Prometheus localmente.
-- Acessar dashboard padrão.
-- Identificar targets.
-- Fazer uma query simples com PromQL.
-- Entender uma métrica com labels.
-- Comparar Gauge, Counter e Histogram.
-- Criar um README com conceitos principais.
-- Explicar o modelo pull com minhas palavras.
+- Move Prometheus up locally.
+- Access standard dashboard.
+- Identify Targets.
+- Make a simple query with PromQL.
+- Understanding a metric with labels.
+- Compare Gauge, Counter and Histogram.
+- Creating a README with key concepts.
+- Explain the pull model with my words.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é uma métrica?
-- O que é uma time series?
-- O que significa scrape?
-- O que é target?
-- Por que Prometheus usa modelo pull?
-- O que são exporters?
-- Qual a função das labels?
-- Quando usar Gauge?
-- Quando usar Counter?
-- Quando usar Histogram?
+- What's a metric?
+- What's a series team?
+- What does scrape mean??
+- What is Target?
+- Why Prometheus uses pull model?
+- What Exporters Are?
+- What is the function of labels?
+- When to use Gauge?
+- When to use Counter?
+- When to use Histogram?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter Prometheus rodando, coletando pelo menos um target e conseguir consultar métricas usando PromQL básico.
+Have Prometheus running, collecting at least one target and being able to consult metrics using basic PromQL.

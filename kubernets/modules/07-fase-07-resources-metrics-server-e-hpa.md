@@ -1,22 +1,22 @@
-# Fase 7: Resources, metrics-server e HPA
+# Phase 7: Resources, metrics-server and HPA
 
-## Aulas
+## Lessons
 
-- Instalando metrics-server
-- Entendendo utilização de Resources
-- Aplicando deployment com resources
-- Criando e configurando HPA
-- Versão da imagem para o teste de stress
-- Teste de stress com fortio
-- Atualização no comando do Fortio
+- Installing metrics-server
+- Understanding Using Resources
+- Applying Deployment with Resources
+- Creating and configuring HPA
+- Image version for stress test
+- Stress test with fortio
+- Fortio command update
 
-## Objetivo
+## Objective
 
-Entender como controlar consumo de CPU/memória e escalar horizontalmente a aplicação.
+Understand how to control CPU/memory consumption and scale the application horizontally.
 
-Sem requests e limits, o scheduler trabalha no escuro. Sem metrics-server, o HPA não tem dados. Sem teste de carga, você não vê a escala acontecendo.
+Without requests and limits, the scheduler works in the dark. Without metrics-server, HPA has no data. No load test, you don't see the scale happening.
 
-## Conceitos principais
+## Main concepts
 
 - metrics-server
 - Requests
@@ -27,37 +27,37 @@ Sem requests e limits, o scheduler trabalha no escuro. Sem metrics-server, o HPA
 - QoS
 - HPA
 - Horizontal scaling
-- Target CPU utilization
+- Target CPU usage
 - Stress test
 - Fortio
 - Autoscaling
-- Saturação
+- Saturation
 
-## Exercícios práticos
+## Practical exercises
 
-- Instalar metrics-server.
-- Validar métricas com kubectl top.
-- Configurar requests e limits no Deployment.
-- Observar consumo de recursos.
-- Criar HPA.
-- Configurar mínimo e máximo de réplicas.
-- Gerar carga com Fortio.
-- Observar aumento de réplicas.
-- Parar carga e observar redução de réplicas.
-- Documentar comportamento.
+- Install metrics-server.
+- Validate metrics with kubectl top.
+- Configure requests and limits in Deployment.
+- Observe resource consumption.
+- Create HPA.
+- Configure minimum and maximum replicas.
+- Generate cargo with Fortio.
+- Observe increased replicas.
+- Stop load and observe replica reduction.
+- Document behavior.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Para que servem requests?
-- Para que servem limits?
-- Qual a diferença entre request e limit?
-- O que acontece se eu não configurar resources?
-- O que é HPA?
-- Do que o HPA precisa para funcionar?
-- Por que HPA não resolve aplicação mal escrita?
-- Quando aumentar réplicas não resolve o problema?
-- Qual o risco de limit de memória baixo demais?
+- What are requests for??
+- What are limits for??
+- What is the difference between request and limit?
+- What happens if I don't configure resources?
+- What HPA is?
+- What HPA needs to work?
+- Why HPA does not solve miswritten application?
+- When increasing replicas does not solve the problem?
+- What is the risk of too low memory limit?
 
 ## Checkpoint
 
-Ter HPA funcionando, escalando a aplicação sob carga e reduzindo réplicas depois.
+Having HPA running, scaling the application under load and reducing replicas after.

@@ -1,97 +1,97 @@
-# Plano de Aprendizado Git Profissional
+# Git Professional Learning Plan
 
-Este curso segue o mesmo modelo de mentoria usado no curso de RxJS: estudo pratico, progressivo e sem entregar a solucao completa antes da sua tentativa.
+This course follows the same mentoring model used in the RxJS course: practical, progressive study and without delivering the complete solution before your attempt.
 
-A ideia nao e apenas decorar comandos. A ideia e aprender a trabalhar com Git de forma profissional: historico limpo, branch strategy, Gitflow, commits assinados, Pull Requests, Code Review, branch protection, CODEOWNERS, SemVer e Conventional Commits.
+The idea is not just memorizing commands. The idea is to learn to work with Git professionally: clean history, branch strategy, Gitflow, signed commits, Pull Requests, Code Review, branch protection, CODEOWNERS, SemVer and Conventional Commits.
 
-## Objetivo final
+## Final Objective
 
-Ao terminar, voce deve conseguir:
+By the end, you should be able to:
 
-- criar repositorios e organizar historico com clareza;
-- trabalhar com branches sem baguncar a `main`;
-- entender quando usar Gitflow e quando ele pode ser pesado demais;
-- abrir Pull Requests com contexto, checklist e evidencias;
-- revisar codigo com criterio tecnico e boa comunicacao;
-- proteger branches principais;
-- usar CODEOWNERS para ownership de areas do projeto;
-- assinar commits;
-- versionar releases com SemVer;
-- escrever commits seguindo Conventional Commits;
-- configurar ferramentas como commitlint, Commitsar e Commitizen;
-- explicar esse fluxo em entrevistas e em times reais.
+- create repositories and organize history clearly;
+- work with branches without cluttering `main`;
+- understand when to use Gitflow and when it can be too heavy;
+- open Pull Requests with context, checklist and evidence;
+- review code with technical criteria and good communication;
+- protect main branches;
+- use CODEOWNERS for project area ownership;
+- sign commits;
+- version releases with SemVer;
+- write commits following Conventional Commits;
+- configure tools like commitlint, Commitsar and Commitizen;
+- explain this flow in interviews and in real teams.
 
-## Como vamos estudar
+## How We Will Study
 
-Quando voce iniciar uma aula ou topico, mande algo como:
-
-```txt
-Comecei o topico: Gitflow
-```
-
-Minha resposta deve seguir este formato:
-
-1. Conceito principal.
-2. Explicacao simples.
-3. Exemplo real de projeto.
-4. Perguntas para voce responder.
-5. Exercicio pratico.
-6. Criterio de sucesso.
-
-Quando voce terminar um exercicio, mande:
+When you start a lesson or a topic, send something like:
 
 ```txt
-Terminei, olha meus comandos
+I started the topic: Gitflow
 ```
 
-Minha revisao deve seguir este formato:
+My answer must follow this format:
 
-1. O que esta certo.
-2. O que pode melhorar.
-3. Riscos.
-4. Boas praticas.
-5. O que estudar antes de avancar.
-6. Se pode avancar ou se precisa reforcar.
+1. Main concept.
+2. Simple explanation.
+3. Real project example.
+4. Questions for you to answer.
+5. Practical exercise.
+6. Success criteria.
 
-Regra importante: eu devo dar pistas primeiro. Solucao completa so se voce pedir explicitamente ou depois que voce realmente tentar.
+When you finish an exercise, send:
 
-## Estrutura
+```txt
+I'm done. Look at my commands.
+```
 
-- `modules/`: fases do plano de mentoria.
-- `labs/`: exercicios e desafios para voce implementar.
-- `examples/`: exemplos prontos de referencia, para consultar depois da tentativa.
-- `final-project/`: guia da simulacao profissional final.
+My review should follow this format:
 
-## Fases
+1. What's right.
+2. What can improve.
+3. Risks.
+4. Good practices.
+5. What to study before advancing.
+6. Whether you can move on or need more practice.
 
-0. [Como vamos estudar](modules/00-como-vamos-estudar.md)
-1. [Introducao e base mental](modules/01-fase-01-base-mental.md)
+Important rule: I must give hints first. Complete solution only if you explicitly ask or after you really try.
+
+## Structure
+
+- `modules/`: phases of the mentoring plan.
+- `labs/`: exercises and challenges for you to implement.
+- `examples/`: ready reference examples to consult after the attempt.
+- `final-project/`: final professional simulation guide.
+
+## Phases
+
+0. [How We Will Study](modules/00-como-vamos-estudar.md)
+1. [Introduction and mental model](modules/01-fase-01-base-mental.md)
 2. [Gitflow](modules/02-fase-02-gitflow.md)
-3. [Assinatura de commits](modules/03-fase-03-assinatura-commits.md)
-4. [Pull Requests e protecao de branches](modules/04-fase-04-pull-requests.md)
-5. [Code Review profissional](modules/05-fase-05-code-review.md)
+3. [Commit Signing](modules/03-fase-03-assinatura-commits.md)
+4. [Pull Requests and branch protection](modules/04-fase-04-pull-requests.md)
+5. [Professional Code Review](modules/05-fase-05-code-review.md)
 6. [SemVer](modules/06-fase-06-semver.md)
 7. [Conventional Commits](modules/07-fase-07-conventional-commits.md)
-8. [Questionario e consolidacao](modules/08-fase-08-questionario-consolidacao.md)
-9. [Perguntas classicas de entrevista](modules/09-perguntas-entrevista.md)
+8. [Questionnaire and Consolidation](modules/08-fase-08-questionario-consolidacao.md)
+9. [Classic interview questions](modules/09-perguntas-entrevista.md)
 
-## Ritmo recomendado em 8 dias
+## Recommended rhythm in 8 days
 
-| Dia | Tema |
+| Day | Theme |
 | --- | --- |
-| 1 | Introducao, Git basico e primeiro repositorio de pratica |
-| 2 | Gitflow, feature branch, release branch e hotfix branch |
-| 3 | Assinatura de commits, GPG e emails na chave |
-| 4 | Pull Requests, branch protection e template de PR |
-| 5 | Code Review, feedback tecnico, CODEOWNERS e review pelo VSCode |
-| 6 | SemVer, major, minor, patch e breaking changes |
-| 7 | Conventional Commits, commitlint, Commitsar e Commitizen |
-| 8 | Projeto final, questionario, revisao geral e README final |
+| 1 | Introduction, basic Git and first practice repository |
+| 2 | Gitflow, feature branch, release branch and hotfix branch |
+| 3 | Commit signing, GPG and emails in the key |
+| 4 | Pull Requests, branch protection and PR template |
+| 5 | Code Review, technical feedback, CODEOWNERS and VSCode review |
+| 6 | SemVer, major, minor, patch and breaking changes |
+| 7 | Conventional Commits, commitlint, Commitsar and commitizen |
+| 8 | Final project, questionnaire, general review and final README |
 
-## Primeira missao
+## First Mission
 
-Estude a Fase 1 e depois responda com suas palavras:
+Study Phase 1 and then answer with your words:
 
-> O que muda em um time quando o Git passa a ser usado com padrao, review e protecao de branch?
+> What changes on a team when Git is used with standards, review and branch protection?
 
-Nao precisa ser perfeito. O importante e mostrar o raciocinio inicial para a gente corrigir, ajustar e aprofundar.
+It does not have to be perfect. The important thing is to show the initial reasoning so we can correct, adjust and deepen.

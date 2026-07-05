@@ -1,73 +1,73 @@
-# Como vamos estudar
+# How We Will Study
 
-Este curso e uma mentoria guiada. A prioridade e aprendizado real, nao velocidade.
+This course is a guided mentoring. Priority and real learning, not speed.
 
-## Regra principal
+## Main rule
 
-Voce tenta primeiro. Eu reviso, faço perguntas, dou pistas e so mostro a solucao completa quando voce pedir explicitamente ou depois de uma tentativa real.
+You try first. I review, ask questions, give hints and only show the complete solution when you explicitly ask or after a real attempt.
 
-## Quando iniciar um topico
+## When to start a topic
 
-Mande:
-
-```txt
-Comecei o topico: Nome do topico
-```
-
-Eu devo responder com:
-
-1. Conceito principal.
-2. Explicacao simples.
-3. Exemplo real de projeto Angular.
-4. Perguntas para voce responder.
-5. Exercicio pratico.
-6. Criterio de sucesso.
-
-## Quando terminar um exercicio
-
-Mande:
+Send:
 
 ```txt
-Terminei, olha meu codigo
+I started the topic: Topic name
 ```
 
-Eu devo fazer um code review com:
+I must answer with:
 
-1. O que esta certo.
-2. O que pode melhorar.
-3. Riscos.
-4. Boas praticas.
-5. O que estudar antes de avancar.
-6. Se voce pode avancar ou precisa reforcar.
+1. Main concept.
+2. Simple explanation.
+3. Real project example Angular.
+4. Questions for you to answer.
+5. Practical exercise.
+6. Success criteria.
 
-## Como usar os arquivos
+## When you finish an exercise
 
-- Leia a fase atual.
-- Implemente o exercicio em `../labs/`.
-- Consulte `../examples/` apenas depois de tentar.
-- Use `../final-project/` como referencia final, nao como atalho no comeco.
+Send:
 
-## Ritmo recomendado em 14 dias
+```txt
+I'm done, look at my code.
+```
 
-| Dia | Tema |
+I should do a code review with:
+
+1. What's right.
+2. What can improve.
+3. Risks.
+4. Good practices.
+5. What to study before advancing.
+6. Whether you can move on or need more practice.
+
+## How to use files
+
+- Read the current phase.
+- Implement exercise in `../labs/`.
+- See `../examples/` only after trying.
+- Use `../final-project/` as a final reference, not as a shortcut in the beginning.
+
+## Recommended rhythm in 14 days
+
+| Day | Theme |
 | --- | --- |
-| 1 | Fundamentos de async, callback, Promise, async/await |
-| 2 | Observable, subscribe, emissao, next, error e complete |
-| 3 | Criando Observables: `of`, `from`, `fromEvent`, `interval`, `timer` |
-| 4 | Operadores basicos: `map`, `filter`, `tap`, `take` |
-| 5 | Busca com input, `debounceTime`, `distinctUntilChanged` |
-| 6 | `switchMap`, cancelamento de requests, autocomplete |
+| 1 | Grounds for async, callback, Promise, async/await |
+| 2 | Observable, subscribe, emissao, next, error and complete |
+| 3 | Creating Observables: `of`, `from`, `fromEvent`, `interval`, `timer` |
+| 4 | Basic operators: `map`, `filter`, `tap`, `take` |
+| 5 | Input Search, `debounceTime`, `distinctUntilChanged` |
+| 6 | `switchMap`,cancellation of requests, autocomplete |
 | 7 | `mergeMap`, `concatMap`, `exhaustMap` |
-| 8 | Combinacao: `combineLatest`, `forkJoin`, `withLatestFrom` |
-| 9 | Error handling, `catchError`, `finalize`, loading state |
-| 10 | Subjects, `BehaviorSubject`, estado compartilhado |
-| 11 | Angular real: `HttpClient`, `async pipe`, Reactive Forms |
-| 12 | Unsubscribe, memory leaks, `takeUntilDestroyed`, route params |
-| 13 | Arquitetura, Facade, cache com `shareReplay` |
-| 14 | Projeto final, revisao, refatoracao, README |
+| 8 | Combination: `combineLatest`, `forkJoin`, `withLatestFrom` |
+| 9 | Error handling, `catchError`, `finalize`,loading state |
+| 10 | Subjects, `BehaviorSubject`,shared status |
+| 11 | Real Angular: `HttpClient`, `async pipe`,Reactive Forms |
+| 12 | Unsubscribe, memory leaves, `takeUntilDestroyed`,route params |
+| 13 | Architecture, Facade, cache with `shareReplay` |
+| 14 | Final project, review, refactoring, README |
 
-## Primeira missao
+## First Mission
 
-Comece pela Fase 1 e responda:
+Start with Phase 1 and respond:
 
-> Por que Promise nao resolve todos os problemas que RxJS resolve?
+> Why Promises do not solve all the problems that RxJS solves?

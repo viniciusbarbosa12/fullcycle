@@ -1,61 +1,61 @@
-# Fase 3: Kong API Gateway e ambiente local
+# Phase 3: Kong API Gateway and local environment
 
-## Aulas
+## Lessons
 
 - kong API Gateway
 - Subscriptions
-- Modelos Deployment
+- Deployment models
 - Docker Compose
 - Konga
 
-## Objetivo
+## Objective
 
-Subir o Kong localmente, entender seus componentes principais e preparar um ambiente de laboratório.
+Run Kong locally, understand its main components and prepare a laboratory environment.
 
-## Conceitos principais
+## Main concepts
 
 - Kong API Gateway
-- Control plane
-- Data plane
+- Control plan
+- Plan Date
 - Admin API
 - Proxy
 - Database mode
 - DB-less mode
 - Declarative config
 - Subscriptions
-- Modelos de deployment
+- Deployment models
 - Docker Compose
 - Konga
-- Interface administrativa
-- Configuração local
+- Administrative interface
+- Local Settings
 
-## Exercícios práticos
+## Practical exercises
 
-- Subir Kong com Docker Compose.
-- Identificar porta do proxy.
-- Identificar porta da Admin API.
-- Acessar interface administrativa, se disponível.
-- Validar se o Kong está respondendo.
-- Criar uma documentação local com portas e componentes.
-- Comparar database mode e DB-less mode em alto nível.
+- Up Kong with Docker Compose.
+- Identify proxy port.
+- Identify Admin API port.
+- Access administrative interface if available.
+- Validate if Kong is responding.
+- Create local documentation with ports and components.
+- Compare database mode and DB-less mode at high level.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que é o Kong?
-- Qual a diferença entre proxy e Admin API?
-- O que é control plane?
-- O que é data plane?
-- Quando usar database mode?
-- Quando usar DB-less?
-- Por que rodar com Docker Compose facilita o estudo?
-- O que o Konga facilita?
+- What is Kong??
+- What is the difference between proxy and Admin API?
+- What is control plane?
+- What is date plan?
+- When to use database mode?
+- When to use DB-less?
+- Why running with Docker Compose facilitates study?
+- What Konga makes easy?
 
 ## Checkpoint
 
-Ter um ambiente local onde:
+Have a local environment where:
 
-- Kong está rodando.
-- Admin API responde.
-- Proxy responde.
-- Interface administrativa está acessível, se usada.
-- O README explica como subir e validar o ambiente.
+- Kong's rolling..
+- Admin API responds.
+- Proxy responds.
+- Administrative interface is accessible if used.
+- README explains how to climb and validate the environment.

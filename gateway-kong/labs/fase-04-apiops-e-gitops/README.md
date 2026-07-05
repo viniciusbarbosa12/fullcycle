@@ -1,34 +1,34 @@
-# Lab Fase 4 - APIOps e GitOps
+# Lab Phase 4 - APIOps and GitOps
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar ou revisar um arquivo OpenAPI.
-- Rodar lint no contrato.
-- Introduzir um erro proposital no contrato.
-- Fazer o lint falhar.
-- Corrigir o contrato.
-- Criar validação de contrato na pipeline.
-- Instalar Argo CD.
-- Criar uma aplicação no Argo.
-- Rodar pipeline para aplicar mudanças.
-- Validar se o estado do cluster bate com o Git.
+- Create or revise an OpenAPI file.
+- Rotate lint in contract.
+- Introduce a deliberate error in the contract.
+- Make lint fail.
+- Fix the contract.
+- Create Contract Validation on Pipeline.
+- Install Argo CD.
+- Create an application in Argo.
+- Rotate pipeline to apply changes.
+- Validate if cluster status matches Git.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é APIOps?
-- Qual a diferença entre APIOps e DevOps?
-- O que é GitOps?
-- Por que o Git vira fonte da verdade?
-- O que é drift?
-- Por que validar OpenAPI antes de publicar uma API?
-- O que um lint de OpenAPI consegue evitar?
-- O que ele não consegue garantir?
-- Como Argo CD ajuda na entrega declarativa?
+- What APIOps is?
+- What is the difference between APIOps and DevOps?
+- What is GitOps?
+- Because Git becomes a source of truth?
+- What is drift?
+- Why validate OpenAPI before publishing an API?
+- What an OpenAPI lint can prevent?
+- What he can't guarantee?
+- How Argo CD helps in declarative delivery?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter uma pipeline que valida contrato OpenAPI e um fluxo GitOps capaz de sincronizar configuração no cluster.
+Have a pipeline that validates OpenAPI contracts and a GitOps flow capable of synchronizing cluster configuration.

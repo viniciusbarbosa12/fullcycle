@@ -1,29 +1,29 @@
-# Lab Fase 9 - Gateways e exposição externa
+# Lab Phase 9 - Gateways and external exposure
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 9 antes de pedir revisao.
+Practice Phase 9 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar um Gateway.
-- Configurar host e porta.
-- Reconfigurar VirtualService para usar o gateway.
-- Criar rota por prefixo.
-- Criar mais de um caminho para serviços diferentes.
-- Configurar domínio local.
-- Acessar a aplicação de fora do cluster.
-- Validar comportamento no Kiali.
+- Create Gateway.
+- Configure host and port.
+- Reconfiguring VirtualService to use gateway.
+- Create route by prefix.
+- Create more than one path for different services.
+- Configure Local Domain.
+- Access application from outside the cluster.
+- Validate behavior in Kiali.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre Gateway e VirtualService?
-- Por que preciso de Gateway para tráfego externo?
-- O que é prefix match?
-- Como eu rotearia `/api` para backend e `/app` para frontend?
-- Como domínios ajudam em ambientes reais?
-- Qual a diferença entre Kubernetes Ingress e Istio Gateway?
+- What's the difference between Gateway and VirtualService?
+- Why do I need Gateway for external traffic?
+- What is prefix match?
+- How I'd route `/api` for backend and `/app` for frontend?
+- How domains help in real environments?
+- What is the difference between Kubernetes Ingress and Istio Gateway?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter uma aplicação acessível externamente via Istio Gateway, com rotas por prefixo e domínio configurado.
+Have an externally accessible application via Istio Gateway, with prefixed routes and configured domain.

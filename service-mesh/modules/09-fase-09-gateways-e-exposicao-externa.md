@@ -1,18 +1,18 @@
-# Fase 9: Gateways e exposição externa
+# Phase 9: Gateways and external exposure
 
-## Aulas
+## Lessons
 
-- Iniciando com gateways
-- Configurando ingress gateway
-- Reconfigurando virtual service
-- Trabalhando com prefixos
-- Configurando domínios
+- Starting with gateways
+- Configuring ingress gateway
+- Reconfiguring virtual service
+- Working with prefixes
+- Setting up domains
 
-## Objetivo
+## Objective
 
-Aprender a expor serviços para fora do cluster usando Istio Gateway e VirtualService.
+Learn how to expose services out of the cluster using Istio Gateway and VirtualService.
 
-## Conceitos principais
+## Main concepts
 
 - Istio Gateway
 - Ingress Gateway
@@ -22,31 +22,31 @@ Aprender a expor serviços para fora do cluster usando Istio Gateway e VirtualSe
 - VirtualService
 - Prefix match
 - URI routing
-- Domínios
-- DNS local
-- Roteamento externo
-- Entrada de tráfego no mesh
+- Domains
+- Local DNS
+- External routing
+- Mesh traffic entry
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar um Gateway.
-- Configurar host e porta.
-- Reconfigurar VirtualService para usar o gateway.
-- Criar rota por prefixo.
-- Criar mais de um caminho para serviços diferentes.
-- Configurar domínio local.
-- Acessar a aplicação de fora do cluster.
-- Validar comportamento no Kiali.
+- Create Gateway.
+- Configure host and port.
+- Reconfiguring VirtualService to use gateway.
+- Create route by prefix.
+- Create more than one path for different services.
+- Configure Local Domain.
+- Access application from outside the cluster.
+- Validate behavior in Kiali.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre Gateway e VirtualService?
-- Por que preciso de Gateway para tráfego externo?
-- O que é prefix match?
-- Como eu rotearia `/api` para backend e `/app` para frontend?
-- Como domínios ajudam em ambientes reais?
-- Qual a diferença entre Kubernetes Ingress e Istio Gateway?
+- What's the difference between Gateway and VirtualService?
+- Why do I need Gateway for external traffic?
+- What is prefix match?
+- How I'd route `/api` for backend and `/app` for frontend?
+- How domains help in real environments?
+- What is the difference between Kubernetes Ingress and Istio Gateway?
 
 ## Checkpoint
 
-Ter uma aplicação acessível externamente via Istio Gateway, com rotas por prefixo e domínio configurado.
+Have an externally accessible application via Istio Gateway, with prefixed routes and configured domain.

@@ -1,34 +1,34 @@
-# Perguntas clássicas de entrevista e trabalho real
+# Classic interview and real work questions
 
-Ao final do plano, eu devo conseguir responder:
+At the end of the plan, I must be able to answer:
 
-1. O que é uma API?
-2. O que é API Gateway?
-3. Qual problema um API Gateway resolve?
-4. Qual a diferença entre API Gateway e Load Balancer?
-5. Qual a diferença entre API Gateway e BFF?
-6. Quais tipos de API Gateway existem?
-7. Quais são as vantagens de usar API Gateway?
-8. Quais são as desvantagens de usar API Gateway?
-9. Quando API Gateway pode ser exagero?
-10. O que é Kong?
-11. O que é Service no Kong?
-12. O que é Route no Kong?
-13. Qual a diferença entre Service e Route?
-14. O que é plugin no Kong?
-15. Quando aplicar plugin global, por serviço ou por rota?
-16. Para que serve correlation id?
-17. Para que serve rate limiting?
-18. Como rate limiting ajuda na proteção da API?
-19. O que é response transformer?
-20. O que é consumer no Kong?
-21. O que é Basic Auth?
-22. O que é Key Authentication?
-23. Qual a diferença entre autenticação e autorização?
-24. Quais critérios usar para escolher um API Gateway?
-25. Como o desenho de equipes influencia a escolha do gateway?
-26. O que monitorar em um API Gateway?
-27. Qual a diferença entre monitoramento, logging e tracing?
-28. O que significa day two operations?
-29. Como investigar erro 502 no gateway?
-30. Como investigar aumento de latência no gateway?
+1. What is an API?
+2. What is API Gateway?
+3. What problem does an API Gateway solve??
+4. What is the difference between API Gateway and Load Balancer?
+5. What is the difference between API Gateway and BFF?
+6. What types of API Gateway exist?
+7. What are the advantages of using API Gateway?
+8. What are the disadvantages of using API Gateway?
+9. When API Gateway Can Be Exaggeration?
+10. What is Kong??
+11. What is Service in Kong?
+12. What is Route in Kong?
+13. What's the difference between Service and Route?
+14. What is plugin in Kong?
+15. When applying global plugin, by service or by route?
+16. What good is correlation id?
+17. What is the use of rate limiting?
+18. How rate limiting helps in API protection?
+19. What is Response Transformer?
+20. What is consumption in Kong?
+21. What is Basic Auth?
+22. What is Key Authentication?
+23. What is the difference between authentication and authorization?
+24. What criteria to use to choose an API Gateway?
+25. How team design influences gateway choice?
+26. What to monitor in an API Gateway?
+27. What is the difference between monitoring, logging and tracing?
+28. Which means day two operations?
+29. How to investigate 502 error in gateway?
+30. How to investigate increased gateway latency?

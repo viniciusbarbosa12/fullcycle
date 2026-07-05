@@ -1,34 +1,34 @@
-# Lab Fase 1 - Conceitos básicos de Kong no Kubernetes
+# Lab Phase 1 - Basic concepts of Kong in Kubernetes
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar ou preparar um cluster Kubernetes local.
-- Verificar se `kubectl` está apontando para o cluster correto.
-- Instalar ferramentas necessárias.
-- Instalar Kong no cluster.
-- Validar os pods do Kong.
-- Validar services criados pelo Kong.
-- Identificar qual porta recebe tráfego externo.
-- Criar um README com a arquitetura inicial.
+- Create or prepare a local Kubernetes cluster.
+- Check if `kubectl` is pointing to the correct cluster.
+- Install required tools.
+- Install Kong in Cluster.
+- Validate Kong pods.
+- Validate services created by Kong.
+- Identify which port receives external traffic.
+- Create a README with the initial architecture.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre Kong rodando em Docker Compose e Kong rodando no Kubernetes?
-- O que é um Ingress Controller?
-- Por que o Kubernetes precisa de um controller para interpretar recursos de Ingress?
-- O que o Kong adiciona além de simplesmente rotear tráfego?
-- Quais modelos de deployment fazem sentido para Kong?
-- Em produção, que cuidados eu teria antes de instalar um gateway no cluster?
+- What's the difference between Kong running on Docker Compose and Kong running on Kubernetes?
+- What is an Ingress Controller?
+- Why Kubernetes needs a controller to interpret Ingress resources?
+- What Kong adds besides simply routing traffic?
+- Which deployment models make sense to Kong?
+- In production, what care I would have before installing a gateway in the cluster?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter um cluster com Kong instalado e conseguir explicar:
+Have a cluster with Kong installed and manage to explain:
 
-- Como o tráfego entra no cluster.
-- Qual componente do Kong recebe a requisição.
-- Como o Kong se conecta aos services internos.
-- Qual a diferença entre Ingress e Ingress Controller.
+- How traffic enters the cluster.
+- Which component of Kong receives the request.
+- How Kong connects to internal services.
+- What's the difference between Ingress and Ingress Controller.

@@ -1,45 +1,45 @@
-# Fase 2: Código-fonte e projeto base
+# Phase 2: Source code and base project
 
-## Aula
+## Lesson
 
-- Código-fonte
+- Source code
 
-## Objetivo
+## Objective
 
-Entender a estrutura do projeto usado no curso e preparar o ambiente para praticar sem copiar no piloto automático.
+Understand the project structure used in the course and prepare the environment to practice without copying on autopilot.
 
-## Conceitos principais
+## Main concepts
 
-- Repositório base
-- Estrutura de projeto
-- Arquivos de configuração
-- Dependências
-- Scripts de build
-- Scripts de teste
-- Organização mínima para CI
+- Base Repository
+- Project structure
+- Configuration files
+- Dependencies
+- Build Scripts
+- Test Scripts
+- Minimum CI agenda
 
-## Exercícios práticos
+## Practical exercises
 
-- Clonar ou criar um projeto base parecido.
-- Identificar onde ficam os testes.
-- Identificar como rodar a aplicação.
-- Identificar como rodar o build.
-- Identificar como rodar os testes.
-- Criar um README com comandos locais.
+- Clone or create a similar base project.
+- Identify where the tests are.
+- Identify how to run the application.
+- Identify how to rotate build.
+- Identify how to run the tests.
+- Create a README with local commands.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Antes de criar uma pipeline, o que eu preciso conseguir rodar localmente?
-- Por que a pipeline deve reproduzir passos confiáveis?
-- Qual o risco de ter comandos locais diferentes dos comandos da CI?
-- Como um README ruim atrapalha o time?
+- Before creating a pipeline, what I need to be able to run locally?
+- Why Pipeline Should Play Reliable Steps?
+- What is the risk of having local commands that differ from CI commands?
+- How a bad README gets in the way of the team?
 
 ## Checkpoint
 
-Criar um README com:
+Create a README with:
 
-- Como instalar dependências
-- Como rodar testes
-- Como rodar build
-- Como executar o projeto
-- O que a pipeline deve validar
+- How to install dependencies
+- How to run tests
+- How to run build
+- How to execute the project
+- What pipeline should validate

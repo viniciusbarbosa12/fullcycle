@@ -1,48 +1,48 @@
-# Fase 5: Instrumentação manual vs automática
+# Phase 5: Manual vs Automatic Instrumentation
 
-## Aula
+## Lesson
 
-- Instrumentação manual vs automática
+- Manual vs Automatic Instrumentation
 
-## Objetivo
+## Objective
 
-Entender a diferença entre deixar a ferramenta instrumentar automaticamente e escrever instrumentação manual para capturar informações específicas do negócio.
+Understand the difference between letting tool automatically and writing manual instrumentation to capture business-specific information.
 
-Instrumentação automática é ótima para começar. Mas em muitos casos ela não sabe o que importa para o seu negócio. Aí entra a instrumentação manual.
+Automatic instrumentation is great to start with. But in many cases she doesn't know what matters to her business. There comes manual instrumentation.
 
-## Conceitos principais
+## Main concepts
 
-- Instrumentação automática
-- Instrumentação manual
+- Automatic Instrumentation
+- Manual Instrumentation
 - Auto-instrumentation
 - Manual spans
 - Custom attributes
 - Business metrics
 - Context propagation
-- Bibliotecas instrumentadas
+- Instrumented libraries
 - Overhead
-- Granularidade
-- Ruído
+- Granularity
+- Noise
 
-## Exercícios práticos
+## Practical exercises
 
-- Listar exemplos de telemetria que podem ser capturados automaticamente.
-- Listar exemplos que exigem instrumentação manual.
-- Criar um cenário com uma API de pedidos.
-- Definir quais spans seriam automáticos.
-- Definir quais spans manuais eu criaria.
-- Definir atributos úteis para esses spans.
+- List telemetry examples that can be captured automatically.
+- List examples requiring manual instrumentation.
+- Create a scenario with a request API.
+- Set which spans would be automatic.
+- Set which manual spans I would create.
+- Set useful attributes for these spans.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Quando instrumentação automática é suficiente?
-- Quando instrumentação manual é necessária?
-- Qual o risco de instrumentar coisa demais?
-- Qual o risco de instrumentar coisa de menos?
-- Que informação técnica vale colocar em spans?
-- Que informação de negócio vale colocar em spans?
-- O que eu jamais deveria colocar como atributo?
+- When automatic instrumentation is sufficient?
+- When manual instrumentation is required?
+- What's the Risk of Instrumenting Too Much?
+- What's the risk of instrumentalizing something less?
+- What technical information is worth putting in spans?
+- What business information is worth putting in spans?
+- What I should never put as attribute?
 
 ## Checkpoint
 
-Criar uma proposta de instrumentação para uma API real, separando o que seria automático e o que seria manual.
+Create an instrumentation proposal for a real API, separating what would be automatic and what would be manual.

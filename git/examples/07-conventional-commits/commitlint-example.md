@@ -1,8 +1,8 @@
-# Exemplo - Commitlint
+# Example - Commitlint
 
-Use este arquivo como referencia depois de tentar o lab.
+Use this file as reference after trying lab.
 
-## Mensagens validas
+## Valid messages
 
 ```txt
 feat(auth): add login validation
@@ -12,16 +12,16 @@ refactor(order): simplify status validation
 test(payment): add retry scenario
 ```
 
-## Mensagens ruins
+## Bad messages
 
 ```txt
-ajustes
+adjustments
 fix
-arrumei bug
-mudancas finais
+fixed bug
+Final changes
 ```
 
-## Configuracao comum
+## Common configuration
 
 ```js
 module.exports = {
@@ -29,6 +29,6 @@ module.exports = {
 };
 ```
 
-## O que observar
+## What to Watch
 
-O tipo deve explicar a natureza da mudanca. O escopo ajuda a localizar a area afetada.
+The type should explain the nature of the change. Scope helps locate the affected area.

@@ -1,18 +1,18 @@
-# Fase 7 - Conventional Commits
+# Phase 7 - Conventional Commits
 
-## Aulas
+## Lessons
 
 - Conventional commits.
-- Conventional no VSCode.
-- Trabalhando com commitlint.
-- Checando padroes de commit com Commitsar.
-- Commitando com Commitizen.
+- Conventional in VSCode.
+- Working with commitlint.
+- Checking commit standards with Commitsar.
+- Committing with Commitizen.
 
-## Objetivo
+## Objective
 
-Aprender a escrever commits padronizados, faceis de entender e uteis para automacao de changelog, versionamento e pipelines.
+Learn how to write standardized commits, understanding formats and tools for changelog automation, versioning and pipelines.
 
-## Conceitos principais
+## Main concepts
 
 - Conventional Commits.
 - `feat`.
@@ -22,49 +22,48 @@ Aprender a escrever commits padronizados, faceis de entender e uteis para automa
 - `refactor`.
 - `test`.
 - `chore`.
-- Escopo.
+- Scope.
 - Breaking change.
 - Commitlint.
-- Commitsar.
 - Commitizen.
-- Automacao de changelog.
+- Changelog Automation.
 
-## Conceito guia
+## Guide concept
 
-Mensagem de commit e uma interface para humanos e ferramentas. Um padrao consistente ajuda o time a entender historico e permite automatizar validacao, changelog e versionamento.
+A commit message is an interface for humans and tools. A consistent standard helps the team to understand history and allows to automate validation, changelog and versioning.
 
-## Exemplo real de projeto
+## Real project example
 
-Um pipeline pode bloquear `arrumei bug` e aceitar `fix(payment): handle timeout on retry`, porque a segunda mensagem informa tipo, area e intencao.
+A pipeline can block `fixed bug` and accept `fix(payment): handle timeout on retry`, because the second message informs type, area and purpose.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-07-conventional-commits/`:
+Implement on `../labs/fase-07-conventional-commits/`:
 
-1. Escrever commits usando Conventional Commits.
-2. Criar exemplos com `feat`.
-3. Criar exemplos com `fix`.
-4. Criar exemplos com `docs`.
-5. Criar exemplos com `refactor`.
-6. Criar commit com escopo.
-7. Configurar commitlint.
-8. Testar commit invalido.
-9. Corrigir commit invalido.
-10. Usar Commitizen para criar commits guiados.
+1. Write commits using Conventional Commits.
+2. Create examples with `feat`.
+3. Create examples with `fix`.
+4. Create examples with `docs`.
+5. Create examples with `refactor`.
+6. Create commit with scope.
+7. Configure commitlint.
+8. Test invalid commit.
+9. Fix invalid commit.
+10. Use Commitizen to create guided commits.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Por que padronizar mensagem de commit?
-2. Qual a diferenca entre `feat` e `fix`?
-3. Quando usar `chore`?
-4. Quando usar `refactor`?
-5. O que e escopo no commit?
-6. Como Conventional Commits ajudam no versionamento?
-7. Como isso pode alimentar changelog automatico?
+1. Why standardize commit messages?
+2. What's the difference between `feat` and `fix`?
+3. When to use `chore`?
+4. When to use `refactor`?
+5. What is scope in commit?
+6. How do Conventional Commits help with versioning?
+7. How can this feed an automatic changelog?
 
 ## Checkpoint
 
-Criar commits validos como:
+Create valid commits as:
 
 - `feat(auth): add login validation`
 - `fix(api): handle null customer response`
@@ -72,8 +71,8 @@ Criar commits validos como:
 - `refactor(order): simplify status validation`
 - `test(payment): add retry scenario`
 
-Depois explicar o motivo de cada tipo escolhido.
+Then explain why each type was chosen.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir escolher o tipo de commit pelo significado da mudanca, nao pelo arquivo alterado.
+You can advance when you can choose the commit type by the meaning of the change, not by the changed file.

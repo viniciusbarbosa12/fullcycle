@@ -1,49 +1,49 @@
-# Fase 1: Introdução e base mental de CI
+# Phase 1: Introduction and mental model of CI
 
-## Aula
+## Lesson
 
-- Iniciando com Integração contínua
+- Starting with Continuous Integration
 
-## Objetivo
+## Objective
 
-Entender o que é Integração Contínua e por que ela existe em projetos profissionais.
+Understanding what Continuous Integration is and why it exists in professional projects.
 
-CI não é só “rodar um script no GitHub”. CI é uma rede de proteção para o time. Ela ajuda a descobrir rápido quando alguém quebrou teste, build, padrão de código, cobertura ou qualidade antes do código chegar na branch principal.
+CI is not just “running a script in GitHub”. CI is a protection network for the team. It helps to quickly find out when someone broke testss, builds, coding standards, coverage, or quality before code reaches at the main branch.
 
-## Conceitos principais
+## Main concepts
 
-- Integração Contínua
+- Continuous Integration
 - Pipeline
 - Build
-- Testes automatizados
-- Feedback rápido
+- Automated tests
+- Quick Feedback
 - Pull Request
-- Status check
-- Automação
-- Segurança na integração
-- Quebra de build
-- Qualidade antes do merge
+- State check
+- Automation
+- Security in integration
+- Build Break
+- Quality before merge
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar um repositório simples para estudo.
-- Criar uma aplicação mínima.
-- Criar um teste simples.
-- Rodar o teste localmente.
-- Escrever no README o que a pipeline deveria validar antes de aceitar uma PR.
-- Explicar com minhas palavras o que CI resolve.
+- Create a simple repository for study.
+- Create minimal application.
+- Create a simple test.
+- Rotate the test locally.
+- Write to README what the pipeline should validate before accepting a PR.
+- Explain with my words what CI solves.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que significa integrar código continuamente?
-- Por que CI é importante em times grandes?
-- Qual o problema de descobrir erro só depois do merge?
-- Que tipo de erro uma pipeline pode evitar?
-- CI substitui Code Review?
-- CI substitui testes manuais?
+- Which means integrating code continuously?
+- Why CI is important in big teams?
+- What's wrong with finding error only after the merge?
+- What kind of error a pipeline can avoid?
+- CI Replaces Code Review?
+- CI replaces manual tests?
 
 ## Checkpoint
 
-Responder com minhas palavras:
+Answer with my words:
 
-> O que muda em um time quando todo Pull Request precisa passar por uma pipeline de CI antes do merge?
+> What changes on a team when every Pull Request needs to go through a CI pipeline before the merge?

@@ -1,29 +1,29 @@
-# Lab Fase 6 - Exporters, containers e Grafana
+# Lab Phase 6 - Exporters, Containers and Grafana
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 6 antes de pedir revisao.
+Practice Phase 6 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Subir cAdvisor.
-- Configurar Prometheus para coletar métricas do cAdvisor.
-- Verificar se o target está ativo.
-- Subir Grafana.
-- Configurar Prometheus como data source.
-- Criar um dashboard simples.
-- Criar painéis de CPU e memória.
-- Documentar as queries usadas.
+- Up cAdvisor.
+- Configure Prometheus to collect cAdvisor metrics.
+- Check if target is active.
+- Up Grafana.
+- Configure Prometheus as data source.
+- Create a simple dashboard.
+- Create CPU and Memory Panels.
+- Document Queries Used.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que o cAdvisor coleta?
-- Por que métricas de container são importantes?
-- Qual a diferença entre Prometheus e Grafana?
-- Por que Grafana não substitui Prometheus?
-- O que faz um dashboard ser útil?
-- Que painel eu criaria para uma API em produção?
+- What cAdvisor Collects?
+- Why container metrics are important?
+- What is the difference between Prometheus and Grafana?
+- Why Grafana does not replace Prometheus?
+- Which makes a dashboard useful?
+- Which panel would I create for an API in production?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter um dashboard no Grafana exibindo métricas coletadas pelo Prometheus.
+Having a dashboard in Grafana displaying metrics collected by Prometheus.

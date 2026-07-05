@@ -1,28 +1,28 @@
-# Lab Fase 5 - Instrumentação manual vs automática
+# Lab Phase 5 - Manual vs Automatic Instrumentation
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 5 antes de pedir revisao.
+Practice Phase 5 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Listar exemplos de telemetria que podem ser capturados automaticamente.
-- Listar exemplos que exigem instrumentação manual.
-- Criar um cenário com uma API de pedidos.
-- Definir quais spans seriam automáticos.
-- Definir quais spans manuais eu criaria.
-- Definir atributos úteis para esses spans.
+- List telemetry examples that can be captured automatically.
+- List examples requiring manual instrumentation.
+- Create a scenario with a request API.
+- Set which spans would be automatic.
+- Set which manual spans I would create.
+- Set useful attributes for these spans.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Quando instrumentação automática é suficiente?
-- Quando instrumentação manual é necessária?
-- Qual o risco de instrumentar coisa demais?
-- Qual o risco de instrumentar coisa de menos?
-- Que informação técnica vale colocar em spans?
-- Que informação de negócio vale colocar em spans?
-- O que eu jamais deveria colocar como atributo?
+- When automatic instrumentation is sufficient?
+- When manual instrumentation is required?
+- What's the Risk of Instrumenting Too Much?
+- What's the risk of instrumentalizing something less?
+- What technical information is worth putting in spans?
+- What business information is worth putting in spans?
+- What I should never put as attribute?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar uma proposta de instrumentação para uma API real, separando o que seria automático e o que seria manual.
+Create an instrumentation proposal for a real API, separating what would be automatic and what would be manual.

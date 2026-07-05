@@ -1,45 +1,45 @@
-# Fase 4: Serviços e rotas no Kong
+# Phase 4: Services and routes in Kong
 
-## Aulas
+## Lessons
 
-- Serviços
-- Rotas
+- Services
+- Routes
 
-## Objetivo
+## Objective
 
-Aprender o coração do Kong: configurar serviços internos e criar rotas públicas para acessá-los.
+Learn the Heart of Kong: Set up internal services and create public routes to access them.
 
-## Conceitos principais
+## Main concepts
 
-- Service no Kong
-- Route no Kong
+- Service in Kong
+- Route in Kong
 - Upstream service
 - Path
 - Host
 - Method
-- Roteamento
-- Proxy reverso
+- Route
+- Reverse proxy
 - Request flow
-- Separação entre Service e Route
+- Separation between Service and Route
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar um serviço no Kong apontando para uma API interna.
-- Criar uma rota para esse serviço.
-- Testar chamada passando pelo Kong.
-- Criar uma segunda rota para outro endpoint.
-- Testar roteamento por path.
-- Testar roteamento por método HTTP, se aplicável.
-- Desenhar o fluxo cliente -> Kong -> API interna.
+- Create a service in Kong pointing to an internal API.
+- Create a route for this service.
+- Test called through Kong.
+- Create a second route to another endpoint.
+- Test path routing.
+- Test HTTP routing, if applicable.
+- Draw client flow -> Kong -> Internal API.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre Service e Route no Kong?
-- Por que o Kong separa esses dois conceitos?
-- O que acontece se a rota estiver certa, mas o serviço apontar para URL errada?
-- Como eu debuggaria um erro 404 vindo do Kong?
-- Como eu debuggaria um erro 502 vindo do Kong?
+- What is the difference between Service and Route in Kong?
+- Why Kong Separates These Two Concepts?
+- What happens if the route is right, but the service points to the wrong URL?
+- How would I debug a 404 error coming from Kong?
+- How would I debug a 502 error coming from Kong?
 
 ## Checkpoint
 
-Conseguir acessar uma API interna através do Kong usando uma rota pública.
+Getting access to an internal API via Kong using a public route.

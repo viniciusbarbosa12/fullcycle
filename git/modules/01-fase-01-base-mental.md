@@ -1,58 +1,58 @@
-# Fase 1 - Introducao e base mental
+# Phase 1 - Introduction and mental base
 
-## Aulas
+## Lessons
 
-- Introducao
+- Introduction
 
-## Objetivo
+## Objective
 
-Entender por que Git nao e so uma ferramenta para salvar codigo, mas uma forma de organizar colaboracao, historico, revisao e entrega de software.
+Understand why Git is not just a tool to save code, but a way to organize collaboration, history, review and software delivery.
 
-## Conceitos principais
+## Main concepts
 
-- Controle de versao.
-- Historico de mudancas.
+- Version control.
+- History of changes.
 - Branch.
-- Commit.
+- Commitizen.
 - Pull Request.
 - Code Review.
 - Branch protection.
-- Padroes de commit.
-- Rastreamento de alteracoes.
+- Commit patterns.
+- Tracking of changes.
 
-## Conceito guia
+## Guide concept
 
-Um commit deveria representar uma mudanca pequena com sentido proprio. Em projetos reais, o historico ajuda a entender decisoes, investigar bugs, revisar impacto e desfazer mudancas com menos risco.
+A commit should represent a small change with own meaning. In real projects, history helps to understand decisions, investigate bugs, review impact and undo changes with less risk.
 
-## Exemplo real de projeto
+## Real project example
 
-Imagine que uma tela de checkout quebrou em producao. Um historico bem escrito permite descobrir qual mudanca entrou, por que entrou, quem revisou, qual PR levou aquilo para a branch principal e quais testes foram feitos.
+Imagine that a checkout screen broke in production. A well-written history allows us to find out which change entered, why it entered, who reviewed, which PR took that to the main branch and which tests were performed.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-01-base-mental/`:
+Implement on `../labs/fase-01-base-mental/`:
 
-1. Criar um repositorio local simples.
-2. Criar um arquivo `README.md`.
-3. Fazer o primeiro commit.
-4. Criar uma branch.
-5. Fazer uma alteracao pequena.
-6. Comparar o historico usando `git log`.
+1. Create a simple local repository.
+2. Create file `README.md`.
+3. Do first commit.
+4. Create branch.
+5. Make a small change.
+6. Compare the history using `git log`.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Por que Git e importante em um time?
-2. O que um commit deveria representar?
-3. Qual o risco de fazer commits grandes demais?
-4. Por que trabalhar direto na `main` ou `master` pode ser perigoso?
-5. O que muda quando mais de uma pessoa trabalha no mesmo repositorio?
+1. Why Git is important on a team?
+2. What a commit should represent?
+3. What is the risk of making too large commits?
+4. Why work directly at `main` or `master` can be dangerous?
+5. What changes when more than one person works in the same repository?
 
 ## Checkpoint
 
-Responda com suas palavras:
+Answer with your words:
 
-> O que o Git resolve na vida de um time de desenvolvimento?
+> What Git Solves in the Life of a Development Team?
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir explicar a diferenca entre "salvar uma alteracao" e "registrar uma decisao pequena, revisavel e rastreavel".
+You can advance when you can explain the difference between "save a change" and "record a small, revised and traceable decision".

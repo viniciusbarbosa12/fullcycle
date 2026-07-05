@@ -1,59 +1,59 @@
-# Fase 11: Namespaces, Service Accounts e RBAC
+# Phase 11: Namespaces, Service Accounts and RBAC
 
-## Aulas
+## Lessons
 
 - Namespaces
-- Contextos por namespace
-- Entendendo Service Accounts
-- Criando Service Account e Roles
+- Contexts by namespace
+- Understanding Service Accounts
+- Creating Service Account and Roles
 - ClusterRole
 
-## Objetivo
+## Objective
 
-Entender isolamento lógico e controle de acesso no Kubernetes.
+Understand logical isolation and access control in Kubernetes.
 
-Namespaces ajudam a organizar recursos. Service Accounts representam identidades de aplicações ou automações. Roles e ClusterRoles controlam permissões. Sem RBAC bem configurado, o cluster vira uma festa com a porta aberta e o DJ dormindo.
+Namespaces help organize resources. Service Accounts represent application identities or automations. Roles and ClusterRoles control permissions. Without RBAC well configured, the cluster becomes a party with the door open and the DJ sleeping.
 
-## Conceitos principais
+## Main concepts
 
 - Namespace
-- Context por namespace
+- Context by namespace
 - Service Account
 - RBAC
-- Role
-- RoleBinding
+- Roll
+- RoleBending
 - ClusterRole
 - ClusterRoleBinding
 - Least privilege
-- Permissões por namespace
-- Permissões globais
-- Identidade de workload
+- Permissions by namespace
+- Global permissions
+- Workload Identity
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar namespaces.
-- Aplicar recursos em namespaces diferentes.
-- Configurar contexto padrão por namespace.
-- Criar Service Account.
-- Criar Role com permissões limitadas.
-- Criar RoleBinding.
-- Testar acesso permitido.
-- Testar acesso negado.
-- Criar ClusterRole.
-- Comparar Role e ClusterRole.
+- Create namespaces.
+- Apply resources in different namesspaces.
+- Configure default context by namespace.
+- Create Service Account.
+- Create Scroll with limited permissions.
+- Create RoleBending.
+- Test access allowed.
+- Test access denied.
+- Create ClusterRole.
+- Compare Role and ClusterRole.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Para que servem namespaces?
-- Namespace é isolamento de segurança completo?
-- O que é Service Account?
-- Qual a diferença entre usuário e Service Account?
-- O que é RBAC?
-- Qual a diferença entre Role e ClusterRole?
-- Qual a diferença entre RoleBinding e ClusterRoleBinding?
-- Por que aplicar least privilege?
-- Que risco existe em dar permissão demais?
+- What are namesspaces for?
+- Namespace is complete security isolation?
+- What Service Account is?
+- What is the difference between user and Service Account?
+- What is RBAC?
+- What is the difference between Role and ClusterRole?
+- What is the difference between RoleBinding and ClusterRoleBinding?
+- Why apply least privilege?
+- What risk is there in giving too much permission?
 
 ## Checkpoint
 
-Ter um namespace com Service Account e permissões limitadas funcionando via RBAC.
+Have a namespace with Service Account and limited permissions running via RBAC.

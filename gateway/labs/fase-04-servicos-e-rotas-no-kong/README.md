@@ -1,27 +1,27 @@
-# Lab Fase 4 - Serviços e rotas no Kong
+# Lab Phase 4 - Services and routes in Kong
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar um serviço no Kong apontando para uma API interna.
-- Criar uma rota para esse serviço.
-- Testar chamada passando pelo Kong.
-- Criar uma segunda rota para outro endpoint.
-- Testar roteamento por path.
-- Testar roteamento por método HTTP, se aplicável.
-- Desenhar o fluxo cliente -> Kong -> API interna.
+- Create a service in Kong pointing to an internal API.
+- Create a route for this service.
+- Test called through Kong.
+- Create a second route to another endpoint.
+- Test path routing.
+- Test HTTP routing, if applicable.
+- Draw client flow -> Kong -> Internal API.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre Service e Route no Kong?
-- Por que o Kong separa esses dois conceitos?
-- O que acontece se a rota estiver certa, mas o serviço apontar para URL errada?
-- Como eu debuggaria um erro 404 vindo do Kong?
-- Como eu debuggaria um erro 502 vindo do Kong?
+- What is the difference between Service and Route in Kong?
+- Why Kong Separates These Two Concepts?
+- What happens if the route is right, but the service points to the wrong URL?
+- How would I debug a 404 error coming from Kong?
+- How would I debug a 502 error coming from Kong?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir acessar uma API interna através do Kong usando uma rota pública.
+Getting access to an internal API via Kong using a public route.

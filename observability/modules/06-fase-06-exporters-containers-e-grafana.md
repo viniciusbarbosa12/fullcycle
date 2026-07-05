@@ -1,51 +1,51 @@
-# Fase 6: Exporters, containers e Grafana
+# Phase 6: Exporters, Containers and Grafana
 
-## Aulas
+## Lessons
 
-- Utilizando cAdvisor
-- Apresentando o Grafana
+- Using cAdvisor
+- Introducing Grafana
 
-## Objetivo
+## Objective
 
-Aprender a coletar métricas de containers e visualizar dados de forma mais amigável com Grafana.
+Learn how to collect container metrics and view data more user-friendlyly with Grafana.
 
-Prometheus coleta e armazena. Grafana transforma isso em painel útil para humanos cansados tentando entender por que a produção virou uma frigideira.
+Prometheus collects and stores. Grafana turns this into a useful panel for tired humans trying to understand why production turned into a frying pan.
 
-## Conceitos principais
+## Main concepts
 
 - cAdvisor
-- Métricas de containers
+- Container metrics
 - Grafana
 - Data source
 - Dashboard
-- Painel
+- Panel
 - Query
-- Visualização
-- CPU por container
-- Memória por container
-- Uso de rede
-- Uso de disco
+- Preview
+- CPU per container
+- Memory per container
+- Network usage
+- Disk usage
 
-## Exercícios práticos
+## Practical exercises
 
-- Subir cAdvisor.
-- Configurar Prometheus para coletar métricas do cAdvisor.
-- Verificar se o target está ativo.
-- Subir Grafana.
-- Configurar Prometheus como data source.
-- Criar um dashboard simples.
-- Criar painéis de CPU e memória.
-- Documentar as queries usadas.
+- Up cAdvisor.
+- Configure Prometheus to collect cAdvisor metrics.
+- Check if target is active.
+- Up Grafana.
+- Configure Prometheus as data source.
+- Create a simple dashboard.
+- Create CPU and Memory Panels.
+- Document Queries Used.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- O que o cAdvisor coleta?
-- Por que métricas de container são importantes?
-- Qual a diferença entre Prometheus e Grafana?
-- Por que Grafana não substitui Prometheus?
-- O que faz um dashboard ser útil?
-- Que painel eu criaria para uma API em produção?
+- What cAdvisor Collects?
+- Why container metrics are important?
+- What is the difference between Prometheus and Grafana?
+- Why Grafana does not replace Prometheus?
+- Which makes a dashboard useful?
+- Which panel would I create for an API in production?
 
 ## Checkpoint
 
-Ter um dashboard no Grafana exibindo métricas coletadas pelo Prometheus.
+Having a dashboard in Grafana displaying metrics collected by Prometheus.

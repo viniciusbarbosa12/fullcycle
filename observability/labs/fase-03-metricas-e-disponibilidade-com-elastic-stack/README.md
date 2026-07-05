@@ -1,28 +1,28 @@
-# Lab Fase 3 - Métricas e disponibilidade com Elastic Stack
+# Lab Phase 3 - Metrics and availability with Elastic Stack
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 3 antes de pedir revisao.
+Practice Phase 3 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Configurar Metricbeat.
-- Coletar métricas da máquina/container.
-- Visualizar métricas no Kibana.
-- Configurar Heartbeat para verificar uma aplicação.
-- Simular serviço fora do ar.
-- Observar o impacto no painel de uptime.
-- Criar um pequeno relatório com as métricas observadas.
+- Configure Metricbeat.
+- Collect machine/container metrics.
+- View metrics in Kibana.
+- Configure Heartbeat to check an application.
+- Simulate service out of the air.
+- Observe impact on uptime panel.
+- Create a small report with observed metrics.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que o Metricbeat coleta?
-- O que o Heartbeat verifica?
-- Qual a diferença entre saber que a máquina está viva e saber que a aplicação está respondendo?
-- Por que uptime é importante?
-- Que métricas indicam possível saturação?
-- Que alerta faria sentido para CPU, memória e disponibilidade?
+- What Metricbeat Collects?
+- What Heartbeat Checks?
+- What is the difference between knowing that the machine is alive and knowing that the application is responding?
+- Why Uptime Is Important?
+- Which metrics indicate possible saturation?
+- Which alert would make sense to CPU, memory and availability?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter métricas de infraestrutura e monitoramento de uptime visíveis no Kibana.
+Have infrastructure metrics and uptime monitoring visible in Kibana.

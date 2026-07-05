@@ -1,61 +1,61 @@
-# Fase 5: Testes de carga com K6 e Testkube
+# Phase 5: K6 and Testkube load tests
 
-## Aulas
+## Lessons
 
 - K6 testkube
-- Preparando cluster
-- Aplicando cargas
+- Preparing cluster
+- Applying loads
 
-## Objetivo
+## Objective
 
-Aprender a validar comportamento do gateway e das APIs sob carga.
+Learn to validate gateway and API behavior under load.
 
-Não adianta a rota funcionar uma vez no Postman e morrer quando recebe tráfego real. Aqui o foco é começar a medir performance, latência, throughput, erros e limites usando testes de carga.
+It's no use the route running once in Postman and dying when it gets real traffic. Here the focus is to start measuring performance, latency, throughput, errors and limits using load tests.
 
-## Conceitos principais
+## Main concepts
 
-- Teste de carga
+- Load test
 - K6
 - Testkube
 - Virtual users
-- RPS
-- Latência
+- PSUR
+- Latency
 - Throughput
-- Taxa de erro
+- Error rate
 - Percentis
 - P95
 - P99
-- Thresholds
-- Gargalos
-- Saturação
-- Testes dentro do cluster
-- Testes automatizados
+- Threholds
+- Gargals
+- Saturation
+- Tests within the cluster
+- Automated tests
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar um script K6 simples.
-- Rodar teste local.
-- Instalar ou configurar Testkube.
-- Rodar teste contra rota exposta pelo Kong.
-- Aumentar carga gradualmente.
-- Observar latência e erros.
-- Configurar thresholds.
-- Fazer o teste falhar por threshold.
-- Ajustar e rodar novamente.
-- Documentar resultado.
+- Create a simple K6 script.
+- Rotate local test.
+- Install or configure Testkube.
+- Rotate test against route exposed by Kong.
+- Increase load gradually.
+- Observe latency and errors.
+- Configure threads.
+- Make the test fail by threshold.
+- Adjust and rotate again.
+- Document result.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que fazer teste de carga no API Gateway?
-- O que é RPS?
-- O que é P95?
-- O que é P99?
-- Por que média de latência pode enganar?
-- Que tipo de plugin pode impactar performance?
-- Como rate limiting aparece em um teste de carga?
-- Qual a diferença entre teste de carga e teste de stress?
-- Quando eu rodaria isso em uma pipeline?
+- Why do load test in the API Gateway?
+- What RPS is?
+- What is P95?
+- What is P99?
+- Why Sleep Mean Can Deceiving?
+- What type of plugin can impact performance?
+- How rate limiting appears in a load test?
+- What is the difference between load test and stress test?
+- When I'd run it on a pipeline?
 
 ## Checkpoint
 
-Ter um teste de carga rodando contra uma rota do Kong e conseguir explicar os resultados.
+Have a load test running against a Kong route and manage to explain the results.

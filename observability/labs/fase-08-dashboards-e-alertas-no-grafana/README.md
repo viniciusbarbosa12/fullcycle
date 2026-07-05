@@ -1,31 +1,31 @@
-# Lab Fase 8 - Dashboards e alertas no Grafana
+# Lab Phase 8 - Dashboards and alerts in Grafana
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 8 antes de pedir revisao.
+Practice Phase 8 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar dashboard para Gauge.
-- Criar painel para Counter.
-- Criar painel para Histogram.
-- Criar alerta baseado em métrica.
-- Disparar alerta de propósito.
-- Ajustar threshold.
-- Criar um mini runbook dizendo o que fazer quando o alerta disparar.
-- Documentar quais alertas fazem sentido e quais seriam ruído.
+- Create Dashboard for Gauge.
+- Create Counter Panel.
+- Create Histogram Panel.
+- Create metric-based alert.
+- Fire alert on purpose.
+- Adjust Threshold.
+- Create a mini runbook telling you what to do when the alert goes off.
+- Documenting which alerts make sense and what noise would be.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que torna um dashboard útil?
-- Quando um alerta é realmente necessário?
-- O que é falso positivo?
-- Qual o risco de alerta demais?
-- Por que todo alerta deveria ter ação clara?
-- Como eu escolheria threshold?
-- Qual alerta eu criaria para latência alta?
-- Qual alerta eu criaria para erro 5xx?
+- Which makes a dashboard useful?
+- When an alert is really needed?
+- What's false positive?
+- What is the risk of too much alertness?
+- Why Every Alert Should Have Clear Action?
+- How would I choose threshold?
+- What warning would I create for high latency??
+- Which alert would I create for 5xx error?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter dashboard e alerta funcionando, com um runbook simples explicando como reagir.
+Have dashboard and alert working, with a simple runbook explaining how to react.

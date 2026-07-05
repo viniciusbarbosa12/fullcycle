@@ -1,28 +1,28 @@
-# Lab Fase 8 - Circuit breaker
+# Lab Phase 8 - Circuit breaker
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 8 antes de pedir revisao.
+Practice Phase 8 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Preparar ambiente com serviço instável.
-- Configurar DestinationRule com política de circuit breaker.
-- Simular erro em uma instância.
-- Observar ejection da instância ruim.
-- Testar recuperação.
-- Comparar comportamento antes e depois do circuit breaker.
+- Prepare environment with unstable service.
+- Configure DestinationRule with circuit breaker policy.
+- Simulate error in an instance.
+- Observe bad instance ejection.
+- Test Recovery.
+- Compare behavior before and after the circuit breaker.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é falha em cascata?
-- Como circuit breaker protege o sistema?
-- Qual a diferença entre retry e circuit breaker?
-- O que é outlier detection?
-- O que acontece se o circuit breaker estiver agressivo demais?
-- O que acontece se estiver frouxo demais?
-- Em que serviço crítico eu aplicaria isso?
+- What is cascade failure?
+- How circuit breaker protects the system?
+- What's the difference between retry and circuit breaker??
+- What is outlier detection?
+- What happens if the circuit breaker is too aggressive?
+- What happens if it's too loose?
+- In what critical service would I apply this?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir demonstrar uma instância ruim sendo evitada pelo Istio e explicar por que isso melhora resiliência.
+To be able to demonstrate a bad instance being avoided by Istio and explain why this improves resilience.

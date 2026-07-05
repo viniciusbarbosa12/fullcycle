@@ -1,33 +1,33 @@
-# Lab Fase 4 - APM, logs e Elastic Cloud
+# Lab Phase 4 - APM, logs and Elastic Cloud
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 4 antes de pedir revisao.
+Practice Phase 4 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Configurar APM.
-- Instrumentar uma aplicação.
-- Gerar requisições.
-- Observar transações no Kibana.
-- Simular erro na aplicação.
-- Ver logs associados ao erro.
-- Configurar Nginx.
-- Configurar Filebeat para coletar logs.
-- Enviar dados para Elastic Cloud.
-- Criar um guia de investigação usando APM + logs.
+- Configure APM.
+- Instrument an application.
+- Generate requests.
+- Watch transactions in Kibana.
+- Simulate application error.
+- View logs associated with error.
+- Configure Nginx.
+- Configure Filebeat to collect logs.
+- Send data to Elastic Cloud.
+- Create a research guide using APM + logs.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que APM mostra que logs comuns não mostram?
-- O que é uma transaction?
-- O que é um span?
-- Como APM ajuda a encontrar endpoint lento?
-- Como logs no APM ajudam no debug?
-- Por que coletar logs do Nginx?
-- Qual a diferença entre rodar local e usar Elastic Cloud?
-- Que dados sensíveis eu não deveria enviar para logs?
+- What APM shows that common logs do not show?
+- What is a transaction?
+- What is a span?
+- How APM Helps Find Slow Endpoint?
+- How APM Logs Help Debug?
+- Why Collect Nginx Logs?
+- What's the difference between running local and using Elastic Cloud?
+- What sensitive data should I not send to logs?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir investigar uma requisição lenta ou com erro usando APM e logs correlacionados.
+To be able to investigate a slow or wrong request using APM and correlated logs.

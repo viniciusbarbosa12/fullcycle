@@ -1,56 +1,56 @@
-# Fase 8 - Questionario e consolidacao
+# Phase 8 - Questionnaire and Consolidation
 
-## Aula
+## Lesson
 
-- Questionario.
+- Questionnaire.
 
-## Objetivo
+## Objective
 
-Consolidar o conhecimento e identificar buracos antes de considerar o curso concluido.
+Consolidate knowledge and identify holes before considering the completed course.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-08-projeto-final/`:
+Implement on `../labs/fase-08-projeto-final/`:
 
-1. Responder o questionario.
-2. Revisar os erros.
-3. Explicar com suas palavras cada resposta errada.
-4. Criar um mini guia pessoal de Git profissional.
-5. Criar um repositorio final aplicando tudo.
+1. Answer the question.
+2. Review errors.
+3. Explain with your words each wrong answer.
+4. Create a professional Git personal mini guide.
+5. Create a final repository by applying everything.
 
-## Projeto final sugerido
+## Suggested final project
 
-Criar um repositorio de simulacao profissional contendo:
+Create a professional simulation repository containing:
 
-- Branch principal protegida.
-- Branch de desenvolvimento se estiver usando Gitflow.
+- Protected main branch.
+- Development branch if using Gitflow.
 - Feature branch.
 - Pull Request.
-- Template de PR.
+- PR Template.
 - CODEOWNERS.
-- Commits seguindo Conventional Commits.
-- Commit assinado.
-- Commitlint ou Commitsar configurado.
-- README explicando o fluxo do projeto.
-- Exemplo de versionamento SemVer.
-- Simulacao de release e hotfix.
+- Commits following Conventional Commits.
+- Signed commit.
+- Commitlint or Commit configured.
+- README explaining the flow of the project.
+- Example of versioning SemVer.
+- Release simulation and hotfix.
 
-## Criterios de sucesso
+## Success criteria
 
-O projeto final precisa demonstrar:
+The final project needs to demonstrate:
 
-- Uso correto de branches.
-- Historico de commits limpo.
-- Commits padronizados.
-- PR bem descrita.
-- Branch protection configurada.
-- Review obrigatorio.
-- CODEOWNERS funcionando.
-- Entendimento de SemVer.
-- Capacidade de explicar as decisoes.
+- Correct use of branches.
+- History of clean commits.
+- Standard commits.
+- PR well described.
+- Branch protection configured.
+- Review mandatory.
+- CODEOWNERS WORKING.
+- SemVer Understanding.
+- Ability to explain decisions.
 
 ## Checkpoint
 
-Responda:
+Answer me.:
 
-> Qual parte do fluxo profissional de Git ainda parece mais confusa para mim, e qual evidencia eu tenho de que ja consigo aplicar o restante?
+> What part of Git's professional flow seems even more confusing to me, and what evidence do I have that I can already apply the rest?

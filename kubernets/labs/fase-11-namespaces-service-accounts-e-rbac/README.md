@@ -1,34 +1,34 @@
-# Lab Fase 11 - Namespaces, Service Accounts e RBAC
+# Lab Phase 11 - Namespaces, Service Accounts and RBAC
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 11 antes de pedir revisao.
+Practice Phase 11 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar namespaces.
-- Aplicar recursos em namespaces diferentes.
-- Configurar contexto padrão por namespace.
-- Criar Service Account.
-- Criar Role com permissões limitadas.
-- Criar RoleBinding.
-- Testar acesso permitido.
-- Testar acesso negado.
-- Criar ClusterRole.
-- Comparar Role e ClusterRole.
+- Create namespaces.
+- Apply resources in different namesspaces.
+- Configure default context by namespace.
+- Create Service Account.
+- Create Scroll with limited permissions.
+- Create RoleBending.
+- Test access allowed.
+- Test access denied.
+- Create ClusterRole.
+- Compare Role and ClusterRole.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Para que servem namespaces?
-- Namespace é isolamento de segurança completo?
-- O que é Service Account?
-- Qual a diferença entre usuário e Service Account?
-- O que é RBAC?
-- Qual a diferença entre Role e ClusterRole?
-- Qual a diferença entre RoleBinding e ClusterRoleBinding?
-- Por que aplicar least privilege?
-- Que risco existe em dar permissão demais?
+- What are namesspaces for?
+- Namespace is complete security isolation?
+- What Service Account is?
+- What is the difference between user and Service Account?
+- What is RBAC?
+- What is the difference between Role and ClusterRole?
+- What is the difference between RoleBinding and ClusterRoleBinding?
+- Why apply least privilege?
+- What risk is there in giving too much permission?
 
-## Criterio de sucesso
+## Success criteria
 
-Ter um namespace com Service Account e permissões limitadas funcionando via RBAC.
+Have a namespace with Service Account and limited permissions running via RBAC.

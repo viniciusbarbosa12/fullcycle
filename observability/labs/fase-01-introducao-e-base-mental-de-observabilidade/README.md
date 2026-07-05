@@ -1,30 +1,30 @@
-# Lab Fase 1 - Introdução e base mental de observabilidade
+# Lab Phase 1 - Introduction and mental model of observability
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 1 antes de pedir revisao.
+Practice Phase 1 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Explicar com minhas palavras o que é observabilidade.
-- Listar exemplos de logs, métricas e traces.
-- Criar uma tabela comparando monitoramento e observabilidade.
-- Descrever um incidente fictício em produção.
-- Explicar quais dados eu precisaria para investigar esse incidente.
-- Criar um checklist básico de investigação.
+- Explain with my words what observability is.
+- List examples of logs, metrics and dashes.
+- Create a table comparing monitoring and observability.
+- Describe a fictional incident in production.
+- Explain what data I would need to investigate this incident..
+- Create a basic search checklist.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Qual a diferença entre monitoramento e observabilidade?
-- Por que logs sozinhos não resolvem tudo?
-- Por que métricas sozinhas não resolvem tudo?
-- O que traces mostram que logs e métricas não mostram tão bem?
-- O que significa investigar causa raiz?
-- Como observabilidade ajuda em sistemas distribuídos?
-- Que tipo de pergunta eu deveria conseguir responder olhando minha stack de observabilidade?
+- What is the difference between monitoring and observability?
+- Why don't logs alone solve everything??
+- Why metrics alone don't solve everything?
+- What traces show that logs and metrics don't show so well?
+- Which means investigating root cause?
+- As observability helps in distributed systems?
+- What kind of question should I be able to answer by looking at my observability stack?
 
-## Criterio de sucesso
+## Success criteria
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Qual problema real a observabilidade resolve em uma aplicação rodando em produção?
+> What real problem does observability solve in an application running in production?

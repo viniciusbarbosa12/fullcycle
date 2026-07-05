@@ -1,33 +1,33 @@
-# Lab Fase 6 - Código em Go e tracing com Zipkin
+# Lab Phase 6 - Code in Go and tracing with Zipkin
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 6 antes de pedir revisao.
+Practice Phase 6 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Rodar o projeto de exemplo.
-- Identificar onde a instrumentação acontece.
-- Gerar requisições para a aplicação.
-- Abrir o Zipkin.
-- Visualizar traces.
-- Identificar spans.
-- Identificar duração de cada etapa.
-- Simular uma operação lenta.
-- Observar a mudança no trace.
-- Criar um relatório simples explicando o que o trace mostrou.
+- Run the example project.
+- Identify where instrumentation happens.
+- Generate application requests.
+- Open Zipkin.
+- View traces.
+- Identify spans.
+- Identify duration of each step.
+- Simulate a slow operation.
+- Observe change in trace.
+- Create a simple report explaining what the trace showed.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que é um trace?
-- O que é um span?
-- Qual a diferença entre trace e span?
-- Como o Zipkin ajuda a investigar lentidão?
-- O que é trace ID?
-- Por que propagação de contexto é essencial?
-- O que acontece se um serviço não propaga contexto?
-- Como eu identificaria qual serviço deixou a requisição lenta?
+- What is a trace?
+- What is a span?
+- What is the difference between trace and span?
+- How does Zipkin help investigate slowness?
+- What is Trace ID?
+- Why is context propagation essential?
+- What happens if a service does not propagate context?
+- How would I identify which service made the request slow?
 
-## Criterio de sucesso
+## Success criteria
 
-Conseguir gerar uma requisição, visualizar o trace no Zipkin e explicar o caminho completo da requisição.
+Generate a request, view the trace on Zipkin and explain the full path of the request.

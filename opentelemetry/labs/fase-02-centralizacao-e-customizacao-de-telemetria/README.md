@@ -1,25 +1,25 @@
-# Lab Fase 2 - Centralização e customização de telemetria
+# Lab Phase 2 - Centralization and customization of telemetry
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 2 antes de pedir revisao.
+Practice Phase 2 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Listar quais dados de contexto uma aplicação deveria enviar.
-- Criar exemplos de atributos úteis para uma API.
-- Criar exemplos de atributos ruins ou sensíveis.
-- Explicar por que `service.name` é importante.
-- Desenhar um fluxo onde dados saem da aplicação, passam por um collector e chegam em um backend.
+- List which context data an application should send.
+- Create examples of useful attributes for an API.
+- Create examples of bad or sensitive attributes.
+- Explain why `service.name` It's important.
+- Draw a stream where data comes out of the application, pass through a collector and arrive in a backend.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Que informações ajudam a identificar uma requisição?
-- Por que ambiente, versão e nome do serviço são importantes?
-- Que tipo de dado eu não deveria mandar em telemetria?
-- O que é correlação entre logs, métricas e traces?
-- Por que centralizar telemetria ajuda no troubleshooting?
+- What information helps identify a request?
+- Why environment, version and service name are important?
+- What kind of data should I not command in telemetry??
+- What is correlation between logs, metrics and dashes?
+- Why Centering Telemetry Helps in Troubleshooting?
 
-## Criterio de sucesso
+## Success criteria
 
-Criar uma lista de atributos mínimos que uma aplicação real deveria enviar junto da telemetria.
+Create a list of minimum attributes that a real application should send along with telemetry.

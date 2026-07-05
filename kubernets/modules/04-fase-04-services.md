@@ -1,21 +1,21 @@
-# Fase 4: Services
+# Phase 4: Services
 
-## Aulas
+## Lessons
 
-- Entendendo o conceito de services
-- Utilizando ClusterIP
-- Diferenças entre Port e targetPort
-- Utilizando proxy para acessar API do Kubernetes
-- Utilizando NodePort
-- Trabalhando com LoadBalancer
+- Understanding the concept of services
+- Using ClusterIP
+- Differences between Port and targetPort
+- Using proxy to access Kubernetes API
+- Using NodePort
+- Working with LoadBalancerr
 
-## Objetivo
+## Objective
 
-Entender como expor e acessar aplicações dentro e fora do cluster.
+Understand how to expose and access applications inside and outside the cluster.
 
-Pods são efêmeros. Eles nascem, morrem e mudam de IP. Service cria um ponto fixo de acesso para um conjunto de Pods.
+Pods are ephemeral. They're born, they die, they change their IP address. Service creates a fixed access point for a set of Pods.
 
-## Conceitos principais
+## Main concepts
 
 - Service
 - ClusterIP
@@ -26,32 +26,32 @@ Pods são efêmeros. Eles nascem, morrem e mudam de IP. Service cria um ponto fi
 - Selector
 - Endpoint
 - Service discovery
-- DNS interno
+- Internal DNS
 - kubectl proxy
-- Exposição interna e externa
+- Internal and external exposure
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar Service do tipo ClusterIP.
-- Acessar aplicação dentro do cluster.
-- Entender port e targetPort.
-- Testar kubectl proxy.
-- Criar Service do tipo NodePort.
-- Criar Service do tipo LoadBalancer.
-- Ver endpoints gerados pelo Service.
-- Alterar labels e observar impacto nos endpoints.
+- Create ClusterIP Type Service.
+- Access application within cluster.
+- Understand port and targetPort.
+- Test kubectl proxy.
+- Create NodePort Service.
+- Create LoadBalancerr Type Service.
+- View Service-generated endpoints.
+- Change labels and observe impact on endpoints.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que Service existe?
-- Qual problema ele resolve em relação aos Pods?
-- Qual a diferença entre ClusterIP, NodePort e LoadBalancer?
-- Qual a diferença entre port e targetPort?
-- O que acontece se o selector do Service estiver errado?
-- Quando usar ClusterIP?
-- Quando usar NodePort?
-- Quando usar LoadBalancer?
+- Why Service Exists?
+- What problem does he solve with the Pods??
+- What is the difference between ClusterIP, NodePort and LoadBalancerr?
+- What is the difference between port and targetPort?
+- What happens if the Service selector is wrong?
+- When to use ClusterIP?
+- When to use NodePort?
+- When to use LoadBalancerr?
 
 ## Checkpoint
 
-Conseguir expor a aplicação de 3 formas diferentes e explicar quando cada tipo de Service faz sentido.
+Getting to expose the application in 3 different ways and explain when each type of Service makes sense.

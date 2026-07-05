@@ -1,19 +1,19 @@
-# Lab Fase 1 - Async JavaScript
+# Lab Phase 1 - Async JavaScript
 
-## Missao
+## Mission
 
-Crie um arquivo `async-basics.ts` e implemente:
+Create a file `async-basics.ts` and implement:
 
-1. Uma funcao sincrona simples.
-2. Uma funcao com callback.
-3. Uma Promise.
-4. A mesma ideia usando async/await.
-5. Uma simulacao de I/O com `setTimeout`.
+1. A simple synchronous function.
+2. A callback function.
+3. A Promise.
+4. The same idea using async/await.
+5. An I/O simulation with `setTimeout`.
 
-## Antes de pedir revisao
+## Before asking for review
 
-Responda no final do arquivo:
+Answer at the end of the file:
 
 ```txt
-Por que Promise nao resolve todos os problemas que RxJS resolve?
+Why Promises do not solve all the problems that RxJS solves?
 ```

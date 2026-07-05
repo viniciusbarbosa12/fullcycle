@@ -1,20 +1,20 @@
-# Lab Fase 6 - Otimização de imagens
+# Lab Phase 6 - Image optimization
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 6 antes de pedir revisao.
+Practice Phase 6 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Criar uma imagem sem multistage.
-- Medir o tamanho da imagem.
-- Criar uma versão com multistage.
-- Comparar tamanho e segurança.
-- Colocar nginx servindo ou proxyando a aplicação.
+- Create an image without multistage.
+- Measure image size.
+- Create a multistage version.
+- Compare size and safety.
+- Place nginx serving or proxying the application.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- Por que não levar ferramentas de build para produção?
-- Qual a vantagem de uma imagem menor?
-- O que o nginx faz como proxy reverso?
-- Em que cenário real eu usaria isso?
+- Why not take build tools for production?
+- What is the advantage of a smaller image?
+- What nginx does as reverse proxy?
+- In what real scenario would I use that?

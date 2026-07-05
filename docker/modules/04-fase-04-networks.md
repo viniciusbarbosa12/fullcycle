@@ -1,37 +1,37 @@
-# Fase 4: Networks
+# Phase 4: Networks
 
-## Aulas
+## Lessons
 
-- Entendento tipos de Network
-- Trabalhando com bridge
-- Trabalhando com host
-- Container acessando nossa maquina
+- Understanding Network Types
+- Working with bridge
+- Working with host
+- Container accessing our machine
 
-## Objetivo
+## Objective
 
-Entender como containers conversam entre si, com minha máquina e com o mundo externo.
+Understanding how containers talk to each other, to my machine and to the outside world.
 
-## Conceitos principais
+## Main concepts
 
 - Bridge network
 - Host network
 - Port mapping
-- DNS interno do Docker
-- Comunicação container para container
-- Comunicação container para host
-- Isolamento de rede
+- Internal DNS of Docker
+- Container communication for container
+- Container communication for host
+- Network insulation
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar uma network customizada.
-- Subir dois containers na mesma network.
-- Fazer um container acessar outro pelo nome.
-- Testar acesso via porta exposta.
-- Testar comunicação do container com a máquina local.
+- Create a custom network.
+- Up two containers on the same network.
+- Make one container access another by name.
+- Test access via exposed door.
+- Test container communication with local machine.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Por que dois containers na mesma bridge conseguem conversar?
-- Por que às vezes uso o nome do container em vez de `localhost`?
-- O que significa expor uma porta?
-- Qual a diferença entre porta dentro do container e porta da minha máquina?
+- Why two containers in the same bridge can talk?
+- Why sometimes I use the name of the container instead of `localhost`?
+- Which means exposing a door?
+- What's the difference between the door inside the container and the door to my machine??

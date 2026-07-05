@@ -1,57 +1,57 @@
-# Fase 7 - Subjects e estado
+# Phase 7 - Subjects and status
 
-## Objetivo
+## Objective
 
-Entender como usar Subject sem transformar o projeto num novelo radioativo.
+Understand how to use Subject without turning the project into a radioactive ball.
 
-## Conceitos principais
+## Main concepts
 
 - `Subject`.
 - `BehaviorSubject`.
 - `ReplaySubject`.
 - `AsyncSubject`.
-- Estado compartilhado.
-- Estado inicial.
-- Encapsulamento.
-- Expor Observable, esconder Subject.
-- Evitar Subject publico.
+- Shared State.
+- Initial State.
+- Encapsulation.
+- Expose Observable, hide Subject.
+- Avoid Public Subject.
 
-## Conceito guia
+## Guide concept
 
-Subject serve para empurrar valores para um fluxo. Em estado Angular, o padrao mais seguro e Subject privado e Observable publico.
+Subject serves to push values into a stream. In Angular state, the safest pattern and private Subject and public Observable.
 
-## Exemplo real de projeto
+## Real project example
 
-Um service de usuario logado pode guardar o estado em `BehaviorSubject`, expor `user$` com `asObservable()` e oferecer metodos como `login` e `logout`.
+A logged-in user service can save the status in `BehaviorSubject`,expose `user$` with `asObservable()` and offer methods as `login` and `logout`.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-07-subjects-state/`:
+Implement on `../labs/fase-07-subjects-state/`:
 
-1. Criar um contador com `Subject`.
-2. Criar estado de usuario logado com `BehaviorSubject`.
-3. Criar historico de ultimas emissoes com `ReplaySubject`.
-4. Testar comportamento de `AsyncSubject`.
-5. Criar um servico Angular simples com estado privado.
-6. Expor o estado usando `asObservable`.
+1. Create a counter with `Subject`.
+2. Create user status logged in with `BehaviorSubject`.
+3. Create history of last issues with `ReplaySubject`.
+4. Test behaviour of `AsyncSubject`.
+5. Create a Service Simple Angular with Private State.
+6. Expose the status using `asObservable`.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Qual a diferenca entre Subject e BehaviorSubject?
-2. Por que BehaviorSubject precisa de valor inicial?
-3. Por que nao deixar um Subject publico?
-4. Quando Subject vira gambiarra?
-5. Quando vale usar uma lib de estado em vez de Subject?
+1. What is the difference between Subject and Behavior Subject?
+2. Why BehaviorSubject Needs Initial Value?
+3. Why not leave a public Subject?
+4. When Subject turns gambiarra?
+5. When to use a status lib instead of Subject?
 
 ## Checkpoint
 
-Crie um servico de estado com:
+Create a status service with:
 
-- estado privado;
-- metodo para atualizar estado;
-- Observable publico somente leitura;
-- um componente consumindo esse estado.
+- private state;
+- method to update status;
+- Observable public read only;
+- a component consuming this state.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando conseguir explicar por que `private readonly subject` + `readonly state$` protege melhor o codigo.
+You can step up when you can explain why `private readonly subject` + `readonly state$` better protects the code.

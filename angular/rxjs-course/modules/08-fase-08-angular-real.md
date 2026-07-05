@@ -1,62 +1,62 @@
-# Fase 8 - RxJS no Angular real
+# Phase 8 - RxJS in the actual Angular
 
-## Objetivo
+## Objective
 
-Aplicar RxJS no Angular do jeito que aparece em projeto real.
+Apply RxJS to Angular the way it appears in real project.
 
-## Conceitos principais
+## Main concepts
 
 - `HttpClient`.
-- Observable em chamadas HTTP.
+- Observable in calls HTTP.
 - `async pipe`.
-- Evitar subscribe desnecessario.
+- Avoid unnecessary subscribe.
 - Unsubscribe.
 - Memory leak.
 - `takeUntilDestroyed`.
 - Reactive Forms.
 - `valueChanges`.
 - Route params.
-- Loading, error e data state.
+- Loading, error and data state.
 
-## Conceito guia
+## Guide concept
 
-Angular conversa naturalmente com RxJS: HTTP, formulario, rota e template podem ser modelados como fluxos.
+Angular conversation naturally with RxJS: HTTP, formulario, route and template can be modeled as streams.
 
-## Exemplo real de projeto
+## Real project example
 
-Uma tela de busca com Reactive Forms pode ouvir `valueChanges`, aplicar debounce, cancelar requests com `switchMap` e renderizar com `async pipe`, sem subscribe manual no componente.
+A search screen with Reactive Forms can hear `valueChanges`,apply debounce, cancel requests with `switchMap` and render with `async pipe`,without manual subscribing to the component.
 
-## Exercicios praticos
+## Practical exercises
 
-Implemente em `../labs/fase-08-angular-real/`:
+Implement on `../labs/fase-08-angular-real/`:
 
-1. Criar chamada HTTP fake retornando Observable.
-2. Consumir Observable com `async pipe`.
-3. Refatorar um subscribe manual para `async pipe`.
-4. Usar `valueChanges` em formulario reativo.
-5. Usar route params como Observable.
-6. Criar estado de tela com loading, data e error.
-7. Usar `takeUntilDestroyed` quando o subscribe manual for necessario.
+1. Create Call HTTP fake returning Observable.
+2. Consume Observable with `async pipe`.
+3. Refactor a manual subscribe to `async pipe`.
+4. Use `valueChanges` in reactive form.
+5. Use route params as Observable.
+6. Create screen status with loading, date and error.
+7. Use `takeUntilDestroyed` when the manual subscribe is required.
 
-## Perguntas de reflexao
+## Reflection Questions
 
-1. Por que `async pipe` ajuda a evitar memory leak?
-2. Quando subscribe manual e aceitavel?
-3. Por que HttpClient retorna Observable e nao Promise?
-4. Como tratar loading e erro sem duplicar codigo?
-5. O que pode causar memory leak em Angular?
+1. Why? `async pipe` helps to avoid memory leak?
+2. When you subscribe manually and acceptable?
+3. Why HttpClient Returns Observable and Not Promise?
+4. How to handle loading and error without duplicate code?
+5. What Can Cause Memory Leak in Angular?
 
 ## Checkpoint
 
-Crie uma tela Angular com:
+Create a screen Angular with:
 
-- lista carregada por Observable;
-- template usando `async pipe`;
+- list loaded by Observable;
+- template using `async pipe`;
 - loading;
-- erro;
-- busca com Reactive Forms;
-- cancelamento de request com `switchMap`.
+- error;
+- search with Reactive Forms;
+- request cancellation with `switchMap`.
 
-## Criterio de sucesso
+## Success criteria
 
-Voce pode avancar quando o componente expuser Observables para o template e usar subscribe manual apenas com motivo claro.
+You can advance when the component exposes Observables to the template and use manual subscribe only with clear reason.

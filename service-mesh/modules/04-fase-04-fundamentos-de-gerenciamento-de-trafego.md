@@ -1,48 +1,48 @@
-# Fase 4: Fundamentos de gerenciamento de tráfego
+# Phase 4: Traffic Management Fundamentals
 
-## Aulas
+## Lessons
 
-- Falando sobre gerenciamento de tráfego
-- Conceitos básicos
-- Resumindo conceitos
-- Criando versões de deployments
+- Talking about traffic management
+- Basic concepts
+- Summarizing concepts
+- Creating Deployments Versions
 
-## Objetivo
+## Objective
 
-Entender como o Istio controla tráfego entre versões de serviços.
+Understanding how Istio controls traffic between service versions.
 
-Antes de fazer canary, fault injection ou circuit breaker, preciso entender como o tráfego é roteado e como o Istio identifica versões diferentes da mesma aplicação.
+Before doing canary, fault injection or circuit breaker, I need to understand how traffic is routed and how Istio identifies different versions of the same application.
 
-## Conceitos principais
+## Main concepts
 
 - Traffic management
 - Service
 - Deployment
-- Versionamento de deployment
-- Labels de versão
+- Deployment version
+- Version Labels
 - Subsets
 - VirtualService
 - DestinationRule
-- Roteamento
-- Peso de tráfego
+- Route
+- Traffic weight
 - Match rules
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar duas versões de um deployment.
-- Adicionar labels de versão.
-- Validar que o Kubernetes Service enxerga as duas versões.
-- Observar distribuição de tráfego sem regra do Istio.
-- Criar um desenho explicando como o tráfego chega nas versões.
+- Create two versions of a deployment.
+- Add Version Labels.
+- Validate that Kubernetes Service sees both versions.
+- Watch traffic distribution without Istio rule.
+- Create a drawing explaining how traffic arrives in versions.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Como o Istio sabe que existem versões diferentes?
-- Qual a diferença entre Service Kubernetes e VirtualService do Istio?
-- Por que labels corretas são essenciais?
-- O que é um subset?
-- O que acontece se eu criar versões, mas não configurar regras de tráfego?
+- How Istio knows there are different versions?
+- What is the difference between Service Kubernetes and Istio VirtualService?
+- Why Correct Labels Are Essential?
+- What is a subset?
+- What happens if I create versions but do not configure traffic rules?
 
 ## Checkpoint
 
-Ter duas versões da aplicação rodando e conseguir explicar como o tráfego chega nelas.
+Having two versions of the application running and being able to explain how the traffic gets to them.

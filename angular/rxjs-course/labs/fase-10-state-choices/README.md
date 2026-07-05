@@ -1,19 +1,19 @@
-# Lab Fase 10 - Escolha de estado
+# Lab Phase 10 - Choice of status
 
-## Missao
+## Mission
 
-Crie um arquivo `state-decision.md` comparando:
+Create a file `state-decision.md` comparing:
 
-1. Estado local no componente.
-2. Estado em Service com `BehaviorSubject`.
-3. Estado em Facade.
+1. Local state in the component.
+2. State in Service with `BehaviorSubject`.
+3. State in Facade.
 4. NgRx.
-5. Signals ou Signal Store.
+5. Signals or Signal Store.
 
 ## Checkpoint
 
-Responda:
+Answer me.:
 
 ```txt
-Em uma tela de listagem com busca, filtro e paginacao, eu usaria RxJS puro, Signals ou NgRx? Por que?
+On a list screen with search, filter and page, would I use pure RxJS, Signals or NgRx? Why??
 ```

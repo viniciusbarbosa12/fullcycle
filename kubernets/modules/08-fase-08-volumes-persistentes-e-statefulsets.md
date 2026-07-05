@@ -1,65 +1,65 @@
-# Fase 8: Volumes persistentes e StatefulSets
+# Phase 8: Persistent Volumes and StatefulSets
 
-## Aulas
+## Lessons
 
-- Entendendo volumes persistentes
-- Criando volume persistente e montando
-- Entendendo Stateless vs Stateful
-- Criando StatefulSet
-- Criando headless service
-- Criando volumes dinamicamente com statefulset
-- Devo usar meu banco de dados no kubernetes
+- Understanding persistent volumes
+- Creating persistent volume and riding
+- Understanding Stateless vs Stateful
+- Creating StatefulSet
+- Creating headless service
+- Creating dynamic volumes with StatefulSet
+- Should I run my database in Kubernetes?
 
-## Objetivo
+## Objective
 
-Entender armazenamento persistente e workloads stateful no Kubernetes.
+Understand persistent storage and stateful worksloads in Kubernetes.
 
-Nem tudo no Kubernetes é stateless. Algumas aplicações precisam de identidade estável, armazenamento persistente e ordem de criação. StatefulSet existe para esses casos, mas usar banco em Kubernetes exige maturidade operacional.
+Not everything in Kubernetes is stateless. Some applications need stable identity, persistent storage and creation order. StatefulSet exists for these cases, but using bank in Kubernetes requires operational maturity.
 
-## Conceitos principais
+## Main concepts
 
 - Volume
 - PersistentVolume
 - PersistentVolumeClaim
-- StorageClass
+- StorageLesson
 - Dynamic provisioning
 - StatefulSet
 - Stateless
 - Stateful
 - Headless Service
-- Identidade estável
-- DNS estável
-- Volume por réplica
-- Banco de dados no Kubernetes
-- Operação de dados
+- Stable identity
+- DNS stable
+- Volume per replica
+- Database in Kubernetes
+- Data operation
 
-## Exercícios práticos
+## Practical exercises
 
-- Criar PersistentVolume.
-- Criar PersistentVolumeClaim.
-- Montar volume em um Pod.
-- Escrever arquivo no volume.
-- Recriar Pod e validar persistência.
-- Criar StatefulSet.
-- Criar Headless Service.
-- Observar DNS estável dos Pods.
-- Criar volumes dinamicamente.
-- Comparar Deployment vs StatefulSet.
-- Escrever uma análise: quando eu usaria ou não banco no Kubernetes.
+- Create PersistentVolume.
+- Create PersistentVolumeClaim.
+- Mount Volume in a Pod.
+- Write file in volume.
+- Recreate Pod and validate persistence.
+- Create StatefulSet.
+- Create Headless Service.
+- Observing stable Pods DNS.
+- Dynamically create volumes.
+- Compare Deployment vs StatefulSet.
+- Write a review: when I would or would not use bank in Kubernetes.
 
-## Perguntas de reflexão
+## Reflection questions
 
-- Qual a diferença entre volume e PersistentVolume?
-- O que é PVC?
-- O que é StorageClass?
-- O que é dynamic provisioning?
-- Qual a diferença entre stateless e stateful?
-- Por que StatefulSet dá identidade estável?
-- Para que serve Headless Service?
-- Quando usar StatefulSet?
-- É uma boa ideia rodar banco em Kubernetes?
-- Quando é melhor usar banco gerenciado?
+- What is the difference between volume and PersistentVolume?
+- What is PVC?
+- What StorageLesson is?
+- What is Dynamic Provisioning?
+- What's the difference between stateless and stateful?
+- Why StatefulSet Gives Stable Identity?
+- What is Headless Service for??
+- When to use StatefulSet?
+- It's a good idea to run a bank in Kubernetes.?
+- When it is best to use managed bank?
 
 ## Checkpoint
 
-Ter um StatefulSet funcionando com volume persistente e conseguir explicar quando usar banco dentro ou fora do Kubernetes.
+Having a StatefulSet running with persistent volume and being able to explain when using bench inside or outside Kubernetes.

@@ -1,54 +1,54 @@
-# Perguntas clássicas de entrevista e trabalho real
+# Classic interview and real work questions
 
-Ao final do plano, eu devo conseguir responder:
+At the end of the plan, I must be able to answer:
 
-1. O que é Kubernetes?
-2. O que é um cluster?
-3. O que é um node?
-4. O que é control plane?
-5. O que é worker node?
-6. O que é Kind?
-7. O que é kubectl context?
-8. O que é Pod?
-9. Por que não usar Pod direto em produção?
-10. O que é ReplicaSet?
-11. Qual o problema de usar ReplicaSet diretamente?
-12. O que é Deployment?
-13. O que é rollout?
-14. O que é rollback?
-15. O que é Service?
-16. Qual a diferença entre ClusterIP, NodePort e LoadBalancer?
-17. Qual a diferença entre port e targetPort?
-18. O que é ConfigMap?
-19. O que é Secret?
-20. Secret é criptografia?
-21. O que é livenessProbe?
-22. O que é readinessProbe?
-23. O que é startupProbe?
-24. Qual a diferença entre liveness e readiness?
-25. O que são requests e limits?
-26. O que é metrics-server?
-27. O que é HPA?
-28. Quando HPA não resolve o problema?
-29. O que é PersistentVolume?
-30. O que é PersistentVolumeClaim?
-31. O que é StorageClass?
-32. O que é StatefulSet?
-33. Para que serve Headless Service?
-34. Quando usar StatefulSet?
-35. Devo rodar banco de dados no Kubernetes?
-36. O que é Ingress?
-37. Qual a diferença entre Ingress e Ingress Controller?
-38. O que é cert-manager?
-39. O que é Issuer?
-40. O que é ClusterIssuer?
-41. O que é Namespace?
-42. O que é Service Account?
-43. O que é RBAC?
-44. Qual a diferença entre Role e ClusterRole?
-45. O que é least privilege?
-46. Como eu colocaria uma API .NET em Kubernetes?
-47. Como eu investigaria um Pod em CrashLoopBackOff?
-48. Como eu investigaria um Service que não alcança os Pods?
-49. Como eu investigaria um HPA que não escala?
-50. Como eu investigaria um Ingress que não responde?
+1. What Kubernetes is?
+2. What's a cluster?
+3. What a node?
+4. What is control plane?
+5. What is worker node?
+6. What Kind is?
+7. What is kubectl context?
+8. What is Pod?
+9. Why not use direct Pod in production?
+10. What is ReplicaSet?
+11. What's wrong with using ReplicaSet directly?
+12. What is Deployment?
+13. What is rollout?
+14. What is rollback?
+15. What is Service?
+16. What is the difference between ClusterIP, NodePort and LoadBalancerr?
+17. What is the difference between port and targetPort?
+18. What ConfigMap is?
+19. What Secret Is?
+20. Secret is encryption?
+21. What LivenessProbe is?
+22. What is readinssProbe?
+23. What is startupProbe?
+24. What's the difference between liveness and readinss?
+25. What are requests and limits?
+26. What is metrics-server?
+27. What HPA is?
+28. When HPA does not solve the problem?
+29. What is PersistentVolume?
+30. What PersistentVolumeClaim is?
+31. What StorageLesson is?
+32. What is StatefulSet?
+33. What is Headless Service for??
+34. When to use StatefulSet?
+35. I must run database on Kubernetes?
+36. What is Ingress?
+37. What's the difference between Ingress and Ingress Controller?
+38. What is cert-manager?
+39. What is Issuer??
+40. What ClusterIssuer is?
+41. What is Namespace?
+42. What Service Account is?
+43. What is RBAC?
+44. What is the difference between Role and ClusterRole?
+45. What is least privilege?
+46. How would I put a .NET API in Kubernetes?
+47. How would I investigate a Pod in CrashLoopBackOff?
+48. How would I investigate a Service that doesn't reach the Pods??
+49. How would I investigate an HPA that doesn't scale?
+50. How would I investigate an unresponsive Ingress??

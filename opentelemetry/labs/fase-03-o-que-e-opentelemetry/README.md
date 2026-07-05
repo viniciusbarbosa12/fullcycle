@@ -1,32 +1,32 @@
-# Lab Fase 3 - O que é OpenTelemetry
+# Lab Phase 3 - What is OpenTelemetry
 
-## Missao
+## Mission
 
-Pratique os conceitos da Fase 3 antes de pedir revisao.
+Practice Phase 3 concepts before requesting review.
 
-## Exercicios praticos
+## Practical exercises
 
-- Navegar pela documentação oficial.
-- Listar os principais componentes do OTEL.
-- Explicar a diferença entre API e SDK.
-- Explicar o papel do Collector.
-- Explicar o que é um exporter.
-- Criar um desenho: aplicação -> SDK -> Collector -> backend.
-- Criar um glossário próprio com os termos principais.
+- Browse the official documentation.
+- List the main components of OTEL.
+- Explain the difference between API and SDK.
+- Explain the role of Collector.
+- Explain what an exporter is.
+- Create a drawing: application -> SDK -> Collector -> backend.
+- Create your own glossary with the main terms.
 
-## Antes de pedir revisao
+## Before asking for review
 
-- O que significa OpenTelemetry ser vendor-neutral?
-- Qual a diferença entre API e SDK?
-- O que o Collector faz?
-- Por que usar Collector em vez de enviar direto para uma ferramenta?
-- O que é um exporter?
-- O que é um receiver?
-- O que é um processor?
-- O que acontece se eu trocar Zipkin por outro backend?
+- What does OpenTelemetry mean to be seller-neutral?
+- What is the difference between API and SDK?
+- What the Collector does?
+- Why use Collector instead of sending straight to a tool?
+- What is an exporter?
+- What a receiver is?
+- What a processor is?
+- What happens if I trade Zipkin for another backend?
 
-## Criterio de sucesso
+## Success criteria
 
-Responder com minhas palavras:
+Answer with my words:
 
-> Como os dados saem da aplicação instrumentada e chegam em uma ferramenta como Zipkin, Jaeger, Prometheus ou Elastic?
+> How data comes out of the instrumented application and arrive in a tool like Zipkin, Jaeger, Prometheus or Elastic?
