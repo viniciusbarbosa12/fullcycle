@@ -30,6 +30,10 @@ A signed commit helps confirm that that change was created by someone who has th
 
 In a sensitive repository, the company may require signed commits to reduce the risk of someone falsifying authorship using someone else's email.
 
+## Reference example
+
+- [Signed commit flow](../examples/03-commit-signing/signed-commit-flow.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-03-assinatura-commits/`:

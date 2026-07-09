@@ -28,6 +28,10 @@ WithoutView communicates impact. `PATCH` corrects without breaking contract, `MI
 
 Remove a field used by customers in a public API and a breaking change. Even if the internal code is better, those who consume the API can break.
 
+## Reference example
+
+- [SemVer release simulation](../examples/06-semver/release-simulation.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-06-semver/`:

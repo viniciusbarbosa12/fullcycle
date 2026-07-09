@@ -1,58 +1,55 @@
-# Final project - Kubernetes
+# Task Management Workspace
 
-This directory serves as a guide to the final consolidation of the course.
+Workspace for a task management application.
 
-## Objective
+## Projects
 
-Gather all concepts in a near production scenario.
+- `backend`: .NET API with PostgreSQL.
+- `frontend`: React app built with Vite.
 
-## Suggested final project
+## Backend Architecture
 
-Create a Kubernetes environment with a full application containing:
+- `backend/src/TaskManagement.Domain`: core entities.
+- `backend/src/TaskManagement.Application`: use cases, services, DTOs, and repository contracts.
+- `backend/src/TaskManagement.Infrastructure`: PostgreSQL persistence with Entity Framework Core.
+- `backend/src/TaskManagement.Api`: controllers and API configuration.
 
-- Cluster Kind or cluster cloud
-- Containerized application
-- Deployment
-- ReplicaSet managed by Deployment
-- Rollout and rollback tested
-- Service ClusterIP
-- Service NodePort or LoadBalancerr for testing
-- ConfigMap
-- Secret
-- Liveness probe
-- Readiness probe
-- Startup probe, if it makes sense
-- Requests and limits
-- HPA working
-- Fortio stress test
-- PersistentVolume and PVC
-- StatefulSet with Headless Service
-- Ingress Controller
-- Ingress resource with host/path
-- DNS or local host configured
-- TLS with cert-manager
-- OwnNamespace
-- Service Account
-- Roll/RoleBinding
-- README explaining all architecture
+## Endpoints
 
-## Success criteria
+- `GET /health`
+- `GET /tasks`
+- `GET /tasks/{id}`
+- `POST /tasks`
+- `DELETE /tasks/{id}`
 
-The final project needs to demonstrate:
+## Run locally
 
-- Application running in Kubernetes
-- Deployments working
-- Rollout and rollback working
-- Services properly configured
-- Separate configuration via ConfigMap and Secret
-- Probes well configured
-- Defined Resources
-- HPA climbing under load
-- Persistent volume functioning
-- StatefulSet understood
-- Ingress exposing application
-- TLS configured
-- OrganizedNamespace
-- RBAC with minimum permissions
-- Clear README
-- Ability to explain decisions and trade-offs
+Full stack with Docker:
+
+```powershell
+docker compose -f scripts/docker-compose.yml up --build
+```
+
+Backend in local development:
+
+```powershell
+cd backend
+dotnet ef database update --project src/TaskManagement.Infrastructure --startup-project src/TaskManagement.Api
+dotnet run --project src/TaskManagement.Api
+```
+
+Frontend in local development:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+Open `backend/src/TaskManagement.Api/TaskManagement.Api.http` to test the API from VS Code.
+
+The API expects PostgreSQL at `localhost:5433` with:
+
+- Database: `task_management`
+- User: `task_user`
+- Password: `task_password`

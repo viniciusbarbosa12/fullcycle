@@ -32,6 +32,10 @@ A good review protects the system and helps the author grow. Not every commentar
 
 If a PR changes tax rule, the reviewer needs to look at impact, testing, compatibility and ownership. CODEOWNERS can ensure that someone on the team responsible for that area is called.
 
+## Reference example
+
+- [CODEOWNERS](../examples/05-code-review/codeowners-example.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-05-code-review/`:

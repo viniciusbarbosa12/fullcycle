@@ -62,6 +62,20 @@ Important rule: I must give hints first. Complete solution only if you explicitl
 - `examples/`: ready reference examples to consult after the attempt.
 - `final-project/`: final professional simulation guide.
 
+## Reference Examples
+
+Use these after trying the matching lab first:
+
+| Phase | Example |
+| --- | --- |
+| 1. Introduction and mental model | [First commands](examples/01-base-mental/comandos.md) |
+| 2. Gitflow | [Manual Gitflow flow](examples/02-gitflow/fluxo-gitflow.md) |
+| 3. Commit Signing | [Signed commit flow](examples/03-commit-signing/signed-commit-flow.md) |
+| 4. Pull Requests and branch protection | [Pull Request template](examples/04-pull-requests/pull-request-template.md) |
+| 5. Professional Code Review | [CODEOWNERS](examples/05-code-review/codeowners-example.md) |
+| 6. SemVer | [SemVer release simulation](examples/06-semver/release-simulation.md) |
+| 7. Conventional Commits | [Commitlint](examples/07-conventional-commits/commitlint-example.md) |
+
 ## Phases
 
 0. [How We Will Study](modules/00-como-vamos-estudar.md)

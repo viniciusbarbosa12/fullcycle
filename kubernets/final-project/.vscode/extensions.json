@@ -1,0 +1,38 @@
+{
+  "recommendations": [
+    "docker.docker",
+    "ms-azuretools.vscode-containers",
+    "ms-dotnettools.csdevkit",
+    "ms-dotnettools.csharp",
+    "ms-dotnettools.vscode-dotnet-runtime",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "editorconfig.editorconfig",
+    "christian-kohler.path-intellisense",
+    "christian-kohler.npm-intellisense",
+    "humao.rest-client",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+    "redhat.vscode-yaml",
+    "ms-vscode-remote.remote-containers",
+    "ms-vscode-remote.remote-wsl",
+    "ms-vscode.remote-explorer",
+    "ms-vscode.powershell"
+  ],
+  "unwantedRecommendations": [
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "tim-koehler.helm-intellisense",
+    "bracketpaircolordlw.bracket-pair-color-dlw",
+    "ms-azuretools.vscode-docker",
+    "omthemes.om-extension-pack",
+    "hashicorp.terraform",
+    "github.vscode-github-actions",
+    "openai.chatgpt",
+    "angular.ng-template",
+    "dart-code.dart-code",
+    "dart-code.flutter",
+    "shopify.ruby-lsp",
+    "ms-mssql.mssql"
+  ]
+}

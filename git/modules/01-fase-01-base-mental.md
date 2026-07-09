@@ -28,6 +28,10 @@ A commit should represent a small change with own meaning. In real projects, his
 
 Imagine that a checkout screen broke in production. A well-written history allows us to find out which change entered, why it entered, who reviewed, which PR took that to the main branch and which tests were performed.
 
+## Reference example
+
+- [First commands](../examples/01-base-mental/comandos.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-01-base-mental/`:

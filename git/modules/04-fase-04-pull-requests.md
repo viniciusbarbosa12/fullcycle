@@ -34,6 +34,10 @@ PR's not just a boot before the merge. PR and the place where the team understan
 
 A PR that changes payment needs to explain what has changed, what scenarios have been tested, what risk there is and how to rollback. Without it, the reviewer reviews in the dark.
 
+## Reference example
+
+- [Pull Request template](../examples/04-pull-requests/pull-request-template.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-04-pull-requests/`:

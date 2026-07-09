@@ -31,6 +31,10 @@ Gitflow separates work in progress, release candidates and urgent corrections. I
 
 A team is preparing the version `1.4.0` in a release branch, but find an urgent bug in production. The hotfix comes out of `main`,Returns to production quickly and then is integrated back to normal flow.
 
+## Reference example
+
+- [Manual Gitflow flow](../examples/02-gitflow/fluxo-gitflow.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-02-gitflow/`:

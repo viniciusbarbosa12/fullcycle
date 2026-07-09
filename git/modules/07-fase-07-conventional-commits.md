@@ -36,6 +36,10 @@ A commit message is an interface for humans and tools. A consistent standard hel
 
 A pipeline can block `fixed bug` and accept `fix(payment): handle timeout on retry`, because the second message informs type, area and purpose.
 
+## Reference example
+
+- [Commitlint](../examples/07-conventional-commits/commitlint-example.md)
+
 ## Practical exercises
 
 Implement on `../labs/fase-07-conventional-commits/`:
