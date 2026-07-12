@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: docker-example-compose-db
+    environment:
+      MYSQL_DATABASE: compose_demo
+      MYSQL_USER: compose_user
+      MYSQL_PASSWORD: compose_password
+      MYSQL_ROOT_PASSWORD: root_password
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u$${MYSQL_USER} -p$${MYSQL_PASSWORD}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - compose-db-data:/var/lib/mysql
+    networks:
+      - compose-network
+
+  api:
+    build:
+      context: ./api
+    container_name: docker-example-compose-api
+    environment:
+      PORT: 3000
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: compose_demo
+      DB_USER: compose_user
+      DB_PASSWORD: compose_password
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8087:3000"
+    networks:
+      - compose-network
+
+volumes:
+  compose-db-data:
+
+networks:
+  compose-network:
+    driver: bridge

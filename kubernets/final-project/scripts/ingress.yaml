@@ -15,3 +15,7 @@ spec:
                 name: task-management-api
                 port:
                   number: 8080
+  tls:
+    - hosts:
+        - task-management.local
+      secretName: task-management-local-tls

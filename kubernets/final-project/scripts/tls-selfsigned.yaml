@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: task-management-selfsigned
+  namespace: default
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: task-management-local
+  namespace: default
+spec:
+  secretName: task-management-local-tls
+  dnsNames:
+    - task-management.local
+  issuerRef:
+    name: task-management-selfsigned
+    kind: Issuer

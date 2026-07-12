@@ -12,6 +12,7 @@ spec:
       labels:
         app: task-management-api
     spec:
+      serviceAccountName: task-management-api
       containers:
         - name: api
           image: task-management-api:latest

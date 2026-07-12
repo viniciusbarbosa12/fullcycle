@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS people (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO people (name)
+SELECT 'Full Cycle Student'
+WHERE NOT EXISTS (
+  SELECT 1 FROM people WHERE name = 'Full Cycle Student'
+);
