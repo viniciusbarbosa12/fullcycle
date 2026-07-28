@@ -1,0 +1,78 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payments-api-faulty-nginx
+  namespace: meshcommerce
+data:
+  default.conf: |
+    server {
+        listen 80;
+        server_name _;
+
+        location = /health {
+            default_type application/json;
+            return 200 '{"status":"Healthy","instance":"payments-api-faulty"}';
+        }
+
+        location / {
+            default_type application/json;
+            add_header X-MeshCommerce-Instance "faulty" always;
+            return 500 '{"error":"Simulated failure","instance":"payments-api-faulty"}';
+        }
+    }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments-api-faulty
+  namespace: meshcommerce
+  labels:
+    app.kubernetes.io/name: payments-api
+    app.kubernetes.io/component: api
+    app.kubernetes.io/version: faulty
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: payments-api
+      app.kubernetes.io/version: faulty
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: payments-api
+        app.kubernetes.io/component: api
+        app.kubernetes.io/version: faulty
+    spec:
+      containers:
+        - name: payments-api-faulty
+          image: meshcommerce/frontend:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: payments-api-faulty-nginx

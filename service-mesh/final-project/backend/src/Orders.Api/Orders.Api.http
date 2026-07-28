@@ -1,0 +1,30 @@
+@Orders.Api_HostAddress = http://localhost:5101
+
+GET {{Orders.Api_HostAddress}}/
+Accept: application/json
+
+###
+
+GET {{Orders.Api_HostAddress}}/health
+
+###
+
+POST {{Orders.Api_HostAddress}}/orders
+Content-Type: application/json
+
+{
+	"customer": "Ana Souza",
+	"item": "Mouse ergonômico",
+	"amount": 249.90
+}
+
+###
+
+GET {{Orders.Api_HostAddress}}/orders
+Accept: application/json
+
+###
+
+GET {{Orders.Api_HostAddress}}/orders/00000000-0000-0000-0000-000000000000
+
+###

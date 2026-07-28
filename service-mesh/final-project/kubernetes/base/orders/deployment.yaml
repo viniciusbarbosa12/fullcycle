@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-api-v1
+  namespace: meshcommerce
+  labels:
+    app.kubernetes.io/name: orders-api
+    app.kubernetes.io/component: api
+    app.kubernetes.io/version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: orders-api
+      app.kubernetes.io/version: v1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: orders-api
+        app.kubernetes.io/component: api
+        app.kubernetes.io/version: v1
+    spec:
+      containers:
+        - name: orders-api
+          image: meshcommerce/orders-api:v1
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: SERVICE_VERSION
+              value: v1
+            - name: Payments__BaseUrl
+              value: http://payments-api:8080
+            - name: Cors__AllowedOrigins__0
+              value: http://localhost:4173
+            - name: Cors__AllowedOrigins__1
+              value: http://127.0.0.1:4173
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 50m
+              memory: 96Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

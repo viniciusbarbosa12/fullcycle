@@ -1,0 +1,97 @@
+name: meshcommerce
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-payments}
+      POSTGRES_USER: ${POSTGRES_USER:-payments}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-payments-dev}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres-code-first-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready --username "$$POSTGRES_USER" --dbname "$$POSTGRES_DB"
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - meshcommerce
+
+  payments-migrations:
+    image: meshcommerce/payments-migrations:dev
+    build:
+      context: ./backend
+      dockerfile: src/Payments.Migrations/Dockerfile
+    environment:
+      ConnectionStrings__PaymentsDatabase: "Host=postgres;Port=5432;Database=${POSTGRES_DB:-payments};Username=${POSTGRES_USER:-payments};Password=${POSTGRES_PASSWORD:-payments-dev};GSS Encryption Mode=Disable;Timeout=5;Command Timeout=5"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - meshcommerce
+
+  payments-api:
+    image: meshcommerce/payments-api:dev
+    build:
+      context: ./backend
+      dockerfile: src/Payments.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      SERVICE_VERSION: compose
+      ConnectionStrings__PaymentsDatabase: "Host=postgres;Port=5432;Database=${POSTGRES_DB:-payments};Username=${POSTGRES_USER:-payments};Password=${POSTGRES_PASSWORD:-payments-dev};GSS Encryption Mode=Disable;Timeout=5;Command Timeout=5"
+    ports:
+      - "127.0.0.1:5102:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      payments-migrations:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    networks:
+      - meshcommerce
+
+  orders-api:
+    image: meshcommerce/orders-api:dev
+    build:
+      context: ./backend
+      dockerfile: src/Orders.Api/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      SERVICE_VERSION: compose
+      Payments__BaseUrl: http://payments-api:8080
+      Cors__AllowedOrigins__0: http://localhost:4173
+      Cors__AllowedOrigins__1: http://127.0.0.1:4173
+    ports:
+      - "127.0.0.1:5101:8080"
+    depends_on:
+      - payments-api
+    restart: unless-stopped
+    networks:
+      - meshcommerce
+
+  frontend:
+    image: meshcommerce/frontend:dev
+    build:
+      context: ./frontend
+      args:
+        VITE_ORDERS_API_URL: http://localhost:5101
+    ports:
+      - "127.0.0.1:4173:80"
+    depends_on:
+      - orders-api
+    restart: unless-stopped
+    networks:
+      - meshcommerce
+
+volumes:
+  postgres-code-first-data:
+
+networks:
+  meshcommerce:
+    driver: bridge

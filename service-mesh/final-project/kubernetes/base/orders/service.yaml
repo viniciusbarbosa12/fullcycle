@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-api
+  namespace: meshcommerce
+  labels:
+    app.kubernetes.io/name: orders-api
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: orders-api
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: http
