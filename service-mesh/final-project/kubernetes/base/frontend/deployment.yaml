@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: meshcommerce/frontend:v1
+          image: meshcommerce/frontend:v5
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
