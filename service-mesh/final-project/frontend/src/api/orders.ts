@@ -21,9 +21,10 @@ type ProblemDetails = {
   errors?: Record<string, string[]>;
 };
 
-const ordersApiUrl = (
-  import.meta.env.VITE_ORDERS_API_URL ?? "http://localhost:5101"
-).replace(/\/$/, "");
+const ordersApiUrl = (import.meta.env.VITE_ORDERS_API_URL ?? "/api").replace(
+  /\/$/,
+  "",
+);
 
 export class OrdersApiError extends Error {
   readonly status: number;

@@ -6,7 +6,7 @@ RUN npm ci
 
 COPY . .
 
-ARG VITE_ORDERS_API_URL=http://localhost:5101
+ARG VITE_ORDERS_API_URL=/api
 ENV VITE_ORDERS_API_URL=$VITE_ORDERS_API_URL
 
 RUN npm run build

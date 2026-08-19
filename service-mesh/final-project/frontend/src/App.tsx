@@ -18,7 +18,10 @@ import {
   type Order,
   type OrderStatus,
 } from "./api/orders";
+import { OperationLab } from "./OperationLab";
 import "./commerce.css";
+
+type AppView = "orders" | "operation";
 
 const paymentStatusPresentation: Record<
   OrderStatus,
@@ -55,12 +58,20 @@ function getErrorMessage(error: unknown) {
 }
 
 function App() {
+  const [activeView, setActiveView] = useState<AppView>("orders");
   const [orders, setOrders] = useState<Order[]>([]);
   const [query, setQuery] = useState("");
   const [isComposerOpen, setIsComposerOpen] = useState(true);
   const [isLoadingOrders, setIsLoadingOrders] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    document.title =
+      activeView === "operation"
+        ? "MeshCommerce | Circuit breaker"
+        : "MeshCommerce | Pedidos";
+  }, [activeView]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -143,15 +154,23 @@ function App() {
         </div>
 
         <nav aria-label="Navegação principal">
-          <button className="nav-item nav-item-active" type="button">
+          <button
+            className={`nav-item ${activeView === "orders" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("orders")}
+          >
             <ShoppingBag size={18} />
             Pedidos
           </button>
-          <button className="nav-item" type="button">
+          <button
+            className={`nav-item ${activeView === "operation" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("operation")}
+          >
             <Activity size={18} />
             Operação
           </button>
-          <button className="nav-item" type="button">
+          <button className="nav-item" type="button" disabled>
             <LayoutDashboard size={18} />
             Visão geral
           </button>
@@ -163,7 +182,8 @@ function App() {
         </div>
       </aside>
 
-      <main>
+      <main className={`app-main app-main-${activeView}`}>
+        <OperationLab />
         <header className="topbar">
           <div>
             <span className="eyebrow">Operação comercial</span>
