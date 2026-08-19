@@ -1,0 +1,39 @@
+name: gateway-phase-02
+
+services:
+  orders-api:
+    image: gateway-lab/orders-api:dev
+    build:
+      context: .
+      dockerfile: src/Orders.Api/Dockerfile
+    ports:
+      - "127.0.0.1:3001:8080"
+    networks:
+      - gateway-lab
+
+  customers-api:
+    image: gateway-lab/customers-api:dev
+    build:
+      context: .
+      dockerfile: src/Customers.Api/Dockerfile
+    ports:
+      - "127.0.0.1:3002:8080"
+    networks:
+      - gateway-lab
+
+  frontend:
+    image: gateway-lab/frontend:dev
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      - orders-api
+      - customers-api
+    ports:
+      - "127.0.0.1:8089:8080"
+    networks:
+      - gateway-lab
+
+networks:
+  gateway-lab:
+    name: gateway-lab
