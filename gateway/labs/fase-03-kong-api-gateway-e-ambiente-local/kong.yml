@@ -1,0 +1,70 @@
+_format_version: "3.0"
+
+plugins:
+  - name: cors
+    config:
+      origins:
+        - http://localhost:8089
+        - http://127.0.0.1:8089
+      methods:
+        - GET
+        - OPTIONS
+      exposed_headers:
+        - RateLimit-Limit
+        - RateLimit-Remaining
+        - RateLimit-Reset
+        - Retry-After
+  - name: correlation-id
+    config:
+      header_name: X-Correlation-ID
+      generator: uuid
+      echo_downstream: true
+  - name: prometheus
+    config:
+      status_code_metrics: true
+      latency_metrics: true
+      bandwidth_metrics: true
+      upstream_health_metrics: true
+
+consumers:
+  - username: gateway-lab-client
+    basicauth_credentials:
+      - username: lab-user
+        password: lab-password
+    keyauth_credentials:
+      - key: gateway-lab-key
+services:
+  - name: orders-service
+    url: http://orders-api:8080
+    routes:
+      - name: orders-route
+        paths:
+          - /orders
+        strip_path: false
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 3
+              limit_by: ip
+              policy: local
+          - name: key-auth
+            config:
+              key_names:
+                - X-API-Key
+              hide_credentials: true
+  - name: customers-service
+    url: http://customers-api:8080
+    routes:
+      - name: customers-route
+        paths:
+          - /customers
+        strip_path: false
+        plugins:
+          - name: response-transformer
+            config:
+              add:
+                headers:
+                  - "X-Gateway-Lab: Kong"
+          - name: basic-auth
+            config:
+              hide_credentials: true

@@ -57,7 +57,7 @@ export async function requestResource<T>(
       return {
         durationMs,
         endpoint,
-        error: `A origem respondeu com HTTP ${response.status}.`,
+        error: `The endpoint responded with HTTP ${response.status}.`,
         ok: false,
         requestedAt,
         status: response.status,
@@ -76,7 +76,7 @@ export async function requestResource<T>(
     return {
       durationMs: Math.round(performance.now() - startedAt),
       endpoint,
-      error: "Não foi possível alcançar este endpoint.",
+      error: "Could not reach this endpoint.",
       ok: false,
       requestedAt,
       status: null,

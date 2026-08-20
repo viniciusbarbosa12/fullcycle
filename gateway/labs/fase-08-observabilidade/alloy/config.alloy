@@ -1,0 +1,43 @@
+logging {
+  level  = "info"
+  format = "logfmt"
+}
+
+discovery.docker "local" {
+  host             = "unix:///var/run/docker.sock"
+  refresh_interval = "5s"
+}
+
+discovery.relabel "gateway_lab" {
+  targets = discovery.docker.local.targets
+
+  rule {
+    source_labels = ["__meta_docker_container_name"]
+    regex         = "/gateway-phase-0[238]-.*"
+    action        = "keep"
+  }
+
+  rule {
+    source_labels = ["__meta_docker_container_name"]
+    regex         = "/(.*)"
+    replacement   = "$1"
+    target_label  = "container"
+  }
+
+  rule {
+    replacement  = "docker-gateway-lab"
+    target_label = "job"
+  }
+}
+
+loki.source.docker "gateway_lab" {
+  host       = "unix:///var/run/docker.sock"
+  targets    = discovery.relabel.gateway_lab.output
+  forward_to = [loki.write.local.receiver]
+}
+
+loki.write "local" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}

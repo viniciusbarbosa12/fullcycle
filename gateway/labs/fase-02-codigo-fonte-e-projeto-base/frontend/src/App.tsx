@@ -46,12 +46,12 @@ interface ServicePanelProps<T> {
   mode: TrafficMode;
 }
 
-const currency = new Intl.NumberFormat("pt-BR", {
+const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "BRL",
 });
 
-const time = new Intl.DateTimeFormat("pt-BR", {
+const time = new Intl.DateTimeFormat("en-US", {
   hour: "2-digit",
   minute: "2-digit",
   second: "2-digit",
@@ -63,12 +63,12 @@ function Topology({ mode }: { mode: TrafficMode }) {
   return (
     <section
       className={`topology topology-${mode}`}
-      aria-label="Topologia ativa"
+      aria-label="Active topology"
     >
       <div className="topology-heading">
         <div>
-          <span className="section-kicker">Topologia ativa</span>
-          <h2>{isDirect ? "Duas entradas públicas" : "Uma entrada pública"}</h2>
+          <span className="section-kicker">Active topology</span>
+          <h2>{isDirect ? "Two public endpoints" : "One public endpoint"}</h2>
         </div>
         <span className="endpoint-count">
           <strong>{isDirect ? "2" : "1"}</strong> endpoint{isDirect ? "s" : ""}
@@ -78,12 +78,12 @@ function Topology({ mode }: { mode: TrafficMode }) {
       <div className="topology-flow">
         <div className="topology-node client-node">
           <Globe2 size={21} />
-          <span>Cliente</span>
+          <span>Client</span>
           <strong>Browser</strong>
         </div>
 
         <div className="flow-line" aria-hidden="true">
-          <span>{isDirect ? "HTTP direto" : "HTTP"}</span>
+          <span>{isDirect ? "Direct HTTP" : "HTTP"}</span>
           <i />
         </div>
 
@@ -91,11 +91,11 @@ function Topology({ mode }: { mode: TrafficMode }) {
           <>
             <div className="topology-node gateway-node">
               <Router size={22} />
-              <span>Entrada</span>
+              <span>Entry point</span>
               <strong>Kong :8000</strong>
             </div>
             <div className="flow-line flow-line-split" aria-hidden="true">
-              <span>Roteamento</span>
+              <span>Routing</span>
               <i />
             </div>
           </>
@@ -136,9 +136,7 @@ function ServicePanel<T>({
         <div className={`service-icon service-icon-${service}`}>{icon}</div>
         <div>
           <span>
-            {service === "orders"
-              ? "Serviço comercial"
-              : "Serviço de identidade"}
+            {service === "orders" ? "Commerce service" : "Identity service"}
           </span>
           <h3>{label}</h3>
         </div>
@@ -147,8 +145,8 @@ function ServicePanel<T>({
           type="button"
           onClick={onRun}
           disabled={isLoading}
-          title={`Executar ${label}`}
-          aria-label={`Executar ${label}`}
+          title={`Run ${label}`}
+          aria-label={`Run ${label}`}
         >
           {isLoading ? (
             <LoaderCircle className="spinner" size={18} />
@@ -164,14 +162,14 @@ function ServicePanel<T>({
         {!result && !isLoading && (
           <div className="response-idle">
             <Server size={21} />
-            <span>Aguardando requisição</span>
+            <span>Waiting for request</span>
           </div>
         )}
 
         {isLoading && (
           <div className="response-idle">
             <LoaderCircle className="spinner" size={21} />
-            <span>Conectando</span>
+            <span>Connecting</span>
           </div>
         )}
 
@@ -194,7 +192,9 @@ function ServicePanel<T>({
             <CircleAlert size={22} />
             <div>
               <strong>
-                {result.status ? `HTTP ${result.status}` : "Sem conexão"}
+                {result.status
+                  ? `HTTP ${result.status}`
+                  : "Connection unavailable"}
               </strong>
               <span>{result.error}</span>
             </div>
@@ -293,17 +293,17 @@ export default function App() {
         </div>
         <div className="phase-badge">
           <i />
-          Fase 02 · baseline
+          Phase 02 · baseline
         </div>
       </header>
 
       <main>
         <section className="console-heading">
           <div>
-            <span className="section-kicker">Laboratório de tráfego</span>
-            <h1>Quem conhece os endereços?</h1>
+            <span className="section-kicker">Traffic lab</span>
+            <h1>Who knows the endpoints?</h1>
           </div>
-          <div className="mode-switch" role="group" aria-label="Modo de acesso">
+          <div className="mode-switch" role="group" aria-label="Access mode">
             <button
               type="button"
               className={mode === "direct" ? "active" : ""}
@@ -311,7 +311,7 @@ export default function App() {
               onClick={() => selectMode("direct")}
             >
               <Cable size={17} />
-              Direto
+              Direct
             </button>
             <button
               type="button"
@@ -327,21 +327,21 @@ export default function App() {
 
         <Topology mode={mode} />
 
-        <section className="metrics-strip" aria-label="Métricas da sessão">
+        <section className="metrics-strip" aria-label="Session metrics">
           <div>
-            <span>Modo</span>
-            <strong>{mode === "direct" ? "Direto" : "Kong"}</strong>
+            <span>Mode</span>
+            <strong>{mode === "direct" ? "Direct" : "Kong"}</strong>
           </div>
           <div>
-            <span>Executadas</span>
+            <span>Requests</span>
             <strong>{history.length}</strong>
           </div>
           <div>
-            <span>Sucessos</span>
+            <span>Successful</span>
             <strong>{successfulRequests}</strong>
           </div>
           <div>
-            <span>Latência média</span>
+            <span>Average latency</span>
             <strong>{averageDuration} ms</strong>
           </div>
           <div className="metrics-actions">
@@ -350,10 +350,10 @@ export default function App() {
               type="button"
               onClick={resetConsole}
               disabled={isRunning || history.length === 0}
-              title="Limpar console"
+              title="Clear console"
             >
               <RefreshCw size={17} />
-              Limpar
+              Clear
             </button>
             <button
               className="primary-action"
@@ -366,12 +366,12 @@ export default function App() {
               ) : (
                 <Play size={17} fill="currentColor" />
               )}
-              Executar ambos
+              Run both
             </button>
           </div>
         </section>
 
-        <section className="services-grid" aria-label="Respostas dos serviços">
+        <section className="services-grid" aria-label="Service responses">
           <ServicePanel
             icon={<ShoppingBag size={21} />}
             isLoading={ordersLoading}
@@ -420,8 +420,8 @@ export default function App() {
         <section className="activity-log" aria-labelledby="activity-title">
           <header>
             <div>
-              <span className="section-kicker">Observabilidade local</span>
-              <h2 id="activity-title">Últimas requisições</h2>
+              <span className="section-kicker">Local observability</span>
+              <h2 id="activity-title">Recent requests</h2>
             </div>
             <span className="log-count">
               {history.length.toString().padStart(2, "0")}
@@ -433,12 +433,12 @@ export default function App() {
               <table>
                 <thead>
                   <tr>
-                    <th>Horário</th>
-                    <th>Modo</th>
-                    <th>Serviço</th>
-                    <th>Destino</th>
+                    <th>Time</th>
+                    <th>Mode</th>
+                    <th>Service</th>
+                    <th>Destination</th>
                     <th>HTTP</th>
-                    <th>Tempo</th>
+                    <th>Duration</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -447,7 +447,7 @@ export default function App() {
                       <td>{time.format(entry.requestedAt)}</td>
                       <td>
                         <span className={`mode-tag mode-tag-${entry.mode}`}>
-                          {entry.mode === "direct" ? "Direto" : "Kong"}
+                          {entry.mode === "direct" ? "Direct" : "Kong"}
                         </span>
                       </td>
                       <td>
@@ -469,14 +469,14 @@ export default function App() {
               </table>
             </div>
           ) : (
-            <div className="log-empty">Nenhuma execução registrada.</div>
+            <div className="log-empty">No requests recorded.</div>
           )}
         </section>
       </main>
 
       <footer>
         <span>Gateway Lab · Full Cycle</span>
-        <span>Browser → HTTP → Serviços</span>
+        <span>Browser → HTTP → Services</span>
       </footer>
     </div>
   );
