@@ -143,10 +143,13 @@ done
   --namespace "${namespace}" \
   --timeout 180s
 
+"${script_directory}/deploy-observability.sh"
+
 if "${kubectl_command[@]}" get crd \
   applications.argoproj.io >/dev/null 2>&1; then
   "${kubectl_command[@]}" apply \
-    --filename "${project_directory}/kubernetes/argocd/applications/meshcommerce.yaml"
+    --filename "${project_directory}/kubernetes/argocd/applications/meshcommerce.yaml" \
+    --filename "${project_directory}/kubernetes/argocd/applications/meshcommerce-observability.yaml"
 else
   printf '%s\n' \
     'Argo CD is not installed; the application workloads are running without GitOps reconciliation.' >&2
@@ -154,3 +157,4 @@ fi
 
 "${kubectl_command[@]}" get pods,services,pvc,jobs --namespace "${namespace}"
 "${kubectl_command[@]}" get ingress,kongplugin --namespace "${namespace}"
+"${kubectl_command[@]}" get pods,services --namespace observability

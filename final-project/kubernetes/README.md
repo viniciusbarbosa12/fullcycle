@@ -40,6 +40,12 @@ ejects the unhealthy endpoint. PostgreSQL and the one-time migration Job do
 not receive sidecars; HTTP application workloads receive Envoy sidecars
 through the `istio-injection=enabled` namespace label.
 
+Prometheus discovers those sidecars from their Kubernetes annotations and
+pulls request counters and latency histograms. Grafana queries Prometheus and
+loads the version-controlled MeshCommerce Golden Signals dashboard. The
+observability namespace is not injected into the mesh and its services remain
+`ClusterIP`.
+
 ## Prerequisites
 
 - Docker Desktop
@@ -85,6 +91,9 @@ applied by the deployment script. Only committed and pushed base-manifest
 changes can be restored by Argo CD; a production workflow would also publish
 immutable images to a registry instead of loading local tags into Kind.
 
+A second Argo CD Application reconciles `kubernetes/observability`. The local
+deployment script bootstraps both applications when Argo CD is installed.
+
 ## Access the system
 
 In a separate terminal:
@@ -106,6 +115,26 @@ The Docker Compose baseline remains available at `http://localhost:4173`, but
 it does not run Kong. The Gateway screen detects that Kong's headers are absent
 and reports that the gateway path was bypassed instead of presenting a false
 positive.
+
+### Access metrics and dashboards
+
+In another terminal:
+
+```bash
+./kubernetes/scripts/observability-port-forward.sh
+```
+
+- Grafana: `http://localhost:14300/d/meshcommerce-golden-signals`
+- Prometheus: `http://localhost:19090`
+
+Generate traffic for the dashboard and existing failure lab:
+
+```bash
+./kubernetes/scripts/generate-observability-traffic.sh
+```
+
+See [observability/README.md](observability/README.md) for PromQL examples, the
+HTTP 5xx runbook, and the limits of this metrics-only preview.
 
 ## Validate
 
@@ -146,6 +175,8 @@ When Argo CD is installed, also check its reconciliation state:
 
 ```bash
 kubectl --context kind-meshcommerce get application meshcommerce \
+  --namespace argocd
+kubectl --context kind-meshcommerce get application meshcommerce-observability \
   --namespace argocd
 ```
 

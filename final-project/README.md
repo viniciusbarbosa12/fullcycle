@@ -57,6 +57,8 @@ válida. Por isso, a idempotência continuará sendo responsabilidade de
 - Argo CD reconciliando os workloads base com self-healing automatizado.
 - Contratos OpenAPI de Orders e Payments validados em Pull Requests.
 - Build, lint e auditoria de dependências validados.
+- Prometheus coletando métricas dos sidecars e Grafana com dashboard Golden
+  Signals provisionado como código.
 
 Pedidos ainda são mantidos em memória e são apagados ao reiniciar `Orders.Api`.
 Pagamentos ficam no volume `postgres-code-first-data` e sobrevivem ao reinício
