@@ -62,6 +62,8 @@ application baseline:
 - a Gateway screen that visualizes quotas and HTTP 429 decisions;
 - versioned OpenAPI contracts for Orders and Payments;
 - Spectral contract governance and Pull Request breaking-change detection;
+- application CI with frontend quality checks, container builds, an integrated
+  paid-order smoke test, and Kubernetes schema validation;
 - Argo CD reconciliation with automated self-healing.
 
 The local Docker Compose flow is the first executable baseline:
@@ -101,6 +103,38 @@ Spectral rules. After the initial contracts exist on `main`, the pipeline also
 uses `oasdiff` to reject removed operations, incompatible schema changes, and
 other breaking changes. See [contracts/README.md](contracts/README.md) for the
 ownership model, CI behavior, and current conformance boundary.
+
+## Validate the application delivery path
+
+Application and Kubernetes changes run independent CI gates before merge:
+
+```text
+Frontend lint and build ───────────────┐
+Docker Compose build and smoke test ───┼─> CI quality gate
+Kubernetes schema validation ──────────┘
+                                           │
+                                           v
+                                    merge to main
+                                           │
+                                           v
+                                  Argo CD reconciliation
+```
+
+The integrated job builds the existing multi-stage images, starts PostgreSQL,
+runs the migration executable, checks both APIs and the frontend, and creates a
+real order through `Orders.Api`. The gate succeeds only when `Payments.Api`
+persists the payment and the order reaches `Paid`.
+
+Kubeconform validates built-in resources in `final-project/kubernetes` against
+the Kubernetes 1.36 schemas. The tool is pinned by container digest. Argo CD,
+Istio, Kong, and Kind custom resources are explicitly reported as skipped
+because their CRD schemas are not vendored in this repository; their admission
+and controller behavior still require cluster-level validation.
+
+GitHub Actions does not push changes directly into the local Kind cluster.
+After a reviewed change reaches `main`, Argo CD pulls the desired state and
+reconciles it. This keeps one deployment authority and separates CI validation
+from pull-based CD.
 
 ## Run the current baseline
 
