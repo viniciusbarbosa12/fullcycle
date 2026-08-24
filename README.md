@@ -2,6 +2,19 @@
 
 This repository organizes my studies in separate courses, following a progressive path.
 
+## Integrated Platform Showcase
+
+[MeshCommerce](service-mesh/final-project/SHOWCASE.md) is the single evolving
+project that connects the practical lessons into one business scenario. The
+course folders remain as focused exercises and references, but new platform
+capabilities will be added to MeshCommerce only after the corresponding lesson
+has been studied.
+
+The current showcase scope is intentionally limited to the application,
+Docker, and the Kubernetes foundations already covered. Kong, observability,
+OpenTelemetry, GitOps, load testing, and Istio will be integrated incrementally
+in later checkpoints.
+
 ## Study Sequence
 
 1. [Git](git/readme.md)
@@ -9,7 +22,7 @@ This repository organizes my studies in separate courses, following a progressiv
 3. [CI](ci/readme.md)
 4. [Kubernetes](kubernets/readme.md)
 5. [API Gateway](gateway/readme.md)
-6. [Kong Kubernetes, APIOps and Load Testing](gateway-kong/readme.md)
+6. [Kong Kubernetes, APIOps and Load Testing](gateway-kubernet-kong/readme.md)
 7. [Observability](observability/readme.md)
 8. [OpenTelemetry](opentelemetry/readme.md)
 9. [Istio / Service Mesh](service-mesh/readme.md)

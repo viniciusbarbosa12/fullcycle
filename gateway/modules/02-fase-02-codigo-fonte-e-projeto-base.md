@@ -6,9 +6,28 @@
 
 ## Objective
 
-Understand the project structure used in the course before setting up the gateway.
+Understand the shared MeshCommerce project before setting up the gateway.
 
-Before routing traffic, I need to understand which services exist, which ports they use, which endpoints they expose, and what problem the gateway will solve..
+Before routing traffic, I need to understand which services exist, which ports they use, which endpoints they expose, and what problem the gateway will solve.
+
+## Project used by this course
+
+The active course project is now
+[`service-mesh/final-project`](../../service-mesh/final-project/SHOWCASE.md).
+It is the single evolving platform used by the remaining infrastructure
+lessons.
+
+The smaller project under
+`gateway/labs/fase-02-codigo-fonte-e-projeto-base/` remains available as an
+isolated reference, but it is not the main showcase.
+
+At this phase, use only the current direct flow:
+
+```text
+React -> Orders API -> Payments API -> PostgreSQL
+```
+
+Kong must not be added before this baseline is understood and validated.
 
 ## Main concepts
 
@@ -24,12 +43,12 @@ Before routing traffic, I need to understand which services exist, which ports t
 
 ## Practical exercises
 
-- Clone or create a base project.
-- Identify which services/IPA exist.
+- Inspect the shared base project.
+- Identify which services/APIs exist.
 - Identify ports used for each service.
-- Rotate services locally.
+- Run the services locally.
 - Test endpoints without gateway.
-- Create a README explaining the initial architecture.
+- Review the showcase README and initial architecture.
 - Draw flow “before gateway”.
 
 ## Reflection questions
@@ -46,6 +65,11 @@ Create a README with:
 - Existing services
 - Ports
 - Main endpoints
-- How to rotate locally
-- How to Test Without Gateway
-- What will be Gateway's responsibility
+- How to run locally
+- How to test without the Gateway
+- What the Gateway will be responsible for
+
+For the shared project, this information is maintained in
+[`SHOWCASE.md`](../../service-mesh/final-project/SHOWCASE.md). The practical
+checkpoint is complete only after the direct health, order-listing, and
+order-creation flows have been executed successfully.

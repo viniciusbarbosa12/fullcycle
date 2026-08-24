@@ -1,5 +1,11 @@
 # Lab Fase 2 - Projeto-base sem Gateway
 
+> **Reference lab:** this small two-API environment remains useful for isolated
+> experiments. The active course and John-facing showcase now use
+> [MeshCommerce](../../../service-mesh/final-project/SHOWCASE.md) as the shared
+> project. New course capabilities should be implemented there after their
+> corresponding lesson.
+
 Este laboratório estabelece uma baseline funcional antes da instalação do
 Kong. Primeiro provamos que cada API funciona diretamente. Na fase seguinte,
 adicionaremos o Gateway e compararemos o novo caminho com essa baseline.
