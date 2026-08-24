@@ -52,7 +52,10 @@ application baseline:
 - Docker Compose networking, health checks, dependency ordering, and volumes;
 - Kubernetes Deployments, Services, a StatefulSet, a migration Job,
   ConfigMaps, Secrets, probes, resource requests and limits, and persistent
-  storage.
+  storage;
+- Istio sidecar injection and circuit breaking with outlier detection;
+- an intentionally faulty Payments instance for resilience experiments;
+- Argo CD reconciliation with automated self-healing.
 
 The local Docker Compose flow is the first executable baseline:
 
@@ -74,14 +77,8 @@ current validated showcase:
 
 - Kong routes, plugins, authentication, and rate limiting;
 - OpenAPI contract automation and APIOps;
-- Argo CD delivery and GitOps operation;
 - load testing with K6 or Testkube;
-- application observability and OpenTelemetry;
-- Istio sidecars, traffic management, mTLS, retries, and circuit breaking.
-
-Some draft Argo CD and Istio manifests already exist under `kubernetes/` from
-earlier work. They are preserved, but they must not be presented as learned or
-production-ready until their lessons and validation checkpoints are complete.
+- application observability and OpenTelemetry.
 
 ## Run the current baseline
 
@@ -120,6 +117,29 @@ Stop the environment without deleting the PostgreSQL volume:
 ```bash
 docker compose down
 ```
+
+## Run the Kubernetes, Istio, and GitOps stack
+
+The learned-only Kubernetes baseline now has a reproducible deployment command:
+
+```bash
+./kubernetes/scripts/deploy-local.sh
+```
+
+Expose the internal frontend Service in a separate terminal:
+
+```bash
+./kubernetes/scripts/port-forward.sh
+```
+
+Open `http://localhost:14173`. The Orders view validates the application and
+Kubernetes resources. The Operations view exercises the already-studied Istio
+circuit breaker against healthy and intentionally faulty Payments instances.
+When Argo CD is installed, the deployment script also restores the existing
+MeshCommerce Application and its self-healing policy.
+
+See [kubernetes/README.md](kubernetes/README.md) for the architecture,
+prerequisites, validation commands, and deliberate scope boundaries.
 
 ## Evolution plan
 

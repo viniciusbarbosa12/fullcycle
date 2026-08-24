@@ -33,7 +33,7 @@ export async function probePayments(
       instance:
         body?.instance ??
         response.headers.get("X-MeshCommerce-Instance") ??
-        "desconhecida",
+        "unknown",
       durationMs: Math.round(performance.now() - startedAt),
       timestamp: new Date().toISOString(),
     };
@@ -46,7 +46,7 @@ export async function probePayments(
       id,
       status: 0,
       ok: false,
-      instance: "indisponível",
+      instance: "unavailable",
       durationMs: Math.round(performance.now() - startedAt),
       timestamp: new Date().toISOString(),
     };

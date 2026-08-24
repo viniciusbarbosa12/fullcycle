@@ -28,33 +28,33 @@ const paymentStatusPresentation: Record<
   { label: string; className: string }
 > = {
   PendingPayment: {
-    label: "Aguardando pagamento",
+    label: "Awaiting payment",
     className: "aguardando",
   },
-  Paid: { label: "Pago", className: "pago" },
-  PaymentFailed: { label: "Falhou", className: "falhou" },
+  Paid: { label: "Paid", className: "pago" },
+  PaymentFailed: { label: "Failed", className: "falhou" },
 };
 
-const currency = new Intl.NumberFormat("pt-BR", {
+const currency = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "BRL",
 });
 
-const dateTime = new Intl.DateTimeFormat("pt-BR", {
+const dateTime = new Intl.DateTimeFormat("en-US", {
   dateStyle: "short",
   timeStyle: "short",
 });
 
 function getErrorMessage(error: unknown) {
   if (error instanceof OrdersApiError && error.status === 503) {
-    return "O pedido foi salvo, mas o resultado do pagamento é desconhecido. Ele permanece pendente.";
+    return "The order was saved, but the payment result is unknown. It remains pending.";
   }
 
   if (error instanceof Error) {
     return error.message;
   }
 
-  return "Não foi possível acessar a API de pedidos.";
+  return "The Orders API could not be reached.";
 }
 
 function App() {
@@ -70,7 +70,7 @@ function App() {
     document.title =
       activeView === "operation"
         ? "MeshCommerce | Circuit breaker"
-        : "MeshCommerce | Pedidos";
+        : "MeshCommerce | Orders";
   }, [activeView]);
 
   useEffect(() => {
@@ -94,11 +94,11 @@ function App() {
     return () => controller.abort();
   }, []);
 
-  const normalizedQuery = query.trim().toLocaleLowerCase("pt-BR");
+  const normalizedQuery = query.trim().toLocaleLowerCase("en-US");
   const visibleOrders = normalizedQuery
     ? orders.filter((order) =>
         [order.id, order.customer, order.item].some((value) =>
-          value.toLocaleLowerCase("pt-BR").includes(normalizedQuery),
+          value.toLocaleLowerCase("en-US").includes(normalizedQuery),
         ),
       )
     : orders;
@@ -153,14 +153,14 @@ function App() {
           <span>MeshCommerce</span>
         </div>
 
-        <nav aria-label="Navegação principal">
+        <nav aria-label="Main navigation">
           <button
             className={`nav-item ${activeView === "orders" ? "nav-item-active" : ""}`}
             type="button"
             onClick={() => setActiveView("orders")}
           >
             <ShoppingBag size={18} />
-            Pedidos
+            Orders
           </button>
           <button
             className={`nav-item ${activeView === "operation" ? "nav-item-active" : ""}`}
@@ -168,17 +168,17 @@ function App() {
             onClick={() => setActiveView("operation")}
           >
             <Activity size={18} />
-            Operação
+            Operations
           </button>
           <button className="nav-item" type="button" disabled>
             <LayoutDashboard size={18} />
-            Visão geral
+            Overview
           </button>
         </nav>
 
         <div className="environment">
           <span className="environment-dot" />
-          Ambiente local
+          Local environment
         </div>
       </aside>
 
@@ -186,8 +186,8 @@ function App() {
         <OperationLab />
         <header className="topbar">
           <div>
-            <span className="eyebrow">Operação comercial</span>
-            <h1>Pedidos</h1>
+            <span className="eyebrow">Commerce operations</span>
+            <h1>Orders</h1>
           </div>
           <button
             className="primary-action"
@@ -195,29 +195,29 @@ function App() {
             onClick={() => setIsComposerOpen(true)}
           >
             <Plus size={18} />
-            Novo pedido
+            New order
           </button>
         </header>
 
-        <section className="metrics" aria-label="Resumo de pedidos">
+        <section className="metrics" aria-label="Order summary">
           <div className="metric">
             <ShoppingBag size={20} />
             <div>
-              <span>Total hoje</span>
+              <span>Total today</span>
               <strong>{orders.length}</strong>
             </div>
           </div>
           <div className="metric">
             <PackageCheck size={20} />
             <div>
-              <span>Pagos</span>
+              <span>Paid</span>
               <strong>{paidOrders}</strong>
             </div>
           </div>
           <div className="metric">
             <Clock3 size={20} />
             <div>
-              <span>Pendentes</span>
+              <span>Pending</span>
               <strong>{pendingOrders}</strong>
             </div>
           </div>
@@ -229,8 +229,8 @@ function App() {
             <span>{errorMessage}</span>
             <button
               type="button"
-              aria-label="Fechar aviso"
-              title="Fechar aviso"
+              aria-label="Dismiss notification"
+              title="Dismiss notification"
               onClick={() => setErrorMessage(null)}
             >
               <X size={17} />
@@ -247,15 +247,15 @@ function App() {
           >
             <div className="panel-toolbar">
               <div>
-                <h2 id="recent-orders-title">Pedidos recentes</h2>
-                <span>{visibleOrders.length} registros</span>
+                <h2 id="recent-orders-title">Recent orders</h2>
+                <span>{visibleOrders.length} records</span>
               </div>
               <label className="search-field">
                 <Search size={17} aria-hidden="true" />
-                <span className="sr-only">Buscar pedidos</span>
+                <span className="sr-only">Search orders</span>
                 <input
                   type="search"
-                  placeholder="Buscar por cliente ou pedido"
+                  placeholder="Search by customer or order"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                 />
@@ -266,11 +266,11 @@ function App() {
               <table>
                 <thead>
                   <tr>
-                    <th>Pedido</th>
-                    <th>Cliente</th>
+                    <th>Order</th>
+                    <th>Customer</th>
                     <th>Item</th>
-                    <th>Pagamento</th>
-                    <th>Valor</th>
+                    <th>Payment</th>
+                    <th>Amount</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -308,8 +308,8 @@ function App() {
                     <tr>
                       <td className="empty-state" colSpan={5}>
                         {isLoadingOrders
-                          ? "Carregando pedidos..."
-                          : "Nenhum pedido encontrado."}
+                          ? "Loading orders..."
+                          : "No orders found."}
                       </td>
                     </tr>
                   )}
@@ -322,14 +322,14 @@ function App() {
             <aside className="composer" aria-labelledby="new-order-title">
               <div className="composer-header">
                 <div>
-                  <span className="eyebrow">Entrada manual</span>
-                  <h2 id="new-order-title">Novo pedido</h2>
+                  <span className="eyebrow">Manual entry</span>
+                  <h2 id="new-order-title">New order</h2>
                 </div>
                 <button
                   className="icon-button"
                   type="button"
-                  aria-label="Fechar formulário"
-                  title="Fechar formulário"
+                  aria-label="Close form"
+                  title="Close form"
                   onClick={() => setIsComposerOpen(false)}
                 >
                   <X size={19} />
@@ -338,11 +338,11 @@ function App() {
 
               <form onSubmit={handleCreateOrder} aria-busy={isSubmitting}>
                 <label>
-                  Cliente
+                  Customer
                   <input
                     name="customer"
                     type="text"
-                    placeholder="Nome completo"
+                    placeholder="Full name"
                     required
                     disabled={isSubmitting}
                   />
@@ -352,13 +352,13 @@ function App() {
                   <input
                     name="item"
                     type="text"
-                    placeholder="Produto comprado"
+                    placeholder="Purchased product"
                     required
                     disabled={isSubmitting}
                   />
                 </label>
                 <label>
-                  Valor
+                  Amount
                   <span className="money-input">
                     <span>R$</span>
                     <input
@@ -366,7 +366,7 @@ function App() {
                       type="number"
                       min="0.01"
                       step="0.01"
-                      placeholder="0,00"
+                      placeholder="0.00"
                       required
                       disabled={isSubmitting}
                     />
@@ -378,7 +378,7 @@ function App() {
                   disabled={isSubmitting}
                 >
                   <Plus size={18} />
-                  {isSubmitting ? "Criando..." : "Criar pedido"}
+                  {isSubmitting ? "Creating..." : "Create order"}
                 </button>
               </form>
             </aside>
