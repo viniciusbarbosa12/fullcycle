@@ -27,7 +27,8 @@ The goal is to prioritize deep learning, not speed.
 - Read the current phase in `../modules/`.
 - Implement the corresponding exercise in `../labs/`.
 - See `../examples/` only after trying.
-- Use `../final-project/` as a consolidation reference, not as a shortcut in the beginning.
+- Use [MeshCommerce](../../final-project/SHOWCASE.md) as the shared consolidation
+  reference, not as a shortcut in the beginning.
 
 ## Study flow per lesson
 

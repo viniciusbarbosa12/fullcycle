@@ -34,7 +34,8 @@ The goal is to prioritize deep learning, not speed.
 - `modules/`: phases of the mentoring plan.
 - `labs/`: exercises and challenges for you to implement.
 - `examples/`: ready reference examples to consult after the attempt.
-- `final-project/`: course final consolidation guide.
+- [`../final-project/`](../final-project/SHOWCASE.md): shared consolidation
+  project used by this and the following infrastructure courses.
 
 ## Course Outline
 

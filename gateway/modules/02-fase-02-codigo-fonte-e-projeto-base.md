@@ -13,7 +13,7 @@ Before routing traffic, I need to understand which services exist, which ports t
 ## Project used by this course
 
 The active course project is now
-[`service-mesh/final-project`](../../service-mesh/final-project/SHOWCASE.md).
+[`final-project`](../../final-project/SHOWCASE.md).
 It is the single evolving platform used by the remaining infrastructure
 lessons.
 
@@ -70,6 +70,6 @@ Create a README with:
 - What the Gateway will be responsible for
 
 For the shared project, this information is maintained in
-[`SHOWCASE.md`](../../service-mesh/final-project/SHOWCASE.md). The practical
+[`SHOWCASE.md`](../../final-project/SHOWCASE.md). The practical
 checkpoint is complete only after the direct health, order-listing, and
 order-creation flows have been executed successfully.

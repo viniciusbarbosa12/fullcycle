@@ -1,24 +1,30 @@
 # MeshCommerce
 
-Laboratório evolutivo do curso de Service Mesh. A aplicação representa um fluxo
-de pedidos e pagamentos próximo de um ambiente real, mas será construída em
-etapas para que cada recurso de Kubernetes e Istio resolva um problema que já
-conseguimos observar.
+Superprojeto evolutivo das trilhas Full Cycle. A aplicação representa um fluxo
+de pedidos e pagamentos próximo de um ambiente real e cresce em etapas: cada
+tecnologia entra somente depois de observarmos o problema que ela resolve.
+
+A visão integrada, o escopo já estudado e o roteiro de demonstração estão em
+[`SHOWCASE.md`](SHOWCASE.md). Este documento mantém os detalhes de implementação
+e execução local da aplicação que deu origem ao superprojeto.
 
 ## Arquitetura
 
 ```mermaid
 flowchart LR
-	Browser[React] --> Orders[Orders.Api]
+	Browser[Browser] --> Kong[Kong API Gateway]
+	Kong --> React[React]
+	Kong --> Orders[Orders.Api]
 	Orders --> Payments[Payments.Api]
 	Orders -. futuramente .-> OrdersDb[(Orders DB)]
 	Payments --> PostgreSQL[(PostgreSQL)]
 	Migrations[Payments.Migrations] --> PostgreSQL
 ```
 
-O navegador conversa apenas com `Orders.Api`. O serviço de Pedidos orquestra a
-cobrança em `Payments.Api`, e cada serviço será dono de seus próprios dados.
-Isso mantém a fronteira de negócio explícita antes de introduzirmos o mesh.
+No ambiente Kubernetes, o navegador entra pelo Kong, que encaminha os assets ao
+frontend e as rotas de API ao serviço correto. O serviço de Pedidos orquestra a
+cobrança em `Payments.Api`, e cada serviço continua responsável pelos próprios
+dados. Isso mantém explícita a fronteira entre gateway, mesh e lógica de negócio.
 
 ### Responsabilidades
 
@@ -27,7 +33,10 @@ Isso mantém a fronteira de negócio explícita antes de introduzirmos o mesh.
 - **Payments.Api:** cobrança e garantia de idempotência da operação financeira.
 - **Payments.Migrations:** evolução code-first do schema antes da API iniciar.
 - **Kubernetes:** execução, descoberta, configuração, escala e recuperação dos workloads.
+- **Kong:** ponto de entrada, roteamento externo e políticas específicas por rota.
 - **Istio:** políticas de comunicação, tráfego, resiliência e telemetria entre workloads.
+- **Argo CD:** reconciliação declarativa dos manifests base versionados no Git.
+- **APIOps:** contratos OpenAPI versionados, lint e proteção contra breaking changes.
 
 O Istio poderá repetir uma chamada, mas não sabe se uma cobrança duplicada é
 válida. Por isso, a idempotência continuará sendo responsabilidade de
@@ -44,6 +53,9 @@ válida. Por isso, a idempotência continuará sendo responsabilidade de
 - Ambiente Docker Compose com frontend, APIs e PostgreSQL 17.
 - Persistência com EF Core e migrations code-first em projeto separado.
 - Pagamentos no PostgreSQL com chave de idempotência única.
+- Stack Kubernetes com Kong, rate limit por rota e circuit breaker do Istio.
+- Argo CD reconciliando os workloads base com self-healing automatizado.
+- Contratos OpenAPI de Orders e Payments validados em Pull Requests.
 - Build, lint e auditoria de dependências validados.
 
 Pedidos ainda são mantidos em memória e são apagados ao reiniciar `Orders.Api`.
@@ -156,6 +168,10 @@ dotnet build backend/MeshCommerce.slnx
 cd frontend
 npm run build
 npm run lint
+
+cd ../contracts
+npm ci --ignore-scripts
+npm run lint
 ```
 
 ### Criando uma migration
@@ -193,10 +209,12 @@ da API disputar a evolução do schema.
 8. **Balanceamento:** round robin, least request e consistent hash em cenários medidos.
 9. **Resiliência:** timeout, retry, fault injection, outlier detection e circuit breaking.
 10. **Entrada e observabilidade:** Istio Gateway, rotas e análise no Kiali.
+11. **API Gateway:** entrada única pelo Kong e rate limiting isolado por rota.
+12. **APIOps:** contratos OpenAPI, governança automatizada e proteção de compatibilidade.
 
 ## Critério de conclusão
 
-O projeto estará completo quando conseguirmos demonstrar e explicar sidecars,
-roteamento por versão, canary, balanceamento, falhas controladas, circuit breaker,
-exposição pelo Gateway e observabilidade, incluindo quando o Istio não deve ser
-usado para resolver uma responsabilidade da aplicação.
+O superprojeto não termina com uma única trilha. Cada novo checkpoint estará
+concluído quando conseguirmos demonstrar o problema, explicar a decisão e seus
+trade-offs, validar o fluxo afetado e registrar como a tecnologia se integra ao
+que já existe sem assumir responsabilidades da aplicação.

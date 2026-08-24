@@ -1,0 +1,234 @@
+openapi: 3.1.0
+
+info:
+  title: MeshCommerce Payments API
+  version: 1.0.0
+  description: >-
+    Creates idempotent payments for orders and persists their results in
+    PostgreSQL. This API is internal to the MeshCommerce platform.
+  contact:
+    name: MeshCommerce API Team
+    url: https://github.com/viniciusbarbosa12/fullcycle
+
+servers:
+  - url: http://payments-api:8080
+    description: Internal Kubernetes Service address
+
+tags:
+  - name: Payments
+    description: Idempotent payment creation and queries
+  - name: Operations
+    description: Service identity and health endpoints
+
+paths:
+  /:
+    get:
+      tags:
+        - Operations
+      summary: Get service identity
+      description: Returns the service name, deployed version, and current instance.
+      operationId: getPaymentsServiceIdentity
+      responses:
+        "200":
+          description: Service identity returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServiceIdentity"
+
+  /health:
+    get:
+      tags:
+        - Operations
+      summary: Check service health
+      description: Reports whether the Payments API process is healthy.
+      operationId: getPaymentsHealth
+      responses:
+        "200":
+          description: Service is healthy
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Healthy
+
+  /payments:
+    post:
+      tags:
+        - Payments
+      summary: Create an idempotent payment
+      description: >-
+        Creates a payment for a new idempotency key, replays the stored result
+        for identical data, or rejects reuse of the key with different data.
+      operationId: createPayment
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          description: Non-empty UUID that identifies the payment operation
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePaymentRequest"
+      responses:
+        "200":
+          description: Existing payment replayed for the same key and request data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        "201":
+          description: Payment created
+          headers:
+            Location:
+              description: Relative URL of the created payment
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        "400":
+          description: Request or idempotency key validation failed
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ValidationProblemDetails"
+        "409":
+          description: Idempotency key was already used with different payment data
+          content:
+            application/problem+json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+
+  /payments/{id}:
+    get:
+      tags:
+        - Payments
+      summary: Get a payment
+      description: Returns one persisted payment by its identifier.
+      operationId: getPaymentById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Payment identifier
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: Payment returned successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Payment"
+        "404":
+          description: Payment was not found
+
+components:
+  schemas:
+    CreatePaymentRequest:
+      type: object
+      required:
+        - orderId
+        - amount
+      properties:
+        orderId:
+          type: string
+          format: uuid
+          description: Non-empty order identifier
+        amount:
+          type: number
+          minimum: 0.01
+          description: Positive payment amount
+          example: 249.9
+
+    Payment:
+      type: object
+      required:
+        - id
+        - orderId
+        - amount
+        - status
+        - processedAt
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        orderId:
+          type: string
+          format: uuid
+          readOnly: true
+        amount:
+          type: number
+          minimum: 0.01
+          readOnly: true
+        status:
+          $ref: "#/components/schemas/PaymentStatus"
+        processedAt:
+          type: string
+          format: date-time
+          readOnly: true
+
+    PaymentStatus:
+      type: string
+      description: Payment processing result
+      enum:
+        - Approved
+        - Declined
+      readOnly: true
+
+    ServiceIdentity:
+      type: object
+      required:
+        - service
+        - version
+        - instance
+      properties:
+        service:
+          type: string
+          example: payments-api
+        version:
+          type: string
+          example: v1
+        instance:
+          type: string
+          example: payments-api-v1-844444f98d-g6c69
+
+    ProblemDetails:
+      type: object
+      description: RFC 7807-compatible error response
+      properties:
+        type:
+          type: string
+          format: uri-reference
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        instance:
+          type: string
+          format: uri-reference
+      additionalProperties: true
+
+    ValidationProblemDetails:
+      allOf:
+        - $ref: "#/components/schemas/ProblemDetails"
+        - type: object
+          properties:
+            errors:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  type: string

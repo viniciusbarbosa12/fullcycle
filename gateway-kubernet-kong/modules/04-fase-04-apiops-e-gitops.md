@@ -63,3 +63,13 @@ Here the idea is to stop setting up gateway “in hand” and start working with
 ## Checkpoint
 
 Have a pipeline that validates OpenAPI contracts and a GitOps flow capable of synchronizing cluster configuration.
+
+## Shared project implementation
+
+MeshCommerce keeps the Orders and Payments contracts, the Spectral rules, and
+the local validation instructions in
+[`final-project/contracts`](../../final-project/contracts/README.md). The
+Pull Request gates are defined in
+[`api-contracts.yml`](../../.github/workflows/api-contracts.yml): lint protects
+contract quality, while `oasdiff` protects consumers from semantic breaking
+changes after the initial baseline reaches `main`.

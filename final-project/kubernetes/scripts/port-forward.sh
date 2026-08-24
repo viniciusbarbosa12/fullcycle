@@ -3,7 +3,7 @@
 set -euo pipefail
 
 cluster_name="${MESHCOMMERCE_KIND_CLUSTER:-meshcommerce}"
-frontend_port="${MESHCOMMERCE_FRONTEND_PORT:-14173}"
+gateway_port="${MESHCOMMERCE_GATEWAY_PORT:-${MESHCOMMERCE_FRONTEND_PORT:-14173}}"
 cluster_context="kind-${cluster_name}"
 
 if command -v kubectl >/dev/null 2>&1; then
@@ -17,8 +17,17 @@ else
   exit 1
 fi
 
-printf 'MeshCommerce Kubernetes frontend: http://localhost:%s\n' "${frontend_port}"
+if ! "${kubectl_bin}" \
+  --context "${cluster_context}" \
+  --namespace kong \
+  get service kong-gateway-proxy >/dev/null 2>&1; then
+  printf '%s\n' \
+    'Kong proxy not found. Run ./kubernetes/scripts/deploy-local.sh first.' >&2
+  exit 1
+fi
+
+printf 'MeshCommerce through Kong: http://localhost:%s\n' "${gateway_port}"
 exec "${kubectl_bin}" \
   --context "${cluster_context}" \
-  --namespace meshcommerce \
-  port-forward service/frontend "${frontend_port}:80"
+  --namespace kong \
+  port-forward service/kong-gateway-proxy "${gateway_port}:80"

@@ -4,7 +4,7 @@ import {
   CircleAlert,
   CircleDollarSign,
   Clock3,
-  LayoutDashboard,
+  Gauge,
   PackageCheck,
   Plus,
   Search,
@@ -18,10 +18,17 @@ import {
   type Order,
   type OrderStatus,
 } from "./api/orders";
+import { GatewayLab } from "./GatewayLab";
 import { OperationLab } from "./OperationLab";
 import "./commerce.css";
 
-type AppView = "orders" | "operation";
+type AppView = "orders" | "operation" | "gateway";
+
+const pageTitles: Record<AppView, string> = {
+  orders: "MeshCommerce | Orders",
+  operation: "MeshCommerce | Circuit breaker",
+  gateway: "MeshCommerce | Rate limiting",
+};
 
 const paymentStatusPresentation: Record<
   OrderStatus,
@@ -67,10 +74,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    document.title =
-      activeView === "operation"
-        ? "MeshCommerce | Circuit breaker"
-        : "MeshCommerce | Orders";
+    document.title = pageTitles[activeView];
   }, [activeView]);
 
   useEffect(() => {
@@ -170,9 +174,13 @@ function App() {
             <Activity size={18} />
             Operations
           </button>
-          <button className="nav-item" type="button" disabled>
-            <LayoutDashboard size={18} />
-            Overview
+          <button
+            className={`nav-item ${activeView === "gateway" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("gateway")}
+          >
+            <Gauge size={18} />
+            Gateway
           </button>
         </nav>
 
@@ -184,6 +192,7 @@ function App() {
 
       <main className={`app-main app-main-${activeView}`}>
         <OperationLab />
+        <GatewayLab />
         <header className="topbar">
           <div>
             <span className="eyebrow">Commerce operations</span>

@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/viniciusbarbosa12/fullcycle.git
     targetRevision: main
-    path: service-mesh/final-project/kubernetes/base
+    path: final-project/kubernetes/base
     directory:
       recurse: true
 

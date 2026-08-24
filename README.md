@@ -4,16 +4,16 @@ This repository organizes my studies in separate courses, following a progressiv
 
 ## Integrated Platform Showcase
 
-[MeshCommerce](service-mesh/final-project/SHOWCASE.md) is the single evolving
+[MeshCommerce](final-project/SHOWCASE.md) is the single evolving
 project that connects the practical lessons into one business scenario. The
 course folders remain as focused exercises and references, but new platform
 capabilities will be added to MeshCommerce only after the corresponding lesson
 has been studied.
 
-The current showcase scope is intentionally limited to the application,
-Docker, and the Kubernetes foundations already covered. Kong, observability,
-OpenTelemetry, GitOps, load testing, and Istio will be integrated incrementally
-in later checkpoints.
+The current showcase includes the application, Docker, Kubernetes, Istio
+circuit breaking, Kong routing and rate limiting, Argo CD reconciliation, and
+APIOps contract governance. Observability, OpenTelemetry, and load testing will
+be integrated only after their corresponding lessons.
 
 ## Study Sequence
 

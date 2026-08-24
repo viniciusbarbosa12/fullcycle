@@ -1,0 +1,51 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: meshcommerce-edge
+  namespace: meshcommerce
+spec:
+  ingressClassName: kong
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: orders-rate-limit
+  namespace: meshcommerce
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: rate-limiting
+config:
+  minute: 5
+  policy: local
+  limit_by: ip
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: orders-rate-limited
+  namespace: meshcommerce
+  annotations:
+    konghq.com/plugins: orders-rate-limit
+    konghq.com/strip-path: "true"
+spec:
+  ingressClassName: kong
+  rules:
+    - http:
+        paths:
+          - path: /gateway
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: orders-api
+                port:
+                  number: 8080

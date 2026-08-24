@@ -25,7 +25,10 @@ Each new capability must follow the same sequence:
 
 ```mermaid
 flowchart LR
-    Browser[React frontend] --> Orders[Orders API]
+    Browser[Browser] --> Kong[Kong API Gateway]
+    Kong --> Frontend[React frontend]
+    Frontend --> Orders[Orders API]
+    Kong -. rate-limited lab route .-> Orders
     Orders --> Payments[Payments API]
     Payments --> Database[(PostgreSQL)]
     Migrations[Payments migrations] --> Database
@@ -55,6 +58,10 @@ application baseline:
   storage;
 - Istio sidecar injection and circuit breaking with outlier detection;
 - an intentionally faulty Payments instance for resilience experiments;
+- Kong Ingress routing and a route-specific rate-limiting plugin;
+- a Gateway screen that visualizes quotas and HTTP 429 decisions;
+- versioned OpenAPI contracts for Orders and Payments;
+- Spectral contract governance and Pull Request breaking-change detection;
 - Argo CD reconciliation with automated self-healing.
 
 The local Docker Compose flow is the first executable baseline:
@@ -75,10 +82,25 @@ host port `5102`.
 The following capabilities belong to future lessons and are not part of the
 current validated showcase:
 
-- Kong routes, plugins, authentication, and rate limiting;
-- OpenAPI contract automation and APIOps;
+- gateway authentication and consumer-specific authorization;
 - load testing with K6 or Testkube;
 - application observability and OpenTelemetry.
+
+## Validate the API contracts
+
+The contracts are governed independently from the application runtime:
+
+```bash
+cd contracts
+npm ci --ignore-scripts
+npm run lint
+```
+
+Pull Requests that change the contracts or API source code run the same
+Spectral rules. After the initial contracts exist on `main`, the pipeline also
+uses `oasdiff` to reject removed operations, incompatible schema changes, and
+other breaking changes. See [contracts/README.md](contracts/README.md) for the
+ownership model, CI behavior, and current conformance boundary.
 
 ## Run the current baseline
 
@@ -118,7 +140,7 @@ Stop the environment without deleting the PostgreSQL volume:
 docker compose down
 ```
 
-## Run the Kubernetes, Istio, and GitOps stack
+## Run the Kubernetes, Kong, Istio, and GitOps stack
 
 The learned-only Kubernetes baseline now has a reproducible deployment command:
 
@@ -126,7 +148,7 @@ The learned-only Kubernetes baseline now has a reproducible deployment command:
 ./kubernetes/scripts/deploy-local.sh
 ```
 
-Expose the internal frontend Service in a separate terminal:
+Expose the Kong proxy in a separate terminal:
 
 ```bash
 ./kubernetes/scripts/port-forward.sh
@@ -135,6 +157,8 @@ Expose the internal frontend Service in a separate terminal:
 Open `http://localhost:14173`. The Orders view validates the application and
 Kubernetes resources. The Operations view exercises the already-studied Istio
 circuit breaker against healthy and intentionally faulty Payments instances.
+The Gateway view sends a burst through the route-specific Kong rate limit and
+shows allowed requests, remaining quota, reset time, and HTTP 429 responses.
 When Argo CD is installed, the deployment script also restores the existing
 MeshCommerce Application and its self-healing policy.
 
@@ -143,10 +167,9 @@ prerequisites, validation commands, and deliberate scope boundaries.
 
 ## Evolution plan
 
-The next change will come from the current API Gateway course. We will first
-prove the direct baseline, then introduce Kong to solve a visible edge-routing
-or policy problem. Later courses will continue evolving this same request flow
-instead of creating another final application.
+The next API Gateway change will address a new concrete problem, such as client
+identity and authentication. Later courses will continue evolving this same
+request flow instead of creating another final application.
 
 For implementation details, local-development commands, persistence behavior,
 and the original evolution notes, see [README.md](README.md).

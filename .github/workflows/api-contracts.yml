@@ -1,0 +1,103 @@
+name: MeshCommerce API contracts
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/api-contracts.yml"
+      - "final-project/contracts/**"
+      - "final-project/backend/src/Orders.Api/**"
+      - "final-project/backend/src/Payments.Api/**"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/api-contracts.yml"
+      - "final-project/contracts/**"
+      - "final-project/backend/src/Orders.Api/**"
+      - "final-project/backend/src/Payments.Api/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: api-contracts-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Lint OpenAPI contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: final-project/contracts
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: final-project/contracts/package-lock.json
+
+      - name: Install contract tooling
+        run: npm ci --ignore-scripts
+
+      - name: Lint contracts
+        run: npm run lint
+
+  breaking-changes:
+    name: Detect OpenAPI breaking changes
+    if: github.event_name == 'pull_request'
+    needs:
+      - lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository and base history
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Detect existing contract baselines
+        id: baselines
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          if git cat-file -e "origin/${BASE_REF}:final-project/contracts/orders.openapi.yaml"; then
+            echo "orders=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "orders=false" >> "${GITHUB_OUTPUT}"
+            echo "Orders contract has no baseline on ${BASE_REF}; lint is the initial gate."
+          fi
+
+          if git cat-file -e "origin/${BASE_REF}:final-project/contracts/payments.openapi.yaml"; then
+            echo "payments=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "payments=false" >> "${GITHUB_OUTPUT}"
+            echo "Payments contract has no baseline on ${BASE_REF}; lint is the initial gate."
+          fi
+
+      - name: Check Orders API compatibility
+        if: steps.baselines.outputs.orders == 'true'
+        uses: oasdiff/oasdiff-action/breaking@2649ebe137aeb72a95707671204e829f86e091fc # v0.1.13
+        with:
+          base: origin/${{ github.base_ref }}:final-project/contracts/orders.openapi.yaml
+          revision: HEAD:final-project/contracts/orders.openapi.yaml
+          fail-on: WARN
+          review: false
+          github-token: ""
+
+      - name: Check Payments API compatibility
+        if: steps.baselines.outputs.payments == 'true'
+        uses: oasdiff/oasdiff-action/breaking@2649ebe137aeb72a95707671204e829f86e091fc # v0.1.13
+        with:
+          base: origin/${{ github.base_ref }}:final-project/contracts/payments.openapi.yaml
+          revision: HEAD:final-project/contracts/payments.openapi.yaml
+          fail-on: WARN
+          review: false
+          github-token: ""

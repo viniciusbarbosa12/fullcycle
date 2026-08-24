@@ -30,9 +30,11 @@ resolve_tool() {
 }
 
 docker_bin="$(resolve_tool docker /usr/local/bin/docker /Applications/Docker.app/Contents/Resources/bin/docker)"
+helm_bin="$(resolve_tool helm /opt/homebrew/bin/helm /usr/local/bin/helm)"
 istioctl_bin="$(resolve_tool istioctl /opt/homebrew/bin/istioctl /usr/local/bin/istioctl)"
 kind_bin="$(resolve_tool kind /opt/homebrew/bin/kind /usr/local/bin/kind)"
 kubectl_bin="$(resolve_tool kubectl /usr/local/bin/kubectl /opt/homebrew/bin/kubectl)"
+kong_chart_version="${MESHCOMMERCE_KONG_CHART_VERSION:-0.24.0}"
 
 if ! "${kind_bin}" get clusters | grep -Fxq "${cluster_name}"; then
   "${kind_bin}" create cluster \
@@ -49,6 +51,16 @@ if ! "${kubectl_bin}" \
     --set profile=default \
     --skip-confirmation
 fi
+
+"${helm_bin}" repo add kong https://charts.konghq.com --force-update
+"${helm_bin}" repo update kong
+"${helm_bin}" upgrade --install kong kong/ingress \
+  --namespace kong \
+  --create-namespace \
+  --version "${kong_chart_version}" \
+  --values "${project_directory}/kubernetes/kong/values.yaml" \
+  --wait \
+  --timeout 300s
 
 "${docker_bin}" build \
   --file "${project_directory}/backend/src/Orders.Api/Dockerfile" \
@@ -121,6 +133,9 @@ for deployment in payments-api-v1 orders-api-v1 frontend-v1; do
 done
 
 "${kubectl_command[@]}" apply \
+  --filename "${project_directory}/kubernetes/kong/rate-limit.yaml"
+
+"${kubectl_command[@]}" apply \
   --filename "${project_directory}/kubernetes/istio/circuit-breaker/faulty-payments.yaml" \
   --filename "${project_directory}/kubernetes/istio/circuit-breaker/destination-rule.yaml"
 "${kubectl_command[@]}" rollout status \
@@ -138,3 +153,4 @@ else
 fi
 
 "${kubectl_command[@]}" get pods,services,pvc,jobs --namespace "${namespace}"
+"${kubectl_command[@]}" get ingress,kongplugin --namespace "${namespace}"

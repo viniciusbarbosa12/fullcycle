@@ -2,7 +2,7 @@
 
 > **Reference lab:** this small two-API environment remains useful for isolated
 > experiments. The active course and John-facing showcase now use
-> [MeshCommerce](../../../service-mesh/final-project/SHOWCASE.md) as the shared
+> [MeshCommerce](../../../final-project/SHOWCASE.md) as the shared
 > project. New course capabilities should be implemented there after their
 > corresponding lesson.
 
