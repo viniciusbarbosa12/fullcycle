@@ -87,7 +87,7 @@ export function OperationLab() {
     <div className="operation-view">
       <header className="topbar operation-topbar">
         <div>
-          <span className="eyebrow">Istio · Resiliência</span>
+          <span className="eyebrow">Istio · Resilience</span>
           <h1>Circuit breaker</h1>
         </div>
         <div className="operation-actions">
@@ -98,7 +98,7 @@ export function OperationLab() {
             disabled={isRunning}
           >
             <RotateCcw size={17} />
-            Limpar
+            Clear
           </button>
           {isRunning ? (
             <button
@@ -107,7 +107,7 @@ export function OperationLab() {
               onClick={stopExperiment}
             >
               <Square size={16} fill="currentColor" />
-              Parar
+              Stop
             </button>
           ) : (
             <button
@@ -116,15 +116,15 @@ export function OperationLab() {
               onClick={runExperiment}
             >
               <Play size={17} fill="currentColor" />
-              Executar
+              Run
             </button>
           )}
         </div>
       </header>
 
-      <section className="traffic-path" aria-label="Caminho do tráfego">
+      <section className="traffic-path" aria-label="Traffic path">
         <div className="traffic-node">
-          <span>Origem</span>
+          <span>Source</span>
           <strong>Frontend</strong>
         </div>
         <div className="traffic-link">
@@ -136,11 +136,11 @@ export function OperationLab() {
           <strong>payments-api:8080</strong>
         </div>
         <div className="traffic-link">
-          <span>Balanceamento</span>
+          <span>Load balancing</span>
           <i aria-hidden="true" />
         </div>
         <div className="traffic-destinations">
-          <span className="destination destination-healthy">v1 · saudável</span>
+          <span className="destination destination-healthy">v1 · healthy</span>
           <span className="destination destination-faulty">
             faulty · HTTP 500
           </span>
@@ -149,11 +149,11 @@ export function OperationLab() {
 
       <section
         className="experiment-controls"
-        aria-label="Configuração do experimento"
+        aria-label="Experiment configuration"
       >
         <label className="range-control">
           <span>
-            Requisições <strong>{requestCount}</strong>
+            Requests <strong>{requestCount}</strong>
           </span>
           <input
             type="range"
@@ -167,7 +167,7 @@ export function OperationLab() {
         </label>
         <label className="range-control">
           <span>
-            Intervalo <strong>{intervalMs} ms</strong>
+            Interval <strong>{intervalMs} ms</strong>
           </span>
           <input
             type="range"
@@ -181,30 +181,30 @@ export function OperationLab() {
         </label>
       </section>
 
-      <section className="experiment-metrics" aria-label="Resultado atual">
+      <section className="experiment-metrics" aria-label="Current results">
         <div className="experiment-metric">
           <Activity size={19} />
-          <span>Executadas</span>
+          <span>Executed</span>
           <strong>{results.length}</strong>
         </div>
         <div className="experiment-metric metric-success">
           <CircleCheck size={19} />
-          <span>Sucessos</span>
+          <span>Successes</span>
           <strong>{summary.successes}</strong>
         </div>
         <div className="experiment-metric metric-failure">
           <CircleX size={19} />
-          <span>Falhas</span>
+          <span>Failures</span>
           <strong>{summary.failures}</strong>
         </div>
         <div className="experiment-metric">
           <ShieldCheck size={19} />
-          <span>Taxa de sucesso</span>
+          <span>Success rate</span>
           <strong>{summary.successRate}%</strong>
         </div>
         <div className="experiment-metric">
           <Clock3 size={19} />
-          <span>Latência média</span>
+          <span>Average latency</span>
           <strong>{summary.averageDuration} ms</strong>
         </div>
       </section>
@@ -215,15 +215,15 @@ export function OperationLab() {
       >
         <div className="request-stream-header">
           <div>
-            <span className="eyebrow">Execução atual</span>
-            <h2 id="request-stream-title">Fluxo de requisições</h2>
+            <span className="eyebrow">Current run</span>
+            <h2 id="request-stream-title">Request stream</h2>
           </div>
           <span className={`run-state ${isRunning ? "run-state-active" : ""}`}>
             {isRunning
-              ? "Executando"
+              ? "Running"
               : results.length
-                ? "Concluído"
-                : "Aguardando"}
+                ? "Completed"
+                : "Waiting"}
           </span>
         </div>
 
@@ -233,7 +233,7 @@ export function OperationLab() {
               <div
                 className={`request-pulse ${result.ok ? "request-pulse-success" : "request-pulse-failure"}`}
                 key={result.id}
-                title={`#${result.id} · HTTP ${result.status || "erro de rede"} · ${result.instance}`}
+                title={`#${result.id} · HTTP ${result.status || "network error"} · ${result.instance}`}
               >
                 <span>{result.id}</span>
                 <strong>{result.status || "ERR"}</strong>
@@ -241,7 +241,7 @@ export function OperationLab() {
             ))
           ) : (
             <div className="stream-empty">
-              Nenhuma requisição registrada nesta execução.
+              No requests were recorded in this run.
             </div>
           )}
         </div>
@@ -253,9 +253,9 @@ export function OperationLab() {
                 <tr>
                   <th>#</th>
                   <th>HTTP</th>
-                  <th>Instância</th>
-                  <th>Duração</th>
-                  <th>Horário</th>
+                  <th>Instance</th>
+                  <th>Duration</th>
+                  <th>Time</th>
                 </tr>
               </thead>
               <tbody>
@@ -275,7 +275,7 @@ export function OperationLab() {
                       <td>{result.instance}</td>
                       <td>{result.durationMs} ms</td>
                       <td>
-                        {new Intl.DateTimeFormat("pt-BR", {
+                        {new Intl.DateTimeFormat("en-US", {
                           hour: "2-digit",
                           minute: "2-digit",
                           second: "2-digit",

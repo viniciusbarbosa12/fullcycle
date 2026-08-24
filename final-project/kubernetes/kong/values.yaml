@@ -1,0 +1,12 @@
+controller:
+  ingressController:
+    env:
+      anonymous_reports: "false"
+
+gateway:
+  env:
+    anonymous_reports: "off"
+  manager:
+    enabled: false
+  proxy:
+    type: ClusterIP

@@ -32,3 +32,8 @@ Practice Phase 4 concepts before requesting review.
 ## Success criteria
 
 Have a pipeline that validates OpenAPI contracts and a GitOps flow capable of synchronizing cluster configuration.
+
+The integrated implementation and its reproducible validation commands are in
+[MeshCommerce API contracts](../../../final-project/contracts/README.md). The
+small course lab remains useful for isolated experiments; the shared project is
+the demonstrable APIOps baseline.

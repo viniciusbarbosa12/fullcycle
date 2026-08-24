@@ -1,0 +1,11 @@
+{
+  "name": "meshcommerce-api-contracts",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "lint": "spectral lint --ruleset .spectral.yaml --fail-severity warn \"*.openapi.yaml\""
+  },
+  "devDependencies": {
+    "@stoplight/spectral-cli": "6.16.3"
+  }
+}
