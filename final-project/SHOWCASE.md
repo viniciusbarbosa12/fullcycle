@@ -65,6 +65,8 @@ application baseline:
 - application CI with frontend quality checks, container builds, an integrated
   paid-order smoke test, and Kubernetes schema validation;
 - Argo CD reconciliation with automated self-healing.
+- a metrics preview with Prometheus, a provisioned Grafana Golden Signals
+  dashboard, and an HTTP 5xx alert backed by Istio telemetry.
 
 The local Docker Compose flow is the first executable baseline:
 
@@ -86,7 +88,8 @@ current validated showcase:
 
 - gateway authentication and consumer-specific authorization;
 - load testing with K6 or Testkube;
-- application observability and OpenTelemetry.
+- centralized logs, distributed traces, OpenTelemetry instrumentation, durable
+  telemetry storage, and custom business metrics.
 
 ## Validate the API contracts
 
@@ -135,6 +138,27 @@ GitHub Actions does not push changes directly into the local Kind cluster.
 After a reviewed change reaches `main`, Argo CD pulls the desired state and
 reconciles it. This keeps one deployment authority and separates CI validation
 from pull-based CD.
+
+## Preview application metrics
+
+The observability preview reuses metrics already emitted by the Istio sidecars.
+Prometheus discovers annotated MeshCommerce pods and Grafana loads a
+version-controlled Golden Signals dashboard without manual setup.
+
+```bash
+./kubernetes/scripts/deploy-observability.sh
+./kubernetes/scripts/observability-port-forward.sh
+```
+
+In another terminal, generate healthy and deliberately faulty traffic:
+
+```bash
+./kubernetes/scripts/generate-observability-traffic.sh
+```
+
+Open `http://localhost:14300/d/meshcommerce-golden-signals`. See
+[kubernetes/observability/README.md](kubernetes/observability/README.md) for the
+architecture, PromQL, alert runbook, security boundary, and deliberate limits.
 
 ## Run the current baseline
 
