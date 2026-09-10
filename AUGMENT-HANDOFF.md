@@ -136,20 +136,20 @@ MeshCommerce. Muitos arquivos são planos de estudo.
 
 ### Matriz de progresso conhecida
 
-| Trilha | Situação conhecida | Evidência no MeshCommerce |
-| --- | --- | --- |
-| Git | Material e práticas de branch/PR/merge usados | Histórico de PRs e commits convencionais |
-| Docker | Fundamentos e projeto final praticados | Dockerfiles multistage e Compose integrado |
-| Kubernetes | Objetos fundamentais praticados no TaskManagement e revisitados | Deployments, Services, Job, StatefulSet, PVC, probes, resources, ConfigMap e Secret |
-| Service Mesh | Usuário informou ter estudado todo o módulo | Sidecars, circuit breaker e faults demonstráveis |
-| API Gateway | Fundamentos, vantagens/desvantagens, escolha e base Kong estudados | Entrada Kong e tela de rate limit |
-| Kong + Kubernetes | Fases práticas de Kong e fase 4 APIOps/GitOps trabalhadas | Ingress, KongPlugin, OpenAPI, CI e Argo |
-| K6/Testkube | Ainda não estudado/implementado no superprojeto | Apenas plano de curso |
-| Autenticação/OpenID | Ainda não integrada | Apenas plano de Gateway |
-| Observabilidade | Em andamento; fundamentos, Istio metrics, Prometheus e Grafana estudados | Stack atual sem commit e tela Observability |
-| Elastic/APM/logs centralizados | Ainda pendente | Apenas exemplos/planos fora do MeshCommerce |
-| OpenTelemetry/tracing | Ainda pendente | Trilha e planos existentes, sem integração atual |
-| RxJS/Angular | Trilha paralela; não faz parte do runtime MeshCommerce | Exemplos próprios em `angular/rxjs-course` |
+| Trilha                         | Situação conhecida                                                       | Evidência no MeshCommerce                                                           |
+| ------------------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| Git                            | Material e práticas de branch/PR/merge usados                            | Histórico de PRs e commits convencionais                                            |
+| Docker                         | Fundamentos e projeto final praticados                                   | Dockerfiles multistage e Compose integrado                                          |
+| Kubernetes                     | Objetos fundamentais praticados no TaskManagement e revisitados          | Deployments, Services, Job, StatefulSet, PVC, probes, resources, ConfigMap e Secret |
+| Service Mesh                   | Usuário informou ter estudado todo o módulo                              | Sidecars, circuit breaker e faults demonstráveis                                    |
+| API Gateway                    | Fundamentos, vantagens/desvantagens, escolha e base Kong estudados       | Entrada Kong e tela de rate limit                                                   |
+| Kong + Kubernetes              | Fases práticas de Kong e fase 4 APIOps/GitOps trabalhadas                | Ingress, KongPlugin, OpenAPI, CI e Argo                                             |
+| K6/Testkube                    | Ainda não estudado/implementado no superprojeto                          | Apenas plano de curso                                                               |
+| Autenticação/OpenID            | Ainda não integrada                                                      | Apenas plano de Gateway                                                             |
+| Observabilidade                | Em andamento; fundamentos, Istio metrics, Prometheus e Grafana estudados | Stack atual sem commit e tela Observability                                         |
+| Elastic/APM/logs centralizados | Ainda pendente                                                           | Apenas exemplos/planos fora do MeshCommerce                                         |
+| OpenTelemetry/tracing          | Ainda pendente                                                           | Trilha e planos existentes, sem integração atual                                    |
+| RxJS/Angular                   | Trilha paralela; não faz parte do runtime MeshCommerce                   | Exemplos próprios em `angular/rxjs-course`                                          |
 
 Aprendizado conceitual já discutido sobre Gateway:
 
@@ -890,20 +890,21 @@ Roteiro completo dos painéis:
 final-project/OBSERVABILITY-PRESENTATION.md
 ```
 
-## 16. Stack de observabilidade atual — sem commit
+## 16. Stack de observabilidade atual — implementada e validada no Kind
 
 ### Composição
 
 `kubernetes/observability/kustomization.yaml` agrega namespace, VirtualService
-de faults, Grafana e Prometheus.
+de faults, Prometheus, kube-state-metrics, Grafana, Loki, Alloy, Alertmanager e
+o receptor local.
 
 ```bash
 kubectl --context kind-meshcommerce apply \
   --kustomize final-project/kubernetes/observability
 ```
 
-O `deploy-local.sh` atual não aplica esse Kustomization. A stack foi validada
-manualmente no passado, mas não é restaurada automaticamente nesta branch.
+O `deploy-local.sh` atual não aplica esse Kustomization. A stack é aplicada
+separadamente para manter o laboratório de observabilidade opt-in.
 
 ### Prometheus
 
@@ -946,18 +947,88 @@ meshcommerce:http_request_duration_milliseconds:p95_1m
 → p95 por origem e destino
 ```
 
-Alert rule:
+Resource saturation:
 
 ```text
-MeshCommerceHttp5xxDetected
-source-side 5xx rate > 0
-for: 10s
-severity: warning
+kube-state-metrics
+→ kube_pod_container_resource_requests/limits
+
+cAdvisor via kubelet/API Server
+→ container_cpu_usage_seconds_total
+→ container_cpu_cfs_*_periods_total
+→ container_memory_working_set_bytes
 ```
 
-Usa `reporter="source"` porque abort do Envoy pode ocorrer antes de o destino
-receber a chamada. A regra é didática e sensível demais para produção; deve
-evoluir para razão/limiar e janela alinhados a SLO.
+Recording rules adicionais:
+
+```text
+meshcommerce:container_cpu_request_utilization_percent
+meshcommerce:container_cpu_limit_utilization_percent
+meshcommerce:container_cpu_throttling_percent:rate5m
+meshcommerce:container_memory_request_utilization_percent
+meshcommerce:container_memory_limit_utilization_percent
+```
+
+`kube-state-metrics` fica limitado ao namespace `meshcommerce`. O Prometheus
+acessa cAdvisor pelo API Server com `nodes/proxy` somente leitura.
+
+Alert rules:
+
+```text
+MeshCommerceHighErrorBudgetBurn
+5m error ratio > 5%, traffic > 0.1 req/s, for: 30s
+
+MeshCommerceSustainedErrorBudgetBurn
+15m error ratio > 1%, for: 2m
+
+MeshCommerceCpuThrottlingHigh
+throttling > 25%, for: 5m
+
+MeshCommerceMemoryNearLimit
+working set > 85% of limit, for: 5m
+```
+
+O SLO didático é 99% de requests bem-sucedidos. Usa `reporter="source"` porque
+abort do Envoy pode ocorrer antes de o destino receber a chamada. O alerta
+binário anterior `5xx > 0` foi removido.
+
+### kube-state-metrics
+
+```text
+imagem: rancher/mirrored-kube-state-metrics-kube-state-metrics:v2.17.0
+namespace: observability
+Service: kube-state-metrics:8080
+```
+
+O mirror Rancher/SUSE foi usado no Kind porque o ambiente não conseguiu validar
+a cadeia TLS de `registry.k8s.io`; não foi desabilitada a verificação TLS.
+
+### Loki e Alloy
+
+```text
+Loki:  grafana/loki:3.4.2, Service loki:3100
+Alloy: grafana/alloy:v1.7.5, DaemonSet
+```
+
+Alloy descobre e lê somente Pods do namespace `meshcommerce` pela API
+Kubernetes. O pipeline remove o envelope CRI, preserva a linha JSON das APIs e
+extrai `LogLevel` e `Category` como labels de baixa cardinalidade. Loki usa
+filesystem em `emptyDir`, suficiente para a aula, mas não para retenção durável.
+
+As APIs Orders e Payments usam JSON Console nativo e registram método, path,
+status, duração, serviço e request ID; query string, headers e body não são
+registrados.
+
+### Alertmanager
+
+```text
+imagem: prom/alertmanager:v0.28.1
+Service: alertmanager:9093
+receiver: alert-receiver:8080/alerts
+```
+
+O receptor é um servidor Python mínimo, usado apenas para demonstrar os payloads
+`firing`/`resolved` nos logs do Pod. Não representa um canal de produção.
 
 ### Grafana
 
@@ -989,19 +1060,24 @@ O acesso anônimo é intencional no laboratório e inadequado para produção.
 
 ### Dashboard
 
-UID `meshcommerce-golden-signals`. Oito painéis:
+UID `meshcommerce-golden-signals`. Treze painéis:
 
 1. instruções;
 2. request rate;
 3. success rate baseado em 5xx;
 4. maior p95 entre caminhos;
-5. alertas 5xx ativos;
+5. alertas SLO ativos;
 6. request rate por status;
 7. p50/p95/p99;
-8. 5xx por origem→destino.
+8. 5xx por origem→destino;
+9. CPU versus requests/limits;
+10. CPU throttling;
+11. memória working set versus requests/limits;
+12. working set e fronteira de OOM;
+13. logs Loki no intervalo selecionado.
 
-Cobre Traffic, Errors e Latency. Ainda falta Saturation; portanto os quatro
-Golden Signals ainda não estão completos.
+Cobre Traffic, Errors, Latency e Saturation. Tracing/OpenTelemetry permanece
+deliberadamente fora deste módulo.
 
 ## 17. Validações já realizadas
 
@@ -1189,18 +1265,18 @@ curl http://localhost:14300/api/health
 
 ## 20. Material de apresentação
 
-Arquivo novo ainda não commitado:
+Material versionado nesta branch:
 
 ```text
 final-project/OBSERVABILITY-PRESENTATION.md
 ```
 
-Contém fluxo de telemetria, URLs, atraso de coleta, explicação dos sete painéis
-operacionais, valor atual versus histórico, percentis, roteiro
-baseline→latência→erro, falas para John, limitações e resposta de entrevista.
+Contém fluxo de telemetria, URLs, atraso de coleta, explicação dos painéis
+operacionais, saturação, logs, alertas, roteiro baseline→latência→erro, falas
+para John, limitações e resposta de entrevista.
 
-`final-project/SHOWCASE.md` recebeu um link para esse roteiro. Essa foi a última
-alteração antes da criação deste handoff.
+`final-project/SHOWCASE.md` recebeu um link para esse roteiro. O roteiro agora
+também inclui os checkpoints implementados de saturação, logs e alertas.
 
 ## 21. Lacunas e riscos conhecidos
 
@@ -1209,7 +1285,7 @@ alteração antes da criação deste handoff.
 - branch atual está atrás de `main`;
 - os mesmos caminhos de observabilidade diferem entre main e working tree;
 - merge/rebase pode conflitar;
-- trabalho atual não tem commit;
+- alterações locais de observabilidade ainda precisam de commit;
 - READMEs podem refletir versões diferentes;
 - proteger e comparar antes de integrar.
 
@@ -1239,21 +1315,20 @@ alteração antes da criação deste handoff.
 - rate limit local/IP;
 - sem Redis;
 - sem consumers, Basic/Key Auth ou OpenID no superprojeto;
-- sem logs centralizados;
+- logs do Kong ainda não estão centralizados nesta stack;
 - sem K6/Testkube.
 
 ### Observabilidade
 
-- apenas métricas Istio;
-- sem métricas customizadas da aplicação;
-- sem CPU/memória/saturação;
-- sem logs centralizados;
-- sem tracing/OpenTelemetry;
-- sem Alertmanager/notificação;
+- métricas de aplicação customizadas ainda não existem; o laboratório usa Istio,
+  cAdvisor e kube-state-metrics;
+- tracing/OpenTelemetry permanece pendente por decisão de escopo;
 - Prometheus/Grafana com `emptyDir`, uma réplica e sem HA;
+- Loki/Alloy e Alertmanager também são single-instance e usam `emptyDir`;
 - Prometheus retém apenas 6h;
 - Grafana anônimo;
-- alerta 5xx sensível demais;
+- alertas SLO usam limiares didáticos, ainda não acordados com o negócio;
+- receptor local não substitui canal operacional;
 - agregações podem precisar de filtros/variáveis;
 - controlar cardinalidade de labels;
 - workload faulty contamina baseline;

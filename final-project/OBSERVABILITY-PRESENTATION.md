@@ -344,8 +344,9 @@ Grafana; significa que a regra já encontrou erros dentro da janela analisada.
 ### Encerramento sugerido
 
 > Com métricas, detectei a existência do problema, medi o impacto e identifiquei
-> o caminho afetado. O próximo passo é usar logs e traces para descobrir a causa
-> exata e acompanhar a requisição completa.
+> o caminho afetado. Com logs centralizados, investiguei os eventos da aplicação
+> no mesmo intervalo. O próximo passo é usar traces para acompanhar a requisição
+> completa e localizar a causa exata por etapa.
 
 ## O que cada camada entrega
 
@@ -361,6 +362,12 @@ Prometheus
 
 Grafana
 → visualização e comparação dos indicadores
+
+Loki + Alloy
+→ stdout estruturado centralizado e pesquisável no intervalo do dashboard
+
+Alertmanager
+→ agrupamento, janela, notificação e resolução dos alertas
 ```
 
 ## O que já está pronto para apresentar
@@ -368,34 +375,116 @@ Grafana
 - geração visual de baseline, lentidão e erros no frontend;
 - telemetria automática do Istio/Envoy;
 - descoberta e scrape dos workloads pelo Prometheus;
-- recording rules de tráfego e p95;
-- regra de alerta para erros 5xx;
-- Grafana e Data Source provisionados como código;
-- dashboard versionado com tráfego, erros e latência;
-- links para targets e alertas do Prometheus;
+- scrape do cAdvisor pelo API Server e `kube-state-metrics` para requests/limits;
+- recording rules de tráfego, p95, CPU, memória e throttling;
+- Loki + Alloy coletando stdout do namespace `meshcommerce`;
+- logs JSON nas APIs Orders e Payments;
+- Alertmanager com SLO de 99%, janelas e receptor HTTP local;
+- Grafana, Prometheus, Loki e Alertmanager provisionados como código;
+- dashboard versionado com tráfego, erros, latência, saturação e logs;
+- links para targets, alertas e Alertmanager;
 - configuração declarativa no Kubernetes.
 
-## O que ainda falta no módulo
+## 1. Saturação: problema real → código → solução
 
-### 1. Saturação
+### Problema real
 
-Os quatro Golden Signals clássicos são:
+> A aplicação está lenta por causa da rede/código ou porque o container está
+> próximo do limite de CPU ou memória?
+
+Os quatro Golden Signals agora estão representados:
 
 ```text
 Traffic, Errors, Latency e Saturation
 ```
 
-O dashboard cobre os três primeiros. Ainda precisamos visualizar saturação,
-como CPU, memória, conexões ou filas próximas do limite. Portanto, apesar do
-nome **Golden Signals**, o dashboard ainda não cobre os quatro sinais.
+### Código e solução
 
-### 2. Logs centralizados
+- Prometheus descobre o kubelet pelo API Server e coleta `/metrics/cadvisor`;
+- `kube-state-metrics` publica os requests e limits declarados nos Pods;
+- recording rules calculam CPU/memória em relação a request e limit;
+- outras rules calculam CPU throttling e memória working set;
+- o Grafana mostra CPU, throttling, working set e a fronteira de OOMKilled.
 
-Hoje ainda precisamos consultar logs por pod. O próximo avanço é enviá-los para
-uma fonte central, permitindo busca por serviço, status, horário e identificador
-de correlação mesmo depois que um pod reinicia.
+### Por que corrigir
 
-### 3. Traces distribuídos
+Uso absoluto não basta. Um consumo de `100Mi` pode ser saudável para um Pod com
+limit de `512Mi`, mas crítico para outro com limit de `128Mi`. A comparação com
+request mostra pressão sobre a capacidade planejada; a comparação com limit
+mostra risco de throttling ou OOMKilled.
+
+### Riscos e trade-offs
+
+- cAdvisor mostra uso observado; não explica sozinho a causa da pressão;
+- `metrics-server` seria útil para autoscaling, mas não substitui histórico no
+  Prometheus;
+- o laboratório usa `emptyDir` e uma réplica, portanto perde histórico ao reiniciar;
+- não foi injetado OOM intencionalmente para não comprometer a demonstração.
+
+## 2. Logs centralizados: problema real → código → solução
+
+### Problema real
+
+> As métricas mostram que `frontend-v1 → payments-api` retornou 500, mas não
+> mostram o evento da aplicação que explica o erro.
+
+### Código e solução
+
+- Orders e Payments usam o JSON Console Formatter nativo do ASP.NET;
+- middleware registra serviço, método, path, status, duração e request ID;
+- query string, headers e body não são gravados, reduzindo risco de dados sensíveis;
+- Alloy descobre Pods apenas em `meshcommerce` e lê seus logs pela API Kubernetes;
+- Loki armazena os streams com labels de namespace, aplicação, Pod e container;
+- o painel de logs do Grafana usa o mesmo intervalo temporal dos painéis de métricas.
+
+### Por que corrigir
+
+Logs centralizados sobrevivem à troca de Pod e permitem investigar o intervalo
+em que o dashboard detectou o problema, sem depender de conhecer previamente o
+nome da réplica.
+
+### Riscos e trade-offs
+
+- Loki usa filesystem e `emptyDir` somente para o laboratório;
+- labels de alta cardinalidade, como request ID, não foram promovidas a labels;
+- o request ID está no JSON da linha e pode ser filtrado no conteúdo;
+- Alloy lê via API Kubernetes, simplificando o Kind, mas aumenta chamadas ao API
+  Server em comparação com leitura direta dos arquivos do nó.
+
+## 3. Alertas completos: problema real → código → solução
+
+### Problema real
+
+> Um único 5xx isolado não deveria notificar alguém; uma degradação sustentada
+> deveria gerar uma investigação acionável.
+
+### Código e solução
+
+- SLO didático definido como 99% de requests bem-sucedidos;
+- regra rápida: erro acima de 5% em janela de 5 minutos, com tráfego mínimo;
+- regra sustentada: erro acima de 1% em janela de 15 minutos;
+- `for` impede disparo por uma amostra isolada;
+- Alertmanager agrupa por alerta, sinal e caminho de tráfego;
+- webhook local demonstra `firing` e `resolved` sem depender de Slack ou PagerDuty;
+- annotations carregam resumo, descrição e runbook do dashboard.
+
+### Por que corrigir
+
+Um alerta deve representar risco ao objetivo do serviço, e não apenas a
+existência de uma ocorrência. Janelas, taxa e tráfego mínimo reduzem ruído e
+transformam o painel em uma ação operacional.
+
+### Riscos e trade-offs
+
+- os limiares são didáticos e não substituem um SLO acordado com o negócio;
+- o receptor local não é um sistema de notificação de produção;
+- `group_wait`, `group_interval` e `repeat_interval` foram reduzidos para a
+  demonstração;
+- notificações reais exigem autenticação, secrets e canal operacional.
+
+## O que ainda fica para módulos futuros
+
+### 4. Traces distribuídos
 
 Precisamos acompanhar uma única requisição pelo caminho completo:
 
@@ -406,32 +495,67 @@ Frontend → Orders API → Payments API → PostgreSQL
 O trace mostrará os spans, a duração de cada etapa e onde a requisição passou
 mais tempo.
 
-### 4. Correlação dos três sinais
+### 5. Correlação com tracing
 
 O objetivo final é sair de um pico no Grafana para os logs e o trace da mesma
 requisição usando `trace_id` e, quando necessário, `correlation_id`.
 
-### 5. Notificações
-
-Adicionar Alertmanager e um canal de destino para demonstrar o ciclo completo:
-
-```text
-condição → pending → firing → notificação → investigação
-```
-
 ### 6. Endurecimento para produção
 
 O laboratório permite acesso anônimo ao Grafana e usa armazenamento temporário.
-Em produção precisaríamos avaliar autenticação, autorização, TLS, persistência,
-alta disponibilidade, retenção, limites de recursos e regras de alerta menos
-sensíveis.
+Em produção ainda precisaríamos avaliar autenticação, autorização, TLS,
+persistência, alta disponibilidade, retenção, limites de recursos, storage
+durável e regras de alerta calibradas com o negócio.
+
+## Roteiro de demonstração para John
+
+### 1. Mostrar o estado saudável
+
+Abrir:
+
+- Frontend: `http://localhost:14177`;
+- Grafana: `http://localhost:14300/d/meshcommerce-golden-signals`;
+- Prometheus targets: `http://localhost:19090/targets`;
+- Alertmanager: `http://localhost:19093`.
+
+Executar **Healthy baseline** no frontend e explicar Traffic, Errors e Latency.
+Em seguida, apontar para os painéis de CPU e memória e explicar que saturação é
+uso relativo a request/limit, não somente um número absoluto.
+
+### 2. Mostrar logs no mesmo intervalo
+
+Após uma chamada de Orders ou Payments, abrir o painel **MeshCommerce logs in the
+selected time range**. Mostrar uma linha JSON e destacar `Service`, `StatusCode`,
+`DurationMs` e `RequestId`.
+
+Falar:
+
+> A métrica encontrou o intervalo; o Loki permite investigar os eventos das
+> aplicações naquele mesmo intervalo sem procurar manualmente cada Pod.
+
+### 3. Produzir e investigar um incidente
+
+Executar **HTTP 5xx burst** ou enviar requests com o header de laboratório. Depois
+mostrar a sequência:
+
+```text
+5xx no Istio
+→ error ratio acima do SLO
+→ Prometheus: pending/firing
+→ Alertmanager: grupo ativo
+→ receptor local: webhook recebido
+→ Grafana/Loki: impacto e evidência da aplicação
+```
+
+O tracing não será demonstrado nesta aula; ele será implementado no módulo futuro
+de OpenTelemetry.
 
 ## Resposta curta para entrevista
 
 > Implementei observabilidade progressivamente em uma aplicação distribuída.
 > Usei a telemetria do Istio como fonte, Prometheus para coleta, PromQL,
 > recording rules e alertas, e Grafana provisionado como código para visualizar
-> tráfego, erros e percentis de latência. Também construí cenários controlados
-> no frontend para provar o comportamento saudável, a cauda de latência e os
-> erros por caminho. Métricas mostram impacto e localização aproximada; logs e
-> traces serão usados para chegar à causa exata.
+> tráfego, erros, percentis de latência e saturação. Também usei JSON Console,
+> Alloy e Loki para centralizar logs e Alertmanager para notificar violações de
+> SLO. Métricas mostram impacto e localização aproximada; tracing/OpenTelemetry
+> será o próximo passo para acompanhar a causa por span.

@@ -7,11 +7,16 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - labs/payments-latency.yaml
+  - loki/loki.yaml
+  - alloy/alloy.yaml
+  - alertmanager/alertmanager.yaml
+  - alertmanager/receiver.yaml
   - grafana/configmap.yaml
   - grafana/dashboard.yaml
   - grafana/deployment.yaml
   - grafana/service.yaml
   - prometheus/rbac.yaml
+  - prometheus/kube-state-metrics.yaml
   - prometheus/configmap.yaml
   - prometheus/deployment.yaml
   - prometheus/service.yaml

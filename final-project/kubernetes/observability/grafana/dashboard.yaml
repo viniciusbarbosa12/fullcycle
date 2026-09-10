@@ -11,7 +11,7 @@ data:
   meshcommerce-overview.json: |
     {
       "annotations": { "list": [] },
-      "description": "Golden Signals produced by the MeshCommerce observability lab.",
+      "description": "Golden Signals and resource saturation produced by the MeshCommerce observability lab.",
       "editable": false,
       "graphTooltip": 1,
       "links": [
@@ -28,6 +28,20 @@ data:
           "title": "Prometheus alerts",
           "type": "link",
           "url": "http://localhost:19090/alerts"
+        },
+        {
+          "icon": "external link",
+          "targetBlank": true,
+          "title": "Alertmanager",
+          "type": "link",
+          "url": "http://localhost:19093"
+        },
+        {
+          "icon": "external link",
+          "targetBlank": true,
+          "title": "Loki ready",
+          "type": "link",
+          "url": "http://localhost:13100/ready"
         }
       ],
       "panels": [
@@ -35,7 +49,7 @@ data:
           "gridPos": { "h": 3, "w": 24, "x": 0, "y": 0 },
           "id": 1,
           "options": {
-            "content": "# MeshCommerce Golden Signals\nOpen the Observability Lab, generate a baseline, then compare latency and HTTP 5xx scenarios. Browser percentiles cover the complete path; this dashboard uses Istio telemetry.",
+            "content": "# MeshCommerce Golden Signals\nGenerate baseline, latency and HTTP 5xx scenarios in the Observability Lab. Traffic, errors and latency come from Istio; saturation compares cAdvisor usage with Kubernetes requests and limits.",
             "mode": "markdown"
           },
           "title": "How to use this dashboard",
@@ -110,8 +124,8 @@ data:
           "gridPos": { "h": 4, "w": 6, "x": 18, "y": 3 },
           "id": 5,
           "options": { "colorMode": "value", "graphMode": "none", "textMode": "auto" },
-          "targets": [{ "expr": "sum(ALERTS{alertname=\"MeshCommerceHttp5xxDetected\",alertstate=\"firing\"}) or vector(0)", "refId": "A" }],
-          "title": "Active 5xx alerts",
+          "targets": [{ "expr": "sum(ALERTS{signal=\"errors\",alertstate=\"firing\"}) or vector(0)", "refId": "A" }],
+          "title": "Active SLO alerts",
           "type": "stat"
         },
         {
@@ -168,6 +182,85 @@ data:
           "targets": [{ "expr": "sum by (source_workload, destination_service_name) (meshcommerce:http_requests:rate1m{response_code=~\"5..\"})", "legendFormat": "{{source_workload}} → {{destination_service_name}}", "refId": "A" }],
           "title": "HTTP 5xx rate by traffic path",
           "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "line", "fillOpacity": 12, "lineWidth": 2 }, "unit": "percent" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 23 },
+          "id": 9,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [
+            { "expr": "meshcommerce:container_cpu_request_utilization_percent", "legendFormat": "{{pod}}/{{container}} vs request", "refId": "A" },
+            { "expr": "meshcommerce:container_cpu_limit_utilization_percent", "legendFormat": "{{pod}}/{{container}} vs limit", "refId": "B" }
+          ],
+          "title": "CPU usage vs requests and limits",
+          "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "line", "fillOpacity": 20, "lineWidth": 2 }, "max": 100, "min": 0, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "orange", "value": 10 }, { "color": "red", "value": 25 }] }, "unit": "percent" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 23 },
+          "id": 10,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [{ "expr": "meshcommerce:container_cpu_throttling_percent:rate5m", "legendFormat": "{{pod}}/{{container}}", "refId": "A" }],
+          "title": "CPU throttling",
+          "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "line", "fillOpacity": 16, "lineWidth": 2 }, "max": 110, "min": 0, "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "orange", "value": 70 }, { "color": "red", "value": 85 }] }, "unit": "percent" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 31 },
+          "id": 11,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [
+            { "expr": "meshcommerce:container_memory_request_utilization_percent", "legendFormat": "{{pod}}/{{container}} vs request", "refId": "A" },
+            { "expr": "meshcommerce:container_memory_limit_utilization_percent", "legendFormat": "{{pod}}/{{container}} vs limit", "refId": "B" }
+          ],
+          "title": "Memory working set vs requests and limits",
+          "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "line", "fillOpacity": 10, "lineWidth": 2 }, "unit": "bytes" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 31 },
+          "id": 12,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [
+            { "expr": "meshcommerce:container_memory_working_set_bytes", "legendFormat": "{{pod}}/{{container}} working set", "refId": "A" },
+            { "expr": "meshcommerce:container_memory_limit_bytes", "legendFormat": "{{pod}}/{{container}} limit", "refId": "B" }
+          ],
+          "title": "Memory working set and OOM boundary",
+          "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "loki", "uid": "loki" },
+          "gridPos": { "h": 10, "w": 24, "x": 0, "y": 39 },
+          "id": 13,
+          "options": {
+            "deduplication": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": false,
+            "showCommonLabels": false,
+            "showLabels": true,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLines": false
+          },
+          "targets": [{ "expr": "{namespace=\"meshcommerce\"} | json", "queryType": "range", "refId": "A" }],
+          "title": "MeshCommerce logs in the selected time range",
+          "type": "logs"
         }
       ],
       "refresh": "5s",

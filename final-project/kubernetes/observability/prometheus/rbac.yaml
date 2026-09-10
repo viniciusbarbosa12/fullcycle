@@ -41,3 +41,38 @@ subjects:
   - kind: ServiceAccount
     name: prometheus
     namespace: observability
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: meshcommerce-kubelet-metrics
+  labels:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: meshcommerce
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - nodes
+      - nodes/metrics
+      - nodes/proxy
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: meshcommerce-kubelet-metrics
+  labels:
+    app.kubernetes.io/name: prometheus
+    app.kubernetes.io/part-of: meshcommerce
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: meshcommerce-kubelet-metrics
+subjects:
+  - kind: ServiceAccount
+    name: prometheus
+    namespace: observability

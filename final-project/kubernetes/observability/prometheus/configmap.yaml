@@ -16,7 +16,39 @@ data:
     rule_files:
       - /etc/prometheus/rules.yml
 
+    alerting:
+      alertmanagers:
+        - static_configs:
+            - targets:
+                - alertmanager.observability.svc.cluster.local:9093
+
     scrape_configs:
+      - job_name: kube-state-metrics
+        static_configs:
+          - targets:
+              - kube-state-metrics.observability.svc.cluster.local:8080
+
+      # Accessing cAdvisor through the API server keeps kubelet credentials and
+      # ports private. RBAC grants this service account read-only node proxying.
+      - job_name: kubernetes-cadvisor
+        scheme: https
+        authorization:
+          credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+        tls_config:
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        kubernetes_sd_configs:
+          - role: node
+        relabel_configs:
+          - action: replace
+            target_label: __address__
+            replacement: kubernetes.default.svc.cluster.local:443
+          - action: replace
+            source_labels:
+              - __meta_kubernetes_node_name
+            target_label: __metrics_path__
+            regex: (.+)
+            replacement: /api/v1/nodes/$1/proxy/metrics/cadvisor
+
       - job_name: meshcommerce-istio-proxies
         kubernetes_sd_configs:
           - role: pod
@@ -90,22 +122,165 @@ data:
                 )
               )
 
-          # This alert intentionally uses source-side telemetry. An Envoy fault
-          # can fail before a destination workload receives the request.
-          - alert: MeshCommerceHttp5xxDetected
+      - name: meshcommerce-saturation
+        rules:
+          - record: meshcommerce:container_cpu_usage_cores:rate5m
             expr: |
-              sum by (source_workload, destination_service_name) (
+              sum by (namespace, pod, container) (
+                rate(container_cpu_usage_seconds_total{namespace="meshcommerce",container!="",container!="POD",image!=""}[5m])
+              )
+
+          - record: meshcommerce:container_cpu_request_cores
+            expr: |
+              max by (namespace, pod, container) (
+                kube_pod_container_resource_requests{namespace="meshcommerce",resource="cpu",unit="core"}
+              )
+
+          - record: meshcommerce:container_cpu_limit_cores
+            expr: |
+              max by (namespace, pod, container) (
+                kube_pod_container_resource_limits{namespace="meshcommerce",resource="cpu",unit="core"}
+              )
+
+          - record: meshcommerce:container_cpu_request_utilization_percent
+            expr: |
+              100 * meshcommerce:container_cpu_usage_cores:rate5m
+              / clamp_min(meshcommerce:container_cpu_request_cores, 0.001)
+
+          - record: meshcommerce:container_cpu_limit_utilization_percent
+            expr: |
+              100 * meshcommerce:container_cpu_usage_cores:rate5m
+              / clamp_min(meshcommerce:container_cpu_limit_cores, 0.001)
+
+          - record: meshcommerce:container_cpu_throttling_percent:rate5m
+            expr: |
+              100 * sum by (namespace, pod, container) (
+                rate(container_cpu_cfs_throttled_periods_total{namespace="meshcommerce",container!="",container!="POD",image!=""}[5m])
+              )
+              / clamp_min(
+                sum by (namespace, pod, container) (
+                  rate(container_cpu_cfs_periods_total{namespace="meshcommerce",container!="",container!="POD",image!=""}[5m])
+                ),
+                0.001
+              )
+
+          - record: meshcommerce:container_memory_working_set_bytes
+            expr: |
+              max by (namespace, pod, container) (
+                container_memory_working_set_bytes{namespace="meshcommerce",container!="",container!="POD",image!=""}
+              )
+
+          - record: meshcommerce:container_memory_request_bytes
+            expr: |
+              max by (namespace, pod, container) (
+                kube_pod_container_resource_requests{namespace="meshcommerce",resource="memory",unit="byte"}
+              )
+
+          - record: meshcommerce:container_memory_limit_bytes
+            expr: |
+              max by (namespace, pod, container) (
+                kube_pod_container_resource_limits{namespace="meshcommerce",resource="memory",unit="byte"}
+              )
+
+          - record: meshcommerce:container_memory_request_utilization_percent
+            expr: |
+              100 * meshcommerce:container_memory_working_set_bytes
+              / clamp_min(meshcommerce:container_memory_request_bytes, 1)
+
+          - record: meshcommerce:container_memory_limit_utilization_percent
+            expr: |
+              100 * meshcommerce:container_memory_working_set_bytes
+              / clamp_min(meshcommerce:container_memory_limit_bytes, 1)
+
+          - alert: MeshCommerceCpuThrottlingHigh
+            expr: meshcommerce:container_cpu_throttling_percent:rate5m > 25
+            for: 5m
+            labels:
+              severity: warning
+              signal: saturation
+            annotations:
+              summary: CPU throttling is high for {{ $labels.pod }}/{{ $labels.container }}
+              description: More than 25% of scheduled CPU periods were throttled for five minutes.
+
+          - alert: MeshCommerceMemoryNearLimit
+            expr: meshcommerce:container_memory_limit_utilization_percent > 85
+            for: 5m
+            labels:
+              severity: warning
+              signal: saturation
+            annotations:
+              summary: Memory is approaching the limit for {{ $labels.pod }}/{{ $labels.container }}
+              description: Working set remained above 85% of the memory limit for five minutes; OOMKill risk is elevated.
+
+      - name: meshcommerce-alerts
+        rules:
+          # The demonstration SLO is 99% successful requests. The error ratio
+          # is calculated over a window so one isolated 5xx does not page us.
+          - record: meshcommerce:http_requests:rate5m
+            expr: |
+              sum by (source_workload, destination_service_name, response_code) (
                 rate(
                   istio_requests_total{
                     reporter="source",
-                    source_workload_namespace="meshcommerce",
-                    response_code=~"5.."
-                  }[1m]
+                    source_workload_namespace="meshcommerce"
+                  }[5m]
                 )
-              ) > 0
-            for: 10s
+              )
+
+          - record: meshcommerce:http_error_ratio:rate5m
+            expr: |
+              sum by (source_workload, destination_service_name) (
+                meshcommerce:http_requests:rate5m{response_code=~"5.."}
+              )
+              /
+              clamp_min(
+                sum by (source_workload, destination_service_name) (
+                  meshcommerce:http_requests:rate5m
+                ),
+                0.001
+              )
+
+          - alert: MeshCommerceHighErrorBudgetBurn
+            expr: |
+              (
+                meshcommerce:http_error_ratio:rate5m > 0.05
+              )
+              and on (source_workload, destination_service_name)
+              (
+                sum by (source_workload, destination_service_name) (
+                  meshcommerce:http_requests:rate5m
+                ) > 0.1
+              )
+            for: 30s
+            labels:
+              severity: critical
+              signal: errors
+              slo: "99%"
+            annotations:
+              summary: MeshCommerce is burning the HTTP error budget quickly
+              description: The five-minute error ratio for {{ $labels.source_workload }} to {{ $labels.destination_service_name }} exceeded 5% with enough traffic to be meaningful.
+              runbook_url: http://localhost:14300/d/meshcommerce-golden-signals
+
+          - alert: MeshCommerceSustainedErrorBudgetBurn
+            expr: |
+              (
+                sum by (source_workload, destination_service_name) (
+                  rate(istio_requests_total{reporter="source",source_workload_namespace="meshcommerce",response_code=~"5.."}[15m])
+                )
+                /
+                clamp_min(
+                  sum by (source_workload, destination_service_name) (
+                    rate(istio_requests_total{reporter="source",source_workload_namespace="meshcommerce"}[15m])
+                  ),
+                  0.001
+                )
+              ) > 0.01
+            for: 2m
             labels:
               severity: warning
+              signal: errors
+              slo: "99%"
             annotations:
-              summary: MeshCommerce is returning HTTP 5xx responses
-              description: Investigate the source workload, destination service, recent changes, and Istio response flags.
+              summary: MeshCommerce has a sustained SLO error-budget burn
+              description: The fifteen-minute HTTP error ratio stayed above the 1% budget for two minutes.
+              runbook_url: http://localhost:14300/d/meshcommerce-golden-signals

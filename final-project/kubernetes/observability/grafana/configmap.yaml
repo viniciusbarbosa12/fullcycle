@@ -20,6 +20,14 @@ data:
         editable: false
         jsonData:
           timeInterval: 5s
+      - name: Loki
+        uid: loki
+        type: loki
+        access: proxy
+        url: http://loki.observability.svc.cluster.local:3100
+        editable: false
+        jsonData:
+          maxLines: 1000
 
   dashboard-provider.yaml: |
     apiVersion: 1

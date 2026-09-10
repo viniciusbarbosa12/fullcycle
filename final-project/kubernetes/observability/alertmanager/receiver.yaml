@@ -1,0 +1,129 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alert-receiver-script
+  namespace: observability
+  labels:
+    app.kubernetes.io/name: alert-receiver
+    app.kubernetes.io/part-of: meshcommerce
+data:
+  server.py: |
+    import json
+    from http.server import BaseHTTPRequestHandler, HTTPServer
+
+    class Handler(BaseHTTPRequestHandler):
+        def do_GET(self):
+            if self.path == "/healthz":
+                self.send_response(200)
+                self.end_headers()
+                self.wfile.write(b"ok\n")
+                return
+            self.send_response(404)
+            self.end_headers()
+
+        def do_POST(self):
+            if self.path != "/alerts":
+                self.send_response(404)
+                self.end_headers()
+                return
+
+            length = int(self.headers.get("Content-Length", "0"))
+            body = self.rfile.read(length)
+            try:
+                payload = json.loads(body)
+                alerts = [
+                    {
+                        "status": alert.get("status"),
+                        "labels": alert.get("labels", {}),
+                        "annotations": alert.get("annotations", {}),
+                    }
+                    for alert in payload.get("alerts", [])
+                ]
+                print(json.dumps({"receiver": payload.get("receiver"), "alerts": alerts}), flush=True)
+            except (ValueError, TypeError) as error:
+                print(json.dumps({"receiver_error": str(error)}), flush=True)
+
+            self.send_response(202)
+            self.end_headers()
+
+        def log_message(self, format, *args):
+            return
+
+    HTTPServer(("0.0.0.0", 8080), Handler).serve_forever()
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alert-receiver
+  namespace: observability
+  labels:
+    app.kubernetes.io/name: alert-receiver
+    app.kubernetes.io/component: alerting
+    app.kubernetes.io/part-of: meshcommerce
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: alert-receiver
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: alert-receiver
+        app.kubernetes.io/component: alerting
+        app.kubernetes.io/part-of: meshcommerce
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65532
+      containers:
+        - name: receiver
+          image: python:3.13-alpine
+          imagePullPolicy: IfNotPresent
+          command: ["python", "/app/server.py"]
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 96Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+          volumeMounts:
+            - name: script
+              mountPath: /app/server.py
+              subPath: server.py
+              readOnly: true
+      volumes:
+        - name: script
+          configMap:
+            name: alert-receiver-script
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alert-receiver
+  namespace: observability
+  labels:
+    app.kubernetes.io/name: alert-receiver
+    app.kubernetes.io/part-of: meshcommerce
+spec:
+  selector:
+    app.kubernetes.io/name: alert-receiver
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
