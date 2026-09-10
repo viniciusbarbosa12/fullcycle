@@ -1,0 +1,55 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+# This installed lab is intentionally inert for regular traffic. Only requests
+# carrying one of the dedicated demo headers are eligible for an injected fault.
+metadata:
+  name: payments-api-latency-lab
+  namespace: meshcommerce
+  labels:
+    app.kubernetes.io/name: payments-api
+    app.kubernetes.io/component: observability-lab
+    app.kubernetes.io/part-of: meshcommerce
+spec:
+  hosts:
+    - payments-api.meshcommerce.svc.cluster.local
+  http:
+    # The error scenario is also opt-in. It produces a deterministic HTTP 500
+    # burst without changing application code or routing regular users.
+    - name: inject-http-errors
+      match:
+        - headers:
+            x-meshcommerce-error-lab:
+              exact: "true"
+      fault:
+        abort:
+          percentage:
+            value: 100
+          httpStatus: 500
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            port:
+              number: 8080
+    - name: inject-slow-tail
+      match:
+        - headers:
+            x-meshcommerce-latency-lab:
+              exact: "true"
+      fault:
+        delay:
+          percentage:
+            value: 20
+          fixedDelay: 1s
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            port:
+              number: 8080
+    # This fallback is intentional: requests without the lab header must keep
+    # the application's normal behavior and latency.
+    - name: regular-traffic
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            port:
+              number: 8080

@@ -1,6 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
 import {
   Activity,
+  ChartNoAxesCombined,
   CircleAlert,
   CircleDollarSign,
   Clock3,
@@ -19,15 +20,17 @@ import {
   type OrderStatus,
 } from "./api/orders";
 import { GatewayLab } from "./GatewayLab";
+import { ObservabilityLab } from "./ObservabilityLab";
 import { OperationLab } from "./OperationLab";
 import "./commerce.css";
 
-type AppView = "orders" | "operation" | "gateway";
+type AppView = "orders" | "operation" | "gateway" | "observability";
 
 const pageTitles: Record<AppView, string> = {
   orders: "MeshCommerce | Orders",
   operation: "MeshCommerce | Circuit breaker",
   gateway: "MeshCommerce | Rate limiting",
+  observability: "MeshCommerce | Observability",
 };
 
 const paymentStatusPresentation: Record<
@@ -182,6 +185,14 @@ function App() {
             <Gauge size={18} />
             Gateway
           </button>
+          <button
+            className={`nav-item ${activeView === "observability" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("observability")}
+          >
+            <ChartNoAxesCombined size={18} />
+            Observability
+          </button>
         </nav>
 
         <div className="environment">
@@ -193,6 +204,7 @@ function App() {
       <main className={`app-main app-main-${activeView}`}>
         <OperationLab />
         <GatewayLab />
+        <ObservabilityLab />
         <header className="topbar">
           <div>
             <span className="eyebrow">Commerce operations</span>

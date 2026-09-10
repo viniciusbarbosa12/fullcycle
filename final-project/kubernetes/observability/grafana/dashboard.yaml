@@ -1,0 +1,182 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-meshcommerce-dashboard
+  namespace: observability
+  labels:
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/component: dashboard
+    app.kubernetes.io/part-of: meshcommerce
+data:
+  meshcommerce-overview.json: |
+    {
+      "annotations": { "list": [] },
+      "description": "Golden Signals produced by the MeshCommerce observability lab.",
+      "editable": false,
+      "graphTooltip": 1,
+      "links": [
+        {
+          "icon": "external link",
+          "targetBlank": true,
+          "title": "Prometheus targets",
+          "type": "link",
+          "url": "http://localhost:19090/targets"
+        },
+        {
+          "icon": "external link",
+          "targetBlank": true,
+          "title": "Prometheus alerts",
+          "type": "link",
+          "url": "http://localhost:19090/alerts"
+        }
+      ],
+      "panels": [
+        {
+          "gridPos": { "h": 3, "w": 24, "x": 0, "y": 0 },
+          "id": 1,
+          "options": {
+            "content": "# MeshCommerce Golden Signals\nOpen the Observability Lab, generate a baseline, then compare latency and HTTP 5xx scenarios. Browser percentiles cover the complete path; this dashboard uses Istio telemetry.",
+            "mode": "markdown"
+          },
+          "title": "How to use this dashboard",
+          "type": "text"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "color": { "mode": "thresholds" },
+              "decimals": 2,
+              "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }] },
+              "unit": "reqps"
+            },
+            "overrides": []
+          },
+          "gridPos": { "h": 4, "w": 6, "x": 0, "y": 3 },
+          "id": 2,
+          "options": { "colorMode": "value", "graphMode": "area", "textMode": "auto" },
+          "targets": [{ "expr": "sum(meshcommerce:http_requests:rate1m)", "refId": "A" }],
+          "title": "Request rate",
+          "type": "stat"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "color": { "mode": "thresholds" },
+              "decimals": 2,
+              "max": 100,
+              "min": 0,
+              "thresholds": { "mode": "absolute", "steps": [{ "color": "red", "value": null }, { "color": "green", "value": 99 }] },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": { "h": 4, "w": 6, "x": 6, "y": 3 },
+          "id": 3,
+          "options": { "colorMode": "value", "graphMode": "area", "textMode": "auto" },
+          "targets": [{ "expr": "100 * (1 - sum(meshcommerce:http_requests:rate1m{response_code=~\"5..\"}) / clamp_min(sum(meshcommerce:http_requests:rate1m), 0.001))", "refId": "A" }],
+          "title": "Success rate",
+          "type": "stat"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "color": { "mode": "thresholds" },
+              "decimals": 1,
+              "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "orange", "value": 500 }, { "color": "red", "value": 1000 }] },
+              "unit": "ms"
+            },
+            "overrides": []
+          },
+          "gridPos": { "h": 4, "w": 6, "x": 12, "y": 3 },
+          "id": 4,
+          "options": { "colorMode": "value", "graphMode": "area", "textMode": "auto" },
+          "targets": [{ "expr": "max(meshcommerce:http_request_duration_milliseconds:p95_1m)", "refId": "A" }],
+          "title": "Worst service p95",
+          "type": "stat"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "color": { "mode": "thresholds" },
+              "decimals": 0,
+              "thresholds": { "mode": "absolute", "steps": [{ "color": "green", "value": null }, { "color": "red", "value": 1 }] }
+            },
+            "overrides": []
+          },
+          "gridPos": { "h": 4, "w": 6, "x": 18, "y": 3 },
+          "id": 5,
+          "options": { "colorMode": "value", "graphMode": "none", "textMode": "auto" },
+          "targets": [{ "expr": "sum(ALERTS{alertname=\"MeshCommerceHttp5xxDetected\",alertstate=\"firing\"}) or vector(0)", "refId": "A" }],
+          "title": "Active 5xx alerts",
+          "type": "stat"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "line", "fillOpacity": 16, "lineWidth": 2 }, "unit": "reqps" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 7 },
+          "id": 6,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [{ "expr": "sum by (response_code) (meshcommerce:http_requests:rate1m)", "legendFormat": "HTTP {{response_code}}", "refId": "A" }],
+          "title": "Request rate by HTTP status",
+          "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "line", "fillOpacity": 10, "lineWidth": 2 }, "unit": "ms" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 7 },
+          "id": 7,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [
+            {
+              "expr": "histogram_quantile(0.50, sum by (le) (rate(istio_request_duration_milliseconds_bucket{reporter=\"source\",source_workload_namespace=\"meshcommerce\"}[1m])))",
+              "legendFormat": "p50",
+              "refId": "A"
+            },
+            {
+              "expr": "histogram_quantile(0.95, sum by (le) (rate(istio_request_duration_milliseconds_bucket{reporter=\"source\",source_workload_namespace=\"meshcommerce\"}[1m])))",
+              "legendFormat": "p95",
+              "refId": "B"
+            },
+            {
+              "expr": "histogram_quantile(0.99, sum by (le) (rate(istio_request_duration_milliseconds_bucket{reporter=\"source\",source_workload_namespace=\"meshcommerce\"}[1m])))",
+              "legendFormat": "p99",
+              "refId": "C"
+            }
+          ],
+          "title": "Latency percentiles",
+          "type": "timeseries"
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": { "color": { "mode": "palette-classic" }, "custom": { "drawStyle": "bars", "fillOpacity": 28, "lineWidth": 1 }, "unit": "reqps" },
+            "overrides": []
+          },
+          "gridPos": { "h": 8, "w": 24, "x": 0, "y": 15 },
+          "id": 8,
+          "options": { "legend": { "displayMode": "table", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+          "targets": [{ "expr": "sum by (source_workload, destination_service_name) (meshcommerce:http_requests:rate1m{response_code=~\"5..\"})", "legendFormat": "{{source_workload}} → {{destination_service_name}}", "refId": "A" }],
+          "title": "HTTP 5xx rate by traffic path",
+          "type": "timeseries"
+        }
+      ],
+      "refresh": "5s",
+      "schemaVersion": 42,
+      "tags": ["meshcommerce", "observability", "golden-signals"],
+      "templating": { "list": [] },
+      "time": { "from": "now-15m", "to": "now" },
+      "timezone": "browser",
+      "title": "MeshCommerce Golden Signals",
+      "uid": "meshcommerce-golden-signals",
+      "version": 1
+    }

@@ -5,6 +5,9 @@ turns the individual course topics into one evolving business and production
 story that can be demonstrated without switching between unrelated sample
 applications.
 
+The observability dashboard walkthrough and speaker notes are available in
+[`OBSERVABILITY-PRESENTATION.md`](OBSERVABILITY-PRESENTATION.md).
+
 ## Why one shared project?
 
 The focused labs remain useful for learning one concept in isolation. The
