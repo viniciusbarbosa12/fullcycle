@@ -20,6 +20,7 @@ export async function probePayments(
   try {
     const response = await fetch("/mesh-lab/payments", {
       cache: "no-store",
+      headers: { "X-MeshCommerce-Circuit-Lab": "true" },
       signal,
     });
     const body = (await response

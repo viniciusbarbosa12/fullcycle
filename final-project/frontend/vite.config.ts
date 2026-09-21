@@ -12,7 +12,10 @@ export default defineConfig({
       },
       "/mesh-lab/payments": {
         target: "http://localhost:5102",
-        rewrite: () => "/",
+        rewrite: () => "/lab/probe",
+      },
+      "/gateway": {
+        target: process.env.VITE_GATEWAY_PROXY_URL ?? "http://localhost:14173",
       },
     },
   },

@@ -8,6 +8,9 @@ A visão integrada, o escopo já estudado e o roteiro de demonstração estão e
 [`SHOWCASE.md`](SHOWCASE.md). Este documento mantém os detalhes de implementação
 e execução local da aplicação que deu origem ao superprojeto.
 
+Para entender cada tela sem conhecer a infraestrutura, consulte o
+[`FRONTEND-SCREENS-GUIDE.md`](FRONTEND-SCREENS-GUIDE.md).
+
 ## Arquitetura
 
 ```mermaid
@@ -44,7 +47,7 @@ válida. Por isso, a idempotência continuará sendo responsabilidade de
 
 ## Estado atual
 
-- Solução .NET 10 com `Orders.Api`, `Payments.Api` e `Payments.Migrations`.
+- Solução .NET 10 com `Auth.Api`, `Orders.Api`, `Payments.Api` e `Payments.Migrations`.
 - Endpoints operacionais `/` e `/health` nos dois serviços.
 - Identidade de versão e réplica por `SERVICE_VERSION` e `HOSTNAME`.
 - Painel React 19 responsivo consumindo `Orders.Api`, com busca e estados de pagamento.
@@ -53,7 +56,8 @@ válida. Por isso, a idempotência continuará sendo responsabilidade de
 - Ambiente Docker Compose com frontend, APIs e PostgreSQL 17.
 - Persistência com EF Core e migrations code-first em projeto separado.
 - Pagamentos no PostgreSQL com chave de idempotência única.
-- Stack Kubernetes com Kong, rate limit por rota e circuit breaker do Istio.
+- Kong com rate limit, JWT/ACL e Correlation ID; Istio com canary, resiliência,
+  circuit breaker e Gateway comparativo.
 - Argo CD reconciliando os workloads base com self-healing automatizado.
 - Contratos OpenAPI de Orders e Payments validados em Pull Requests.
 - Build, lint e auditoria de dependências validados.

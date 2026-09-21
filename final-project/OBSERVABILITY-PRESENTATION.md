@@ -381,7 +381,7 @@ Alertmanager
 - logs JSON nas APIs Orders e Payments;
 - Alertmanager com SLO de 99%, janelas e receptor HTTP local;
 - Grafana, Prometheus, Loki e Alertmanager provisionados como código;
-- dashboard versionado com tráfego, erros, latência, saturação e logs;
+- dashboard versionado com tráfego, erros, latência, saturação, logs e alertas;
 - links para targets, alertas e Alertmanager;
 - configuração declarativa no Kubernetes.
 
@@ -466,6 +466,7 @@ nome da réplica.
 - `for` impede disparo por uma amostra isolada;
 - Alertmanager agrupa por alerta, sinal e caminho de tráfego;
 - webhook local demonstra `firing` e `resolved` sem depender de Slack ou PagerDuty;
+- datasource Alertmanager e painel nativo exibem as notificações na mesma tela do Loki;
 - annotations carregam resumo, descrição e runbook do dashboard.
 
 ### Por que corrigir
@@ -522,16 +523,16 @@ Executar **Healthy baseline** no frontend e explicar Traffic, Errors e Latency.
 Em seguida, apontar para os painéis de CPU e memória e explicar que saturação é
 uso relativo a request/limit, não somente um número absoluto.
 
-### 2. Mostrar logs no mesmo intervalo
+### 2. Mostrar logs e alertas na mesma tela
 
-Após uma chamada de Orders ou Payments, abrir o painel **MeshCommerce logs in the
-selected time range**. Mostrar uma linha JSON e destacar `Service`, `StatusCode`,
-`DurationMs` e `RequestId`.
+Após uma chamada de Orders ou Payments, abrir os painéis **Alertmanager
+notifications** e **MeshCommerce logs in the selected time range**. Mostrar uma
+linha JSON e destacar `Service`, `StatusCode`, `DurationMs` e `RequestId`.
 
 Falar:
 
-> A métrica encontrou o intervalo; o Loki permite investigar os eventos das
-> aplicações naquele mesmo intervalo sem procurar manualmente cada Pod.
+> A métrica encontrou o intervalo; o Loki mostra os eventos da aplicação e o
+> Alertmanager mostra a notificação operacional, tudo na mesma tela do Grafana.
 
 ### 3. Produzir e investigar um incidente
 

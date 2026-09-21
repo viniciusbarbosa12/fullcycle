@@ -17,6 +17,9 @@ Browser
             -> rate-limiting KongPlugin
             -> Orders API Service
             -> Orders API pod + Envoy
+       -> /gateway/secure/orders
+            -> JWT + ACL KongPlugins
+            -> Orders API only for operators
   -> Payments API Service
        -> healthy Payments pod + Envoy
        -> intentionally faulty Payments pod + Envoy
@@ -34,7 +37,9 @@ never consume Orders API capacity. Kong returns `RateLimit-Limit`,
 `RateLimit-Remaining`, and `RateLimit-Reset` headers so the UI can explain each
 decision.
 
-The `payments-api` Service selects both Payments implementations. Istio's
+The `payments-api` Service selects Payments v1, v2, and the opt-in faulty lab.
+Istio routes regular traffic with an 80/20 canary split; the preview header
+forces v2, while the circuit-breaker header includes the faulty subset. Istio's
 `DestinationRule` observes consecutive HTTP 5xx responses and temporarily
 ejects the unhealthy endpoint. PostgreSQL and the one-time migration Job do
 not receive sidecars; HTTP application workloads receive Envoy sidecars
@@ -68,9 +73,10 @@ The script:
 4. Builds and loads the local application images.
 5. Applies PostgreSQL and runs the migration Job.
 6. Deploys the application with injected Envoy sidecars.
-7. Creates the Kong edge routes and route-specific rate limit.
-8. Adds the faulty Payments endpoint and Istio circuit-breaker policy.
-9. Restores the Argo CD Application when Argo CD is installed.
+7. Creates Kong rate-limit, correlation, JWT, and ACL policies.
+8. Adds Payments v2, canary, retries, timeouts, opt-in faults, and circuit breaking.
+9. Adds the parallel Istio Gateway comparison route.
+10. Restores the Argo CD Application when Argo CD is installed.
 
 Override the pinned chart only when intentionally testing another release:
 
@@ -101,6 +107,10 @@ not the frontend Service directly:
   Payments endpoints.
 - **Gateway** sends a configurable burst through the Kong rate-limit policy
   and displays allowed requests, HTTP 429 responses, quota, and reset time.
+- **Security** proves anonymous/expired 401, viewer 403, and operator 200 at Kong.
+- **Releases** compares configured canary weights with observed v1/v2 traffic.
+- **Resilience** demonstrates retries, timeout, delay, and abort policies.
+- **Ingress** compares Kong with the parallel Istio Gateway on port `14174`.
 
 The Docker Compose baseline remains available at `http://localhost:4173`, but
 it does not run Kong. The Gateway screen detects that Kong's headers are absent
@@ -121,6 +131,8 @@ kubectl --context kind-meshcommerce get ingress,kongplugin \
   --namespace meshcommerce
 kubectl --context kind-meshcommerce get destinationrule \
   --namespace meshcommerce
+
+./kubernetes/scripts/smoke-advanced-labs.sh
 ```
 
 To see the gateway decision headers directly, wait for the current minute
@@ -137,7 +149,7 @@ The expected sequence is five HTTP 200 responses followed by HTTP 429. The
 expected platform state is:
 
 - the Kong controller and gateway are `1/1`;
-- frontend, Orders, healthy Payments, and faulty Payments pods are `2/2`;
+- frontend, Auth, Orders, Payments v1/v2, and faulty Payments pods are `2/2`;
 - PostgreSQL is `1/1` and its PVC is `Bound`;
 - the migration Job is `Complete`;
 - `orders-rate-limit` and `payments-api-circuit-breaker` exist.
@@ -157,8 +169,10 @@ Kong replicas would maintain separate quotas. A production deployment that
 needs a consistent limit across replicas should use shared counters such as
 Redis and must configure trusted proxy headers carefully when limiting by IP.
 
-## Next gateway checkpoint
+## Security boundary
 
-The next policy should solve a new visible problem, such as identifying and
-authenticating clients before applying consumer-specific authorization or
-quotas.
+The local issuer is educational rather than a production identity provider.
+JWT secrets are generated during deployment, kept only in Kubernetes Secrets,
+and mapped to Kong Consumers. Kong OSS validates token signature/expiration;
+ACL credentials authorize only the `orders-operator` consumer. Production OIDC
+would require an external identity provider and an OIDC-capable gateway plugin.

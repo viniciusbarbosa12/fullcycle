@@ -1,8 +1,9 @@
 using System.Net.Http.Json;
+using MeshCommerce.Http;
 
 namespace Orders.Api.Integrations.Payments;
 
-public sealed class PaymentsClient(HttpClient httpClient)
+public sealed class PaymentsClient(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
 {
     public async Task<PaymentResponse> CreatePaymentAsync(
         Guid orderId,
@@ -18,6 +19,14 @@ public sealed class PaymentsClient(HttpClient httpClient)
         };
 
         message.Headers.Add("Idempotency-Key", orderId.ToString());
+        var correlationId = httpContextAccessor.HttpContext?.TraceIdentifier;
+        if (!string.IsNullOrWhiteSpace(correlationId))
+        {
+            message.Headers.TryAddWithoutValidation(
+                CorrelationIdMiddleware.HeaderName,
+                correlationId
+            );
+        }
 
         using var response = await httpClient.SendAsync(message, cancellationToken);
 

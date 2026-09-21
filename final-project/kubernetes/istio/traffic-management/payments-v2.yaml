@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments-api-v2
+  namespace: meshcommerce
+  labels:
+    app.kubernetes.io/name: payments-api
+    app.kubernetes.io/component: api
+    app.kubernetes.io/version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: payments-api
+      app.kubernetes.io/version: v2
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: payments-api
+        app.kubernetes.io/component: api
+        app.kubernetes.io/version: v2
+    spec:
+      containers:
+        - name: payments-api
+          image: meshcommerce/payments-api:v2
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: SERVICE_VERSION
+              value: v2
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+            - name: ConnectionStrings__PaymentsDatabase
+              value: Host=postgres;Port=5432;Database=$(POSTGRES_DB);Username=$(POSTGRES_USER);Password=$(POSTGRES_PASSWORD);GSS Encryption Mode=Disable;Timeout=5;Command Timeout=5
+          ports:
+            - name: http
+              containerPort: 8080
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 2
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 50m
+              memory: 96Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi

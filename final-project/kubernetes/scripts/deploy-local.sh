@@ -34,6 +34,7 @@ helm_bin="$(resolve_tool helm /opt/homebrew/bin/helm /usr/local/bin/helm)"
 istioctl_bin="$(resolve_tool istioctl /opt/homebrew/bin/istioctl /usr/local/bin/istioctl)"
 kind_bin="$(resolve_tool kind /opt/homebrew/bin/kind /usr/local/bin/kind)"
 kubectl_bin="$(resolve_tool kubectl /usr/local/bin/kubectl /opt/homebrew/bin/kubectl)"
+openssl_bin="$(resolve_tool openssl /usr/bin/openssl /opt/homebrew/bin/openssl /usr/local/bin/openssl)"
 kong_chart_version="${MESHCOMMERCE_KONG_CHART_VERSION:-0.24.0}"
 
 if ! "${kind_bin}" get clusters | grep -Fxq "${cluster_name}"; then
@@ -63,12 +64,17 @@ fi
   --timeout 300s
 
 "${docker_bin}" build \
+  --file "${project_directory}/backend/src/Auth.Api/Dockerfile" \
+  --tag meshcommerce/auth-api:v1 \
+  "${project_directory}/backend"
+"${docker_bin}" build \
   --file "${project_directory}/backend/src/Orders.Api/Dockerfile" \
   --tag meshcommerce/orders-api:v1 \
   "${project_directory}/backend"
 "${docker_bin}" build \
   --file "${project_directory}/backend/src/Payments.Api/Dockerfile" \
   --tag meshcommerce/payments-api:v1 \
+  --tag meshcommerce/payments-api:v2 \
   "${project_directory}/backend"
 "${docker_bin}" build \
   --file "${project_directory}/backend/src/Payments.Migrations/Dockerfile" \
@@ -82,8 +88,10 @@ fi
 
 "${kind_bin}" load docker-image \
   --name "${cluster_name}" \
+  meshcommerce/auth-api:v1 \
   meshcommerce/orders-api:v1 \
   meshcommerce/payments-api:v1 \
+  meshcommerce/payments-api:v2 \
   meshcommerce/payments-migrations:v1 \
   meshcommerce/frontend:v1 \
   meshcommerce/frontend:v5
@@ -92,6 +100,33 @@ kubectl_command=("${kubectl_bin}" --context "${cluster_context}")
 base_directory="${project_directory}/kubernetes/base"
 
 "${kubectl_command[@]}" apply --filename "${base_directory}/namespace.yaml"
+
+ensure_jwt_credential() {
+  local secret_name="$1"
+  local issuer="$2"
+
+  if ! "${kubectl_command[@]}" get secret "${secret_name}" \
+    --namespace "${namespace}" >/dev/null 2>&1; then
+    "${openssl_bin}" rand -hex 32 \
+      | tr -d '\n' \
+      | "${kubectl_command[@]}" create secret generic "${secret_name}" \
+          --namespace "${namespace}" \
+          --from-literal="key=${issuer}" \
+          --from-literal=algorithm=HS256 \
+          --from-file=secret=/dev/stdin \
+          --dry-run=client \
+          --output yaml \
+      | "${kubectl_command[@]}" apply --filename -
+  fi
+
+  "${kubectl_command[@]}" label secret "${secret_name}" \
+    --namespace "${namespace}" \
+    konghq.com/credential=jwt \
+    --overwrite
+}
+
+ensure_jwt_credential gateway-viewer-jwt meshcommerce-viewer-key
+ensure_jwt_credential gateway-operator-jwt meshcommerce-operator-key
 
 "${kubectl_command[@]}" apply \
   --filename "${base_directory}/postgres/configmap.yaml" \
@@ -115,6 +150,7 @@ base_directory="${project_directory}/kubernetes/base"
   --timeout 180s
 
 "${kubectl_command[@]}" apply \
+  --filename "${project_directory}/kubernetes/security/auth-api.yaml" \
   --filename "${base_directory}/payments/service.yaml" \
   --filename "${base_directory}/payments/deployment.yaml" \
   --filename "${base_directory}/orders/service.yaml" \
@@ -122,7 +158,7 @@ base_directory="${project_directory}/kubernetes/base"
   --filename "${base_directory}/frontend/service.yaml" \
   --filename "${base_directory}/frontend/deployment.yaml"
 
-for deployment in payments-api-v1 orders-api-v1 frontend-v1; do
+for deployment in auth-api-v1 payments-api-v1 orders-api-v1 frontend-v1; do
   "${kubectl_command[@]}" rollout restart \
     "deployment/${deployment}" \
     --namespace "${namespace}"
@@ -133,11 +169,19 @@ for deployment in payments-api-v1 orders-api-v1 frontend-v1; do
 done
 
 "${kubectl_command[@]}" apply \
+  --filename "${project_directory}/kubernetes/kong/security.yaml" \
   --filename "${project_directory}/kubernetes/kong/rate-limit.yaml"
 
 "${kubectl_command[@]}" apply \
   --filename "${project_directory}/kubernetes/istio/circuit-breaker/faulty-payments.yaml" \
-  --filename "${project_directory}/kubernetes/istio/circuit-breaker/destination-rule.yaml"
+  --filename "${project_directory}/kubernetes/istio/circuit-breaker/destination-rule.yaml" \
+  --filename "${project_directory}/kubernetes/istio/traffic-management/payments-v2.yaml" \
+  --filename "${project_directory}/kubernetes/istio/traffic-management/payments-routing.yaml" \
+  --filename "${project_directory}/kubernetes/istio/gateway/meshcommerce-gateway.yaml"
+"${kubectl_command[@]}" rollout status \
+  deployment/payments-api-v2 \
+  --namespace "${namespace}" \
+  --timeout 180s
 "${kubectl_command[@]}" rollout status \
   deployment/payments-api-faulty \
   --namespace "${namespace}" \

@@ -8,6 +8,9 @@ applications.
 The observability dashboard walkthrough and speaker notes are available in
 [`OBSERVABILITY-PRESENTATION.md`](OBSERVABILITY-PRESENTATION.md).
 
+For a plain-language explanation of every frontend screen and its demo steps,
+see [`FRONTEND-SCREENS-GUIDE.md`](FRONTEND-SCREENS-GUIDE.md).
+
 ## Why one shared project?
 
 The focused labs remain useful for learning one concept in isolation. The
@@ -82,14 +85,14 @@ Inside the Compose network, containers use service DNS names and internal
 ports. For example, Orders calls `http://payments-api:8080`; it does not use the
 host port `5102`.
 
-## Not active in the showcase yet
+## Deliberate scope boundaries
 
 The following capabilities belong to future lessons and are not part of the
 current validated showcase:
 
-- gateway authentication and consumer-specific authorization;
 - load testing with K6 or Testkube;
-- application observability and OpenTelemetry.
+- production OIDC and an external identity provider;
+- distributed tracing with OpenTelemetry.
 
 ## Validate the API contracts
 
@@ -196,6 +199,9 @@ Kubernetes resources. The Operations view exercises the already-studied Istio
 circuit breaker against healthy and intentionally faulty Payments instances.
 The Gateway view sends a burst through the route-specific Kong rate limit and
 shows allowed requests, remaining quota, reset time, and HTTP 429 responses.
+Security validates JWT/ACL decisions; Release and Resilience visualize Istio
+canary, retries, timeout, and opt-in faults; Ingress compares Kong and Istio
+Gateway using the parallel port-forward on `14174`.
 When Argo CD is installed, the deployment script also restores the existing
 MeshCommerce Application and its self-healing policy.
 
@@ -204,9 +210,8 @@ prerequisites, validation commands, and deliberate scope boundaries.
 
 ## Evolution plan
 
-The next API Gateway change will address a new concrete problem, such as client
-identity and authentication. Later courses will continue evolving this same
-request flow instead of creating another final application.
+The next production-oriented evolution is replacing the educational issuer with
+corporate OIDC and changing Kong's local rate-limit counters to a shared store.
 
 For implementation details, local-development commands, persistence behavior,
 and the original evolution notes, see [README.md](README.md).

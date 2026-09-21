@@ -6,6 +6,10 @@ import {
   CircleDollarSign,
   Clock3,
   Gauge,
+  GitBranch,
+  HeartPulse,
+  Network,
+  ShieldCheck,
   PackageCheck,
   Plus,
   Search,
@@ -20,16 +24,32 @@ import {
   type OrderStatus,
 } from "./api/orders";
 import { GatewayLab } from "./GatewayLab";
+import { IngressLab } from "./IngressLab";
 import { ObservabilityLab } from "./ObservabilityLab";
 import { OperationLab } from "./OperationLab";
+import { ReleaseLab } from "./ReleaseLab";
+import { ResilienceLab } from "./ResilienceLab";
+import { SecurityLab } from "./SecurityLab";
 import "./commerce.css";
 
-type AppView = "orders" | "operation" | "gateway" | "observability";
+type AppView =
+  | "orders"
+  | "operation"
+  | "gateway"
+  | "security"
+  | "release"
+  | "resilience"
+  | "ingress"
+  | "observability";
 
 const pageTitles: Record<AppView, string> = {
   orders: "MeshCommerce | Orders",
   operation: "MeshCommerce | Circuit breaker",
   gateway: "MeshCommerce | Rate limiting",
+  security: "MeshCommerce | Gateway security",
+  release: "MeshCommerce | Release lab",
+  resilience: "MeshCommerce | Resilience lab",
+  ingress: "MeshCommerce | Gateway comparison",
   observability: "MeshCommerce | Observability",
 };
 
@@ -186,6 +206,38 @@ function App() {
             Gateway
           </button>
           <button
+            className={`nav-item ${activeView === "security" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("security")}
+          >
+            <ShieldCheck size={18} />
+            Security
+          </button>
+          <button
+            className={`nav-item ${activeView === "release" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("release")}
+          >
+            <GitBranch size={18} />
+            Releases
+          </button>
+          <button
+            className={`nav-item ${activeView === "resilience" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("resilience")}
+          >
+            <HeartPulse size={18} />
+            Resilience
+          </button>
+          <button
+            className={`nav-item ${activeView === "ingress" ? "nav-item-active" : ""}`}
+            type="button"
+            onClick={() => setActiveView("ingress")}
+          >
+            <Network size={18} />
+            Ingress
+          </button>
+          <button
             className={`nav-item ${activeView === "observability" ? "nav-item-active" : ""}`}
             type="button"
             onClick={() => setActiveView("observability")}
@@ -204,6 +256,10 @@ function App() {
       <main className={`app-main app-main-${activeView}`}>
         <OperationLab />
         <GatewayLab />
+        <SecurityLab />
+        <ReleaseLab />
+        <ResilienceLab />
+        <IngressLab />
         <ObservabilityLab />
         <header className="topbar">
           <div>

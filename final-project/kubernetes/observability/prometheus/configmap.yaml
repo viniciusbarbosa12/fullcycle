@@ -284,3 +284,15 @@ data:
               summary: MeshCommerce has a sustained SLO error-budget burn
               description: The fifteen-minute HTTP error ratio stayed above the 1% budget for two minutes.
               runbook_url: http://localhost:14300/d/meshcommerce-golden-signals
+
+          # This intentionally firing alert keeps the lab's alerting path visible
+          # without representing a production incident.
+          - alert: MeshCommerceObservabilityDemo
+            expr: vector(1)
+            labels:
+              severity: info
+              signal: demo
+            annotations:
+              summary: MeshCommerce observability demo alert is active
+              description: This is a permanent lab-only alert used to demonstrate the Prometheus, Alertmanager, webhook, and Grafana flow.
+              runbook_url: http://localhost:14300/d/meshcommerce-golden-signals

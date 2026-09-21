@@ -52,6 +52,32 @@ paths:
                 type: string
                 example: Healthy
 
+  /lab/probe:
+    get:
+      tags:
+        - Operations
+      summary: Probe traffic policies without creating payment data
+      description: >-
+        Returns version and request metadata for read-only canary and resilience
+        experiments. Dedicated headers may trigger transient or slow responses.
+      operationId: probePaymentsTrafficPolicy
+      parameters:
+        - name: X-MeshCommerce-Resilience
+          in: header
+          required: false
+          schema:
+            type: string
+            enum: [retry, timeout]
+      responses:
+        "200":
+          description: Probe reached a Payments API version
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LabProbe"
+        "503":
+          description: Transient lab failure before an Istio retry
+
   /payments:
     post:
       tags:
@@ -201,6 +227,21 @@ components:
         instance:
           type: string
           example: payments-api-v1-844444f98d-g6c69
+
+    LabProbe:
+      allOf:
+        - $ref: "#/components/schemas/ServiceIdentity"
+        - type: object
+          required:
+            - attempt
+            - correlationId
+          properties:
+            attempt:
+              type: string
+              example: "2"
+            correlationId:
+              type: string
+              maxLength: 128
 
     ProblemDetails:
       type: object

@@ -1,0 +1,175 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: payments-api-routing
+  namespace: meshcommerce
+spec:
+  hosts:
+    - payments-api.meshcommerce.svc.cluster.local
+  http:
+    - name: observability-error
+      match:
+        - headers:
+            x-meshcommerce-error-lab:
+              exact: "true"
+      fault:
+        abort:
+          percentage:
+            value: 100
+          httpStatus: 500
+      route: &regular-canary
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v1
+            port:
+              number: 8080
+          weight: 80
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v2
+            port:
+              number: 8080
+          weight: 20
+    - name: observability-latency
+      match:
+        - headers:
+            x-meshcommerce-latency-lab:
+              exact: "true"
+      fault:
+        delay:
+          percentage:
+            value: 20
+          fixedDelay: 1s
+      route: *regular-canary
+    - name: resilience-abort
+      match:
+        - headers:
+            x-meshcommerce-fault:
+              exact: abort
+      fault:
+        abort:
+          percentage:
+            value: 100
+          httpStatus: 503
+      route: *regular-canary
+    - name: resilience-delay
+      match:
+        - headers:
+            x-meshcommerce-fault:
+              exact: delay
+      fault:
+        delay:
+          percentage:
+            value: 100
+          fixedDelay: 2s
+      route: *regular-canary
+    - name: resilience-retry
+      match:
+        - headers:
+            x-meshcommerce-resilience:
+              exact: retry
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v1
+            port:
+              number: 8080
+      retries: &safe-retries
+        attempts: 3
+        perTryTimeout: 1s
+        retryOn: 5xx,reset,gateway-error,connect-failure,refused-stream
+      timeout: 4s
+    - name: resilience-timeout
+      match:
+        - headers:
+            x-meshcommerce-resilience:
+              exact: timeout
+      route: *regular-canary
+      retries:
+        attempts: 2
+        perTryTimeout: 700ms
+        retryOn: 5xx,reset,gateway-error,connect-failure,refused-stream
+      timeout: 1s
+    - name: circuit-breaker-lab
+      match:
+        - headers:
+            x-meshcommerce-circuit-lab:
+              exact: "true"
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v1
+            port:
+              number: 8080
+          weight: 50
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: faulty
+            port:
+              number: 8080
+          weight: 50
+      retries: *safe-retries
+      timeout: 4s
+    - name: preview-v2
+      match:
+        - headers:
+            x-meshcommerce-preview:
+              exact: v2
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v2
+            port:
+              number: 8080
+      retries: *safe-retries
+      timeout: 4s
+    - name: canary-stage-stable
+      match:
+        - headers:
+            x-meshcommerce-canary-stage:
+              exact: "0"
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v1
+            port:
+              number: 8080
+      retries: *safe-retries
+      timeout: 4s
+    - name: canary-stage-half
+      match:
+        - headers:
+            x-meshcommerce-canary-stage:
+              exact: "50"
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v1
+            port:
+              number: 8080
+          weight: 50
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v2
+            port:
+              number: 8080
+          weight: 50
+      retries: *safe-retries
+      timeout: 4s
+    - name: canary-stage-promoted
+      match:
+        - headers:
+            x-meshcommerce-canary-stage:
+              exact: "100"
+      route:
+        - destination:
+            host: payments-api.meshcommerce.svc.cluster.local
+            subset: v2
+            port:
+              number: 8080
+      retries: *safe-retries
+      timeout: 4s
+    - name: regular-canary
+      route: *regular-canary
+      retries: *safe-retries
+      timeout: 4s

@@ -11,7 +11,7 @@ data:
   meshcommerce-overview.json: |
     {
       "annotations": { "list": [] },
-      "description": "Golden Signals and resource saturation produced by the MeshCommerce observability lab.",
+      "description": "Golden Signals, logs and Alertmanager notifications for the MeshCommerce observability lab.",
       "editable": false,
       "graphTooltip": 1,
       "links": [
@@ -42,14 +42,21 @@ data:
           "title": "Loki ready",
           "type": "link",
           "url": "http://localhost:13100/ready"
+        },
+        {
+          "icon": "external link",
+          "targetBlank": true,
+          "title": "Grafana Explore",
+          "type": "link",
+          "url": "/explore"
         }
       ],
       "panels": [
         {
-          "gridPos": { "h": 3, "w": 24, "x": 0, "y": 0 },
+          "gridPos": { "h": 5, "w": 24, "x": 0, "y": 0 },
           "id": 1,
           "options": {
-            "content": "# MeshCommerce Golden Signals\nGenerate baseline, latency and HTTP 5xx scenarios in the Observability Lab. Traffic, errors and latency come from Istio; saturation compares cAdvisor usage with Kubernetes requests and limits.",
+            "content": "# MeshCommerce Observability Lab\nUse the frontend lab scenarios to generate traffic and investigate the complete operational signal in one dashboard.\n\n1. **Healthy baseline** — establish normal request rate, success rate and latency.\n2. **Latency tail** — add controlled delay and compare p50, p95 and p99.\n3. **HTTP 5xx burst** — generate controlled failures and follow the error-budget alert through Prometheus and Alertmanager.\n4. **Saturation** — compare CPU and memory working set with Kubernetes requests and limits, including throttling and OOM risk.\n5. **Centralized logs** — use the Loki panel below to inspect JSON application logs in the selected time range.\n6. **Alertmanager notifications** — review active and pending operational alerts in this same Grafana interface.\n\nThe metrics come from Istio, cAdvisor and kube-state-metrics; logs come from Alloy and Loki. Refresh the dashboard after each scenario and keep the time range wide enough to include the experiment.",
             "mode": "markdown"
           },
           "title": "How to use this dashboard",
@@ -246,7 +253,7 @@ data:
         },
         {
           "datasource": { "type": "loki", "uid": "loki" },
-          "gridPos": { "h": 10, "w": 24, "x": 0, "y": 39 },
+          "gridPos": { "h": 14, "w": 24, "x": 0, "y": 51 },
           "id": 13,
           "options": {
             "deduplication": "none",
@@ -258,18 +265,68 @@ data:
             "sortOrder": "Descending",
             "wrapLines": false
           },
-          "targets": [{ "expr": "{namespace=\"meshcommerce\"} | json", "queryType": "range", "refId": "A" }],
-          "title": "MeshCommerce logs in the selected time range",
+          "targets": [{ "expr": "{namespace=\"meshcommerce\",application=~\"$application\",container=~\"frontend|orders-api|payments-api|payments-api-faulty\"} != \"kube-probe\"", "queryType": "range", "refId": "A" }],
+          "title": "MeshCommerce application logs — $application",
           "type": "logs"
+        },
+        {
+          "datasource": { "type": "alertmanager", "uid": "alertmanager" },
+          "gridPos": { "h": 12, "w": 24, "x": 0, "y": 39 },
+          "id": 14,
+          "options": {
+            "alertInstanceLabelFilter": "",
+            "alertName": "",
+            "dashboardAlerts": false,
+            "groupBy": ["alertname", "signal", "source_workload", "destination_service_name"],
+            "groupMode": "default",
+            "maxItems": 20,
+            "show": "current",
+            "showInstances": true,
+            "sortOrder": 1,
+            "stateFilter": {
+              "error": true,
+              "firing": true,
+              "noData": false,
+              "normal": false,
+              "pending": true,
+              "recovering": true
+            }
+          },
+          "title": "Alertmanager notifications",
+          "type": "alertlist"
         }
       ],
       "refresh": "5s",
       "schemaVersion": 42,
       "tags": ["meshcommerce", "observability", "golden-signals"],
-      "templating": { "list": [] },
+      "templating": {
+        "list": [
+          {
+            "current": {
+              "selected": true,
+              "text": "All",
+              "value": "$__all"
+            },
+            "datasource": { "type": "loki", "uid": "loki" },
+            "definition": "label_values({namespace=\"meshcommerce\"}, application)",
+            "hide": 0,
+            "includeAll": true,
+            "label": "Application",
+            "multi": false,
+            "name": "application",
+            "options": [],
+            "query": "label_values({namespace=\"meshcommerce\"}, application)",
+            "regex": "/^(frontend|orders-api|payments-api|payments-api-faulty)$/",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "sort": 1,
+            "type": "query"
+          }
+        ]
+      },
       "time": { "from": "now-15m", "to": "now" },
       "timezone": "browser",
       "title": "MeshCommerce Golden Signals",
       "uid": "meshcommerce-golden-signals",
-      "version": 1
+      "version": 2
     }

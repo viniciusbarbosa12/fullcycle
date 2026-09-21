@@ -1074,10 +1074,11 @@ UID `meshcommerce-golden-signals`. Treze painéis:
 10. CPU throttling;
 11. memória working set versus requests/limits;
 12. working set e fronteira de OOM;
-13. logs Loki no intervalo selecionado.
+13. logs Loki no intervalo selecionado;
+14. notificações atuais do Alertmanager agrupadas por caminho.
 
-Cobre Traffic, Errors, Latency e Saturation. Tracing/OpenTelemetry permanece
-deliberadamente fora deste módulo.
+Cobre Traffic, Errors, Latency e Saturation, além de logs e notificações na mesma
+tela. Tracing/OpenTelemetry permanece deliberadamente fora deste módulo.
 
 ## 17. Validações já realizadas
 

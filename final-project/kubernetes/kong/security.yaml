@@ -1,0 +1,124 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: meshcommerce-correlation-id
+  namespace: meshcommerce
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: correlation-id
+config:
+  header_name: X-Correlation-ID
+  generator: uuid
+  echo_downstream: true
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: meshcommerce-jwt
+  namespace: meshcommerce
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: jwt
+config:
+  key_claim_name: iss
+  claims_to_verify:
+    - exp
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: meshcommerce-orders-operator
+  namespace: meshcommerce
+  annotations:
+    kubernetes.io/ingress.class: kong
+plugin: acl
+config:
+  allow:
+    - orders-operator
+  hide_groups_header: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gateway-viewer-acl
+  namespace: meshcommerce
+  labels:
+    konghq.com/credential: acl
+stringData:
+  group: orders-viewer
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gateway-operator-acl
+  namespace: meshcommerce
+  labels:
+    konghq.com/credential: acl
+stringData:
+  group: orders-operator
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: meshcommerce-viewer
+  namespace: meshcommerce
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: meshcommerce-viewer
+credentials:
+  - gateway-viewer-jwt
+  - gateway-viewer-acl
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: meshcommerce-operator
+  namespace: meshcommerce
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: meshcommerce-operator
+credentials:
+  - gateway-operator-jwt
+  - gateway-operator-acl
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-auth
+  namespace: meshcommerce
+  annotations:
+    konghq.com/plugins: meshcommerce-correlation-id
+    konghq.com/strip-path: "true"
+spec:
+  ingressClassName: kong
+  rules:
+    - http:
+        paths:
+          - path: /gateway/auth
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: auth-api
+                port:
+                  number: 8080
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-secure-orders
+  namespace: meshcommerce
+  annotations:
+    konghq.com/plugins: meshcommerce-correlation-id,meshcommerce-jwt,meshcommerce-orders-operator
+    konghq.com/strip-path: "true"
+spec:
+  ingressClassName: kong
+  rules:
+    - http:
+        paths:
+          - path: /gateway/secure
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: orders-api
+                port:
+                  number: 8080

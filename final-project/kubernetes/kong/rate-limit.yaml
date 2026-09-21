@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: meshcommerce-edge
   namespace: meshcommerce
+  annotations:
+    konghq.com/plugins: meshcommerce-correlation-id
 spec:
   ingressClassName: kong
   rules:
@@ -35,7 +37,7 @@ metadata:
   name: orders-rate-limited
   namespace: meshcommerce
   annotations:
-    konghq.com/plugins: orders-rate-limit
+    konghq.com/plugins: orders-rate-limit,meshcommerce-correlation-id
     konghq.com/strip-path: "true"
 spec:
   ingressClassName: kong

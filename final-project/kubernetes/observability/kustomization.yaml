@@ -1,12 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# This opt-in lab is intentionally installed with the stack. Its VirtualService
-# affects only requests carrying the dedicated demo header; regular traffic is
-# routed without fault injection.
+# Payments traffic policy is deployed by the main local-deploy script so a
+# single VirtualService owns canary, resilience, and observability lab routes.
 resources:
   - namespace.yaml
-  - labs/payments-latency.yaml
   - loki/loki.yaml
   - alloy/alloy.yaml
   - alertmanager/alertmanager.yaml

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text.Json.Serialization;
+using MeshCommerce.Http;
 using Orders.Api.Infrastructure;
 using Orders.Api.Integrations.Payments;
 
@@ -20,6 +21,7 @@ builder
     );
 builder.Services.AddOpenApi();
 builder.Services.AddHealthChecks();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<InMemoryOrderRepository>();
 builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
@@ -44,56 +46,71 @@ builder.Services.AddHttpClient<PaymentsClient>(client =>
 
 var app = builder.Build();
 
-var requestLogger = app.Services.GetRequiredService<ILoggerFactory>().CreateLogger("MeshCommerce.Http");
-app.Use(async (context, next) =>
-{
-    var stopwatch = Stopwatch.StartNew();
-    Exception? exception = null;
-
-    try
+app.UseCorrelationId();
+app.Use(
+    async (context, next) =>
     {
+        context.Response.Headers["X-MeshCommerce-Service"] = "orders-api";
         await next();
     }
-    catch (Exception caught)
-    {
-        exception = caught;
-        throw;
-    }
-    finally
-    {
-        if (!context.Request.Path.StartsWithSegments("/health"))
-        {
-            var statusCode = exception is null ? context.Response.StatusCode : StatusCodes.Status500InternalServerError;
-            var durationMs = Math.Round(stopwatch.Elapsed.TotalMilliseconds, 2);
+);
 
-            if (exception is null)
+var requestLogger = app
+    .Services.GetRequiredService<ILoggerFactory>()
+    .CreateLogger("MeshCommerce.Http");
+app.Use(
+    async (context, next) =>
+    {
+        var stopwatch = Stopwatch.StartNew();
+        Exception? exception = null;
+
+        try
+        {
+            await next();
+        }
+        catch (Exception caught)
+        {
+            exception = caught;
+            throw;
+        }
+        finally
+        {
+            if (!context.Request.Path.StartsWithSegments("/health"))
             {
-                requestLogger.LogInformation(
-                    "HTTP request completed for {Service} {Method} {Path} with {StatusCode} in {DurationMs} ms and request {RequestId}",
-                    "orders-api",
-                    context.Request.Method,
-                    context.Request.Path.Value ?? "/",
-                    statusCode,
-                    durationMs,
-                    context.TraceIdentifier
-                );
-            }
-            else
-            {
-                requestLogger.LogError(
-                    exception,
-                    "HTTP request failed for {Service} {Method} {Path} with {StatusCode} in {DurationMs} ms and request {RequestId}",
-                    "orders-api",
-                    context.Request.Method,
-                    context.Request.Path.Value ?? "/",
-                    statusCode,
-                    durationMs,
-                    context.TraceIdentifier
-                );
+                var statusCode = exception is null
+                    ? context.Response.StatusCode
+                    : StatusCodes.Status500InternalServerError;
+                var durationMs = Math.Round(stopwatch.Elapsed.TotalMilliseconds, 2);
+
+                if (exception is null)
+                {
+                    requestLogger.LogInformation(
+                        "HTTP request completed for {Service} {Method} {Path} with {StatusCode} in {DurationMs} ms and request {RequestId}",
+                        "orders-api",
+                        context.Request.Method,
+                        context.Request.Path.Value ?? "/",
+                        statusCode,
+                        durationMs,
+                        context.TraceIdentifier
+                    );
+                }
+                else
+                {
+                    requestLogger.LogError(
+                        exception,
+                        "HTTP request failed for {Service} {Method} {Path} with {StatusCode} in {DurationMs} ms and request {RequestId}",
+                        "orders-api",
+                        context.Request.Method,
+                        context.Request.Path.Value ?? "/",
+                        statusCode,
+                        durationMs,
+                        context.TraceIdentifier
+                    );
+                }
             }
         }
     }
-});
+);
 
 if (app.Environment.IsDevelopment())
 {

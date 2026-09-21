@@ -1,0 +1,80 @@
+apiVersion: networking.istio.io/v1
+kind: Gateway
+metadata:
+  name: meshcommerce-lab
+  namespace: meshcommerce
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - istio.meshcommerce.local
+        - 127.0.0.1.nip.io
+---
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: meshcommerce-ingress
+  namespace: meshcommerce
+spec:
+  hosts:
+    - istio.meshcommerce.local
+    - 127.0.0.1.nip.io
+  gateways:
+    - meshcommerce-lab
+  http:
+    - name: orders-api
+      match:
+        - uri:
+            prefix: /api/
+      rewrite:
+        uri: /
+      corsPolicy:
+        allowOrigins:
+          - exact: http://localhost:14173
+          - exact: http://localhost:5173
+        allowMethods:
+          - GET
+          - OPTIONS
+        allowHeaders:
+          - X-Correlation-ID
+        exposeHeaders:
+          - X-Correlation-ID
+          - X-Envoy-Upstream-Service-Time
+          - X-MeshCommerce-Ingress
+          - X-MeshCommerce-Service
+        maxAge: 1h
+      headers:
+        response:
+          set:
+            X-MeshCommerce-Ingress: Istio
+      route:
+        - destination:
+            host: orders-api.meshcommerce.svc.cluster.local
+            port:
+              number: 8080
+      timeout: 4s
+    - name: frontend-app
+      match:
+        - uri:
+            prefix: /app
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: frontend.meshcommerce.svc.cluster.local
+            port:
+              number: 80
+    - name: frontend-assets
+      match:
+        - uri:
+            prefix: /assets/
+      route:
+        - destination:
+            host: frontend.meshcommerce.svc.cluster.local
+            port:
+              number: 80
