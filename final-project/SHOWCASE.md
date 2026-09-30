@@ -5,9 +5,6 @@ turns the individual course topics into one evolving business and production
 story that can be demonstrated without switching between unrelated sample
 applications.
 
-The observability dashboard walkthrough and speaker notes are available in
-[`OBSERVABILITY-PRESENTATION.md`](OBSERVABILITY-PRESENTATION.md).
-
 For a plain-language explanation of every frontend screen and its demo steps,
 see [`FRONTEND-SCREENS-GUIDE.md`](FRONTEND-SCREENS-GUIDE.md).
 

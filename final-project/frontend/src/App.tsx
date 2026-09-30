@@ -1,7 +1,6 @@
 import { useEffect, useState, type FormEvent } from "react";
 import {
   Activity,
-  ChartNoAxesCombined,
   CircleAlert,
   CircleDollarSign,
   Clock3,
@@ -25,7 +24,6 @@ import {
 } from "./api/orders";
 import { GatewayLab } from "./GatewayLab";
 import { IngressLab } from "./IngressLab";
-import { ObservabilityLab } from "./ObservabilityLab";
 import { OperationLab } from "./OperationLab";
 import { ReleaseLab } from "./ReleaseLab";
 import { ResilienceLab } from "./ResilienceLab";
@@ -39,8 +37,7 @@ type AppView =
   | "security"
   | "release"
   | "resilience"
-  | "ingress"
-  | "observability";
+  | "ingress";
 
 const pageTitles: Record<AppView, string> = {
   orders: "MeshCommerce | Orders",
@@ -50,7 +47,6 @@ const pageTitles: Record<AppView, string> = {
   release: "MeshCommerce | Release lab",
   resilience: "MeshCommerce | Resilience lab",
   ingress: "MeshCommerce | Gateway comparison",
-  observability: "MeshCommerce | Observability",
 };
 
 const paymentStatusPresentation: Record<
@@ -237,14 +233,6 @@ function App() {
             <Network size={18} />
             Ingress
           </button>
-          <button
-            className={`nav-item ${activeView === "observability" ? "nav-item-active" : ""}`}
-            type="button"
-            onClick={() => setActiveView("observability")}
-          >
-            <ChartNoAxesCombined size={18} />
-            Observability
-          </button>
         </nav>
 
         <div className="environment">
@@ -260,7 +248,6 @@ function App() {
         <ReleaseLab />
         <ResilienceLab />
         <IngressLab />
-        <ObservabilityLab />
         <header className="topbar">
           <div>
             <span className="eyebrow">Commerce operations</span>

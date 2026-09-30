@@ -120,10 +120,10 @@ export function IngressLab() {
                   <span>{result.correlationId}</span>
                 </button>
               ) : null}
-              <div className="ingress-observability">
+              <div className="ingress-evidence">
                 <Clock3 size={15} />
-                Both paths remain visible in Istio telemetry; only Kong adds
-                edge policy metrics.
+                Both paths preserve proxy and correlation evidence; only Kong
+                applies the edge policies.
               </div>
             </article>
           );

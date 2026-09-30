@@ -44,6 +44,11 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       SERVICE_VERSION: compose
+      ELASTIC_APM_SERVICE_NAME: payments-api
+      ELASTIC_APM_SERVER_URL: http://elastic-agent:8200
+      ELASTIC_APM_SECRET_TOKEN: ${ELASTIC_APM_SECRET_TOKEN}
+      ELASTIC_APM_ENVIRONMENT: Development
+      ELASTIC_APM_SERVICE_VERSION: compose
       ConnectionStrings__PaymentsDatabase: "Host=postgres;Port=5432;Database=${POSTGRES_DB:-payments};Username=${POSTGRES_USER:-payments};Password=${POSTGRES_PASSWORD:-payments-dev};GSS Encryption Mode=Disable;Timeout=5;Command Timeout=5"
     ports:
       - "127.0.0.1:5102:8080"
@@ -64,6 +69,11 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Development
       SERVICE_VERSION: compose
+      ELASTIC_APM_SERVICE_NAME: orders-api
+      ELASTIC_APM_SERVER_URL: http://elastic-agent:8200
+      ELASTIC_APM_SECRET_TOKEN: ${ELASTIC_APM_SECRET_TOKEN}
+      ELASTIC_APM_ENVIRONMENT: Development
+      ELASTIC_APM_SERVICE_VERSION: compose
       Payments__BaseUrl: http://payments-api:8080
       Cors__AllowedOrigins__0: http://localhost:4173
       Cors__AllowedOrigins__1: http://127.0.0.1:4173
@@ -92,13 +102,16 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_STACK_VERSION:-9.5.3}
     environment:
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:?Set ELASTIC_PASSWORD in .env}
       node.name: elasticsearch
       cluster.name: meshcommerce-observability
       discovery.type: single-node
       bootstrap.memory_lock: "true"
       ES_JAVA_OPTS: -Xms512m -Xmx512m
-      # Local-only bootstrap. Production requires TLS and authentication.
-      xpack.security.enabled: "false"
+      # Local development uses authenticated HTTP bound only to loopback.
+      xpack.security.enabled: "true"
+      xpack.security.authc.api_key.enabled: "true"
+      xpack.security.http.ssl.enabled: "false"
     ulimits:
       memlock:
         soft: -1
@@ -110,12 +123,45 @@ services:
     healthcheck:
       test:
         - CMD-SHELL
-        - curl --fail --silent http://localhost:9200/_cluster/health >/dev/null
+        - test "$$(curl --silent --output /dev/null --write-out '%{http_code}' http://localhost:9200)" = "401"
       interval: 10s
       timeout: 5s
       retries: 20
       start_period: 30s
     restart: unless-stopped
+    networks:
+      - observability
+
+  elasticsearch-setup:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_STACK_VERSION:-9.5.3}
+    environment:
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:?Set ELASTIC_PASSWORD in .env}
+      KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:?Set KIBANA_SYSTEM_PASSWORD in .env}
+    command:
+      - /bin/bash
+      - -c
+      - |
+        set -euo pipefail
+        auth_file="$$(mktemp)"
+        trap 'rm -f "$${auth_file}"' EXIT
+        chmod 600 "$${auth_file}"
+        printf 'user = "elastic:%s"\n' "$${ELASTIC_PASSWORD}" > "$${auth_file}"
+        for attempt in {1..30}; do
+          if printf '{"password":"%s"}' "$${KIBANA_SYSTEM_PASSWORD}" |
+            curl --silent --show-error --fail \
+              --config "$${auth_file}" \
+              --header 'Content-Type: application/json' \
+              --request POST \
+              --data-binary @- \
+              http://elasticsearch:9200/_security/user/kibana_system/_password >/dev/null; then
+            exit 0
+          fi
+          sleep 2
+        done
+        exit 1
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
     networks:
       - observability
 
@@ -126,17 +172,93 @@ services:
       # retained to mirror the lesson and is redundant in modern Kibana.
       ELASTICSEARCH_URL: http://elasticsearch:9200
       ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+      ELASTICSEARCH_USERNAME: kibana_system
+      ELASTICSEARCH_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:?Set KIBANA_SYSTEM_PASSWORD in .env}
+      XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY: ${KIBANA_ENCRYPTION_KEY:?Set KIBANA_ENCRYPTION_KEY in .env}
+      # Trust the corporate TLS inspection root without disabling validation.
+      NODE_EXTRA_CA_CERTS: /usr/share/kibana/config/certs/wex-corporate-root-ca.pem
+    volumes:
+      - ./certificates/wex-corporate-root-ca.pem:/usr/share/kibana/config/certs/wex-corporate-root-ca.pem:ro
     ports:
       - "127.0.0.1:5601:5601"
     depends_on:
       elasticsearch:
         condition: service_healthy
+      elasticsearch-setup:
+        condition: service_completed_successfully
     restart: unless-stopped
     networks:
       - observability
 
+  fleet-server:
+    image: docker.elastic.co/elastic-agent/elastic-agent:${ELASTIC_STACK_VERSION:-9.5.3}
+    environment:
+      FLEET_SERVER_ENABLE: "true"
+      FLEET_SERVER_ELASTICSEARCH_HOST: http://elasticsearch:9200
+      FLEET_SERVER_SERVICE_TOKEN: ${FLEET_SERVER_SERVICE_TOKEN:?Set FLEET_SERVER_SERVICE_TOKEN in .env}
+      FLEET_SERVER_POLICY_ID: fleet-server-policy
+      FLEET_SERVER_HOST: 0.0.0.0
+      FLEET_SERVER_PORT: 8220
+      # Local development only. Production requires TLS for Fleet Server.
+      FLEET_SERVER_INSECURE_HTTP: "true"
+    ports:
+      - "127.0.0.1:8220:8220"
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - curl --fail --silent http://localhost:8220/api/status >/dev/null
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+      kibana:
+        condition: service_started
+    restart: unless-stopped
+    networks:
+      - observability
+
+  elastic-agent:
+    image: docker.elastic.co/elastic-agent/elastic-agent:${ELASTIC_STACK_VERSION:-9.5.3}
+    environment:
+      FLEET_ENROLL: "1"
+      FLEET_URL: http://fleet-server:8220
+      FLEET_ENROLLMENT_TOKEN: ${FLEET_ENROLLMENT_TOKEN:?Set FLEET_ENROLLMENT_TOKEN in .env}
+      # Fleet Server is intentionally HTTP-only in this local Compose stack.
+      FLEET_INSECURE: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      fleet-server:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - observability
+      - meshcommerce
+
+  synthetics-agent:
+    image: docker.elastic.co/elastic-agent/elastic-agent:${ELASTIC_STACK_VERSION:-9.5.3}
+    environment:
+      FLEET_ENROLL: "1"
+      FLEET_URL: http://fleet-server:8220
+      FLEET_ENROLLMENT_TOKEN: ${SYNTHETICS_ENROLLMENT_TOKEN}
+      # Fleet Server is intentionally HTTP-only in this local Compose stack.
+      FLEET_INSECURE: "true"
+    volumes:
+      - synthetics-agent-state:/usr/share/elastic-agent/state
+    depends_on:
+      fleet-server:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - observability
+      - meshcommerce
+
 volumes:
   postgres-code-first-data:
+  synthetics-agent-state:
 
 networks:
   meshcommerce:

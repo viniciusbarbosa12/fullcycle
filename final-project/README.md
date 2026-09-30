@@ -212,7 +212,7 @@ da API disputar a evolução do schema.
 7. **Gestão de tráfego:** versões, subsets, `VirtualService` e canary gradual.
 8. **Balanceamento:** round robin, least request e consistent hash em cenários medidos.
 9. **Resiliência:** timeout, retry, fault injection, outlier detection e circuit breaking.
-10. **Entrada e observabilidade:** Istio Gateway, rotas e análise no Kiali.
+10. **Entrada:** Istio Gateway e rotas externas da malha.
 11. **API Gateway:** entrada única pelo Kong e rate limiting isolado por rota.
 12. **APIOps:** contratos OpenAPI, governança automatizada e proteção de compatibilidade.
 

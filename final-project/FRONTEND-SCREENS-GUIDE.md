@@ -12,8 +12,7 @@ invisíveis de infraestrutura:
 - quem pode acessar uma rota;
 - quanto tráfego o gateway aceita;
 - para qual versão de um serviço cada requisição vai;
-- como o sistema reage a lentidão e falhas;
-- como investigar tudo isso com métricas.
+- como o sistema reage a lentidão e falhas.
 
 ## Como abrir e testar
 
@@ -36,16 +35,15 @@ precisam demonstrar. A comparação com Istio usa a porta `14174`.
 
 Cada tela responde a uma pergunta:
 
-| Tela | Pergunta que ela responde |
-| --- | --- |
-| Orders | O negócio consegue criar e acompanhar pedidos? |
-| Operations | O sistema continua disponível quando uma instância falha? |
-| Gateway | O gateway consegue impedir excesso de tráfego? |
-| Security | Quem entra, quem é barrado e por quê? |
-| Releases | Como liberar uma nova versão aos poucos? |
-| Resilience | O que acontece quando há lentidão, erro ou falha injetada? |
-| Ingress | Qual é a diferença entre entrar pelo Kong e pelo Istio Gateway? |
-| Observability | Como transformar tráfego em evidência para investigação? |
+| Tela       | Pergunta que ela responde                                       |
+| ---------- | --------------------------------------------------------------- |
+| Orders     | O negócio consegue criar e acompanhar pedidos?                  |
+| Operations | O sistema continua disponível quando uma instância falha?       |
+| Gateway    | O gateway consegue impedir excesso de tráfego?                  |
+| Security   | Quem entra, quem é barrado e por quê?                           |
+| Releases   | Como liberar uma nova versão aos poucos?                        |
+| Resilience | O que acontece quando há lentidão, erro ou falha injetada?      |
+| Ingress    | Qual é a diferença entre entrar pelo Kong e pelo Istio Gateway? |
 
 ---
 
@@ -186,12 +184,12 @@ Fluxo visual:
 
 ### Os quatro cenários
 
-| Cenário | Resultado | Explicação simples |
-| --- | ---: | --- |
-| No token | `401` | A pessoa não apresentou identidade. |
-| Expired token | `401` | A identidade existe, mas sua credencial venceu. |
-| Viewer token | `403` | A identidade é válida, mas não tem a ACL necessária. |
-| Operator token | `200` | Identidade e permissão estão corretas. |
+| Cenário        | Resultado | Explicação simples                                   |
+| -------------- | --------: | ---------------------------------------------------- |
+| No token       |     `401` | A pessoa não apresentou identidade.                  |
+| Expired token  |     `401` | A identidade existe, mas sua credencial venceu.      |
+| Viewer token   |     `403` | A identidade é válida, mas não tem a ACL necessária. |
+| Operator token |     `200` | Identidade e permissão estão corretas.               |
 
 ### O detalhe mais didático
 
@@ -252,13 +250,13 @@ headers específicos.
 
 Clique em um cenário por vez:
 
-| Cenário | O que simula | O que observar |
-| --- | --- | --- |
-| Healthy | tráfego normal | resposta sem falha artificial |
-| Transient 503 | erro temporário | retry do Envoy e possível recuperação |
-| Slow upstream | upstream lento | timeout e aumento de latência |
-| Injected delay | atraso fixo de 2 s | impacto de latência sem erro imediato |
-| Injected abort | bloqueio no proxy | `503` gerado pelo Istio antes do upstream |
+| Cenário        | O que simula       | O que observar                            |
+| -------------- | ------------------ | ----------------------------------------- |
+| Healthy        | tráfego normal     | resposta sem falha artificial             |
+| Transient 503  | erro temporário    | retry do Envoy e possível recuperação     |
+| Slow upstream  | upstream lento     | timeout e aumento de latência             |
+| Injected delay | atraso fixo de 2 s | impacto de latência sem erro imediato     |
+| Injected abort | bloqueio no proxy  | `503` gerado pelo Istio antes do upstream |
 
 ### O que aparece
 
@@ -304,57 +302,16 @@ Esta tela compara duas portas de entrada para a mesma plataforma:
 - latência do proxy;
 - header que prova qual gateway respondeu;
 - Correlation ID;
-- observação sobre a telemetria compartilhada.
+- evidência do proxy utilizado.
 
 ### O que não concluir
 
 O Istio Gateway nesta tela não substitui automaticamente o Kong. O objetivo é
 mostrar os papéis: Kong é a borda pública com políticas de cliente; Istio
-controla tráfego e telemetria dentro da malha.
+controla o tráfego dentro da malha.
 
 **Mensagem para apresentação:** duas entradas podem chegar ao mesmo serviço,
 mas não têm necessariamente as mesmas responsabilidades.
-
----
-
-## 8. Observability — transformar tráfego em evidência
-
-### Para que serve
-
-Esta é a tela de investigação. Ela gera tráfego conhecido e mostra como medir o
-efeito no navegador, no Istio, no Prometheus e no Grafana.
-
-Fluxo visual:
-
-`Browser → sidecars Istio → Prometheus → Grafana`
-
-### Como usar
-
-1. Abra o Grafana pelo link da própria tela em outra aba.
-2. Mantenha o dashboard com refresh de cinco segundos.
-3. Escolha um cenário:
-   - **Healthy baseline:** 60 requisições normais;
-   - **Latency spike:** 100 requisições, com atraso em parte do tráfego;
-   - **HTTP 5xx burst:** 40 respostas de erro injetadas.
-4. Observe a tela e o dashboard ao mesmo tempo.
-
-### O que aparece
-
-- requisições executadas;
-- erros HTTP;
-- latência média;
-- p50, p95 e p99;
-- quantidade de chamadas lentas;
-- timeline colorida de sucesso, lentidão e falha.
-
-Também existem links para:
-
-- dashboard do Grafana;
-- targets do Prometheus;
-- alertas do Prometheus.
-
-**Mensagem para apresentação:** observabilidade não é apenas guardar logs; é
-gerar evidência suficiente para responder o que aconteceu e onde aconteceu.
 
 ---
 
@@ -366,7 +323,6 @@ gerar evidência suficiente para responder o que aconteceu e onde aconteceu.
 4. Abra **Releases**: compare `20% v2` com preview em `100% v2`.
 5. Em **Resilience**, rode retry e abort: diferencie recuperação de bloqueio.
 6. Em **Ingress**, compare Kong e Istio lado a lado.
-7. Termine em **Observability** com latência ou 5xx e abra o Grafana.
 
 ## Dicionário para quem não é técnico
 
@@ -379,13 +335,11 @@ gerar evidência suficiente para responder o que aconteceu e onde aconteceu.
 - **Timeout:** parar de esperar depois de um limite.
 - **Circuit breaker:** parar de insistir em um destino que está falhando.
 - **Correlation ID:** o número de rastreio de uma requisição.
-- **Percentil:** uma forma de enxergar a experiência típica e os piores casos.
 
 ## Problemas comuns
 
 - **Gateway sem headers:** a aplicação foi aberta fora do Kong; use `14173`.
 - **Istio indisponível:** confirme o port-forward de `14174`.
-- **Grafana sem dados:** execute um cenário e aguarde o refresh do dashboard.
 - **Erro no primeiro acesso:** confirme se os pods estão `Running/Ready` antes
   de repetir o experimento.
 

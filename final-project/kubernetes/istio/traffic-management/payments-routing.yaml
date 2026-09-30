@@ -7,16 +7,16 @@ spec:
   hosts:
     - payments-api.meshcommerce.svc.cluster.local
   http:
-    - name: observability-error
+    - name: resilience-abort
       match:
         - headers:
-            x-meshcommerce-error-lab:
-              exact: "true"
+            x-meshcommerce-fault:
+              exact: abort
       fault:
         abort:
           percentage:
             value: 100
-          httpStatus: 500
+          httpStatus: 503
       route: &regular-canary
         - destination:
             host: payments-api.meshcommerce.svc.cluster.local
@@ -30,28 +30,6 @@ spec:
             port:
               number: 8080
           weight: 20
-    - name: observability-latency
-      match:
-        - headers:
-            x-meshcommerce-latency-lab:
-              exact: "true"
-      fault:
-        delay:
-          percentage:
-            value: 20
-          fixedDelay: 1s
-      route: *regular-canary
-    - name: resilience-abort
-      match:
-        - headers:
-            x-meshcommerce-fault:
-              exact: abort
-      fault:
-        abort:
-          percentage:
-            value: 100
-          httpStatus: 503
-      route: *regular-canary
     - name: resilience-delay
       match:
         - headers:

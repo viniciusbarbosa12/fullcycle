@@ -3,7 +3,7 @@
 ## 1. Objetivo
 
 O frontend do MeshCommerce evoluiu de uma tela de pedidos para um laboratório
-visual de API Gateway, Service Mesh, resiliência e observabilidade.
+visual de API Gateway, Service Mesh e resiliência.
 
 As telas permitem demonstrar rate limiting, JWT/ACL, Correlation ID, canary
 deployment, preview por header, retries, timeouts, fault injection, circuit
@@ -21,15 +21,13 @@ O Kong aplica políticas de borda como rate limiting, Correlation ID, JWT e ACL.
 
 `Browser → Istio Gateway → Orders API → Payments API`
 
-Essa rota existe como laboratório comparativo. Ela reutiliza o roteamento e a
-telemetria da malha, enquanto Kong permanece como gateway público principal.
+Essa rota existe como laboratório comparativo. Ela reutiliza o roteamento da
+malha, enquanto Kong permanece como gateway público principal.
 
 Portas locais:
 
 - Kong/frontend: `14173`
 - Istio Gateway: `14174`
-- Grafana: `14300`
-- Prometheus: `19090`
 
 ## 3. Shell React e navegação
 
@@ -44,7 +42,6 @@ Foi criado um shell único com navegação lateral e as views:
 - Releases
 - Resilience
 - Ingress
-- Observability
 
 O estado `AppView` controla a tela ativa. Cada laboratório é renderizado no
 mesmo shell e as classes `app-main-*` controlam sua visibilidade.
@@ -160,14 +157,10 @@ Para cada caminho, apresenta:
 
 O alias `127.0.0.1.nip.io` evita dependência de alteração manual do `/etc/hosts`.
 
-## 10. Operations e Observability Labs
+## 10. Operations Lab
 
 `OperationLab.tsx` demonstra circuit breaker, distribuição entre instância
 saudável e faulty, taxa de sucesso, falhas e latência média.
-
-`ObservabilityLab.tsx` gera cenários de baseline, latência e HTTP 5xx. Calcula
-sucessos, falhas, requests lentas, média, p50, p95 e p99, além de links para
-Grafana, targets e alertas do Prometheus.
 
 ## 11. Vite
 
@@ -219,9 +212,7 @@ O frontend utiliza headers pedagógicos para controlar VirtualServices do Istio:
 - `X-MeshCommerce-Preview`;
 - `X-MeshCommerce-Resilience`;
 - `X-MeshCommerce-Fault`;
-- `X-MeshCommerce-Circuit-Lab`;
-- `X-MeshCommerce-Latency-Lab`;
-- `X-MeshCommerce-Error-Lab`.
+- `X-MeshCommerce-Circuit-Lab`.
 
 O Istio controla subsets v1, v2 e faulty, pesos de tráfego, retry, timeout,
 fault injection, circuit breaker e o Gateway comparativo.
@@ -249,8 +240,8 @@ O smoke test runtime validou:
 - Istio abort → 503;
 - Istio Gateway → 200.
 
-Também foram confirmados frontend, Orders, health check, Pods, migration Job e
-Grafana funcionando no Kind.
+Também foram confirmados frontend, Orders, health check, Pods e migration Job
+funcionando no Kind.
 
 ## 16. Roteiro executivo
 
@@ -261,7 +252,6 @@ Grafana funcionando no Kind.
 5. Alterar pesos do canary e executar preview v2.
 6. Executar retry, timeout, delay e abort.
 7. Comparar Kong e Istio Gateway.
-8. Abrir Grafana e correlacionar tráfego, métricas e falhas.
 
 ## 17. Limitações conhecidas
 
