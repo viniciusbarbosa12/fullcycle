@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   Activity,
   CircleAlert,
@@ -84,17 +84,30 @@ function getErrorMessage(error: unknown) {
 }
 
 function App() {
+  const composerDialogRef = useRef<HTMLDialogElement>(null);
   const [activeView, setActiveView] = useState<AppView>("orders");
   const [orders, setOrders] = useState<Order[]>([]);
   const [query, setQuery] = useState("");
-  const [isComposerOpen, setIsComposerOpen] = useState(true);
+  const [isComposerOpen, setIsComposerOpen] = useState(false);
   const [isLoadingOrders, setIsLoadingOrders] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   useEffect(() => {
     document.title = pageTitles[activeView];
   }, [activeView]);
+
+  useEffect(() => {
+    const dialog = composerDialogRef.current;
+    if (!dialog) return;
+
+    if (isComposerOpen && !dialog.open) {
+      dialog.showModal();
+    } else if (!isComposerOpen && dialog.open) {
+      dialog.close();
+    }
+  }, [isComposerOpen]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -130,6 +143,20 @@ function App() {
   const pendingOrders = orders.filter(
     (order) => order.status === "PendingPayment",
   ).length;
+  const errorAlert = errorMessage && (
+    <div className="page-alert" role="alert">
+      <CircleAlert size={19} aria-hidden="true" />
+      <span>{errorMessage}</span>
+      <button
+        type="button"
+        aria-label="Dismiss notification"
+        title="Dismiss notification"
+        onClick={() => setErrorMessage(null)}
+      >
+        <X size={17} />
+      </button>
+    </div>
+  );
 
   async function handleCreateOrder(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -151,6 +178,9 @@ function App() {
         ...currentOrders.filter((currentOrder) => currentOrder.id !== order.id),
       ]);
       form.reset();
+      setQuery("");
+      setSuccessMessage("Order created successfully.");
+      setIsComposerOpen(false);
     } catch (error) {
       setErrorMessage(getErrorMessage(error));
 
@@ -256,7 +286,11 @@ function App() {
           <button
             className="primary-action"
             type="button"
-            onClick={() => setIsComposerOpen(true)}
+            onClick={() => {
+              setErrorMessage(null);
+              setSuccessMessage(null);
+              setIsComposerOpen(true);
+            }}
           >
             <Plus size={18} />
             New order
@@ -287,24 +321,23 @@ function App() {
           </div>
         </section>
 
-        {errorMessage && (
-          <div className="page-alert" role="alert">
-            <CircleAlert size={19} aria-hidden="true" />
-            <span>{errorMessage}</span>
+        {!isComposerOpen && errorAlert}
+        {!isComposerOpen && successMessage && (
+          <div className="page-alert page-success" role="status">
+            <PackageCheck size={19} aria-hidden="true" />
+            <span>{successMessage}</span>
             <button
               type="button"
               aria-label="Dismiss notification"
               title="Dismiss notification"
-              onClick={() => setErrorMessage(null)}
+              onClick={() => setSuccessMessage(null)}
             >
               <X size={17} />
             </button>
           </div>
         )}
 
-        <div
-          className={`workspace ${isComposerOpen ? "workspace-with-composer" : ""}`}
-        >
+        <div className="workspace">
           <section
             className="orders-panel"
             aria-labelledby="recent-orders-title"
@@ -381,73 +414,99 @@ function App() {
               </table>
             </div>
           </section>
-
-          {isComposerOpen && (
-            <aside className="composer" aria-labelledby="new-order-title">
-              <div className="composer-header">
-                <div>
-                  <span className="eyebrow">Manual entry</span>
-                  <h2 id="new-order-title">New order</h2>
-                </div>
-                <button
-                  className="icon-button"
-                  type="button"
-                  aria-label="Close form"
-                  title="Close form"
-                  onClick={() => setIsComposerOpen(false)}
-                >
-                  <X size={19} />
-                </button>
-              </div>
-
-              <form onSubmit={handleCreateOrder} aria-busy={isSubmitting}>
-                <label>
-                  Customer
-                  <input
-                    name="customer"
-                    type="text"
-                    placeholder="Full name"
-                    required
-                    disabled={isSubmitting}
-                  />
-                </label>
-                <label>
-                  Item
-                  <input
-                    name="item"
-                    type="text"
-                    placeholder="Purchased product"
-                    required
-                    disabled={isSubmitting}
-                  />
-                </label>
-                <label>
-                  Amount
-                  <span className="money-input">
-                    <span>R$</span>
-                    <input
-                      name="amount"
-                      type="number"
-                      min="0.01"
-                      step="0.01"
-                      placeholder="0.00"
-                      required
-                      disabled={isSubmitting}
-                    />
-                  </span>
-                </label>
-                <button
-                  className="submit-action"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  <Plus size={18} />
-                  {isSubmitting ? "Creating..." : "Create order"}
-                </button>
-              </form>
-            </aside>
-          )}
         </div>
+
+        <dialog
+          ref={composerDialogRef}
+          className="composer-modal"
+          aria-labelledby="new-order-title"
+          onCancel={(event) => {
+            event.preventDefault();
+            if (!isSubmitting) setIsComposerOpen(false);
+          }}
+          onClose={() => setIsComposerOpen(false)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget && !isSubmitting) {
+              setIsComposerOpen(false);
+            }
+          }}
+        >
+          <div className="composer-header">
+            <div>
+              <span className="eyebrow">Manual entry</span>
+              <h2 id="new-order-title">New order</h2>
+            </div>
+            <button
+              className="icon-button"
+              type="button"
+              aria-label="Close form"
+              title="Close form"
+              disabled={isSubmitting}
+              onClick={() => setIsComposerOpen(false)}
+            >
+              <X size={19} />
+            </button>
+          </div>
+
+          {errorAlert}
+
+          <form onSubmit={handleCreateOrder} aria-busy={isSubmitting}>
+            <label>
+              Customer
+              <input
+                name="customer"
+                type="text"
+                placeholder="Full name"
+                required
+                autoFocus
+                disabled={isSubmitting}
+              />
+            </label>
+            <label>
+              Item
+              <input
+                name="item"
+                type="text"
+                placeholder="Purchased product"
+                required
+                disabled={isSubmitting}
+              />
+            </label>
+            <label>
+              Amount
+              <span className="money-input">
+                <span>R$</span>
+                <input
+                  name="amount"
+                  type="number"
+                  min="0.01"
+                  step="0.01"
+                  placeholder="0.00"
+                  required
+                  disabled={isSubmitting}
+                />
+              </span>
+            </label>
+            <div className="composer-actions">
+              <button
+                className="secondary-action"
+                type="button"
+                disabled={isSubmitting}
+                onClick={() => setIsComposerOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="submit-action"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                <Plus size={18} />
+                {isSubmitting ? "Creating..." : "Create order"}
+              </button>
+            </div>
+          </form>
+        </dialog>
       </main>
     </div>
   );

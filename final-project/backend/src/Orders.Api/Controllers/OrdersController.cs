@@ -10,7 +10,8 @@ namespace Orders.Api.Controllers;
 [Route("orders")]
 public sealed class OrdersController(
     InMemoryOrderRepository repository,
-    PaymentsClient paymentsClient
+    PaymentsClient paymentsClient,
+    ILogger<OrdersController> logger
 ) : ControllerBase
 {
     [HttpPost]
@@ -22,7 +23,9 @@ public sealed class OrdersController(
         CancellationToken cancellationToken
     )
     {
+        logger.LogInformation("Received order creation request");
         var order = new Order(request.Customer, request.Item, request.Amount);
+        logger.LogInformation("Processing validated order {OrderId}", order.Id);
         repository.Add(order);
 
         try
@@ -33,17 +36,29 @@ public sealed class OrdersController(
                 cancellationToken
             );
 
+            logger.LogInformation(
+                "Payment {PaymentId} completed for order {OrderId} with status {PaymentStatus}",
+                payment.Id,
+                order.Id,
+                payment.Status
+            );
             if (payment.Status == PaymentStatus.Approved)
             {
                 order.MarkAsPaid();
             }
             else
             {
+                logger.LogWarning("Payment was declined for order {OrderId}", order.Id);
                 order.MarkPaymentAsFailed();
             }
         }
-        catch (HttpRequestException)
+        catch (HttpRequestException exception)
         {
+            logger.LogError(
+                "Order {OrderId} remains pending because payments-api failed with {FailureType}",
+                order.Id,
+                exception.GetType().Name
+            );
             return Problem(
                 statusCode: StatusCodes.Status503ServiceUnavailable,
                 title: "Payments service is unavailable",
@@ -51,6 +66,11 @@ public sealed class OrdersController(
             );
         }
 
+        logger.LogInformation(
+            "Order {OrderId} created with status {OrderStatus}",
+            order.Id,
+            order.Status
+        );
         return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, order);
     }
 

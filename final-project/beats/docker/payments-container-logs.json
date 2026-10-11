@@ -1,0 +1,22 @@
+{
+  "paths": {
+    "type": "text",
+    "value": ["/var/lib/docker/containers/${docker.container.id}/*-json.log"]
+  },
+  "containerParserStream": {
+    "type": "text",
+    "value": "all"
+  },
+  "condition": {
+    "type": "text",
+    "value": "${docker.container.labels.com.docker.compose.project} == 'meshcommerce' and (${docker.container.labels.com.docker.compose.service} == 'payments-api' or ${docker.container.labels.com.docker.compose.service} == 'orders-api')"
+  },
+  "additionalParsersConfig": {
+    "type": "yaml",
+    "value": "- ndjson:\n    target: ''\n    expand_keys: true\n    overwrite_keys: true\n    add_error_key: true\n    ignore_decoding_error: true\n"
+  },
+  "processors": {
+    "type": "yaml",
+    "value": ""
+  }
+}

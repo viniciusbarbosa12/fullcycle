@@ -4,7 +4,10 @@ using Payments.Api.Domain;
 
 namespace Payments.Api.Infrastructure;
 
-public sealed class EfCorePaymentRepository(PaymentDbContext dbContext) : IPaymentRepository
+public sealed class EfCorePaymentRepository(
+    PaymentDbContext dbContext,
+    ILogger<EfCorePaymentRepository> logger
+) : IPaymentRepository
 {
     public async Task<PaymentCreationResult> CreateIdempotentlyAsync(
         Guid idempotencyKey,
@@ -13,9 +16,15 @@ public sealed class EfCorePaymentRepository(PaymentDbContext dbContext) : IPayme
         CancellationToken cancellationToken = default
     )
     {
+        logger.LogInformation("Checking existing payment state for order {OrderId}", orderId);
         var existing = await FindByIdempotencyKeyAsync(idempotencyKey, cancellationToken);
         if (existing is not null)
         {
+            logger.LogInformation(
+                "Resolving existing payment {PaymentId} for order {OrderId}",
+                existing.Id,
+                orderId
+            );
             return ResolveExisting(existing, orderId, amount);
         }
 
@@ -23,13 +32,27 @@ public sealed class EfCorePaymentRepository(PaymentDbContext dbContext) : IPayme
         var record = new PaymentRecord(idempotencyKey, payment);
         dbContext.Payments.Add(record);
 
+        logger.LogInformation(
+            "Persisting payment {PaymentId} for order {OrderId}",
+            payment.Id,
+            orderId
+        );
         try
         {
             await dbContext.SaveChangesAsync(cancellationToken);
+            logger.LogInformation(
+                "Payment {PaymentId} persisted for order {OrderId}",
+                payment.Id,
+                orderId
+            );
             return new PaymentCreationResult(PaymentCreationStatus.Created, payment);
         }
         catch (DbUpdateException exception) when (IsIdempotencyKeyViolation(exception))
         {
+            logger.LogWarning(
+                "Concurrent payment creation for order {OrderId}; loading the existing payment",
+                orderId
+            );
             dbContext.Entry(record).State = EntityState.Detached;
 
             existing =
@@ -41,12 +64,19 @@ public sealed class EfCorePaymentRepository(PaymentDbContext dbContext) : IPayme
 
             return ResolveExisting(existing, orderId, amount);
         }
+        catch (DbUpdateException exception)
+        {
+            logger.LogError(
+                "Failed to persist payment {PaymentId} for order {OrderId} with {FailureType}",
+                payment.Id,
+                orderId,
+                exception.GetType().Name
+            );
+            throw;
+        }
     }
 
-    public async Task<Payment?> GetByIdAsync(
-        Guid id,
-        CancellationToken cancellationToken = default
-    )
+    public async Task<Payment?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
     {
         var record = await dbContext
             .Payments.AsNoTracking()

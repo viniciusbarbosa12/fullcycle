@@ -7,7 +7,10 @@ namespace Payments.Api.Controllers;
 
 [ApiController]
 [Route("payments")]
-public sealed class PaymentsController(IPaymentRepository repository) : ControllerBase
+public sealed class PaymentsController(
+    IPaymentRepository repository,
+    ILogger<PaymentsController> logger
+) : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType<Payment>(StatusCodes.Status201Created)]
@@ -20,12 +23,26 @@ public sealed class PaymentsController(IPaymentRepository repository) : Controll
         CancellationToken cancellationToken
     )
     {
+        logger.LogInformation(
+            "Received payment creation request for order {OrderId}",
+            request.OrderId
+        );
         var result = await repository.CreateIdempotentlyAsync(
             idempotencyKey,
             request.OrderId,
             request.Amount,
             cancellationToken
         );
+
+        if (result.Status == PaymentCreationStatus.Conflict)
+            logger.LogWarning("Payment idempotency conflict for order {OrderId}", request.OrderId);
+        else
+            logger.LogInformation(
+                "Payment {PaymentId} completed for order {OrderId} with result {CreationStatus}",
+                result.Payment.Id,
+                request.OrderId,
+                result.Status
+            );
 
         return result.Status switch
         {

@@ -114,6 +114,72 @@ Dentro da rede do Compose, os serviços usam seus nomes como DNS. Por isso,
 `Orders.Api` acessa `http://payments-api:8080`, enquanto o navegador usa
 `http://localhost:5101`: o navegador está fora da rede Docker.
 
+### Logs ECS das APIs no Kibana/Fleet
+
+Orders e Payments usam Serilog como único provider de logging, com
+`EcsTextFormatter` escrevendo JSON no stdout. `FromLogContext` mantém o scope do
+`UseCorrelationId`; `WithElasticApmCorrelationInfo` obtém `trace.id`,
+`transaction.id` e `span.id` (quando há span ativo) do agente APM existente.
+Não há sink Elasticsearch, arquivo local ou geração manual de trace IDs.
+
+Os dois `Program.cs` mantêm `AddAllElasticApm` e colocam
+`UseSerilogRequestLogging` após `UseCorrelationId`, antes dos endpoints.
+Cada request tem um único log de conclusão com método, path, status, duração
+(`event.duration` em nanossegundos) e `http.request.id`/`labels.CorrelationId`.
+Categorias Microsoft/HttpClient informativas são filtradas para evitar duplicação.
+`service.name`, `service.environment` e `service.version` usam a configuração APM
+existente (no Compose: `orders-api`/`payments-api`, `Development`, `compose`).
+
+Os logs de negócio usam IDs e status, sem customer, item, valores ou payloads de
+pagamento. Exceções não tratadas aparecem no log de conclusão como `error.type`,
+sem mensagem/stack brutos que possam carregar credenciais. User/baggage automático
+do formatter foi desativado; a correlação vem exclusivamente do enricher APM.
+
+APM envia traces; a coleta de stdout/stderr é configurada separadamente no Fleet.
+Na integração Docker da policy `meshcommerce-observability`, habilite o input
+`filestream` e o stream `docker.container_logs`, preservando os streams de métricas.
+Os valores de `vars` estão em `beats/docker/payments-container-logs.json`
+(o nome histórico do arquivo foi mantido; ele agora cobre as duas APIs):
+
+- O filtro exige o projeto Compose `meshcommerce` e o serviço `orders-api` ou
+  `payments-api`, sem depender do ID do container após uma recriação.
+- O Agent monta `/var/lib/docker/containers` em modo somente leitura. Esse
+  mount permite acesso aos arquivos de todos os containers; o filtro do Fleet
+  restringe quais são coletados, mas não é uma barreira de acesso ao filesystem.
+- O parser Docker extrai a linha; o NDJSON usa `target: ''`, `expand_keys: true`
+  e `overwrite_keys: true` para expandir ECS na raiz. Não sobrescreva
+  `service.name` com um processor fixo: cada API já emite sua própria identidade.
+- A configuração precisa ser aplicada no Fleet: esse JSON documenta os valores,
+  não é carregado automaticamente pelo Compose.
+
+Para conferir a configuração planejada, execute
+`python3 beats/docker/configure-application-logs.py`; para aplicar somente esse
+stream no Fleet local, adicione `--apply`. Nenhum outro package policy é alterado.
+Se os logs aparecerem apenas como JSON em `message` ou em `app.*`, corrija o
+parser no Fleet, não adicione envio direto ao Elasticsearch nas aplicações.
+
+O endpoint `GET /lab/probe` com o header `X-MeshCommerce-Resilience: retry`
+retorna 503 na primeira tentativa do mesmo `X-Correlation-ID`, sem criar dados
+de pagamento. O cenário transitório e o log de conclusão 503 são `Warning`, não
+`Error`. Timeout simulado gera Warning; probes bem-sucedidas geram Information.
+Uma segunda tentativa com o mesmo ID durante um minuto retorna 200.
+
+Em `http://localhost:5601/app/discover`, selecione/crie um data view `logs-*`,
+use o período **Last 15 minutes** e uma destas consultas KQL:
+
+- Orders: `event.dataset: "docker.container_logs" and service.name: "orders-api"`
+- Payments: `event.dataset: "docker.container_logs" and service.name: "payments-api"`
+- Probe 503: `event.dataset: "docker.container_logs" and service.name: "payments-api" and http.response.status_code: 503`
+
+Adicione `message`, `log.level`, `service.name`, `http.request.id`, `trace.id` e
+`transaction.id`. A consulta `trace.id: "<id>"` reúne logs das duas APIs.
+
+Para repetir a validação local, execute `python3 beats/docker/verify-payments-logs.py`
+a partir de `final-project`. O script lê a credencial da `.env` sem exibi-la,
+verifica o health das APIs, o probe baseline, 503 seguido de retry 200, logs ECS,
+correlação no Elasticsearch/APM e continuidade das métricas Docker. Não cria
+pagamentos.
+
 Para acompanhar logs ou encerrar o ambiente:
 
 ```bash
